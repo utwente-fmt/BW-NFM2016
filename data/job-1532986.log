@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/Philosophers-5000.pnml -rsc,bg,bk --regroup-exit
+ctit020
+pnml2lts-seq: Loading model from spec/PNML/Philosophers-5000.pnml
+pnml2lts-seq: Petri net has 25000 places, 25000 transitions and 80000 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/Philosophers-5000.pnml analyzed
+pnml2lts-seq: Loading Petri net took 13.300 real 12.820 user 0.360 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bk
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's King
+pnml2lts-seq: Regrouping: 25000->25000 groups
+pnml2lts-seq: Regrouping took 34.930 real 32.910 user 1.780 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+45.74 user, 2.50 system, 48.66 elapsed -- Max VSize = 3379684KB, Max RSS = 3341448KB

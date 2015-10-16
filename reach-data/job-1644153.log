@@ -1,0 +1,18 @@
+statistics run
+pnml2lts-sym spec/PNML/30-100_phaseVariation.pnml -rsc,tg,vcm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit031
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/30-100_phaseVariation.pnml
+pnml2lts-sym: Petri net has 2702 places, 30977 transitions and 215035 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/30-100_phaseVariation.pnml analyzed
+pnml2lts-sym: Loading Petri net took 5.980 real 3.900 user 0.750 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,vcm,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup ViennaCL's Cuthill McKee
+slurmd[ctit031]: *** STEP 1644153.0 CANCELLED AT 2016-02-24T09:03:46 DUE TO TIME LIMIT ***

@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/30-100_phaseVariation.pnml -rsc,bg,vgps --regroup-exit
+ctit004
+pnml2lts-seq: Loading model from spec/PNML/30-100_phaseVariation.pnml
+pnml2lts-seq: Petri net has 2702 places, 30977 transitions and 215035 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/30-100_phaseVariation.pnml analyzed
+pnml2lts-seq: Loading Petri net took 4.070 real 3.700 user 0.340 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: Regrouping: 30977->30977 groups
+pnml2lts-seq: Regrouping took 130.680 real 130.230 user 0.140 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+133.93 user, 0.53 system, 134.84 elapsed -- Max VSize = 566728KB, Max RSS = 528408KB

@@ -1,0 +1,49 @@
+statistics run
+pnml2lts-sym spec/PNML/FMS-20.pnml -rsc,bn,rs,mm,hf --noack=2 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit017
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/FMS-20.pnml
+pnml2lts-sym: Petri net has 22 places, 20 transitions and 50 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/FMS-20.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 39
+pnml2lts-sym: profile: 1034
+pnml2lts-sym: span: 224
+pnml2lts-sym: average wavefront: 13.43
+pnml2lts-sym: RMS wavefront: 14.9
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 20->20 groups
+pnml2lts-sym: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state vector length is 22; there are 20 groups and 22 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 1027 group checks and 1027 next state calls
+pnml2lts-sym: reachability took 13.680 real 13.450 user 0.190 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.010 real 0.000 user 0.000 sys
+pnml2lts-sym: state space has 6029168852784 states, 154978 nodes
+pnml2lts-sym: ( 154978 final BDD nodes; 426847 peak nodes )
+pnml2lts-sym: group_next: 4776 nodes total
+pnml2lts-sym: group_explored: 4290 nodes, 9983 short vectors total
+pnml2lts-sym: max token count: 20
+Event Span: 97
+Normalized Event Span: 0.22
+Weighted Event Span, moment 1 (WES^1): 138
+Normalized Weighted Event Span, moment 1: 0.314
+Exit [0]
+13.46 user, 0.26 system, 13.91 elapsed -- Max VSize = 3675068KB, Max RSS = 772220KB

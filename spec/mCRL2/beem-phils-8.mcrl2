@@ -1,0 +1,803 @@
+sort
+  BoolInt = Int32;
+  Int16 = Int;
+  Int32 = Int;
+  Message = Int;
+  State = struct State'eat | State'finish | State'one | State'think;
+  UInt8 = Nat;
+  Array_UInt8_16 = struct Array_UInt8_16(UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8);
+
+% Array_UInt8_16
+map
+  get_Array_UInt8_16 : Array_UInt8_16 # Int -> UInt8;
+  set_Array_UInt8_16 : Array_UInt8_16 # Int # UInt8 -> Array_UInt8_16;
+  merge_Array_UInt8_16 : Array_UInt8_16 # Array_UInt8_16 # Array_UInt8_16 -> Array_UInt8_16;
+var
+  a:Array_UInt8_16;
+  b:Array_UInt8_16;
+  x:UInt8;
+  i:Nat;
+  j:Nat;
+  v:UInt8;
+  w:UInt8;
+  x0:UInt8;
+  y0:UInt8;
+  z0:UInt8;
+  x1:UInt8;
+  y1:UInt8;
+  z1:UInt8;
+  x2:UInt8;
+  y2:UInt8;
+  z2:UInt8;
+  x3:UInt8;
+  y3:UInt8;
+  z3:UInt8;
+  x4:UInt8;
+  y4:UInt8;
+  z4:UInt8;
+  x5:UInt8;
+  y5:UInt8;
+  z5:UInt8;
+  x6:UInt8;
+  y6:UInt8;
+  z6:UInt8;
+  x7:UInt8;
+  y7:UInt8;
+  z7:UInt8;
+  x8:UInt8;
+  y8:UInt8;
+  z8:UInt8;
+  x9:UInt8;
+  y9:UInt8;
+  z9:UInt8;
+  x10:UInt8;
+  y10:UInt8;
+  z10:UInt8;
+  x11:UInt8;
+  y11:UInt8;
+  z11:UInt8;
+  x12:UInt8;
+  y12:UInt8;
+  z12:UInt8;
+  x13:UInt8;
+  y13:UInt8;
+  z13:UInt8;
+  x14:UInt8;
+  y14:UInt8;
+  z14:UInt8;
+  x15:UInt8;
+  y15:UInt8;
+  z15:UInt8;
+eqn
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 0) = x0;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 1) = x1;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 2) = x2;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 3) = x3;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 4) = x4;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 5) = x5;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 6) = x6;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 7) = x7;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 8) = x8;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 9) = x9;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 10) = x10;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 11) = x11;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 12) = x12;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 13) = x13;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 14) = x14;
+  get_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 15) = x15;
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 0, x) = Array_UInt8_16(x, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 1, x) = Array_UInt8_16(x0, x, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 2, x) = Array_UInt8_16(x0, x1, x, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 3, x) = Array_UInt8_16(x0, x1, x2, x, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 4, x) = Array_UInt8_16(x0, x1, x2, x3, x, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 5, x) = Array_UInt8_16(x0, x1, x2, x3, x4, x, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 6, x) = Array_UInt8_16(x0, x1, x2, x3, x4, x5, x, x7, x8, x9, x10, x11, x12, x13, x14, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 7, x) = Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x, x8, x9, x10, x11, x12, x13, x14, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 8, x) = Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x, x9, x10, x11, x12, x13, x14, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 9, x) = Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x, x10, x11, x12, x13, x14, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 10, x) = Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x, x11, x12, x13, x14, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 11, x) = Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x, x12, x13, x14, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 12, x) = Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x, x13, x14, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 13, x) = Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x, x14, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 14, x) = Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x, x15);
+  set_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), 15, x) = Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x);
+  merge_Array_UInt8_16(Array_UInt8_16(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15), Array_UInt8_16(y0, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10, y11, y12, y13, y14, y15), Array_UInt8_16(z0, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10, z11, z12, z13, z14, z15)) = Array_UInt8_16(merge_UInt8(x0, y0, z0), merge_UInt8(x1, y1, z1), merge_UInt8(x2, y2, z2), merge_UInt8(x3, y3, z3), merge_UInt8(x4, y4, z4), merge_UInt8(x5, y5, z5), merge_UInt8(x6, y6, z6), merge_UInt8(x7, y7, z7), merge_UInt8(x8, y8, z8), merge_UInt8(x9, y9, z9), merge_UInt8(x10, y10, z10), merge_UInt8(x11, y11, z11), merge_UInt8(x12, y12, z12), merge_UInt8(x13, y13, z13), merge_UInt8(x14, y14, z14), merge_UInt8(x15, y15, z15));
+  merge_Array_UInt8_16(a, b, a) = b;
+  merge_Array_UInt8_16(a, a, b) = b;
+  set_Array_UInt8_16(set_Array_UInt8_16(b,i,v),j,w) == set_Array_UInt8_16(set_Array_UInt8_16(b,j,w),i,v) = i != j || v == w;
+  w == get_Array_UInt8_16(set_Array_UInt8_16(b,i,v), j) = ((i == j && w == v) || (i != j && w == get_Array_UInt8_16(b, j)));
+  get_Array_UInt8_16(set_Array_UInt8_16(b,i,v), j) = if(i == j, v, get_Array_UInt8_16(b, j));
+
+% BASE SORT EQUATIONS
+map
+  coerce_BoolInt : Bool -> BoolInt;
+  coerce_Bool : Int -> Bool;
+  rem : Int # Int -> Int;
+  coerce_UInt8 : Int -> UInt8;
+  coerce_Int16 : Int -> Int16;
+  coerce_Int32 : Int -> Int32;
+  _coerce_Int32 : Int -> Int32;
+  m32_lognot : Int32 -> Int32;
+  m32_logand : Int32 # Int32 -> Int32;
+  m32_logor : Int32 # Int32 -> Int32;
+  m32_lshift : Int32 # Int32 -> Int32;
+  m32_rshift : Int32 # Int32 -> Int32;
+  merge_State : State # State # State -> State;
+var
+  b:Bool;
+  x:Int;
+  y:Int;
+  sx:State;
+  sy:State;
+eqn
+  coerce_BoolInt(false) = 0;
+  coerce_BoolInt(true)  = 1;
+  (coerce_BoolInt(b) == 0) = !b;
+  coerce_Bool(x) = x != 0;
+  (x>=0 && y>0) -> rem(x,y) = Nat2Int(x mod Int2Pos(y));
+  (x>=0 && y<0) -> rem(x,y) =  rem( x,-y);
+  (x<0)         -> rem(x,y) = -rem(-x, y);
+  (x >= 0 && x < 256) -> coerce_UInt8(x) = Int2Nat(x);
+  (x >= -32768 && x < 32768) -> coerce_Int16(x) = x;
+  coerce_Int32(y) = _coerce_Int32(y mod 4294967296);
+  (y >= 2147483648) -> _coerce_Int32(y) = y - 4294967296;
+  (y < 2147483648)  -> _coerce_Int32(y) = y;
+  (x>=0) -> m32_lognot(x) = coerce_Int32(UInt322Nat(not(Nat2UInt32(Int2Nat(x)))));
+  (x<0)  -> m32_lognot(x) = coerce_Int32(UInt322Nat(not(Nat2UInt32(Int2Nat(4294967296+x)))));
+  (x>=0 && y>=0) -> m32_logand(x,y) = coerce_Int32(UInt322Nat(and(Nat2UInt32(Int2Nat(x)),Nat2UInt32(Int2Nat(y)))));
+  (x>=0 && y>=0) -> m32_logor(x,y) = coerce_Int32(UInt322Nat(or(Nat2UInt32(Int2Nat(x)),Nat2UInt32(Int2Nat(y)))));
+  (x>=0 && y>=0) -> m32_lshift(x,y) = coerce_Int32(UInt322Nat(shiftl(Nat2UInt32(Int2Nat(x)),Nat2UInt32(Int2Nat(y)))));
+  (x>=0 && y>=0) -> m32_rshift(x,y) = coerce_Int32(UInt322Nat(shiftr(Nat2UInt32(Int2Nat(x)),Nat2UInt32(Int2Nat(y)))));
+  merge_State(sx,sx,sy) = sy;
+  merge_State(sx,sy,sx) = sy;
+
+% Operator m32_and
+map
+  m32_and : BoolInt # BoolInt -> BoolInt;
+var
+  x:BoolInt;
+  y:BoolInt;
+eqn
+  m32_and(x, y) = coerce_BoolInt(coerce_Bool(x) && coerce_Bool(y));
+
+% Operator m32_div
+map
+  m32_div : Int32 # Int32 -> Int32;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  (y>0) -> m32_div(x, y) = x div Int2Pos(y);
+  (y<0) -> m32_div(x, y) = (-x) div Int2Pos(-y);
+
+% Operator m32_eq
+map
+  m32_eq : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_eq(x, y) = coerce_BoolInt(x == y);
+
+% Operator m32_geq
+map
+  m32_geq : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_geq(x, y) = coerce_BoolInt(x >= y);
+
+% Operator m32_gt
+map
+  m32_gt : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_gt(x, y) = coerce_BoolInt(x > y);
+
+% Operator m32_implies
+map
+  m32_implies : BoolInt # BoolInt -> BoolInt;
+var
+  x:BoolInt;
+  y:BoolInt;
+eqn
+  m32_implies(x, y) = coerce_BoolInt(coerce_Bool(x) => coerce_Bool(y));
+
+% Operator m32_le
+map
+  m32_le : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_le(x, y) = coerce_BoolInt(x <= y);
+
+% Operator m32_lt
+map
+  m32_lt : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_lt(x, y) = coerce_BoolInt(x < y);
+
+% Operator m32_minus
+map
+  m32_minus : Int32 # Int32 -> Int32;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_minus(x, y) = coerce_Int32(x - y);
+
+% Operator m32_neq
+map
+  m32_neq : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_neq(x, y) = coerce_BoolInt(x != y);
+
+% Operator m32_not
+map
+  m32_not : BoolInt -> BoolInt;
+var
+  x:BoolInt;
+eqn
+  m32_not(x) = coerce_BoolInt(! coerce_Bool(x));
+
+% Operator m32_or
+map
+  m32_or : BoolInt # BoolInt -> BoolInt;
+var
+  x:BoolInt;
+  y:BoolInt;
+eqn
+  m32_or(x, y) = coerce_BoolInt(coerce_Bool(x) || coerce_Bool(y));
+
+% Operator m32_plus
+map
+  m32_plus : Int32 # Int32 -> Int32;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_plus(x, y) = coerce_Int32(x + y);
+
+% Operator m32_times
+map
+  m32_times : Int32 # Int32 -> Int32;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_times(x, y) = coerce_Int32(x * y);
+
+% Operator m32_uminus
+map
+  m32_uminus : Int32 -> Int32;
+var
+  x:Int32;
+eqn
+  m32_uminus(x) = coerce_Int32(- x);
+
+% UInt8
+map
+  merge_UInt8 : UInt8#UInt8#UInt8 -> UInt8;
+var
+  x:UInt8;
+  y:UInt8;
+eqn
+  merge_UInt8(x, x, y) = y;
+  merge_UInt8(x, y, x) = y;
+
+act
+  __read_write_sync : Array_UInt8_16#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#Array_UInt8_16#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#Array_UInt8_16#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#Message;
+  _read_write_sync : Array_UInt8_16#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#Array_UInt8_16#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#Array_UInt8_16#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#Message;
+  read_write_sync : Array_UInt8_16#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#Array_UInt8_16#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#Array_UInt8_16#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#State#Message;
+
+proc
+  MEM'(MEM''fork:Array_UInt8_16, state'phil_0:State, state'phil_1:State, state'phil_10:State, state'phil_11:State, state'phil_12:State, state'phil_13:State, state'phil_14:State, state'phil_15:State, state'phil_2:State, state'phil_3:State, state'phil_4:State, state'phil_5:State, state'phil_6:State, state'phil_7:State, state'phil_8:State, state'phil_9:State) = sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. 
+    sum MEM''fork'':Array_UInt8_16. sum state'phil_0'':State. sum state'phil_1'':State. sum state'phil_10'':State. sum state'phil_11'':State. sum state'phil_12'':State. sum state'phil_13'':State. sum state'phil_14'':State. sum state'phil_15'':State. sum state'phil_2'':State. sum state'phil_3'':State. sum state'phil_4'':State. sum state'phil_5'':State. sum state'phil_6'':State. sum state'phil_7'':State. sum state'phil_8'':State. sum state'phil_9'':State. sum m':Message. read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork', state'phil_0', state'phil_1', state'phil_10', state'phil_11', state'phil_12', state'phil_13', state'phil_14', state'phil_15', state'phil_2', state'phil_3', state'phil_4', state'phil_5', state'phil_6', state'phil_7', state'phil_8', state'phil_9', MEM''fork'', state'phil_0'', state'phil_1'', state'phil_10'', state'phil_11'', state'phil_12'', state'phil_13'', state'phil_14'', state'phil_15'', state'phil_2'', state'phil_3'', state'phil_4'', state'phil_5'', state'phil_6'', state'phil_7'', state'phil_8'', state'phil_9'', m').MEM'(
+      merge_Array_UInt8_16(MEM''fork, MEM''fork', MEM''fork''), 
+      merge_State(state'phil_0, state'phil_0', state'phil_0''), 
+      merge_State(state'phil_1, state'phil_1', state'phil_1''), 
+      merge_State(state'phil_10, state'phil_10', state'phil_10''), 
+      merge_State(state'phil_11, state'phil_11', state'phil_11''), 
+      merge_State(state'phil_12, state'phil_12', state'phil_12''), 
+      merge_State(state'phil_13, state'phil_13', state'phil_13''), 
+      merge_State(state'phil_14, state'phil_14', state'phil_14''), 
+      merge_State(state'phil_15, state'phil_15', state'phil_15''), 
+      merge_State(state'phil_2, state'phil_2', state'phil_2''), 
+      merge_State(state'phil_3, state'phil_3', state'phil_3''), 
+      merge_State(state'phil_4, state'phil_4', state'phil_4''), 
+      merge_State(state'phil_5, state'phil_5', state'phil_5''), 
+      merge_State(state'phil_6, state'phil_6', state'phil_6''), 
+      merge_State(state'phil_7, state'phil_7', state'phil_7''), 
+      merge_State(state'phil_8, state'phil_8', state'phil_8''), 
+      merge_State(state'phil_9, state'phil_9', state'phil_9''));
+
+  System' = 
+    phil_0 || phil_1 || phil_10 || phil_11 || phil_12 || phil_13 || phil_14 || phil_15 || phil_2 || phil_3 || phil_4 || phil_5 || phil_6 || phil_7 || phil_8 || phil_9;
+
+  phil_0 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork0:Array_UInt8_16.
+    ((tmp'MEM''fork0 == set_Array_UInt8_16(MEM''fork, 0, 1)) &&
+    (state'phil_0 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 0), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork0, State'one, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_0
+  + 
+    sum tmp'MEM''fork1:Array_UInt8_16.
+    ((tmp'MEM''fork1 == set_Array_UInt8_16(MEM''fork, 1, 1)) &&
+    (state'phil_0 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 1), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork1, State'eat, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_0
+  + 
+    sum tmp'MEM''fork2:Array_UInt8_16.
+    ((tmp'MEM''fork2 == set_Array_UInt8_16(MEM''fork, 0, 0)) &&
+    (state'phil_0 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork2, State'finish, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_0
+  + 
+    sum tmp'MEM''fork3:Array_UInt8_16.
+    ((tmp'MEM''fork3 == set_Array_UInt8_16(MEM''fork, 1, 0)) &&
+    (state'phil_0 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork3, State'think, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_0
+  );
+
+  phil_1 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork4:Array_UInt8_16.
+    ((tmp'MEM''fork4 == set_Array_UInt8_16(MEM''fork, 1, 1)) &&
+    (state'phil_1 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 1), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork4, state'phil_0, State'one, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_1
+  + 
+    sum tmp'MEM''fork5:Array_UInt8_16.
+    ((tmp'MEM''fork5 == set_Array_UInt8_16(MEM''fork, 2, 1)) &&
+    (state'phil_1 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 2), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork5, state'phil_0, State'eat, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_1
+  + 
+    sum tmp'MEM''fork6:Array_UInt8_16.
+    ((tmp'MEM''fork6 == set_Array_UInt8_16(MEM''fork, 1, 0)) &&
+    (state'phil_1 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork6, state'phil_0, State'finish, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_1
+  + 
+    sum tmp'MEM''fork7:Array_UInt8_16.
+    ((tmp'MEM''fork7 == set_Array_UInt8_16(MEM''fork, 2, 0)) &&
+    (state'phil_1 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork7, state'phil_0, State'think, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_1
+  );
+
+  phil_10 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork40:Array_UInt8_16.
+    ((tmp'MEM''fork40 == set_Array_UInt8_16(MEM''fork, 10, 1)) &&
+    (state'phil_10 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 10), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork40, state'phil_0, state'phil_1, State'one, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_10
+  + 
+    sum tmp'MEM''fork41:Array_UInt8_16.
+    ((tmp'MEM''fork41 == set_Array_UInt8_16(MEM''fork, 11, 1)) &&
+    (state'phil_10 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 11), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork41, state'phil_0, state'phil_1, State'eat, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_10
+  + 
+    sum tmp'MEM''fork42:Array_UInt8_16.
+    ((tmp'MEM''fork42 == set_Array_UInt8_16(MEM''fork, 10, 0)) &&
+    (state'phil_10 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork42, state'phil_0, state'phil_1, State'finish, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_10
+  + 
+    sum tmp'MEM''fork43:Array_UInt8_16.
+    ((tmp'MEM''fork43 == set_Array_UInt8_16(MEM''fork, 11, 0)) &&
+    (state'phil_10 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork43, state'phil_0, state'phil_1, State'think, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_10
+  );
+
+  phil_11 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork44:Array_UInt8_16.
+    ((tmp'MEM''fork44 == set_Array_UInt8_16(MEM''fork, 11, 1)) &&
+    (state'phil_11 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 11), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork44, state'phil_0, state'phil_1, state'phil_10, State'one, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_11
+  + 
+    sum tmp'MEM''fork45:Array_UInt8_16.
+    ((tmp'MEM''fork45 == set_Array_UInt8_16(MEM''fork, 12, 1)) &&
+    (state'phil_11 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 12), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork45, state'phil_0, state'phil_1, state'phil_10, State'eat, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_11
+  + 
+    sum tmp'MEM''fork46:Array_UInt8_16.
+    ((tmp'MEM''fork46 == set_Array_UInt8_16(MEM''fork, 11, 0)) &&
+    (state'phil_11 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork46, state'phil_0, state'phil_1, state'phil_10, State'finish, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_11
+  + 
+    sum tmp'MEM''fork47:Array_UInt8_16.
+    ((tmp'MEM''fork47 == set_Array_UInt8_16(MEM''fork, 12, 0)) &&
+    (state'phil_11 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork47, state'phil_0, state'phil_1, state'phil_10, State'think, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_11
+  );
+
+  phil_12 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork48:Array_UInt8_16.
+    ((tmp'MEM''fork48 == set_Array_UInt8_16(MEM''fork, 12, 1)) &&
+    (state'phil_12 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 12), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork48, state'phil_0, state'phil_1, state'phil_10, state'phil_11, State'one, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_12
+  + 
+    sum tmp'MEM''fork49:Array_UInt8_16.
+    ((tmp'MEM''fork49 == set_Array_UInt8_16(MEM''fork, 13, 1)) &&
+    (state'phil_12 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 13), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork49, state'phil_0, state'phil_1, state'phil_10, state'phil_11, State'eat, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_12
+  + 
+    sum tmp'MEM''fork50:Array_UInt8_16.
+    ((tmp'MEM''fork50 == set_Array_UInt8_16(MEM''fork, 12, 0)) &&
+    (state'phil_12 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork50, state'phil_0, state'phil_1, state'phil_10, state'phil_11, State'finish, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_12
+  + 
+    sum tmp'MEM''fork51:Array_UInt8_16.
+    ((tmp'MEM''fork51 == set_Array_UInt8_16(MEM''fork, 13, 0)) &&
+    (state'phil_12 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork51, state'phil_0, state'phil_1, state'phil_10, state'phil_11, State'think, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_12
+  );
+
+  phil_13 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork52:Array_UInt8_16.
+    ((tmp'MEM''fork52 == set_Array_UInt8_16(MEM''fork, 13, 1)) &&
+    (state'phil_13 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 13), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork52, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, State'one, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_13
+  + 
+    sum tmp'MEM''fork53:Array_UInt8_16.
+    ((tmp'MEM''fork53 == set_Array_UInt8_16(MEM''fork, 14, 1)) &&
+    (state'phil_13 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 14), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork53, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, State'eat, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_13
+  + 
+    sum tmp'MEM''fork54:Array_UInt8_16.
+    ((tmp'MEM''fork54 == set_Array_UInt8_16(MEM''fork, 13, 0)) &&
+    (state'phil_13 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork54, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, State'finish, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_13
+  + 
+    sum tmp'MEM''fork55:Array_UInt8_16.
+    ((tmp'MEM''fork55 == set_Array_UInt8_16(MEM''fork, 14, 0)) &&
+    (state'phil_13 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork55, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, State'think, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_13
+  );
+
+  phil_14 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork56:Array_UInt8_16.
+    ((tmp'MEM''fork56 == set_Array_UInt8_16(MEM''fork, 14, 1)) &&
+    (state'phil_14 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 14), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork56, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, State'one, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_14
+  + 
+    sum tmp'MEM''fork57:Array_UInt8_16.
+    ((tmp'MEM''fork57 == set_Array_UInt8_16(MEM''fork, 15, 1)) &&
+    (state'phil_14 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 15), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork57, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, State'eat, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_14
+  + 
+    sum tmp'MEM''fork58:Array_UInt8_16.
+    ((tmp'MEM''fork58 == set_Array_UInt8_16(MEM''fork, 14, 0)) &&
+    (state'phil_14 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork58, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, State'finish, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_14
+  + 
+    sum tmp'MEM''fork59:Array_UInt8_16.
+    ((tmp'MEM''fork59 == set_Array_UInt8_16(MEM''fork, 15, 0)) &&
+    (state'phil_14 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork59, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, State'think, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_14
+  );
+
+  phil_15 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork60:Array_UInt8_16.
+    ((tmp'MEM''fork60 == set_Array_UInt8_16(MEM''fork, 15, 1)) &&
+    (state'phil_15 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 15), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork60, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, State'one, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_15
+  + 
+    sum tmp'MEM''fork61:Array_UInt8_16.
+    ((tmp'MEM''fork61 == set_Array_UInt8_16(MEM''fork, 0, 1)) &&
+    (state'phil_15 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 0), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork61, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, State'eat, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_15
+  + 
+    sum tmp'MEM''fork62:Array_UInt8_16.
+    ((tmp'MEM''fork62 == set_Array_UInt8_16(MEM''fork, 15, 0)) &&
+    (state'phil_15 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork62, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, State'finish, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_15
+  + 
+    sum tmp'MEM''fork63:Array_UInt8_16.
+    ((tmp'MEM''fork63 == set_Array_UInt8_16(MEM''fork, 0, 0)) &&
+    (state'phil_15 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork63, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, State'think, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_15
+  );
+
+  phil_2 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork8:Array_UInt8_16.
+    ((tmp'MEM''fork8 == set_Array_UInt8_16(MEM''fork, 2, 1)) &&
+    (state'phil_2 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 2), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork8, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, State'one, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_2
+  + 
+    sum tmp'MEM''fork9:Array_UInt8_16.
+    ((tmp'MEM''fork9 == set_Array_UInt8_16(MEM''fork, 3, 1)) &&
+    (state'phil_2 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 3), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork9, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, State'eat, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_2
+  + 
+    sum tmp'MEM''fork10:Array_UInt8_16.
+    ((tmp'MEM''fork10 == set_Array_UInt8_16(MEM''fork, 2, 0)) &&
+    (state'phil_2 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork10, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, State'finish, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_2
+  + 
+    sum tmp'MEM''fork11:Array_UInt8_16.
+    ((tmp'MEM''fork11 == set_Array_UInt8_16(MEM''fork, 3, 0)) &&
+    (state'phil_2 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork11, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, State'think, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_2
+  );
+
+  phil_3 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork12:Array_UInt8_16.
+    ((tmp'MEM''fork12 == set_Array_UInt8_16(MEM''fork, 3, 1)) &&
+    (state'phil_3 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 3), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork12, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, State'one, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_3
+  + 
+    sum tmp'MEM''fork13:Array_UInt8_16.
+    ((tmp'MEM''fork13 == set_Array_UInt8_16(MEM''fork, 4, 1)) &&
+    (state'phil_3 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 4), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork13, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, State'eat, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_3
+  + 
+    sum tmp'MEM''fork14:Array_UInt8_16.
+    ((tmp'MEM''fork14 == set_Array_UInt8_16(MEM''fork, 3, 0)) &&
+    (state'phil_3 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork14, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, State'finish, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_3
+  + 
+    sum tmp'MEM''fork15:Array_UInt8_16.
+    ((tmp'MEM''fork15 == set_Array_UInt8_16(MEM''fork, 4, 0)) &&
+    (state'phil_3 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork15, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, State'think, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_3
+  );
+
+  phil_4 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork16:Array_UInt8_16.
+    ((tmp'MEM''fork16 == set_Array_UInt8_16(MEM''fork, 4, 1)) &&
+    (state'phil_4 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 4), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork16, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, State'one, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_4
+  + 
+    sum tmp'MEM''fork17:Array_UInt8_16.
+    ((tmp'MEM''fork17 == set_Array_UInt8_16(MEM''fork, 5, 1)) &&
+    (state'phil_4 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 5), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork17, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, State'eat, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_4
+  + 
+    sum tmp'MEM''fork18:Array_UInt8_16.
+    ((tmp'MEM''fork18 == set_Array_UInt8_16(MEM''fork, 4, 0)) &&
+    (state'phil_4 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork18, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, State'finish, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_4
+  + 
+    sum tmp'MEM''fork19:Array_UInt8_16.
+    ((tmp'MEM''fork19 == set_Array_UInt8_16(MEM''fork, 5, 0)) &&
+    (state'phil_4 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork19, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, State'think, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_4
+  );
+
+  phil_5 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork20:Array_UInt8_16.
+    ((tmp'MEM''fork20 == set_Array_UInt8_16(MEM''fork, 5, 1)) &&
+    (state'phil_5 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 5), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork20, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, State'one, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_5
+  + 
+    sum tmp'MEM''fork21:Array_UInt8_16.
+    ((tmp'MEM''fork21 == set_Array_UInt8_16(MEM''fork, 6, 1)) &&
+    (state'phil_5 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 6), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork21, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, State'eat, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_5
+  + 
+    sum tmp'MEM''fork22:Array_UInt8_16.
+    ((tmp'MEM''fork22 == set_Array_UInt8_16(MEM''fork, 5, 0)) &&
+    (state'phil_5 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork22, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, State'finish, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_5
+  + 
+    sum tmp'MEM''fork23:Array_UInt8_16.
+    ((tmp'MEM''fork23 == set_Array_UInt8_16(MEM''fork, 6, 0)) &&
+    (state'phil_5 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork23, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, State'think, state'phil_6, state'phil_7, state'phil_8, state'phil_9, 0).phil_5
+  );
+
+  phil_6 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork24:Array_UInt8_16.
+    ((tmp'MEM''fork24 == set_Array_UInt8_16(MEM''fork, 6, 1)) &&
+    (state'phil_6 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 6), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork24, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, State'one, state'phil_7, state'phil_8, state'phil_9, 0).phil_6
+  + 
+    sum tmp'MEM''fork25:Array_UInt8_16.
+    ((tmp'MEM''fork25 == set_Array_UInt8_16(MEM''fork, 7, 1)) &&
+    (state'phil_6 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 7), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork25, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, State'eat, state'phil_7, state'phil_8, state'phil_9, 0).phil_6
+  + 
+    sum tmp'MEM''fork26:Array_UInt8_16.
+    ((tmp'MEM''fork26 == set_Array_UInt8_16(MEM''fork, 6, 0)) &&
+    (state'phil_6 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork26, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, State'finish, state'phil_7, state'phil_8, state'phil_9, 0).phil_6
+  + 
+    sum tmp'MEM''fork27:Array_UInt8_16.
+    ((tmp'MEM''fork27 == set_Array_UInt8_16(MEM''fork, 7, 0)) &&
+    (state'phil_6 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork27, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, State'think, state'phil_7, state'phil_8, state'phil_9, 0).phil_6
+  );
+
+  phil_7 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork28:Array_UInt8_16.
+    ((tmp'MEM''fork28 == set_Array_UInt8_16(MEM''fork, 7, 1)) &&
+    (state'phil_7 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 7), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork28, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, State'one, state'phil_8, state'phil_9, 0).phil_7
+  + 
+    sum tmp'MEM''fork29:Array_UInt8_16.
+    ((tmp'MEM''fork29 == set_Array_UInt8_16(MEM''fork, 8, 1)) &&
+    (state'phil_7 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 8), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork29, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, State'eat, state'phil_8, state'phil_9, 0).phil_7
+  + 
+    sum tmp'MEM''fork30:Array_UInt8_16.
+    ((tmp'MEM''fork30 == set_Array_UInt8_16(MEM''fork, 7, 0)) &&
+    (state'phil_7 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork30, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, State'finish, state'phil_8, state'phil_9, 0).phil_7
+  + 
+    sum tmp'MEM''fork31:Array_UInt8_16.
+    ((tmp'MEM''fork31 == set_Array_UInt8_16(MEM''fork, 8, 0)) &&
+    (state'phil_7 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork31, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, State'think, state'phil_8, state'phil_9, 0).phil_7
+  );
+
+  phil_8 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork32:Array_UInt8_16.
+    ((tmp'MEM''fork32 == set_Array_UInt8_16(MEM''fork, 8, 1)) &&
+    (state'phil_8 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 8), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork32, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, State'one, state'phil_9, 0).phil_8
+  + 
+    sum tmp'MEM''fork33:Array_UInt8_16.
+    ((tmp'MEM''fork33 == set_Array_UInt8_16(MEM''fork, 9, 1)) &&
+    (state'phil_8 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 9), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork33, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, State'eat, state'phil_9, 0).phil_8
+  + 
+    sum tmp'MEM''fork34:Array_UInt8_16.
+    ((tmp'MEM''fork34 == set_Array_UInt8_16(MEM''fork, 8, 0)) &&
+    (state'phil_8 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork34, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, State'finish, state'phil_9, 0).phil_8
+  + 
+    sum tmp'MEM''fork35:Array_UInt8_16.
+    ((tmp'MEM''fork35 == set_Array_UInt8_16(MEM''fork, 9, 0)) &&
+    (state'phil_8 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork35, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, State'think, state'phil_9, 0).phil_8
+  );
+
+  phil_9 = sum MEM''fork:Array_UInt8_16. sum state'phil_0:State. sum state'phil_1:State. sum state'phil_10:State. sum state'phil_11:State. sum state'phil_12:State. sum state'phil_13:State. sum state'phil_14:State. sum state'phil_15:State. sum state'phil_2:State. sum state'phil_3:State. sum state'phil_4:State. sum state'phil_5:State. sum state'phil_6:State. sum state'phil_7:State. sum state'phil_8:State. sum state'phil_9:State. sum MEM''fork':Array_UInt8_16. sum state'phil_0':State. sum state'phil_1':State. sum state'phil_10':State. sum state'phil_11':State. sum state'phil_12':State. sum state'phil_13':State. sum state'phil_14':State. sum state'phil_15':State. sum state'phil_2':State. sum state'phil_3':State. sum state'phil_4':State. sum state'phil_5':State. sum state'phil_6':State. sum state'phil_7':State. sum state'phil_8':State. sum state'phil_9':State. sum m':Message. 
+  ( 
+    sum tmp'MEM''fork36:Array_UInt8_16.
+    ((tmp'MEM''fork36 == set_Array_UInt8_16(MEM''fork, 9, 1)) &&
+    (state'phil_9 == State'think && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 9), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork36, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, State'one, 0).phil_9
+  + 
+    sum tmp'MEM''fork37:Array_UInt8_16.
+    ((tmp'MEM''fork37 == set_Array_UInt8_16(MEM''fork, 10, 1)) &&
+    (state'phil_9 == State'one && coerce_Bool(m32_eq(get_Array_UInt8_16(MEM''fork, 10), 0)))) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork37, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, State'eat, 0).phil_9
+  + 
+    sum tmp'MEM''fork38:Array_UInt8_16.
+    ((tmp'MEM''fork38 == set_Array_UInt8_16(MEM''fork, 9, 0)) &&
+    (state'phil_9 == State'eat)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork38, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, State'finish, 0).phil_9
+  + 
+    sum tmp'MEM''fork39:Array_UInt8_16.
+    ((tmp'MEM''fork39 == set_Array_UInt8_16(MEM''fork, 10, 0)) &&
+    (state'phil_9 == State'finish)) ->  _read_write_sync(MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, MEM''fork, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, state'phil_9, tmp'MEM''fork39, state'phil_0, state'phil_1, state'phil_10, state'phil_11, state'phil_12, state'phil_13, state'phil_14, state'phil_15, state'phil_2, state'phil_3, state'phil_4, state'phil_5, state'phil_6, state'phil_7, state'phil_8, State'think, 0).phil_9
+  );
+
+
+init
+  hide({__read_write_sync},
+  allow({__read_write_sync},
+  comm({read_write_sync|_read_write_sync->__read_write_sync},
+    MEM'(Array_UInt8_16(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), State'think, State'think, State'think, State'think, State'think, State'think, State'think, State'think, State'think, State'think, State'think, State'think, State'think, State'think, State'think, State'think) || 
+  allow({_read_write_sync},
+  System'))));
+
+sort RBV=List(Bool);       % representation of natural numbers as reverse bit vector (4=[0,0,1]), NOTE!!! can have non-unique representation with trailing 0s.
+
+map 
+  Nat2RBV:Nat->RBV;
+  RBV2Nat:RBV->Nat;
+
+  % bit operations:
+  not:RBV->RBV;		   %undefined for [] 
+  and,or,xor:RBV#RBV->RBV;
+  
+  gt:RBV#RBV->Bool;        %make sure length are the same 
+  add,mult:RBV#RBV->RBV;
+  succ_RBV:RBV->RBV;
+
+
+  shiftr,shiftl:RBV#Nat->RBV;
+
+  % auxiliary ops:
+  % rem_trailing_zeros:RBV->RBV;
+  mk_list_true :Nat->RBV;   % mk_list_true(4)=[true,true,true,true]
+  mk_list_false:Nat->RBV;   % mk_list_false(4)=[false,false,false,false]
+
+  least_bits:RBV#Nat->RBV; % leaves at most p least significant bits only.
+  exact_bits:RBV#Nat->RBV; % leaves exactly p least significant bits, adding trailing false's if needed.
+
+  two_complement:RBV->RBV; % two-complement: http://en.wikipedia.org/wiki/Signed_number_representations
+
+var l,l1,l2:RBV; n:Nat; b:Bool;
+
+eqn
+  % rem_trailing_zeros([])=[];
+  % rem_trailing_zeros(true|>l)=true|>rem_trailing_zeros(l);
+  % (rem_trailing_zeros(l)==[])->rem_trailing_zeros(false|>l)=[];
+  % (rem_trailing_zeros(l)!=[])->rem_trailing_zeros(false|>l)=false|>rem_trailing_zeros(l);  
+
+  % % rem_trailing_zeros(false|>l)=if(l1==[],[],false|>l1) where l1=rem_trailing_zeros(l) end;
+
+  mk_list_true(0)=[];
+  (n>0)->mk_list_true(n)=true|>mk_list_true(Int2Nat(pred(n)));
+
+  mk_list_false(0)=[];
+  (n>0)->mk_list_false(n)=false|>mk_list_false(Int2Nat(pred(n)));
+
+  least_bits([],n)=[];
+  least_bits(b|>l,0)=[];
+  (n>0)->least_bits(b|>l,n)=b|>least_bits(l,Int2Nat(pred(n)));
+
+  exact_bits([],n)=mk_list_false(n);
+  exact_bits(b|>l,0)=[];
+  (n>0)->exact_bits(b|>l,n)=b|>exact_bits(l,Int2Nat(pred(n)));
+
+  two_complement([])=[];
+  two_complement(false|>l)=false|>two_complement(l);
+  two_complement(true|>l)=true|>not(l);
+
+  not([])=[];
+  not(true|>l)=false|>not(l);               % rem_trailing_zeros(false|>not(l));
+  not(false|>l)=true|>not(l);
+
+  and([],l)=[];
+  and(l,[])=[];
+  and(false|>l1,b|>l2)=false|>and(l1,l2);    % rem_trailing_zeros(false|>and(l1,l2));
+  and(b|>l1,false|>l2)=false|>and(l1,l2);    % rem_trailing_zeros(false|>and(l1,l2));
+  and(true|>l1,true|>l2)=true|>and(l1,l2);
+
+  or([],l)=l;
+  or(l,[])=l;
+  or(false|>l1,false|>l2)=false|>or(l1,l2);  %rem_trailing_zeros(false|>or(l1,l2));
+  or(true|>l1,b|>l2)=true|>or(l1,l2);
+  or(b|>l1,true|>l2)=true|>or(l1,l2);
+
+  xor([],l)=l;
+  xor(l,[])=l;
+  xor(false|>l1,false|>l2)=false|>xor(l1,l2); %rem_trailing_zeros(false|>xor(l1,l2));
+  xor(true|>l1,true|>l2)=false|>xor(l1,l2);   %rem_trailing_zeros(false|>xor(l1,l2));
+  xor(true|>l1,false|>l2)=true|>xor(l1,l2);
+  xor(false|>l1,true|>l2)=true|>xor(l1,l2);
+
+  gt([],[])=false;
+  % gt(false|>l1,[])=gt(l1,[]);
+  % gt(true|>l1,[])=true;
+  gt(false|>l1,b|>l2)=gt(l1,l2);
+  gt(true|>l1,true|>l2)=gt(l1,l2);
+  gt(true|>l1,false|>l2)=gt(l1,l2)||l1==l2;
+
+  shiftr(l,0)=l; 
+  (n>0)->shiftr(l,n)=false|>shiftr(l,Int2Nat(pred(n)));
+ 
+  shiftl([],n)=[];
+  shiftl(l,0)=l;  
+  (n>0)->shiftl(b|>l,n)=shiftl(l,Int2Nat(pred(n)));
+
+  add([],l)=l;
+  add(l,[])=l;
+  add(false|>l1,b|>l2)=b|>add(l1,l2);
+  add(true|>l1,false|>l2)=true|>add(l1,l2);
+  add(true|>l1,true|>l2)=false|>succ_RBV(add(l1,l2));
+  
+  succ_RBV([])=[true];
+  succ_RBV(false|>l)=true|>l;
+  succ_RBV(true|>l)=false|>succ_RBV(l);
+
+  mult([],l)=[];
+  mult(l,[])=[];
+  mult(false|>l1,false|>l2)=false|>false|>mult(l1,l2);
+  mult(false|>l1,true|>l2) =false|>add(false|>mult(l1,l2),l1);
+  mult(true|>l1,false|>l2) =false|>add(false|>mult(l1,l2),l2);
+  mult(true|>l1,true|>l2)  =true|>add(false|>mult(l1,l2),add(l1,l2));
+
+  Nat2RBV(0)=[];
+  (n>0 && n mod 2==0) -> Nat2RBV(n)=false|>Nat2RBV(n div 2);
+  (n>0 && n mod 2==1) -> Nat2RBV(n)=true|>Nat2RBV(n div 2);
+
+  RBV2Nat([])=0;
+  RBV2Nat(false|>l)=2*RBV2Nat(l);
+  RBV2Nat(true|>l)=Pos2Nat(succ(2*RBV2Nat(l)));
+
+sort UInt32=struct uint32(RBV); % C data type "unsigned int" (32 bit)
+
+map
+  Nat2UInt32:Nat->UInt32;
+  UInt322Nat:UInt32->Nat;
+
+  not:UInt32->UInt32;
+  and,or,xor,shiftl,shiftr:UInt32#UInt32->UInt32;
+ 
+  gt,ge,lt,le:UInt32#UInt32->Bool;
+  add,subt,mult,div_uint32,mod_uint32:UInt32#UInt32->UInt32;
+  umin,succ_Uint32:UInt32->UInt32;
+ 
+var n:Nat; l,l1,l2:RBV; b:Bool;
+
+eqn
+  Nat2UInt32(n)=uint32(exact_bits(Nat2RBV(n mod 4294967296),32));
+  UInt322Nat(uint32(l))=RBV2Nat(l);
+
+  not(uint32(l))=uint32(not(l));
+  and(uint32(l1),uint32(l2))=uint32(and(l1,l2));
+   or(uint32(l1),uint32(l2))=uint32( or(l1,l2));
+  xor(uint32(l1),uint32(l2))=uint32(xor(l1,l2));
+
+  % shifts: shifts of >=32 bits are equivalent to clearing the bitvector
+  (and(l2,mk_list_false(5)++mk_list_true(27))==mk_list_false(32))->
+     shiftl(uint32(l1),uint32(l2))=uint32(exact_bits(shiftr(l1,RBV2Nat(least_bits(l2,5))),32)); % we are reversed
+  (and(l2,mk_list_false(5)++mk_list_true(27))!=mk_list_false(32))->
+     shiftl(uint32(l1),uint32(l2))=uint32(mk_list_false(32));
+  (and(l2,mk_list_false(5)++mk_list_true(27))==mk_list_false(32))->
+     shiftr(uint32(l1),uint32(l2))=uint32(exact_bits(shiftl(l1,RBV2Nat(least_bits(l2,5))),32)); % we are reversed
+  (and(l2,mk_list_false(5)++mk_list_true(27))!=mk_list_false(32))->
+     shiftr(uint32(l1),uint32(l2))=uint32(mk_list_false(32)); 
+
+  gt(uint32(l1),uint32(l2))=gt(l1,l2);
+  ge(uint32(l1),uint32(l2))= l1==l2 || gt(l1,l2);
+  le(uint32(l1),uint32(l2))=!gt(l1,l2);
+  lt(uint32(l1),uint32(l2))=gt(l2,l1);
+
+   add(uint32(l1),uint32(l2))=uint32(exact_bits(add(l1,l2),32));
+  subt(uint32(l1),uint32(l2))=uint32(exact_bits(add(l1,two_complement(l2)),32));
+
+  mult(uint32(l1),uint32(l2))=uint32(exact_bits(mult(l1,l2),32));
+
+  umin(uint32(l))=uint32(two_complement(l));
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

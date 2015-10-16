@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/synapse.3.dve -rsc,tg,vcm --regroup-exit
+ctit022
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/synapse.3.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,vcm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup ViennaCL's Cuthill McKee
+dve2lts-seq: Regrouping: 167->167 groups
+dve2lts-seq: Regrouping took 0.010 real 0.010 user 0.000 sys
+Exit [0]
+3.38 user, 0.14 system, 3.60 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

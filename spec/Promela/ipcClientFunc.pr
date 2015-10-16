@@ -1,0 +1,400 @@
+/*
+ * Copyright (c) 1996 The University of Utah and
+ * the Computer Systems Laboratory at the University of Utah (CSL).
+ * All rights reserved.
+ *
+ * Permission to use, copy, modify and distribute this software is hereby
+ * granted provided that (1) source code retains these copyright, permission,
+ * and disclaimer notices, and (2) redistributions including binaries
+ * reproduce the notices in supporting documentation, and (3) all advertising
+ * materials mentioning features or use of this software display the following
+ * acknowledgement: ``This product includes software developed by the
+ * Computer Systems Laboratory at the University of Utah.''
+ *
+ * THE UNIVERSITY OF UTAH AND CSL ALLOW FREE USE OF THIS SOFTWARE IN ITS "AS
+ * IS" CONDITION.  THE UNIVERSITY OF UTAH AND CSL DISCLAIM ANY LIABILITY OF
+ * ANY KIND FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * CSL requests users of this software to return to csl-dist@cs.utah.edu any
+ * improvements that they make and grant CSL redistribution rights.
+ */
+/*
+ * Kernel functions which implement Reliable IPC
+ */
+/*
+ * - Disconnection can only be done by one of the threads involved,
+ *   never by any "third party" threads.
+ *   Either thread can disconnect directly if the other is in a wait state;
+ *   otherwise, the thread wanting to disconnect must cancel the other
+ *   and then go into the WAIT_IPC_???_DSCN state itself.
+ *
+ * - Similarly, pickling and unpickling connections can only be done
+ *   by one of the threads involved, and only when the other thread is waiting.
+ *
+ * - The current orientation (flow direction) of an active connection
+ *   is always indicated by the server_sender flag in the servers ipc_state.
+ *   It can only be changed by one of the threads
+ *   while it is holding the other captive.
+ */
+
+#ifndef _FLUKE_KERNEL_IPC_FUNC_
+#define _FLUKE_KERNEL_IPC_FUNC_
+
+#include "../fluke/EntryPoint.pr"
+#include "../fluke/Thread.pr"
+#include "ipcPickle.pr"
+#include "portsAndPsets.pr"
+#include "ipcTransfer.pr"
+#include "ipcVar.pr"
+
+/* 
+ * Disconnect any reliable connection with me as the client. 
+ *
+ * Sets rc to a standard kernel rc.
+ */
+#define ipcClientDisconnect(client)					\
+    /*									\
+     * Make sure any connection we're involved in is actually active.	\
+     * Since unpickling a connection may involve waiting,		\
+     * this means that the standard disconnect is a "soft" disconnect,	\
+     * which the other side can potentially delay arbitrarily.		\
+     * For a "hard" disconnect, null out the appropriate link,		\
+     * or better yet, destroy the connected thread and re-create it.	\
+     */									\
+									\
+    if									\
+    :: (threadIPCServer(client) == THREAD_ID_INVALID) ->		\
+	 ipcClientUnpickle(client, 0);					\
+	 /* sets rc */							\
+    :: else ->								\
+         assert(threadIPCServer(client) != THREAD_ID_INVALID);		\
+	 rc = 0;							\
+    fi;									\
+									\
+    if									\
+    :: rc != 0 -> /* ie, called ipcClientUnpickle and it erred. */	\
+         /* RETURN rc */ skip;						\
+    :: else ->								\
+	 if								\
+	 :: (threadIPCServer(client) != THREAD_ID_INVALID) ->		\
+	     /* Assert server's client pointer is me. */		\
+	     assert(client						\
+	       == threadIPCClient(threadIPCServer(client)));		\
+									\
+	     threadWakeup(threadIPCServer(client), WAIT_ANYTHING);	\
+	     /* sets rc */						\
+	     if								\
+	     :: (rc != 0) ->						\
+		  threadSetIPCClient(threadIPCServer(client),		\
+				     THREAD_ID_INVALID);		\
+	          threadReady(threadIPCServer(client));			\
+		  threadSetIPCServer(client,				\
+				     THREAD_ID_INVALID);		\
+	          rc = 0; /* return 0 */				\
+	     :: else ->							\
+	          threadWait(client, WAIT_IPC_CLI_DSCN,			\
+		             threadIPCServer(client),			\
+			     0 /* cancel it */);			\
+	          /* RETURN rc from threadWait()  */			\
+	     fi;							\
+         :: else ->							\
+	     /* RETURN */ rc = 0;					\
+         fi;								\
+    fi
+
+
+/*
+ * Ensure that the appropriate reliable connection exists and is active.
+ *
+ * Returns a standard kernel "rc".
+ */
+#define ipcClientFindServer(client, disconnectCode)			\
+    assert(client == currentThread);					\
+									\
+    if									\
+    :: (threadIPCServer(client) == THREAD_ID_INVALID) ->		\
+	 ipcClientUnpickle(client,0);					\
+	 /* sets rc */							\
+    :: else ->								\
+         rc = 0;							\
+    fi;									\
+									\
+    if									\
+    :: rc != 0 -> /* ie, ipcClientUnpickle failed */			\
+         /* RETURN rc */ skip; 						\
+    :: else ->								\
+         /* in case ipcClientUnpickle succeeded */			\
+	 if								\
+	 :: (threadIPCServer(client) == THREAD_ID_INVALID) ->		\
+	      /* server still is 0 */					\
+	      /*							\
+	       * XXX in the C code, there is a difference between	\
+	       * disconnectCode == FLUKE_IPC_RECV_DISCONNECTED, or not.	\
+	       * The only difference is whether some registers		\
+	       * are transferred or not.				\
+	       * So, for us, they're the same.				\
+	       */							\
+	      threadSetExcStatus(client, disconnectCode);		\
+	      threadSetExcEntryPoint(client, ENTRYPOINT_NOP);		\
+	      /* RETURN */ rc = KR_RESTART;  				\
+         :: else ->							\
+	      /* RETURN */ rc = 0;					\
+         fi;								\
+    fi
+
+/*** Client-side reliable IPC path components ***/
+
+/*
+ * As a "phase 1" routine, the current thread is in an unknown
+ * state at the start.  On successful return, the other thread
+ * will be captured.
+ *
+ * Returns a standard kernel status code.
+ *
+ * NOTE: the "server" parameter is unique to our Promela
+ * implmentation.  We avoid ports and port sets (which are
+ * for "finding" another thread), and just model the
+ * connection once its made.  Thus we pass the server into
+ * this function.
+ */
+#define ipcClient1ConnectSend(client, server, connectedIp)		\
+    ipcClientDisconnect(client);					\
+    /* sets rc */							\
+    if									\
+    :: (rc != 0) ->							\
+	/* RETURN rc */ skip;						\
+    :: else ->								\
+        assert(threadIPCServer(client) == THREAD_ID_INVALID);		\
+									\
+	/* establish a connection to a new server thread. */		\
+	sPortCapture(client, server);					\
+	/* sets rc */							\
+	if								\
+	:: (rc != 0) ->							\
+	     /* RETURN rc */ assert(rc != 0);				\
+	:: else ->							\
+	     assert(rc == 0);						\
+	     threadSetIPCServer(/*of*/client, /*to*/server);		\
+	     threadSetIPCClient(/*of*/server, /*to*/client);		\
+	     threadSetIPCFlags(client,					\
+	        threadIPCFlags(client)|FLUKE_THREAD_CLIENT_SENDER);	\
+	     threadSetIPCFlags(server,					\
+	        threadIPCFlags(server)&(~FLUKE_THREAD_SERVER_SENDER));	\
+	     /*								\
+	      * XXX Now the C code does an:				\
+	      *   ipc_transfer_min_msg(client, server);			\
+	      * We don't model this.					\
+	      */							\
+	     threadSetExcEntryPoint(client, connectedIp);		\
+	     threadSetExcEntryPoint(server, ENTRYPOINT_SERVER_RECEIVE);	\
+	     ipcReliableTransfer(client, server);			\
+	     /* sets rc - return rc */					\
+         fi;								\
+    fi
+
+/*
+ * returns a standard kernel status code
+ *
+ * Temps: 'ipcf_server' and 'ipcf_flags'
+ */
+#define ipcClient1AckSend(client, ackedIp)				\
+    ipcClientFindServer(client, FLUKE_IPC_ACK_DISCONNECTED);		\
+    /* sets rc */							\
+    if									\
+    :: (rc != 0) ->							\
+	/* RETURN rc */ skip;						\
+    :: else ->								\
+	ipcf_server = threadIPCServer(client);				\
+	assert(ipcf_server != THREAD_ID_INVALID);			\
+	threadWakeup(ipcf_server, WAIT_IPC_SRV_SENDER);			\
+	/* sets rc to the wait value */					\
+	if 								\
+	:: (rc == 0) ->							\
+	    /* wval == 0 */						\
+	    /*								\
+	     * Server's not in the proper wait state.			\
+	     * Check the current connection direction.			\
+	     */								\
+	    ipcf_flags = threadIPCFlags(client);			\
+	    if 								\
+	    :: (ipcf_flags & FLUKE_THREAD_CLIENT_SENDER) ->		\
+		threadSetExcStatus(client,				\
+		      FLUKE_INSANITY_NOT_RECEIVER);			\
+		/* RETURN */ rc = KR_USER_EXCEPTION;			\
+	    :: else ->							\
+		/*							\
+		 * It's going the right direction,			\
+		 * but the server just isn't ready - wait for it.	\
+		 */							\
+		threadWait(client, WAIT_IPC_CLI_ASEND,			\
+			   ipcf_server, WAIT_IPC_SRV_SENDER);		\
+		/* sets rc - return rc */				\
+	    fi;								\
+	    DONEWITH(ipcf_flags);					\
+	:: (rc != 0) && (rc != WAIT_IPC_SRV_ORECV) ->			\
+	    /* wval != WAIT_IPC_SRV_ORECV */				\
+	    assert(rc == WAIT_IPC_SRV_SEND);				\
+	    /*								\
+	     * The server is still trying to send data to us.		\
+	     * Just handoff to it and let it drain its message.		\
+	     */								\
+	    threadHandoff(client, WAIT_IPC_CLI_ASEND, ipcf_server);	\
+	    /* sets rc - return rc */					\
+	:: else ->							\
+	    /* 								\
+	     * Both the client and the server are ready 		\
+	     * to reverse, so do so. 					\
+	     */								\
+	    threadSetIPCFlags(client,					\
+	       threadIPCFlags(client)|FLUKE_THREAD_CLIENT_SENDER);	\
+	    threadSetIPCFlags(ipcf_server,				\
+	       threadIPCFlags(ipcf_server)&(~FLUKE_THREAD_SERVER_SENDER));	\
+	    /*								\
+	     * XXX Now the C code does a:				\
+	     *   ipcTransferMinMsg(client, ipcf_server);		\
+	     * We don't model that.					\
+	     */								\
+									\
+	    threadSetExcEntryPoint(client, ackedIp);				\
+	    threadSetExcEntryPoint(ipcf_server, ENTRYPOINT_SERVER_RECEIVE);	\
+									\
+	    ipcReliableTransfer(client, ipcf_server);			\
+	    /* sets rc - return rc */					\
+	fi;								\
+	DONEWITH(ipcf_server);						\
+    fi
+
+
+
+/*
+ * temporary variables used - ipcf_server ipcf_wval ipcf_flags
+ */
+#define ipcClient1Send(client, outWval)				\
+    ipcClientFindServer(client, FLUKE_IPC_SEND_DISCONNECTED);	\
+    /* sets rc */						\
+    if								\
+    :: (rc != 0) ->						\
+	skip;							\
+	/* RETURN rc */						\
+    :: else ->							\
+	ipcf_server = threadIPCServer(client);			\
+	assert(ipcf_server != THREAD_ID_INVALID);		\
+								\
+	/* Capture the server if it is trying to receive */	\
+	threadWakeup(ipcf_server, WAIT_IPC_SRV_RECEIVER);	\
+	/* sets rc to the wait value */				\
+	ipcf_wval = rc; /* XXX just use outWval directly? */	\
+	if 							\
+	:: (ipcf_wval == 0) -> /* ie, wval == 0 */		\
+	    ipcf_flags = threadIPCFlags(client);		\
+								\
+	    if							\
+	    :: (!(ipcf_flags & FLUKE_THREAD_CLIENT_SENDER)) ->	\
+		 threadSetExcStatus(currentThread,		\
+		      FLUKE_INSANITY_NOT_SENDER);		\
+		 /* RETURN */ rc = KR_USER_EXCEPTION;		\
+								\
+	    :: else						\
+	        threadWait(client, WAIT_IPC_CLI_SEND, 		\
+		       ipcf_server, WAIT_IPC_SRV_RECEIVER);	\
+	        /* sets rc - return rc*/			\
+	    fi;							\
+	    DONEWITH(ipcf_flags);				\
+	:: (ipcf_wval == WAIT_IPC_SRV_RECV) ->			\
+	    /* wval == WAIT_IPC_SRV_RECV */			\
+	    ipcReliableTransfer(client, ipcf_server);		\
+	    /* sets rc */					\
+	    if 							\
+	    :: (rc != 0) -> 					\
+		/* RETURN rc */ skip;				\
+	    :: else ->						\
+		outWval = ipcf_wval;				\
+		/* RETURN */ rc = 0;				\
+	    fi;							\
+	:: else ->						\
+	    /*							\
+	     * The impatient server is acking us before		\
+	     * we're done.					\
+	     * Therefore, just throw away our send data.	\
+	     */							\
+	    assert(rc == WAIT_IPC_SRV_ASEND);			\
+	    outWval = ipcf_wval;				\
+	    /* RETURN */ rc = 0;				\
+	fi;							\
+	DONEWITH(ipcf_wval);					\
+	DONEWITH(ipcf_server);					\
+    fi
+
+
+#define ipcClient2OverReceive(client, wval)			\
+    ipcf_server = threadIPCServer(client);			\
+    assert(ipcf_server != THREAD_ID_INVALID);			\
+    								\
+    /* 								\
+     * Since the server still thinks it's receiving data,	\
+     * notify it that mesage has ended.				\
+     */								\
+    if 								\
+    :: (wval == WAIT_IPC_SRV_RECV) ->				\
+	 /* C: IPC_FINISH_RECEIVE(ipcf_server, 0); */		\
+	 threadSetExcStatus(ipcf_server, 0);			\
+	 threadSetExcEntryPoint(ipcf_server, ENTRYPOINT_NOP);		\
+    :: else ->							\
+	 assert(wval == WAIT_IPC_SRV_ASEND);			\
+    fi;								\
+								\
+    /* Hand control to the server. */    			\
+    threadHandoff(client, WAIT_IPC_CLI_ORECV, ipcf_server);	\
+    /* sets rc - return rc */
+
+
+
+#define ipcClient12Receive(client)					\
+    ipcClientFindServer(client, FLUKE_IPC_RECV_DISCONNECTED);		\
+    /* sets rc */							\
+    if									\
+    :: (rc != 0) ->							\
+	/* RETURN rc */ skip;						\
+    :: else ->								\
+	ipcf_server = threadIPCServer(client);				\
+	assert(ipcf_server != THREAD_ID_INVALID);			\
+									\
+	/*								\
+	 * capture the server thread as the sender			\
+	 */								\
+	threadWakeup(ipcf_server, WAIT_IPC_SRV_SENDER);			\
+	/* sets rc to the wait value */					\
+									\
+	if								\
+	:: (rc == 0) -> /* wval == 0 */					\
+	    ipcf_flags = threadIPCFlags(client);			\
+	    if								\
+	    :: (ipcf_flags & FLUKE_THREAD_CLIENT_SENDER) ->		\
+		/* C: EXC_RETURN_INSANITY(NOT_RECEIVER); */		\
+		threadSetExcStatus(currentThread,			\
+		     FLUKE_INSANITY_NOT_RECEIVER);			\
+		/* RETURN */ rc = KR_USER_EXCEPTION;			\
+	    ::	else ->							\
+		threadWait(client, WAIT_IPC_CLI_RECV,			\
+			   ipcf_server, WAIT_IPC_SRV_SENDER);		\
+		/* sets rc - return rc */				\
+	    fi;								\
+	    DONEWITH(ipcf_flags);					\
+	:: (rc == WAIT_IPC_SRV_SEND) ->					\
+	    threadHandoff(client, WAIT_IPC_CLI_RECV, ipcf_server);	\
+	    /* sets rc - return rc */					\
+	:: else ->							\
+	    assert(rc == WAIT_IPC_SRV_ORECV);				\
+									\
+	    /* the server says it's done sending, so just return */	\
+	    threadReady(ipcf_server);					\
+									\
+	    /* C: IPC_FINISH_RECEIVE(client, 0);  */			\
+	    threadSetExcStatus(client, 0);				\
+	    threadSetExcEntryPoint(client, ENTRYPOINT_NOP);		\
+	    /* RETURN */ rc = KR_RESTART;				\
+	fi;								\
+	DONEWITH(ipcf_server);						\
+    fi;
+
+#endif /* _FLUKE_KERNEL_IPC_FUNC_ */

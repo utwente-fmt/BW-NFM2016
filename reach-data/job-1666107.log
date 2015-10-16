@@ -1,0 +1,17 @@
+performance run
+pnml2lts-sym spec/PNML/30-10_phaseVariation.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit001
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/30-10_phaseVariation.pnml
+pnml2lts-sym: Petri net has 2702 places, 30977 transitions and 215035 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/30-10_phaseVariation.pnml analyzed
+pnml2lts-sym: Loading Petri net took 3.910 real 3.440 user 0.460 sys
+pnml2lts-sym: state vector length is 2702; there are 30977 groups and 2702 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+3.45 user, 0.51 system, 4.10 elapsed -- Max VSize = 3078252KB, Max RSS = 453948KB

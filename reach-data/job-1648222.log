@@ -1,0 +1,30 @@
+statistics run
+pnml2lts-sym spec/PNML/neoelection-7.unf.pnml -rsc,bn,rs,mm,hf --noack=1 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit027
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/neoelection-7.unf.pnml
+pnml2lts-sym: Petri net has 7128 places, 14112 transitions and 81968 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/neoelection-7.unf.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 5.590 real 5.570 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 8.220 real 8.050 user 0.160 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 21096
+pnml2lts-sym: profile: 175215740
+pnml2lts-sym: span: 59548981
+pnml2lts-sym: average wavefront: 831.904426
+pnml2lts-sym: RMS wavefront: 972.295826
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+Killed [24]
+1797.41 user, 0.50 system, 1801.86 elapsed -- Max VSize = 2874352KB, Max RSS = 225460KB
+command-4642: line 5: 61114 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/neoelection-7.unf.pnml -rsc,bn,rs,mm,hf --noack=1 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

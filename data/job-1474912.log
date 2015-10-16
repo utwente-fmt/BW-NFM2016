@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-98- --no-close spec/B/DoorsFunctions.mch -rsc,bg,bs,mm --regroup-exit --graph-metrics
+ctit007
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-102.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-102.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,bs,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup Boost's Sloan
+prob2lts-seq: bandwidth: 3
+prob2lts-seq: profile: 17
+prob2lts-seq: span: 16
+prob2lts-seq: average wavefront: 2.4
+prob2lts-seq: RMS wavefront: 2.5
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 3->3 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 6
+Normalized Event Span: 1
+Weighted Event Span, moment 1 (WES^1): 1e+01
+Normalized Weighted Event Span, moment 1: 2
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-102: line 10: 37630 Killed                  probcli spec/B/DoorsFunctions.mch -ltsmin2 /tmp/ltsmin-102.probz

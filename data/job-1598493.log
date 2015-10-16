@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/database40UNFOLD.pnml --noack=2 --regroup-exit --graph-metrics
+ctit004
+pnml2lts-seq: Loading model from spec/PNML/database40UNFOLD.pnml
+pnml2lts-seq: Petri net has 12920 places, 12800 transitions and 156800 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/database40UNFOLD.pnml analyzed
+pnml2lts-seq: Computing Noack2 order
+pnml2lts-seq: Computing Noack2 order took 285.780 real 285.010 user 0.020 sys
+pnml2lts-seq: Loading Petri net took 290.790 real 289.680 user 0.330 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regrouping: 12800->12800 groups
+pnml2lts-seq: Regrouping took 7.520 real 7.190 user 0.320 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+296.87 user, 0.74 system, 298.46 elapsed -- Max VSize = 967808KB, Max RSS = 929504KB

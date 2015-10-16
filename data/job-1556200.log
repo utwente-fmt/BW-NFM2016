@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/rushhour.4.dve -rsc,bg,bcm --regroup-exit
+ctit029
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/rushhour.4.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bcm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's Cuthill McKee
+dve2lts-seq: Regrouping: 27->27 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.84 user, 0.06 system, 1.00 elapsed -- Max VSize = 38532KB, Max RSS = 5364KB

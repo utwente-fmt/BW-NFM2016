@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/SwimmingPool-7.pnml -rsc,tg,bs --regroup-exit
+ctit007
+pnml2lts-seq: Loading model from spec/PNML/SwimmingPool-7.pnml
+pnml2lts-seq: Petri net has 9 places, 7 transitions and 20 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/SwimmingPool-7.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: Regrouping: 7->7 groups
+pnml2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: max token count: 140
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 80KB

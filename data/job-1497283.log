@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/neoelection-7.unf.pnml -rsc,tg,vacm --regroup-exit
+ctit036
+pnml2lts-seq: Loading model from spec/PNML/neoelection-7.unf.pnml
+pnml2lts-seq: Petri net has 7128 places, 14112 transitions and 81968 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/neoelection-7.unf.pnml analyzed
+pnml2lts-seq: Loading Petri net took 2.690 real 2.500 user 0.170 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vacm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-seq: Regrouping: 14112->14112 groups
+pnml2lts-seq: Regrouping took 158.620 real 157.890 user 0.340 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+160.39 user, 0.59 system, 161.45 elapsed -- Max VSize = 599920KB, Max RSS = 561560KB

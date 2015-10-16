@@ -1,0 +1,18 @@
+statistics run
+dve2lts-seq spec/DVE/telephony.3.dve -rsc,bg,bs,mm --regroup-exit --graph-metrics
+ctit020
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/telephony.3.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bs,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's Sloan
+dve2lts-seq: bandwidth: 99
+dve2lts-seq: profile: 5512
+dve2lts-seq: span: 4455
+dve2lts-seq: average wavefront: 8.4957
+dve2lts-seq: RMS wavefront: 9.1062
+dve2lts-seq, ** error **: Got invalid permutation from boost. This may happen when the graph representation of the matrix has disconnected sub graphs. This needs to be fixed in boost. A bug report has been filed here: https://svn.boost.org/trac/boost/ticket/11355.
+Exit [255]
+1.27 user, 0.08 system, 1.40 elapsed -- Max VSize = 38240KB, Max RSS = 4680KB

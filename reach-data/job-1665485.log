@@ -1,0 +1,20 @@
+performance run
+pnml2lts-sym spec/PNML/PolyORB-LF-S02-J06-T08-unfolded.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit009
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/PolyORB-LF-S02-J06-T08-unfolded.pnml
+pnml2lts-sym: Petri net has 690 places, 1434 transitions and 6564 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/PolyORB-LF-S02-J06-T08-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.110 real 0.080 user 0.030 sys
+pnml2lts-sym: state vector length is 690; there are 1434 groups and 703 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1795.02 user, 0.36 system, 1801.02 elapsed -- Max VSize = 3675088KB, Max RSS = 787588KB
+command-128: line 5: 36708 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/PolyORB-LF-S02-J06-T08-unfolded.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1

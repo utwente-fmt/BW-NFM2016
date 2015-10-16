@@ -1,0 +1,28 @@
+performance run
+pnml2lts-sym spec/PNML/database20UNFOLD.pnml -rsc,bg,vacm,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit003
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/database20UNFOLD.pnml
+pnml2lts-sym: Petri net has 3260 places, 3200 transitions and 23200 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/database20UNFOLD.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.510 real 0.460 user 0.040 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,vacm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 3200->3200 groups
+pnml2lts-sym: Regrouping took 14.130 real 14.100 user 0.010 sys
+pnml2lts-sym: state vector length is 3260; there are 3200 groups and 3260 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 15145859 of 16777216 buckets filled!
+Exit [1]
+44.72 user, 0.60 system, 45.54 elapsed -- Max VSize = 3683360KB, Max RSS = 1039488KB

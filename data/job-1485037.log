@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/shared_memory-pt-50.pnml -rsc,tg,vgps,mm --regroup-exit --graph-metrics
+ctit025
+pnml2lts-seq: Loading model from spec/PNML/shared_memory-pt-50.pnml
+pnml2lts-seq: Petri net has 2651 places, 5050 transitions and 20000 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/shared_memory-pt-50.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.560 real 0.490 user 0.060 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: bandwidth: 16041
+pnml2lts-seq: profile: 295868186
+pnml2lts-seq: span: 398249729
+pnml2lts-seq: average wavefront: 8840.35116
+pnml2lts-seq: RMS wavefront: 9674.25495
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 5050->5050 groups
+pnml2lts-seq: Regrouping took 102.210 real 101.930 user 0.070 sys
+pnml2lts-seq: max token count: 1
+Event Span: 6965607
+Normalized Event Span: 0.52030484
+Weighted Event Span, moment 1 (WES^1): 13891085
+Normalized Weighted Event Span, moment 1: 1.0376122
+Exit [0]
+102.43 user, 0.15 system, 102.81 elapsed -- Max VSize = 123400KB, Max RSS = 85148KB

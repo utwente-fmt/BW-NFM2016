@@ -1,0 +1,34 @@
+statistics run
+pnml2lts-sym spec/PNML/PolyORB-LF-S04-J06-T10-unfolded.pnml -rsc,bg,vacm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit005
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/PolyORB-LF-S04-J06-T10-unfolded.pnml
+pnml2lts-sym: Petri net has 966 places, 5354 transitions and 36134 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/PolyORB-LF-S04-J06-T10-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.640 real 0.530 user 0.070 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,vacm,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-sym: bandwidth: 3481
+pnml2lts-sym: profile: 10973418
+pnml2lts-sym: span: 14827324
+pnml2lts-sym: average wavefront: 1202.9718
+pnml2lts-sym: RMS wavefront: 1581.9375
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 5354->5354 groups
+pnml2lts-sym: Regrouping took 13.140 real 13.100 user 0.010 sys
+pnml2lts-sym: state vector length is 966; there are 5354 groups and 985 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1797.03 user, 0.57 system, 1801.61 elapsed -- Max VSize = 3745076KB, Max RSS = 977092KB
+command-2168: line 5: 21889 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/PolyORB-LF-S04-J06-T10-unfolded.pnml -rsc,bg,vacm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

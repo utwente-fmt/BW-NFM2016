@@ -1,0 +1,28 @@
+performance run
+pnml2lts-sym spec/PNML/MAPK-320.pnml -rsc,bg,vgps,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit043
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/MAPK-320.pnml
+pnml2lts-sym: Petri net has 22 places, 30 transitions and 90 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/MAPK-320.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,vgps,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 30->30 groups
+pnml2lts-sym: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state vector length is 22; there are 30 groups and 22 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1791.78 user, 5.57 system, 1829.04 elapsed -- Max VSize = 3675064KB, Max RSS = 971320KB
+command-12605: line 5: 44489 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/MAPK-320.pnml -rsc,bg,vgps,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

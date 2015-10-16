@@ -1,0 +1,8 @@
+act a;
+
+proc
+	p(x:Bool, y:Bool, z:Bool) =
+		 a . p(x, z,!z)
+	;
+
+init p(true,true,false);

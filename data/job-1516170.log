@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/hanoi.4.dve -rsc,tg,bk --regroup-exit
+ctit012
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/hanoi.4.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,bk
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup Boost's King
+dve2lts-seq: Regrouping: 6->6 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.32 user, 0.08 system, 0.50 elapsed -- Max VSize = 38240KB, Max RSS = 4744KB

@@ -1,0 +1,874 @@
+/******* Modelo para validacion y verificacion de T.122 y T.125 *******/
+/*                                                                    */
+/*     18 Abril 1998                                                  */
+/*                                                                    */
+/*    Incluye                                                         */
+/*        - creacion de dominios mediante conexiones MCS              */
+/*        - asociacion de clientes de usuario a dominios              */
+/*        - version mas simplificada que las anteriores               */
+/*        - simplificacion de tamaños de estructuras                  */
+/*  Restricciones                                                     */
+/*    - un solo dominio                                               */
+/*    - conexiones mcs como canales globales ya creados, de forma que */
+/*       puedan inspeccionarse con never, usando el mismo criterio de */
+/*    - asignacion de identificadores de usuarios separados           */
+
+
+/* Definicion de tipos de mensajes */
+
+mtype = { 
+   mcs_connect_req, mcs_connect_ind, mcs_connect_res, mcs_connect_cnf,
+   mcs_attach_req, mcs_attach_cnf, mcs_detach_ind,
+   connect_initial, connect_response, new_mcs, 
+   pdin, edrq, pdum, mcrq, mccf,    
+   aurq, aucf, durq, duin, 
+   put_port, get_port, send}
+
+/* Constantes que definen el modelo y la propiedad */
+#include "smcs.def"
+
+#define __instances_controller NODOS
+#if NODOS == 2
+#define __instances_client 1
+#endif
+#if NODOS == 3
+#define __instances_client 2
+#endif
+#if NODOS == 4
+#define __instances_client 2
+#endif
+#define __instances_control NODOS
+#define __instances_domaind NODOS
+#define __instances_multiport_c NODOS
+#define __instances_multiport_d NODOS
+
+#if NODOS==2
+#define MAX_ALTURA         10
+#define CANALES_CONTROL    4
+#define CANALES_DOMINIOS   4
+#endif
+#if NODOS==3
+#define MAX_ALTURA         10
+#define CANALES_CONTROL    9
+#define CANALES_DOMINIOS   9
+#endif
+#if NODOS==4
+#define MAX_ALTURA         10
+#define CANALES_CONTROL    16
+#define CANALES_DOMINIOS   16
+#endif
+#if NODOS==5
+#define CANALES_CONTROL   25
+#define CANALES_DOMINIOS  25
+#define MAX_ALTURA         3
+#endif
+
+#define TOP                10  /* MODIF. 18-4-98 para facilitar suma */
+#define SLAVE              1
+
+#define CLOSED             0  /* tres valores para el extremo local de una conexion */
+#define DOWN               2
+#define UP                 3
+#define IN       0
+#define OUT      1
+#define REFUSED  0
+#define ACCEPTED 1
+
+/* variables y canales globales para usar en never                  */
+
+/* estos arrays los usan los multiplexores, creando ellos la topologia */
+chan cc[CANALES_CONTROL] = [2] of {mtype, byte};
+/*
+chan cd[CANALES_DOMINIOS] = [2] of {mtype, byte, byte, byte};
+*/
+chan cd[CANALES_DOMINIOS] = [NODOS] of {mtype, byte}; /* Modif. 12-3-98 Solo se envia un entero */
+
+chan controller_control0 = [2] of {mtype, byte, byte};
+chan control_controller0 = [2] of {mtype, byte, byte};
+chan domain_control0 = [2] of {mtype, byte, byte};
+chan control_domain0 = [NODOS] of {mtype, byte, byte};
+chan multiport_control0 = [2] of {byte, mtype, byte };
+chan control_multiport0 = [2] of {mtype, byte, byte, byte };
+chan multiport_domain0 = [NODOS] of {byte, mtype, byte };
+chan domain_multiport0 = [NODOS] of {mtype, byte, byte, byte};
+chan client_mcs0 = [2] of {mtype, byte};
+chan mcs_client0 = [2] of {mtype, byte};
+
+chan controller_control1 = [2] of {mtype, byte, byte};
+chan control_controller1 = [2] of {mtype, byte, byte};
+chan domain_control1 = [2] of {mtype, byte, byte};
+chan control_domain1 = [NODOS] of {mtype, byte, byte};
+chan multiport_control1 = [2] of {byte, mtype, byte };
+chan control_multiport1 = [2] of {mtype, byte, byte, byte };
+chan multiport_domain1 = [NODOS] of {byte, mtype, byte };
+chan domain_multiport1 = [NODOS] of {mtype, byte, byte, byte};
+chan client_mcs1 = [2] of {mtype, byte};
+chan mcs_client1 = [2] of {mtype, byte};
+
+#if NODOS > 2
+chan controller_control2 = [2] of {mtype, byte, byte};
+chan control_controller2 = [2] of {mtype, byte, byte};
+chan domain_control2 = [2] of {mtype, byte, byte};
+chan control_domain2 = [NODOS] of {mtype, byte, byte};
+chan multiport_control2 = [2] of {byte, mtype, byte };
+chan control_multiport2 = [2] of {mtype, byte, byte, byte };
+chan multiport_domain2 = [NODOS] of {byte, mtype, byte };
+chan domain_multiport2 = [NODOS] of {mtype, byte, byte, byte};
+chan client_mcs2 = [2] of {mtype, byte};
+chan mcs_client2 = [2] of {mtype, byte};
+#endif
+
+#if NODOS > 3
+chan controller_control3 = [2] of {mtype, byte, byte};
+chan control_controller3 = [2] of {mtype, byte, byte};
+chan domain_control3 = [2] of {mtype, byte, byte};
+chan control_domain3 = [NODOS] of {mtype, byte, byte};
+chan multiport_control3 = [2] of {byte, mtype, byte };
+chan control_multiport3 = [2] of {mtype, byte, byte, byte };
+chan multiport_domain3 = [NODOS] of {byte, mtype, byte };
+chan domain_multiport3 = [NODOS] of {mtype, byte, byte, byte};
+chan client_mcs3 = [2] of {mtype, byte};
+chan mcs_client3 = [2] of {mtype, byte};
+#endif
+
+/*
+chan multiport_domain[NODOS] = [3] of {byte, mtype, byte, byte, byte };
+chan domain_multiport[NODOS] = [3] of {mtype, byte, byte, byte, byte, byte };
+*/
+
+ /* Estos se rellenan con nombres concretos para cada prueba */
+
+byte top[NODOS];    /* flags para usar en never */
+byte up[NODOS];     /* address hacia el TOP (posicion up en conn[up_conn] */
+byte altura[NODOS]; /* la mayor altura para cada nodo */
+byte userid[NODOS]; /* el user id de cada cliente, suponiendo uno por nodo */
+byte next_userid[NODOS];        /* para asignar userid si es top */ 
+chan aurqs[NODOS] = [NODOS] of {byte};    /* para direcciones de vuelta */
+chan mcrqs[NODOS] = [NODOS] of {byte};    /*   idem */
+byte expected_mccfs[NODOS];     /* para finalizar merging */
+chan used_ids[NODOS] = [NODOS] of {byte}; /* inf. base del top   */
+bit merging[NODOS];
+chan save_aurqs[NODOS] = [NODOS] of {byte};
+
+
+byte any1;   /* para completar canales */ 
+
+/************* controller() ******************************************/
+/* Envia o espera peticiones de conexion */
+/* No desconecta. Se le pasan las listas como canales */
+
+
+proctype controller (chan in1, out, activ)
+{
+  byte address, upward;
+
+end_controller:
+work:
+
+  /* se impone un orden de conexiones para evitar mensajes edrq y pdin 
+     de dos proveedores simultaneamente en la red
+  */
+
+  if
+
+  :: activ ? address, upward -> 
+      atomic{
+	  printf("REQUEST MCS CONNECTION TO %d\n", address);
+	  out ! mcs_connect_req(address, upward);
+	  goto wait_cnf;
+	}
+
+  :: in1 ? mcs_connect_ind(address, upward) ->
+	atomic{
+	  if
+	  :: out ! mcs_connect_res(address, ACCEPTED)
+	/*  :: out ! mcs_connect_res(address, REFUSED) */
+	  fi;
+	  goto work
+	}
+  fi;
+
+wait_cnf:
+  if
+  :: in1 ? mcs_connect_cnf(address, ACCEPTED) -> 
+	 printf("MCS CONNECTION FROM %d\n", address)
+
+  :: in1 ? mcs_connect_cnf(address, REFUSED) -> 
+	 printf("REFUSED MCS CONNECTION FROM %d\n", address)
+
+  :: in1 ? mcs_connect_ind(address, upward) ->
+	  if
+	  :: out ! mcs_connect_res(address, ACCEPTED)
+	  :: out ! mcs_connect_res(address, REFUSED)
+	  fi;
+  fi;
+  goto work
+}
+  
+/**************** client() *******************************************/
+proctype client(chan in1, out; byte nodo)
+{
+  byte id;
+
+  /* espera a que el provider deje de ser top */
+end_client0:
+  top[nodo] == SLAVE /* && altura[0] == 4 */ ->
+
+attach:
+
+  if
+  :: out ! mcs_attach_req(any1) -> goto wait_userid 
+  :: in1 ? mcs_detach_ind(id) -> goto attach
+  fi;
+
+wait_userid:
+  if
+  :: in1 ? mcs_attach_cnf(id) -> 
+	atomic{
+	 if
+	 :: id > 0 ->
+	      userid[nodo] = id;
+	      goto end_client1
+	 :: else ->
+	      printf("CLIENT ATTACHMENT REFUSED \n");
+	      goto end_client2
+	 fi
+	}
+  :: in1 ? mcs_detach_ind(id) ->  goto wait_userid
+  fi;
+  
+end_client1:
+  in1 ? mcs_detach_ind(id) ->
+	atomic{ 
+	 if
+	 :: id == userid[nodo] -> goto end_client2
+	 :: else -> goto end_client1
+	 fi
+	};
+end_client2:
+  skip
+}
+
+
+
+/************** control() ********************************************/
+proctype control(chan from_controller, to_controller, from_domain, 
+		 to_domain, from_control, to_control)
+{
+       
+   /* para peticiones pendientes, suponiendo una conexion por destino */
+   byte local_upward[NODOS];
+
+   /* variables auxiliares */
+   byte address, upward;
+    
+ 
+end_control:
+   do
+   :: from_controller ? mcs_connect_req(address, upward) ->
+      d_step{ 
+       if
+       :: upward == UP ->     /* extremo local es UP */
+	  to_control ! send(address, connect_initial, DOWN);
+       :: upward == DOWN ->
+	  to_control ! send(address, connect_initial, UP)
+       fi;
+       local_upward[address] = upward
+       }
+    
+   :: from_controller ? mcs_connect_res(address, ACCEPTED); 
+       d_step{
+	to_control ! send(address, connect_response, ACCEPTED);
+        to_domain ! new_mcs(address, local_upward[address])
+	}
+   :: from_controller ? mcs_connect_res(address, REFUSED); 
+       to_control ! send(address, connect_response, REFUSED)
+ 
+   :: from_control ? address, connect_initial, upward ->
+	d_step{
+       to_controller ! mcs_connect_ind(address, upward);
+       local_upward[address] = upward
+	}
+   :: from_control ? address, connect_response, ACCEPTED -> 
+	d_step{
+       to_controller ! mcs_connect_cnf(address, ACCEPTED);
+       to_domain ! new_mcs(address, local_upward[address]);
+	}
+   :: from_control ? address, connect_response, REFUSED -> 
+       to_controller ! mcs_connect_cnf(address, REFUSED);     
+   od
+}
+
+
+/************* domain() **********************************************/
+
+/* 21-5 Control de altura maxima y deteccion de bucles               */
+
+proctype domaind(chan from_control, to_control, from_client, to_client,
+		      from_domain, to_domain; byte did)
+{
+   
+   byte conn[NODOS];  /* extremo local de conexion con otro: down, up, closed */  
+   byte h[NODOS];     /* altura conocida de cada subarbol para extremos UP  */
+
+  /* chan t1, t2; */
+   byte i, j, address, upward, height, result;
+ 
+ d_step
+   {
+     top[did] = TOP;    /* cualquiera es TOP por defecto     */
+     altura[did] = 1;   /* altura del subarbol mas largo + 1 */
+     next_userid[did] = 10 *(did+1);  /* rangos diferentes para evitar mezcla */
+     merging[did] = 0;  /* no tiene que salvar aurqs */
+
+     i = 0;
+     do
+     :: i == NODOS -> break
+     :: i < NODOS  -> conn[i] = CLOSED; h[i] = 0; i++
+     od
+   } 
+  
+   /* Inicializacion */
+/*   d_step
+   {
+      i = 0;
+     do
+     :: i == NODOS -> break
+     :: i < NODOS  -> conn[i] = CLOSED; h[i] = 0; i++
+     od
+   } 
+*/     
+end_domain:
+   do
+
+/*               ***********  new_mcs  *************                               */
+
+   :: from_control ? new_mcs(address, upward) ->
+	/*atomic{*/
+	  conn[address] = upward; /* extremo local */
+	  if
+	  :: upward == UP -> 
+	     /* espera informacion del subarbol en la mezcla */
+	     skip
+	  :: upward == DOWN /*&& top[did] == TOP no es necesario */-> 
+
+	      /* mezcla iniciada en extremo down */
+	      /* tiene que dejar de atender aurq hasta que se confirmen 
+                  o purgen los userids en el domio que dependia del nodo */
+	     
+                merging[did] = 1;
+		top[did] = SLAVE;
+		up[did] = address;
+	       
+		/* inicial plumb de los sub-arboles inferiores */
+		i = 0;
+		do
+		:: i == NODOS -> break
+		:: i < NODOS ->
+		   if
+		   :: conn[i] == UP -> 
+plumb:			to_domain ! send(i, pdin, MAX_ALTURA)
+		   :: else -> skip 
+		   fi;
+		   i++
+		od;
+
+	       /* comunica su altura actual hacia arriba */
+erect: 
+		atomic{
+			to_domain ! send(up[did], edrq, altura[did]);
+        	        i = len(used_ids[did]);
+		}
+
+/* 16-4-98 se inlcuye mcrq y mccf para que top conozca los identificadores de
+  abajo (aunque sean distintos). Cuando se reciben todos los mccf se acaba
+  la mezcla y se procesan los aurqs pendientes
+*/
+mezcla:
+	atomic{
+		expected_mccfs[did] = i;
+		if
+		:: i == 0 -> merging[did] = 0
+		:: else ->
+			do
+			:: i == 0 -> break
+			:: else ->
+	       	           used_ids[did] ? j; used_ids[did] ! j;    
+			   to_domain ! send(up[did], mcrq, j);
+			   mcrqs[did] ! did;
+			   i--;		
+			od;
+    		fi      
+	  }      
+	      
+	  :: upward == DOWN && top[did] == SLAVE -> assert(0) /* error*/
+
+	  fi
+	
+
+/*               ***********   pdin  *************                               */
+
+   :: from_domain ? [address, pdin, height] /*&& conn[address] == DOWN */->
+recv_pdin:
+	d_step{
+	  from_domain ? address, pdin, height;
+
+	  if
+	  :: height == 0 ->
+		/* el proveedor esta demasiado lejos de TOP, y desconecta ??*/
+		/* es el mismo caso que la deteccion de bucles */
+                printf("CYCLE DETECTE BY pdin in1 node %d\n", did);
+		assert(0)
+	
+	  :: height > 0  ->
+			     
+		/* continua plumb de los subarboles inferiores */
+	       		
+		height --;
+		i = 0;
+		do
+		:: i == NODOS -> break
+		:: i < NODOS ->
+		   if
+		   :: conn[i] == UP -> to_domain ! send(i, pdin, height) 
+		   :: else -> skip
+		   fi;
+		   i++
+		od
+	    	  fi
+	}
+/*               ***********   edrq  *************                               */
+
+/* hay que salvar edrq de subarbol si este nodo esta en mezcla ?? */
+
+   :: from_domain ? address, edrq, height /*&& conn[address] == UP */->  /* lee address con ? para el segundo test ?? */
+
+recv_edrq:
+	d_step{
+	 /* actualizar altura y reenviar edrq */
+	  if
+	  :: h[address] == height   -> skip /* no hay cambio en altura registrata para el subarbol */   
+	  :: else                   ->      /* puede haber cambio en altura[did] */
+	     
+		h[address] = height; i = 0; j = h[i];
+		do
+		:: i == NODOS -> break
+		:: i < NODOS ->
+		   if
+		   :: h[i] > j -> j = h[i] 
+		   :: else -> i++
+		   fi;
+		od;
+		if
+		:: altura[did] != (j+1) && top[did] == SLAVE -> 
+			to_domain ! send(up[did], edrq, (j+1))
+		:: else -> skip
+		fi;
+		altura[did] = j + 1
+		/* provoca que se supere la altura permitida !! */            
+	  fi
+	}
+/*               ***********   mcrq  *************                               */
+
+/* hay que salvar mcrq de subarbol si este nodo esta en mezcla ?? */
+
+   :: from_domain ? address, mcrq, i /*&& conn[address] == UP */->  
+	d_step{	 
+	if
+	:: top[did] == TOP ->
+		used_ids[did] ! i;  /* informacion local, aunque cliente remoto */
+		to_domain ! send(address, mccf, i)
+	:: else ->
+		mcrqs[did] ! address;
+		to_domain ! send(up[did], mcrq, i)
+	fi
+	}
+
+/*               ***********   mccf  *************                               */
+
+   :: from_domain ? address, mccf, i /*&& conn[address] == DOWN */->  
+	 
+read_mccf:
+	d_step{
+	mcrqs[did] ? address;  /* FIFO */ 
+	if
+	:: address == did ->
+		if
+		:: expected_mccfs[did] == 1 ->
+			 merging[did] = 0;
+			/* sigue procesando los aurqs salvados */	
+			do
+			:: len(save_aurqs[did]) > 0 ->
+				save_aurqs[did] ? address;
+				aurqs[did] ! address;
+				to_domain ! send(up[did], aurq, any1)
+			:: else -> skip
+			od
+		:: expected_mccfs[did] == 0 -> assert(0)
+		:: else -> skip
+		fi;
+		expected_mccfs[did]--;
+	:: else ->
+		to_domain ! send(address, mccf, i)
+	fi
+	}
+    
+/*               ******* mcs_attach_req **********/
+/*   :: from_client ? [mcs_attach_req(any1)] && top[did] == SLAVE ->  produce bloqueo */
+   :: from_client ? [mcs_attach_req(any1)] && top[did] == SLAVE && !(merging[did]) ->
+	d_step{
+	  from_client ? mcs_attach_req(any1);
+	  to_domain ! send(up[did], aurq,any1);
+	  aurqs[did] ! did  
+	}
+/*               ***********   aurq  *************                               */
+
+   :: from_domain ? [address, aurq, any1] /*&& conn[address] == UP */ -> 
+	d_step{ 
+	from_domain ? address, aurq, any1; 
+	if
+        :: merging[did] == 1 -> save_aurqs[did] ! address  
+        :: else ->
+          if
+	  :: top[did] == TOP ->
+		to_domain ! send(address, aucf, next_userid[did]);
+		used_ids[did] ! next_userid[did];
+		next_userid[did] ++
+	  :: else ->
+		aurqs[did] ! address;
+		to_domain ! send(up[did], aurq, any1)
+	  fi
+        fi
+	}
+/*               ***********   aucf  *************                               */
+
+   :: from_domain ? [address, aucf, result] /*&& conn[address] == DOWN */->  
+read_aucf:
+	d_step{
+	  from_domain ? address, aucf, result;
+	  aurqs[did] ? address;  /* FIFO */ 
+	  if
+	  :: address == did ->
+		to_client ! mcs_attach_cnf(result);
+	  :: else ->
+		to_domain ! send(address, aucf, result)
+	  fi
+	}
+
+   od
+}
+
+
+/******** procesos auxiliares **************************************/
+/* multiport para NODOS entradas de control*/
+
+proctype multiport_c(byte id; chan in1, out)
+{
+   byte ci[NODOS];
+   byte co[NODOS];
+   
+   byte j, d1, d2;
+
+   /* obtencion de los indices para canales id --> j y j --> id */
+   d_step {
+   j = 0; 
+   do
+   :: j == NODOS -> break
+   :: j < NODOS ->
+      ci[j] = NODOS*j + id; co[j] = NODOS*id + j; j++
+   od
+   }
+       
+
+end_multiportc:
+#if NODOS==2
+   do
+   :: atomic{ in1 ? send(j,d1,d2) -> cc[co[j]] ! d1,d2}
+   :: atomic{ cc[ci[0]] ? d1, d2 -> out ! 0,d1,d2}
+   :: atomic{ cc[ci[1]] ? d1, d2 -> out ! 1,d1,d2}
+   od
+#endif
+#if NODOS==3
+   do
+   :: atomic{ in1 ? send(j,d1,d2) -> cc[co[j]] ! d1,d2}
+   :: atomic{ cc[ci[0]] ? d1, d2 -> out ! 0,d1,d2}
+   :: atomic{ cc[ci[1]] ? d1, d2 -> out ! 1,d1,d2}
+   :: atomic{ cc[ci[2]] ? d1, d2 -> out ! 2,d1,d2}
+   od
+#endif
+#if NODOS==4
+   do
+   :: atomic{ in1 ? send(j,d1,d2) -> cc[co[j]] ! d1,d2}
+   :: atomic{ cc[ci[0]] ? d1, d2 -> out ! 0,d1,d2}
+   :: atomic{ cc[ci[1]] ? d1, d2 -> out ! 1,d1,d2}
+   :: atomic{ cc[ci[2]] ? d1, d2 -> out ! 2,d1,d2}
+   :: atomic{ cc[ci[3]] ? d1, d2 -> out ! 3,d1,d2}
+   od
+#endif
+#if NODOS==5
+   do
+   :: atomic{ in1 ? send(j,d1,d2) -> cc[co[j]] ! d1,d2}
+   :: atomic{ cc[ci[0]] ? d1, d2 -> out ! 0,d1,d2}
+   :: atomic{ cc[ci[1]] ? d1, d2 -> out ! 1,d1,d2}
+   :: atomic{ cc[ci[2]] ? d1, d2 -> out ! 2,d1,d2}
+   :: atomic{ cc[ci[3]] ? d1, d2 -> out ! 3,d1,d2}
+   :: atomic{ cc[ci[4]] ? d1, d2 -> out ! 4,d1,d2}
+   od
+#endif
+}
+/* multiport para NODOS entradas de conexiones MCS */
+
+proctype multiport_d(byte id; chan in1, out)
+{
+   byte ci[NODOS];
+   byte co[NODOS];
+   
+   byte j, d1, d2;
+
+   /* obtencion de los indices para canales id --> j y j --> id */
+   d_step {
+   j = 0; 
+   do
+   :: j == NODOS -> break
+   :: j < NODOS ->
+      ci[j] = NODOS*j + id; co[j] = NODOS*id + j; j++
+   od
+   }
+       
+
+end_multiportd: 
+
+#if NODOS == 2 
+   do
+   :: atomic{ in1 ? send(j,d1,d2) -> cd[co[j]] ! d1,d2}
+   :: atomic{ cd[ci[0]] ? d1, d2 -> out ! 0,d1,d2}
+   :: atomic{ cd[ci[1]] ? d1, d2 -> out ! 1,d1,d2}
+   od
+#endif
+#if NODOS == 3 
+   do
+   :: atomic{ in1 ? send(j,d1,d2) -> cd[co[j]] ! d1,d2}
+   :: atomic{ cd[ci[0]] ? d1, d2 -> out ! 0,d1,d2}
+   :: atomic{ cd[ci[1]] ? d1, d2 -> out ! 1,d1,d2}
+   :: atomic{ cd[ci[2]] ? d1, d2 -> out ! 2,d1,d2}
+   od
+#endif
+#if NODOS == 4 
+   do
+   :: atomic{ in1 ? send(j,d1,d2) -> cd[co[j]] ! d1,d2}
+   :: atomic{ cd[ci[0]] ? d1, d2 -> out ! 0,d1,d2}
+   :: atomic{ cd[ci[1]] ? d1, d2 -> out ! 1,d1,d2}
+   :: atomic{ cd[ci[2]] ? d1, d2 -> out ! 2,d1,d2}
+   :: atomic{ cd[ci[3]] ? d1, d2 -> out ! 3,d1,d2}
+   od
+#endif
+#if NODOS == 5 
+   do
+   :: atomic{ in1 ? send(j,d1,d2) -> cd[co[j]] ! d1,d2}
+   :: atomic{ cd[ci[0]] ? d1, d2 -> out ! 0,d1,d2}
+   :: atomic{ cd[ci[1]] ? d1, d2 -> out ! 1,d1,d2}
+   :: atomic{ cd[ci[2]] ? d1, d2 -> out ! 2,d1,d2}
+   :: atomic{ cd[ci[3]] ? d1, d2 -> out ! 3,d1,d2}
+   :: atomic{ cd[ci[4]] ? d1, d2 -> out ! 4,d1,d2}
+   od
+#endif
+}
+
+
+/* 14-4-98 Definicion de proposiciones para formulas LTL y OBSERVADORES*/
+#include "smcs.pred"
+
+#include "never"
+		
+/***** configuracion inicial ****************************************/
+/*                                                                  */
+/*  para crear la topologia de un solo dominio                      */
+/*                                                                  */
+/*    marcados los que inician las conexiones mcs                   */
+
+/*    NODOS = 3                                                     */
+/*                 [nodo0*]                                         */
+/*           --------|                                              */
+/*          |                                                       */
+/*       [nodo1]                                                    */
+/*          |                                                       */
+/*          |                                                       */
+/*       [nodo2*]                                                   */
+/*                                                                  */
+/*    NODOS = 4                                                     */
+/*                 [nodo0*]                                         */
+/*           --------|--------                                      */
+/*          |                 |                                     */
+/*       [nodo1]           [nodo2*]                                 */
+/*          |                                                       */
+/*          |                                                       */
+/*       [nodo3*]                                                   */
+/*                                                                  */
+/*                                                                  */
+/*                                                                  */
+/*    NODOS = 5                                                     */
+/*                 [nodo0*]                                         */
+/*           --------|--------                                      */
+/*          |                 |                                     */
+/*       [nodo1]           [nodo5]                                  */
+/*          |                                                       */
+/*          |                                                       */
+/*       [nodo2*]                                                   */
+/*          |                                                       */
+/*          |                                                       */
+/*      ----------                                                  */
+/*     |          |                                                 */
+/*   [nodo3]   [nodo4]                                              */
+
+init
+{
+
+
+   chan connect0 = [4] of {byte, byte};
+   chan connect1 = [4] of {byte, byte};
+#if NODOS > 2
+   chan connect2 = [4] of {byte, byte};
+#endif
+#if NODOS > 3
+   chan connect3 = [4] of {byte, byte};
+#endif
+   
+   byte i;
+
+atomic{
+#if NOTACION == OBS
+  run observer();
+#endif
+
+   /***************** Inicializacion de todas las variables antes de crear los procesos ************/  
+
+   /* Listas de conexiones a efectuar */ 
+     i= 0;
+     do
+     :: i == NODOS-> break
+     :: else -> merging[i] = 0; i++
+     od;
+
+#if NODOS == 2
+     connect1 ! 0, DOWN; 
+#endif
+
+#if NODOS == 3
+     connect0 ! 1, UP; 
+     connect2 ! 1, DOWN;  
+#endif
+#if NODOS == 4
+     connect0 ! 1, UP; 
+     connect2 ! 0, DOWN;
+     connect3 ! 1, DOWN;
+#endif
+
+
+#if NODOS == 5
+     connect[0] ! 1, UP; 
+     connect[2] ! 3, UP;
+     connect[2] ! 4, UP;
+     connect[2] ! 1, DOWN;
+
+   /*  connect[4] ! 0, UP;   genera bucle */   
+#endif
+
+   /* variables globales empleadas */
+
+     i = 0;
+
+     do
+     :: i == NODOS -> break
+     :: i < NODOS ->
+	     	top[i] = TOP;    /* cualquiera es TOP por defecto     */
+		up[i] = 255;     /* nodo inexistente */
+     		altura[i] = 1;   /* altura del subarbol mas largo + 1 */
+     		next_userid[i] = 10 *(i+1);  /* rangos diferentes para evitar mezcla */
+     		merging[i] = 0;  /* no tiene que salvar aurqs */
+		i++
+     od;
+
+   /********************************* creacion de procesos *************************************/
+   /* control y controller en cada nodo */
+
+     i = 0;
+
+       run controller(control_controller0, controller_control0, connect0);
+       run control(controller_control0, control_controller0, 
+		   domain_control0, control_domain0, 
+		   multiport_control0, control_multiport0);
+       run multiport_c(i, control_multiport0, multiport_control0);
+       i++;
+       run controller(control_controller1, controller_control1, connect1);
+       run control(controller_control1, control_controller1, 
+           domain_control1, control_domain1, 
+           multiport_control1, control_multiport1);
+       run multiport_c(i, control_multiport1, multiport_control1);
+       i++;
+#if NODOS > 2
+       run controller(control_controller2, controller_control2, connect2);
+       run control(controller_control2, control_controller2, 
+           domain_control2, control_domain2, 
+           multiport_control2, control_multiport2);
+       run multiport_c(i, control_multiport2, multiport_control2);
+       i++;
+#endif
+#if NODOS > 3
+       run controller(control_controller3, controller_control3, connect3);
+       run control(controller_control3, control_controller3, 
+           domain_control3, control_domain3, 
+           multiport_control3, control_multiport3);
+       run multiport_c(i, control_multiport3, multiport_control3);
+       i++;
+#endif
+
+    i = 0;
+       run multiport_d(i, domain_multiport0, multiport_domain0);
+       run domaind(control_domain0, domain_control0, 
+           client_mcs0, mcs_client0,
+            multiport_domain0, domain_multiport0, i);
+        i++;
+       run multiport_d(i, domain_multiport1, multiport_domain1);
+       run domaind(control_domain1, domain_control1, 
+           client_mcs1, mcs_client1,
+            multiport_domain1, domain_multiport1, i);
+        i++;
+#if NODOS > 2
+       run multiport_d(i, domain_multiport2, multiport_domain2);
+       run domaind(control_domain2, domain_control2, 
+           client_mcs2, mcs_client2,
+            multiport_domain2, domain_multiport2, i);
+        i++;
+#endif
+#if NODOS > 3
+       run multiport_d(i, domain_multiport3, multiport_domain3);
+       run domaind(control_domain3, domain_control3, 
+           client_mcs3, mcs_client3,
+            multiport_domain3, domain_multiport3, i);
+        i++;
+#endif
+
+  /* creacion de clientes y relleno de canales  */
+#if NODOS == 2
+     run client(mcs_client1, client_mcs1, 1);
+#endif
+#if NODOS == 3
+     run client(mcs_client1, client_mcs1, 1);
+     run client(mcs_client2, client_mcs2, 2)
+#endif
+#if NODOS == 4
+     run client(mcs_client3, client_mcs3, 3);  
+     run client(mcs_client2, client_mcs2, 2)
+#endif
+#if NODOS == 5
+     run client(mcs_client[3], client_mcs[3], 3);
+     run client(mcs_client[4], client_mcs[4], 4);   
+     run client(mcs_client[2], client_mcs[2], 2)
+#endif
+#ifdef SMCS
+
+#endif
+    }
+
+}
+

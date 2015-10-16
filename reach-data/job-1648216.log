@@ -1,0 +1,34 @@
+statistics run
+pnml2lts-sym spec/PNML/neoelection-6.unf.pnml -rsc,tg,bs,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit033
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/neoelection-6.unf.pnml
+pnml2lts-sym: Petri net has 4830 places, 8435 transitions and 49028 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/neoelection-6.unf.pnml analyzed
+pnml2lts-sym: Loading Petri net took 1.230 real 1.140 user 0.090 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's Sloan
+pnml2lts-sym: bandwidth: 58863
+pnml2lts-sym: profile: 323978552
+pnml2lts-sym: span: 335264622
+pnml2lts-sym: average wavefront: 536.463148
+pnml2lts-sym: RMS wavefront: 611.4009076
+*** segmentation fault ***
+
+Please send information on how to reproduce this problem to: 
+         ltsmin-support@lists.utwente.nl
+along with all output preceding this message.
+In addition, include the following information:
+Package: ltsmin 2.2beta
+Stack trace:
+Killed [11]
+1371.16 user, 0.39 system, 1376.55 elapsed -- Max VSize = 2845576KB, Max RSS = 217852KB
+memtime: child died with signal 11, aborting.
+command-4636: line 5:   824 Aborted                 memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/neoelection-6.unf.pnml -rsc,tg,bs,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

@@ -1,0 +1,14 @@
+performance run
+prom2lts-seq spec/Promela/leader_filters.5.prom.spins -rsc,tg,bcm --regroup-exit
+ctit014
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/leader_filters.5.prom.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,tg,bcm
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup Total graph
+prom2lts-seq: Regroup Boost's Cuthill McKee
+prom2lts-seq: Regrouping: 55->55 groups
+prom2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

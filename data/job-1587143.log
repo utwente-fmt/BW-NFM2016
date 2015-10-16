@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/shared_memory-pt-100.pnml -rsc,tg,bk --regroup-exit
+ctit029
+pnml2lts-seq: Loading model from spec/PNML/shared_memory-pt-100.pnml
+pnml2lts-seq: Petri net has 10301 places, 20100 transitions and 80000 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/shared_memory-pt-100.pnml analyzed
+pnml2lts-seq: Loading Petri net took 5.500 real 5.170 user 0.300 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bk
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's King
+pnml2lts-seq: Regrouping: 20100->20100 groups
+pnml2lts-seq: Regrouping took 16.950 real 16.220 user 0.700 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+21.40 user, 1.12 system, 22.62 elapsed -- Max VSize = 1158052KB, Max RSS = 1119652KB

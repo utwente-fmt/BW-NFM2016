@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/TokenRing-40-unfolded.pnml -rsc,tg,vcm --regroup-exit
+ctit004
+pnml2lts-seq: Loading model from spec/PNML/TokenRing-40-unfolded.pnml
+pnml2lts-seq: Petri net has 1681 places, 65641 transitions and 262564 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/TokenRing-40-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 6.470 real 5.650 user 0.790 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vcm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Cuthill McKee
+pnml2lts-seq: Regrouping: 65641->65641 groups
+pnml2lts-seq: Regrouping took 16.760 real 16.510 user 0.200 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+22.17 user, 1.07 system, 23.33 elapsed -- Max VSize = 761024KB, Max RSS = 722832KB

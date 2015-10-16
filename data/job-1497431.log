@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/philo_dyn-20-unfolded.pnml -rsc,tg,bs --regroup-exit
+ctit024
+pnml2lts-seq: Loading model from spec/PNML/philo_dyn-20-unfolded.pnml
+pnml2lts-seq: Petri net has 540 places, 17220 transitions and 140780 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/philo_dyn-20-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 1.900 real 1.650 user 0.230 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: Regrouping: 17220->17220 groups
+pnml2lts-seq: Regrouping took 2051.380 real 2045.770 user 1.130 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+2047.43 user, 1.37 system, 2053.36 elapsed -- Max VSize = 328204KB, Max RSS = 289836KB

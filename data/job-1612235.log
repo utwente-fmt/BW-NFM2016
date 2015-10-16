@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/raft_09.pnml -rsc,tg,vgps --regroup-exit
+ctit003
+pnml2lts-seq: Loading model from spec/PNML/raft_09.pnml
+pnml2lts-seq: Petri net has 413 places, 710 transitions and 2728 arcs
+pnml2lts-seq: There are 413 safe places
+pnml2lts-seq: Petri net spec/PNML/raft_09.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.030 real 0.020 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: Regrouping: 710->710 groups
+pnml2lts-seq: Regrouping took 1.400 real 1.390 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+1.42 user, 0.01 system, 1.50 elapsed -- Max VSize = 49200KB, Max RSS = 10728KB

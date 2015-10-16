@@ -1,0 +1,28 @@
+performance run
+pnml2lts-sym spec/PNML/PolyORB-LF-S04-J04-T06-unfolded.pnml -rsc,bg,vcm,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit032
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/PolyORB-LF-S04-J04-T06-unfolded.pnml
+pnml2lts-sym: Petri net has 554 places, 2998 transitions and 20754 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/PolyORB-LF-S04-J04-T06-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.300 real 0.240 user 0.060 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,vcm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup ViennaCL's Cuthill McKee
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 2998->2998 groups
+pnml2lts-sym: Regrouping took 0.110 real 0.100 user 0.000 sys
+pnml2lts-sym: state vector length is 554; there are 2998 groups and 573 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1794.18 user, 0.50 system, 1803.05 elapsed -- Max VSize = 3676656KB, Max RSS = 836584KB
+command-7668: line 5: 64344 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/PolyORB-LF-S04-J04-T06-unfolded.pnml -rsc,bg,vcm,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

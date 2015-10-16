@@ -1,0 +1,23 @@
+statistics run
+pnml2lts-sym spec/PNML/database40UNFOLD.pnml -rsc,tg,bk,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit037
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/database40UNFOLD.pnml
+pnml2lts-sym: Petri net has 12920 places, 12800 transitions and 156800 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/database40UNFOLD.pnml analyzed
+pnml2lts-sym: Loading Petri net took 5.110 real 4.720 user 0.350 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bk,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's King
+pnml2lts-sym: bandwidth: 132766
+pnml2lts-sym: profile: 12537053579
+pnml2lts-sym: span: 13816307562
+Killed [24]
+1795.81 user, 0.86 system, 1805.16 elapsed -- Max VSize = 3244552KB, Max RSS = 567868KB
+command-3915: line 5: 34676 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/database40UNFOLD.pnml -rsc,tg,bk,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

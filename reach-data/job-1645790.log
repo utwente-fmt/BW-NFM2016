@@ -1,0 +1,38 @@
+statistics run
+pnml2lts-sym spec/PNML/PolyORB-LF-S06-J04-T08-unfolded.pnml -rsc,bn,rs,mm,hf --noack=1 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit043
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/PolyORB-LF-S06-J04-T08-unfolded.pnml
+pnml2lts-sym: Petri net has 810 places, 14014 transitions and 118428 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/PolyORB-LF-S06-J04-T08-unfolded.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 7.200 real 7.140 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 9.180 real 8.890 user 0.230 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 14767
+pnml2lts-sym: profile: 109282030
+pnml2lts-sym: span: 8080892
+pnml2lts-sym: average wavefront: 649.016932
+pnml2lts-sym: RMS wavefront: 675.762295
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 14014->14014 groups
+pnml2lts-sym: Regrouping took 20.740 real 20.660 user 0.000 sys
+pnml2lts-sym: state vector length is 810; there are 14014 groups and 835 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Event Span: 753390
+Normalized Event Span: 0.066370138
+Weighted Event Span, moment 1 (WES^1): 1386731.4
+Normalized Weighted Event Span, moment 1: 0.12216455
+Exit [1]
+29.56 user, 0.28 system, 30.03 elapsed -- Max VSize = 2888800KB, Max RSS = 280108KB

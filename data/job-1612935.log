@@ -1,0 +1,14 @@
+performance run
+prom2lts-seq spec/Promela/X.509.prm.spins -rsc,tg,bs --regroup-exit
+ctit043
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/X.509.prm.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,tg,bs
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup Total graph
+prom2lts-seq: Regroup Boost's Sloan
+prom2lts-seq: Regrouping: 58->58 groups
+prom2lts-seq: Regrouping took 0.010 real 0.010 user 0.000 sys
+Exit [0]
+0.01 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

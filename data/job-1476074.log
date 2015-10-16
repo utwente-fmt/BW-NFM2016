@@ -1,0 +1,18 @@
+statistics run
+dve2lts-seq spec/DVE/brp.4.dve -rsc,bg,bs,mm --regroup-exit --graph-metrics
+ctit018
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/brp.4.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bs,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's Sloan
+dve2lts-seq: bandwidth: 49
+dve2lts-seq: profile: 1353
+dve2lts-seq: span: 1101
+dve2lts-seq: average wavefront: 7
+dve2lts-seq: RMS wavefront: 7.778
+dve2lts-seq, ** error **: Got invalid permutation from boost. This may happen when the graph representation of the matrix has disconnected sub graphs. This needs to be fixed in boost. A bug report has been filed here: https://svn.boost.org/trac/boost/ticket/11355.
+Exit [255]
+0.66 user, 0.07 system, 0.80 elapsed -- Max VSize = 38240KB, Max RSS = 4752KB

@@ -1,0 +1,15 @@
+performance run
+pnml2lts-seq spec/PNML/railroad-100-pt.pnml --noack=1 --regroup-exit --graph-metrics
+ctit020
+pnml2lts-seq: Loading model from spec/PNML/railroad-100-pt.pnml
+pnml2lts-seq: Petri net has 1018 places, 10506 transitions and 62728 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/railroad-100-pt.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 1.200 real 1.190 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 1.910 real 1.850 user 0.040 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+Killed [24]
+3596.49 user, 0.26 system, 3604.64 elapsed -- Max VSize = 153616KB, Max RSS = 116176KB
+command-86545: line 5:  5095 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/railroad-100-pt.pnml --noack=1 --regroup-exit --graph-metrics

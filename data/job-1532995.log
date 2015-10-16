@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/Philosophers-5000.pnml -rsc,tg,vacm --regroup-exit
+ctit034
+pnml2lts-seq: Loading model from spec/PNML/Philosophers-5000.pnml
+pnml2lts-seq: Petri net has 25000 places, 25000 transitions and 80000 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/Philosophers-5000.pnml analyzed
+pnml2lts-seq: Loading Petri net took 13.240 real 12.840 user 0.320 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vacm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-seq: Regrouping: 25000->25000 groups
+pnml2lts-seq: Regrouping took 3563.540 real 3555.330 user 2.040 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+3568.18 user, 2.63 system, 3577.15 elapsed -- Max VSize = 3379668KB, Max RSS = 3341272KB

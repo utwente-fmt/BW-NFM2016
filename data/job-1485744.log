@@ -1,0 +1,23 @@
+statistics run
+prom2lts-seq spec/Promela/p104.2.pml.spins -rsc,bn,mm --regroup-exit --graph-metrics
+ctit036
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/p104.2.pml.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,bn,mm
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup Boost's None
+prom2lts-seq: bandwidth: 68
+prom2lts-seq: profile: 3515
+prom2lts-seq: span: 984
+prom2lts-seq: average wavefront: 34.62
+prom2lts-seq: RMS wavefront: 39.19
+prom2lts-seq: Regroup Matrix Metrics
+prom2lts-seq: Regrouping: 16->16 groups
+prom2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 581
+Normalized Event Span: 0.605
+Weighted Event Span, moment 1 (WES^1): 1.06e+03
+Normalized Weighted Event Span, moment 1: 1.1
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 80KB

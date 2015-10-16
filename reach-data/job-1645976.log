@@ -1,0 +1,23 @@
+statistics run
+pnml2lts-sym spec/PNML/PolyORB-NT-S10-J40-unfolded.pnml -rsc,tg,bs,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit006
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/PolyORB-NT-S10-J40-unfolded.pnml
+pnml2lts-sym: Petri net has 854 places, 12340 transitions and 113999 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/PolyORB-NT-S10-J40-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 1.670 real 1.450 user 0.210 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's Sloan
+pnml2lts-sym: bandwidth: 126986
+pnml2lts-sym: profile: 7247301386
+pnml2lts-sym: span: 7285609816
+Killed [24]
+1795.95 user, 0.96 system, 1804.02 elapsed -- Max VSize = 3028352KB, Max RSS = 380844KB
+command-2396: line 5: 50455 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/PolyORB-NT-S10-J40-unfolded.pnml -rsc,tg,bs,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

@@ -1,0 +1,31 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-448- --no-close spec/B/Teletext_bench.mch -rsc,bg,vgps,mm --regroup-exit --graph-metrics
+ctit026
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-455.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-455.probz
+% set_pref(MAXINT,maxint,4)
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,vgps,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+prob2lts-seq: bandwidth: 11
+prob2lts-seq: profile: 217
+prob2lts-seq: span: 242
+prob2lts-seq: average wavefront: 6.62
+prob2lts-seq: RMS wavefront: 7.2
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 12->12 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 78
+Normalized Event Span: 0.722
+Weighted Event Span, moment 1 (WES^1): 152
+Normalized Weighted Event Span, moment 1: 1.41
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 76KB
+command-455: line 10:  8063 Killed                  probcli spec/B/Teletext_bench.mch -ltsmin2 /tmp/ltsmin-455.probz

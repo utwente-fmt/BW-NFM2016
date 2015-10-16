@@ -1,0 +1,22 @@
+statistics run
+pnml2lts-seq spec/PNML/QCertifProtocol_22-unfold.pnml -rsc,f,mm --regroup-exit
+ctit012
+pnml2lts-seq: Loading model from spec/PNML/QCertifProtocol_22-unfold.pnml
+pnml2lts-seq: Petri net has 1966 places, 356 transitions and 4323 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/QCertifProtocol_22-unfold.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.090 real 0.070 user 0.020 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,f,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup FORCE
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 356->356 groups
+pnml2lts-seq: Regrouping took 0.120 real 0.110 user 0.010 sys
+pnml2lts-seq: max token count: 13
+Event Span: 175302
+Normalized Event Span: 0.250469
+Weighted Event Span, moment 1 (WES^1): 244498
+Normalized Weighted Event Span, moment 1: 0.349335
+Exit [0]
+0.18 user, 0.04 system, 0.30 elapsed -- Max VSize = 59464KB, Max RSS = 21040KB

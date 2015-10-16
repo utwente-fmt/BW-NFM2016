@@ -1,0 +1,24 @@
+statistics run
+pnml2lts-sym spec/PNML/philo_dyn-20-unfolded.pnml -rsc,tg,bcm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit003
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/philo_dyn-20-unfolded.pnml
+pnml2lts-sym: Petri net has 540 places, 17220 transitions and 140780 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/philo_dyn-20-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 1.900 real 1.620 user 0.270 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bcm,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's Cuthill McKee
+pnml2lts-sym: bandwidth: 126167
+pnml2lts-sym: profile: 10524738342
+pnml2lts-sym: span: 12767178851
+pnml2lts-sym: average wavefront: 33800.463459
+Killed [24]
+1796.38 user, 0.97 system, 1801.70 elapsed -- Max VSize = 2951984KB, Max RSS = 285016KB
+command-4810: line 5: 41342 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/philo_dyn-20-unfolded.pnml -rsc,tg,bcm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

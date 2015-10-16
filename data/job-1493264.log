@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/2D8_gradient_40x40_50.pnml -rsc,tg,vgps --regroup-exit
+ctit025
+pnml2lts-seq: Loading model from spec/PNML/2D8_gradient_40x40_50.pnml
+pnml2lts-seq: Petri net has 1600 places, 12324 transitions and 24648 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/2D8_gradient_40x40_50.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.740 real 0.670 user 0.060 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: Regrouping: 12324->12324 groups
+pnml2lts-seq: Regrouping took 7.120 real 7.060 user 0.050 sys
+pnml2lts-seq: max token count: 50
+Exit [0]
+7.73 user, 0.13 system, 7.91 elapsed -- Max VSize = 162072KB, Max RSS = 123792KB

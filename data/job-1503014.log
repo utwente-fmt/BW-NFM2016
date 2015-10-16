@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/extinction.2.dve -rsc,tg,bcm --regroup-exit
+ctit022
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/extinction.2.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,bcm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup Boost's Cuthill McKee
+dve2lts-seq: Regrouping: 79->79 groups
+dve2lts-seq: Regrouping took 0.010 real 0.000 user 0.000 sys
+Exit [0]
+1.54 user, 0.08 system, 1.70 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

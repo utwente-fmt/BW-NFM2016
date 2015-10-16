@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/mcs.3.dve -rsc,bg,bk --regroup-exit
+ctit028
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/mcs.3.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bk
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's King
+dve2lts-seq: Regrouping: 52->52 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.72 user, 0.08 system, 0.90 elapsed -- Max VSize = 40528KB, Max RSS = 5076KB

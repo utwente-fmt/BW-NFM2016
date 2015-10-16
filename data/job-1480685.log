@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/EnergyBus.pnml -rsc,tg,vgps,mm --regroup-exit --graph-metrics
+ctit014
+pnml2lts-seq: Loading model from spec/PNML/EnergyBus.pnml
+pnml2lts-seq: Petri net has 157 places, 4430 transitions and 63389 arcs
+pnml2lts-seq: There are 157 safe places
+pnml2lts-seq: Petri net spec/PNML/EnergyBus.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.430 real 0.380 user 0.050 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: bandwidth: 41336
+pnml2lts-seq: profile: 1064558002
+pnml2lts-seq: span: 1369735429
+pnml2lts-seq: average wavefront: 7741.834056
+pnml2lts-seq: RMS wavefront: 8345.797163
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 4430->4430 groups
+pnml2lts-seq: Regrouping took 477.780 real 475.290 user 0.270 sys
+pnml2lts-seq: max token count: 1
+Event Span: 352020
+Normalized Event Span: 0.506132
+Weighted Event Span, moment 1 (WES^1): 484413
+Normalized Weighted Event Span, moment 1: 0.696486
+Exit [0]
+475.68 user, 0.34 system, 478.29 elapsed -- Max VSize = 128156KB, Max RSS = 89936KB

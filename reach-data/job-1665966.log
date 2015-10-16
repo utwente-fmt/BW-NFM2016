@@ -1,0 +1,27 @@
+performance run
+pnml2lts-sym spec/PNML/distributeur-01-unfolded-02.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit012
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/distributeur-01-unfolded-02.pnml
+pnml2lts-sym: Petri net has 24 places, 72 transitions and 440 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/distributeur-01-unfolded-02.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.010 real 0.000 user 0.000 sys
+pnml2lts-sym: state vector length is 24; there are 72 groups and 28 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 472 group checks and 472 next state calls
+pnml2lts-sym: reachability took 0.300 real 0.130 user 0.170 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.010 real 0.010 user 0.000 sys
+pnml2lts-sym: state space has 1024 states, 4260 nodes
+pnml2lts-sym: group_next: 296 nodes total
+pnml2lts-sym: group_explored: 2016 nodes, 518 short vectors total
+pnml2lts-sym: max token count: 1
+Exit [0]
+0.15 user, 0.22 system, 0.51 elapsed -- Max VSize = 3675064KB, Max RSS = 730000KB

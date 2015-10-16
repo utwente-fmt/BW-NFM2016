@@ -1,0 +1,12 @@
+sort 
+     FOOBAR = struct FOO | BAR;
+     
+eqn
+    FOO && BAR = true;  
+   
+proc
+    P(a : FOOBAR, b : FOOBAR, c : Bool) =
+        (a && b) -> tau . P(a, b, true);
+
+init
+    P(FOO, BAR, false);

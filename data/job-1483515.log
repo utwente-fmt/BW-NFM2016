@@ -1,0 +1,16 @@
+statistics run
+pnml2lts-seq spec/PNML/database40UNFOLD.pnml -rsc,tg,vcm,mm --regroup-exit --graph-metrics
+ctit006
+pnml2lts-seq: Loading model from spec/PNML/database40UNFOLD.pnml
+pnml2lts-seq: Petri net has 12920 places, 12800 transitions and 156800 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/database40UNFOLD.pnml analyzed
+pnml2lts-seq: Loading Petri net took 5.570 real 5.240 user 0.290 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vcm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Cuthill McKee
+Killed [24]
+3594.20 user, 1.25 system, 3602.79 elapsed -- Max VSize = 529712KB, Max RSS = 491400KB
+command-8705: line 5: 11733 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/database40UNFOLD.pnml -rsc,tg,vcm,mm --regroup-exit --graph-metrics

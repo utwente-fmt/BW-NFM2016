@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/echo-d3r7.pnml -rsc,bg,vacm,mm --regroup-exit --graph-metrics
+ctit004
+pnml2lts-seq: Loading model from spec/PNML/echo-d3r7.pnml
+pnml2lts-seq: Petri net has 4209 places, 3518 transitions and 25540 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/echo-d3r7.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.580 real 0.470 user 0.090 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,vacm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-seq: bandwidth: 938
+pnml2lts-seq: profile: 5095500
+pnml2lts-seq: span: 6629339
+pnml2lts-seq: average wavefront: 627.40909
+pnml2lts-seq: RMS wavefront: 668.35294
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 3518->3518 groups
+pnml2lts-seq: Regrouping took 7.750 real 7.640 user 0.080 sys
+pnml2lts-seq: max token count: 1
+Event Span: 2437145
+Normalized Event Span: 0.1645912
+Weighted Event Span, moment 1 (WES^1): 3036897.9
+Normalized Weighted Event Span, moment 1: 0.20509517
+Exit [0]
+8.12 user, 0.18 system, 8.41 elapsed -- Max VSize = 132224KB, Max RSS = 93900KB

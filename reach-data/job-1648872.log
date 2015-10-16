@@ -1,0 +1,34 @@
+statistics run
+pnml2lts-sym spec/PNML/sg-10-5-10.pnml -rsc,tg,bs,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit031
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/sg-10-5-10.pnml
+pnml2lts-sym: Petri net has 1380 places, 1640 transitions and 6560 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/sg-10-5-10.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.120 real 0.110 user 0.010 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's Sloan
+pnml2lts-sym: bandwidth: 650
+pnml2lts-sym: profile: 1736217
+pnml2lts-sym: span: 2079258
+pnml2lts-sym: average wavefront: 82.399269
+pnml2lts-sym: RMS wavefront: 89.047654
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 1640->1640 groups
+pnml2lts-sym: Regrouping took 17.790 real 16.900 user 0.020 sys
+pnml2lts-sym: state vector length is 1380; there are 1640 groups and 1380 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1778.34 user, 19.49 system, 1828.48 elapsed -- Max VSize = 3676544KB, Max RSS = 984612KB
+command-5292: line 5: 46967 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/sg-10-5-10.pnml -rsc,tg,bs,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

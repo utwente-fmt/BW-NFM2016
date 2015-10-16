@@ -1,0 +1,16 @@
+statistics run
+pnml2lts-seq spec/PNML/philo_dyn-20-unfolded.pnml -rsc,tg,vcm,mm --regroup-exit --graph-metrics
+ctit022
+pnml2lts-seq: Loading model from spec/PNML/philo_dyn-20-unfolded.pnml
+pnml2lts-seq: Petri net has 540 places, 17220 transitions and 140780 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/philo_dyn-20-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 1.880 real 1.650 user 0.210 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vcm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Cuthill McKee
+Killed [24]
+3591.98 user, 3.32 system, 3602.71 elapsed -- Max VSize = 323452KB, Max RSS = 285096KB
+command-9601: line 5: 11070 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/philo_dyn-20-unfolded.pnml -rsc,tg,vcm,mm --regroup-exit --graph-metrics

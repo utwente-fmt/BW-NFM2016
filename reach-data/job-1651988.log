@@ -1,0 +1,25 @@
+performance run
+pnml2lts-sym spec/PNML/SafeBus-20-unfolded.pnml -rsc,tg,bs,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit002
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/SafeBus-20-unfolded.pnml
+pnml2lts-sym: Petri net has 1026 places, 10461 transitions and 77364 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/SafeBus-20-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 1.040 real 0.880 user 0.150 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bs,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's Sloan
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 10461->10461 groups
+pnml2lts-sym: Regrouping took 132.290 real 131.980 user 0.080 sys
+pnml2lts-sym: state vector length is 1026; there are 10461 groups and 1026 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+132.87 user, 0.27 system, 133.53 elapsed -- Max VSize = 2828512KB, Max RSS = 169756KB

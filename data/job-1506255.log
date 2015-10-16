@@ -1,0 +1,16 @@
+performance run
+pnml2lts-seq spec/PNML/ARMCacheCoherence.pnml -rsc,tg,bs --regroup-exit
+ctit016
+pnml2lts-seq: Loading model from spec/PNML/ARMCacheCoherence.pnml
+pnml2lts-seq: Petri net has 87 places, 33676 transitions and 246935 arcs
+pnml2lts-seq: There are 87 safe places
+pnml2lts-seq: Petri net spec/PNML/ARMCacheCoherence.pnml analyzed
+pnml2lts-seq: Loading Petri net took 2.330 real 2.020 user 0.290 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+Killed [24]
+3594.06 user, 1.78 system, 3601.92 elapsed -- Max VSize = 390776KB, Max RSS = 352456KB
+command-31445: line 5: 11036 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/ARMCacheCoherence.pnml -rsc,tg,bs --regroup-exit

@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/frogs.3.dve -rsc,bg,bs,mm --regroup-exit --graph-metrics
+ctit019
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/frogs.3.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bs,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's Sloan
+dve2lts-seq: bandwidth: 42
+dve2lts-seq: profile: 1279
+dve2lts-seq: span: 708
+dve2lts-seq: average wavefront: 8.711
+dve2lts-seq: RMS wavefront: 9.085
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 9->9 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 311
+Normalized Event Span: 0.96
+Weighted Event Span, moment 1 (WES^1): 607
+Normalized Weighted Event Span, moment 1: 1.87
+Exit [0]
+0.38 user, 0.06 system, 0.50 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

@@ -1,0 +1,16 @@
+statistics run
+pnml2lts-seq spec/PNML/ARMCacheCoherence.pnml -rsc,tg,vcm,mm --regroup-exit --graph-metrics
+ctit008
+pnml2lts-seq: Loading model from spec/PNML/ARMCacheCoherence.pnml
+pnml2lts-seq: Petri net has 87 places, 33676 transitions and 246935 arcs
+pnml2lts-seq: There are 87 safe places
+pnml2lts-seq: Petri net spec/PNML/ARMCacheCoherence.pnml analyzed
+pnml2lts-seq: Loading Petri net took 1.400 real 1.190 user 0.200 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vcm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Cuthill McKee
+Killed [24]
+3592.39 user, 2.48 system, 3602.13 elapsed -- Max VSize = 390772KB, Max RSS = 352452KB
+command-5425: line 5: 10819 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/ARMCacheCoherence.pnml -rsc,tg,vcm,mm --regroup-exit --graph-metrics

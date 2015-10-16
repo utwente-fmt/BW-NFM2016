@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-84- --no-close spec/B/Deadlock.mch -rsc,bg,vacm,mm --regroup-exit --graph-metrics
+ctit006
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-90.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-90.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,vacm,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+prob2lts-seq: bandwidth: 2
+prob2lts-seq: profile: 12
+prob2lts-seq: span: 12
+prob2lts-seq: average wavefront: 2.2
+prob2lts-seq: RMS wavefront: 2.4
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 2->2 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 4
+Normalized Event Span: 1
+Weighted Event Span, moment 1 (WES^1): 8
+Normalized Weighted Event Span, moment 1: 2
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-90: line 10:  1478 Killed                  probcli spec/B/Deadlock.mch -ltsmin2 /tmp/ltsmin-90.probz

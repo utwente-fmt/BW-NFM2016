@@ -1,0 +1,25 @@
+performance run
+pnml2lts-sym spec/PNML/neoelection-6.unf.pnml -rsc,f,rs,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit035
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/neoelection-6.unf.pnml
+pnml2lts-sym: Petri net has 4830 places, 8435 transitions and 49028 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/neoelection-6.unf.pnml analyzed
+pnml2lts-sym: Loading Petri net took 1.220 real 1.140 user 0.080 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,f,rs,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup FORCE
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 8435->8435 groups
+pnml2lts-sym: Regrouping took 4.700 real 4.600 user 0.080 sys
+pnml2lts-sym: state vector length is 4830; there are 8435 groups and 1505 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+5.75 user, 0.21 system, 6.11 elapsed -- Max VSize = 2845280KB, Max RSS = 238304KB

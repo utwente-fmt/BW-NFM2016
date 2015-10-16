@@ -1,0 +1,16 @@
+act T0 , T1 , T2 , T3 , T4 , T5 ;
+init X( true , false , false , false , false );
+proc X( P0 , P1 , P2 , P3 , P4 :Bool) =
+( P0 ) ->
+T0. X( P3=true , P0=false , P1=true ) +
+( P1 ) ->
+T1. X( P2=true , P1=false ) +
+( P3 ) ->
+T2. X( P3=false , P4=true ) +
+( P2 ) ->
+T3. X( P2=false , P1=true ) +
+( P4 ) ->
+T4. X( P3=true , P4=false ) +
+( P2  && P4 ) ->
+T5. X( P2=false , P0=true , P4=false ) +
+delta;

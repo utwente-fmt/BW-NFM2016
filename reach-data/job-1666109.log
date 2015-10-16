@@ -1,0 +1,20 @@
+performance run
+pnml2lts-sym spec/PNML/5-10_phaseVariation.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit009
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/5-10_phaseVariation.pnml
+pnml2lts-sym: Petri net has 77 places, 677 transitions and 4685 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/5-10_phaseVariation.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.050 real 0.040 user 0.000 sys
+pnml2lts-sym: state vector length is 77; there are 677 groups and 77 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1794.80 user, 1.36 system, 1801.12 elapsed -- Max VSize = 3675072KB, Max RSS = 979400KB
+command-752: line 5: 36911 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/5-10_phaseVariation.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1

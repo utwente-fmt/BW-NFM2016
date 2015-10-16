@@ -1,0 +1,17 @@
+performance run
+pnml2lts-sym spec/PNML/Philosophers-5000.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit008
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/Philosophers-5000.pnml
+pnml2lts-sym: Petri net has 25000 places, 25000 transitions and 80000 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/Philosophers-5000.pnml analyzed
+pnml2lts-sym: Loading Petri net took 12.350 real 11.840 user 0.470 sys
+pnml2lts-sym: state vector length is 25000; there are 25000 groups and 25000 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+llmsset_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+11.85 user, 0.53 system, 12.51 elapsed -- Max VSize = 3415208KB, Max RSS = 789552KB

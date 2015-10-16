@@ -1,0 +1,20 @@
+performance run
+pnml2lts-sym spec/PNML/QCertifProtocol_22-unfold.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit007
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/QCertifProtocol_22-unfold.pnml
+pnml2lts-sym: Petri net has 1966 places, 356 transitions and 4323 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/QCertifProtocol_22-unfold.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.120 real 0.070 user 0.020 sys
+pnml2lts-sym: state vector length is 1966; there are 356 groups and 1916 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 15271689 of 16777216 buckets filled!
+Exit [1]
+28.58 user, 0.64 system, 29.65 elapsed -- Max VSize = 3675064KB, Max RSS = 986612KB

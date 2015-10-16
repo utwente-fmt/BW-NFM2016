@@ -1,0 +1,107 @@
+% This file contains an mCRL2 version of the sliding window protocol
+% as it occurs in the book "Modelling Reactive Systems" by Fokkink, Groote
+% and Reniers.
+% The `constant' n is the size of the buffers in the protocol, set to 2. 
+% There is a domain D of data elements. In this specification it made
+% finite. It has two data elements d1 and d2. It also contains two
+% unspecified functions q1 and q2, which represent initial buffers with
+% garbage content.
+
+map  n: Pos;
+eqn  n=2;
+map  c: Pos;
+eqn  c=1;
+
+sort D = struct d1 | d2;
+     PairD = struct pair(fst:D,snd:Nat);
+
+     DBuf = List(PairD);
+     NatList = List(Nat);
+
+map  insert: D#Nat#DBuf -> DBuf;
+     rem: Nat#DBuf -> DBuf;
+     del: Nat#Nat#DBuf -> DBuf;
+     get: DBuf # Nat -> D;
+     mem: DBuf # Nat -> Bool;
+     drop: DBuf -> DBuf;
+     drop: NatList -> NatList;
+     nextempty: Nat#DBuf -> Nat;
+     window: Nat#Nat#Nat -> Bool;
+  
+var  d,e:D; i,j,m: Nat; q: DBuf; c,c':Bool; n':Pos; p:PairD; nq:NatList;
+eqn  insert(d,i,[]) = [pair(d,i)];
+     insert(d,i,pair(e,i) |> q) = pair(d,i) |> q;
+     i>j -> insert(d,i,pair(e,j) |> q) = pair(e,j) |> insert(d,i,q);
+     i<j -> insert(d,i,pair(e,j) |> q) = pair(d,i) |> pair(e,j) |> q;
+
+     rem(i,[])=[];
+     rem(i,pair(d,i) |> q) = q;
+     j>i -> rem(i,pair(d,j) |> q) = pair(d,j) |> q;
+     j<i -> rem(i,pair(d,j) |> q) = pair(d,j) |> rem(i,q);
+
+     del(i,i,q) = q;
+     j!=i -> del(i,j,q) = del((i+1) mod 2*n,j,rem(i,q));
+
+     get(pair(d,i) |> q,i) = d;
+     j>i -> get(pair(e,i) |> q,j) = get(q,j);
+
+     mem([],i) = false;
+     mem(pair(d,i) |> q,i) = true;
+     j>i -> mem(pair(e,i) |> q,j) = mem(q,j);
+     j<i -> mem(pair(e,i) |> q,j) = false;
+
+     mem(q,i) -> 
+         nextempty(i,q) 
+             = nextempty((i+1) mod 2*n, rem(i,q));
+     !mem(q,i) ->
+         nextempty(i,q) =i ;
+
+     window(i,m,j) = (i<=m && m<j) || (j<i && i<=m)  || (m<j && j<i);
+
+     drop(p |> q)=q;
+     drop(m |> nq)=nq;
+
+act  r,w: D;
+     s2,r2,c2,s3,r3,c3: D#Nat;
+     s5,r5,c5,s6,r6,c6: Nat;
+     i;
+     p:Bool;
+
+proc S(l,m:Nat,q:DBuf) =
+        sum d:D. window(l,m,(l+n) mod 2*n) ->
+                r(d).S(l,(m+1) mod 2*n, insert(d,m,q)) <>delta +
+        sum k:Nat. (window(l,k,m) && k<2*n) -> 
+                      s2(get(q,k),k).S(l,m,q) <>delta +
+        sum k:Nat. r6(k).S(k,m,del(l,k,q));
+
+     R(l':Nat,q':DBuf) =
+        sum d:D,k:Nat. window(l',k,(l'+n) mod 2*n)
+                  -> r3(d,k).R(l',insert(d,k,q')) <>delta
+      + sum d:D,k:Nat. (!window(l',k,(l'+n) mod 2*n))         
+                  -> r3(d,k). R(l',q') <>delta
+      + mem(q',l') -> w(get(q',l')).
+                          R((l'+1) mod 2*n,rem(l',q')) <>delta
+      + s5(nextempty(l',q')).R(l',q');
+
+     K(q:DBuf) =
+        (#q < c) -> sum d:D,k:Nat. r2(d,k). (i.K(q <| pair(d,k)) + i.K(q))
+	+
+	(#q > 0) -> s3(fst(q.0),snd(q.0)).K(drop(q))
+	;
+
+     L(q:NatList) =
+	(#q < c) -> sum k:Nat. r5(k).(i.L(q <| k)+i.L(q))
+	+
+	(#q > 0) -> s6(q.0).L(drop(q))
+	;
+
+     SWP =
+      hide({c2,c3,c5,c6,i},
+        allow({c2,c3,c5,c6,i,r,w},
+           comm({r2|s2->c2, r3|s3->c3, r5|s5->c5, r6|s6->c6},
+              S(0,0,[]) || 
+              K([]) || 
+              L([]) || 
+              R(0,[]))));
+
+init SWP;

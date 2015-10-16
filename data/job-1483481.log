@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/database20UNFOLD.pnml -rsc,tg,bk,mm --regroup-exit --graph-metrics
+ctit007
+pnml2lts-seq: Loading model from spec/PNML/database20UNFOLD.pnml
+pnml2lts-seq: Petri net has 3260 places, 3200 transitions and 23200 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/database20UNFOLD.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.560 real 0.450 user 0.090 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bk,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's King
+pnml2lts-seq: bandwidth: 12318
+pnml2lts-seq: profile: 243493123
+pnml2lts-seq: span: 325670928
+pnml2lts-seq: average wavefront: 3810.28146
+pnml2lts-seq: RMS wavefront: 4091.72788
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 3200->3200 groups
+pnml2lts-seq: Regrouping took 119.660 real 119.030 user 0.060 sys
+pnml2lts-seq: max token count: 1
+Event Span: 4514976
+Normalized Event Span: 0.43280061
+Weighted Event Span, moment 1 (WES^1): 6326039.6
+Normalized Weighted Event Span, moment 1: 0.60640717
+Exit [0]
+119.49 user, 0.17 system, 120.25 elapsed -- Max VSize = 109716KB, Max RSS = 71444KB

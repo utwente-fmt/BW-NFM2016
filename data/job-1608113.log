@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/30-10_phaseVariation.pnml -rsc,f --regroup-exit
+ctit037
+pnml2lts-seq: Loading model from spec/PNML/30-10_phaseVariation.pnml
+pnml2lts-seq: Petri net has 2702 places, 30977 transitions and 215035 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/30-10_phaseVariation.pnml analyzed
+pnml2lts-seq: Loading Petri net took 3.780 real 3.520 user 0.250 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,f
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup FORCE
+pnml2lts-seq: Regrouping: 30977->30977 groups
+pnml2lts-seq: Regrouping took 251.490 real 251.060 user 0.100 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+254.59 user, 0.40 system, 255.42 elapsed -- Max VSize = 566672KB, Max RSS = 528228KB

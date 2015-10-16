@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/bridge.1.dve -rsc,tg,vcm --regroup-exit
+ctit019
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/bridge.1.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,vcm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup ViennaCL's Cuthill McKee
+dve2lts-seq: Regrouping: 41->41 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.64 user, 0.07 system, 0.80 elapsed -- Max VSize = 38240KB, Max RSS = 4744KB

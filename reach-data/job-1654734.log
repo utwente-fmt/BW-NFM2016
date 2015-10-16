@@ -1,0 +1,25 @@
+performance run
+pnml2lts-sym spec/PNML/20-10_phaseVariation.pnml -rsc,tg,vcm,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit026
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/20-10_phaseVariation.pnml
+pnml2lts-sym: Petri net has 1202 places, 13457 transitions and 93395 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/20-10_phaseVariation.pnml analyzed
+pnml2lts-sym: Loading Petri net took 1.220 real 1.040 user 0.180 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,vcm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup ViennaCL's Cuthill McKee
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 13457->13457 groups
+pnml2lts-sym: Regrouping took 1.630 real 1.600 user 0.020 sys
+pnml2lts-sym: state vector length is 1202; there are 13457 groups and 1202 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+2.65 user, 0.24 system, 3.00 elapsed -- Max VSize = 2833472KB, Max RSS = 188296KB

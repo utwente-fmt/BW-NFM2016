@@ -1,0 +1,34 @@
+statistics run
+pnml2lts-sym spec/PNML/raft_06.pnml -rsc,tg,vgps,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit032
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/raft_06.pnml
+pnml2lts-sym: Petri net has 188 places, 332 transitions and 1231 arcs
+pnml2lts-sym: There are 188 safe places
+pnml2lts-sym: Petri net spec/PNML/raft_06.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.020 real 0.010 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,vgps,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-sym: bandwidth: 774
+pnml2lts-sym: profile: 633803
+pnml2lts-sym: span: 928726
+pnml2lts-sym: average wavefront: 249.593
+pnml2lts-sym: RMS wavefront: 289.2632
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 332->332 groups
+pnml2lts-sym: Regrouping took 0.210 real 0.210 user 0.000 sys
+pnml2lts-sym: state vector length is 188; there are 332 groups and 188 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1795.59 user, 0.38 system, 1801.02 elapsed -- Max VSize = 3675068KB, Max RSS = 920828KB
+command-4927: line 5: 56821 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/raft_06.pnml -rsc,tg,vgps,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

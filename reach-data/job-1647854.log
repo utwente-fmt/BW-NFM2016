@@ -1,0 +1,44 @@
+statistics run
+pnml2lts-sym spec/PNML/eratosthenes-500.pnml -rsc,bn,rs,mm,hf --noack=1 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit009
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/eratosthenes-500.pnml
+pnml2lts-sym: Petri net has 499 places, 2191 transitions and 6573 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/eratosthenes-500.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 0.050 real 0.050 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 0.180 real 0.160 user 0.020 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 2661
+pnml2lts-sym: profile: 3935383
+pnml2lts-sym: span: 927122
+pnml2lts-sym: average wavefront: 345.9071
+pnml2lts-sym: RMS wavefront: 366.7861
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 2191->2191 groups
+pnml2lts-sym: Regrouping took 0.240 real 0.240 user 0.000 sys
+pnml2lts-sym: state vector length is 499; there are 2191 groups and 457 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+*** segmentation fault ***
+
+Please send information on how to reproduce this problem to: 
+         ltsmin-support@lists.utwente.nl
+along with all output preceding this message.
+In addition, include the following information:
+Package: ltsmin 2.2beta
+Stack trace:
+Killed [11]
+0.52 user, 0.09 system, 0.80 elapsed -- Max VSize = 3675768KB, Max RSS = 162152KB
+memtime: child died with signal 11, aborting.
+command-4274: line 5: 46488 Aborted                 memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/eratosthenes-500.pnml -rsc,bn,rs,mm,hf --noack=1 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

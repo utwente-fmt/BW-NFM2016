@@ -1,0 +1,25 @@
+performance run
+pnml2lts-sym spec/PNML/shared_memory-pt-100.pnml -rsc,tg,bk,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit019
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/shared_memory-pt-100.pnml
+pnml2lts-sym: Petri net has 10301 places, 20100 transitions and 80000 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/shared_memory-pt-100.pnml analyzed
+pnml2lts-sym: Loading Petri net took 4.900 real 4.620 user 0.250 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bk,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's King
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 20100->20100 groups
+pnml2lts-sym: Regrouping took 17.750 real 17.140 user 0.530 sys
+pnml2lts-sym: state vector length is 10301; there are 20100 groups and 10301 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+llmsset_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+21.76 user, 0.89 system, 22.93 elapsed -- Max VSize = 3799856KB, Max RSS = 1134264KB

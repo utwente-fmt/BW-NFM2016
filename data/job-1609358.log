@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/Philosophers-2000.pnml -rsc,f --regroup-exit
+ctit015
+pnml2lts-seq: Loading model from spec/PNML/Philosophers-2000.pnml
+pnml2lts-seq: Petri net has 10000 places, 10000 transitions and 32000 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/Philosophers-2000.pnml analyzed
+pnml2lts-seq: Loading Petri net took 2.630 real 2.440 user 0.170 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,f
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup FORCE
+pnml2lts-seq: Regrouping: 10000->10000 groups
+pnml2lts-seq: Regrouping took 590.440 real 589.130 user 0.290 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+591.58 user, 0.53 system, 593.24 elapsed -- Max VSize = 590748KB, Max RSS = 552412KB

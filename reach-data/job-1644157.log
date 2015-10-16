@@ -1,0 +1,30 @@
+statistics run
+pnml2lts-sym spec/PNML/30-10_phaseVariation.pnml -rsc,f,rs,mm,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit032
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/30-10_phaseVariation.pnml
+pnml2lts-sym: Petri net has 2702 places, 30977 transitions and 215035 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/30-10_phaseVariation.pnml analyzed
+pnml2lts-sym: Loading Petri net took 4.650 real 4.120 user 0.500 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,f,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup FORCE
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 30977->30977 groups
+pnml2lts-sym: Regrouping took 431.230 real 429.490 user 0.180 sys
+pnml2lts-sym: state vector length is 2702; there are 30977 groups and 2702 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Event Span: 22418204
+Normalized Event Span: 0.26784042
+Weighted Event Span, moment 1 (WES^1): 30438829
+Normalized Weighted Event Span, moment 1: 0.36366646
+Exit [1]
+433.61 user, 0.75 system, 436.08 elapsed -- Max VSize = 3166240KB, Max RSS = 531008KB

@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/UtahNoC.pnml -rsc,bg,vgps --regroup-exit
+ctit025
+pnml2lts-seq: Loading model from spec/PNML/UtahNoC.pnml
+pnml2lts-seq: Petri net has 216 places, 977 transitions and 2905 arcs
+pnml2lts-seq: There are 216 safe places
+pnml2lts-seq: Petri net spec/PNML/UtahNoC.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.030 real 0.020 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: Regrouping: 977->977 groups
+pnml2lts-seq: Regrouping took 0.080 real 0.080 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+0.10 user, 0.01 system, 0.20 elapsed -- Max VSize = 49324KB, Max RSS = 10884KB

@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/Kanban-50.pnml -rsc,tg,vcm,mm --regroup-exit --graph-metrics
+ctit027
+pnml2lts-seq: Loading model from spec/PNML/Kanban-50.pnml
+pnml2lts-seq: Petri net has 16 places, 16 transitions and 40 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/Kanban-50.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vcm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Cuthill McKee
+pnml2lts-seq: bandwidth: 19
+pnml2lts-seq: profile: 981
+pnml2lts-seq: span: 1464
+pnml2lts-seq: average wavefront: 12
+pnml2lts-seq: RMS wavefront: 12.94
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 16->16 groups
+pnml2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: max token count: 50
+Event Span: 82
+Normalized Event Span: 0.32
+Weighted Event Span, moment 1 (WES^1): 102
+Normalized Weighted Event Span, moment 1: 0.398
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 84KB

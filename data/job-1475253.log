@@ -1,0 +1,32 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-434- --no-close spec/B/SumAndProduct.mch -rsc,tg,bk,mm --regroup-exit --graph-metrics
+ctit025
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-443.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-443.probz
+% set_pref(CLPFD,use_clpfd_solver,true)
+% set_pref(TIME_OUT,time_out,12000)
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,tg,bk,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Total graph
+prob2lts-seq: Regroup Boost's King
+prob2lts-seq: bandwidth: 10
+prob2lts-seq: profile: 92
+prob2lts-seq: span: 89
+prob2lts-seq: average wavefront: 3.77
+prob2lts-seq: RMS wavefront: 3.99
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 1->1 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 6
+Normalized Event Span: 1
+Weighted Event Span, moment 1 (WES^1): 1e+01
+Normalized Weighted Event Span, moment 1: 2
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 80KB
+command-443: line 10: 53296 Killed                  probcli spec/B/SumAndProduct.mch -ltsmin2 /tmp/ltsmin-443.probz

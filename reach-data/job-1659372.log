@@ -1,0 +1,19 @@
+performance run
+pnml2lts-sym spec/PNML/railroad-050-pt.pnml -rrs,hf --noack=1 --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit031
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/railroad-050-pt.pnml
+pnml2lts-sym: Petri net has 518 places, 2756 transitions and 16378 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/railroad-050-pt.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 0.160 real 0.160 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 0.340 real 0.310 user 0.020 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: rs,hf
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Reqroup Horizontal Flip

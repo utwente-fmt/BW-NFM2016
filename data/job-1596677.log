@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/Philosophers-5000.pnml --noack=1 --regroup-exit --graph-metrics
+ctit019
+pnml2lts-seq: Loading model from spec/PNML/Philosophers-5000.pnml
+pnml2lts-seq: Petri net has 25000 places, 25000 transitions and 80000 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/Philosophers-5000.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 25.580 real 25.520 user 0.010 sys
+pnml2lts-seq: Loading Petri net took 38.270 real 37.870 user 0.310 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regrouping: 25000->25000 groups
+pnml2lts-seq: Regrouping took 27.760 real 26.340 user 1.370 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+64.22 user, 1.95 system, 66.36 elapsed -- Max VSize = 3379772KB, Max RSS = 3341528KB

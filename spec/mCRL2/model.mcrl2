@@ -1,0 +1,582 @@
+sort        
+    Detector = struct Detector (
+        KeVLWLRef:Int,
+        LowerLevel:Int,
+        UpperLevel:Int,
+        SelfTest:Int,
+	    Chips:Chips,
+	    Temperatures:List(Pos)
+    );
+
+    Chips = List(Chip);
+    
+    Chip = struct Chip (
+        MinimumLWLLevel:Int,
+        KeVLWLRef:Int,
+        UPLOffset:Int,
+        Trim:Int,
+        LWLOffset:Int
+    );
+    
+map
+    
+    getChip:Detector#Nat -> Chip;
+    getAttribute:Detector#Nat#Pos -> Int;
+    getDetectorAttribute:Detector#Pos -> Int;
+    
+    setDetectorAttribute:Detector#Int#Pos -> Detector;
+    setAttribute:Detector#Nat#Int#Pos -> Detector;
+    
+    setChipAttributes:Detector#Nat#Int#Pos -> List(Chip);
+    setChipAttribute:Detector#Nat#Int#Pos -> Chip;
+    
+    setTemperatures:Detector#Nat#Pos -> List(Pos);
+    setTemperature:Detector#Nat#Pos -> Detector;
+    
+    getTemperature:Detector#Nat -> Pos;
+
+    CHIP_ATTRIBUTE_OFFSETS: Set(Pos);    
+    DETECTOR_ATTRIBUTE_OFFSETS: Set(Pos); 
+    
+    DETECTOR_ATTRIBUTE_KEVLWLREF_OFFSET: Pos;
+    DETECTOR_ATTRIBUTE_LOWER_LEVEL_OFFSET: Pos;
+    DETECTOR_ATTRIBUTE_UPPER_LEVEL_OFFSET: Pos;
+    DETECTOR_ATTRIBUTE_SELFTEST_OFFSET: Pos;
+    
+    CHIP_ATTRIBUTE_MINIMUMLWLLEVEL_OFFSET: Pos;
+    CHIP_ATTRIBUTE_KEVLWLREF_OFFSET: Pos;
+    CHIP_ATTRIBUTE_UPLOFFSET_OFFSET: Pos;
+    CHIP_ATTRIBUTE_TRIM_OFFSET: Pos;
+    CHIP_ATTRIBUTE_LWLOFFSET_OFFSET: Pos;
+    
+    MIN_TEMPERATURE: Nat;
+    MAX_TEMPERATURE: Nat;
+	CMD_ACK : Nat;
+	
+	MEASURE_SIGNAL_MEASURE_NANO_SECONDS: Pos;
+	
+	MEASURE_SIGNAL_READOUT_NANO_SECONDS: Pos;
+	
+	DUMMY_DATA_WORD_LENGTH: Pos;
+
+    MEASURE_SIGNAL_MAX_CYCLES: Pos;
+    
+    ENABLE_2D_OUTPUT_MESSAGE_COUNTER_RESET: Nat;
+    
+    ENABLE_2D_OUTPUT_ENABLE: Bool;
+    ENABLE_2D_OUTPUT_DISABLE: Bool;
+    
+    ENABLE_2D_OUTPUT_NO_COMPRESSION: Nat;
+    
+    SET_MEASURING_MODE_PSD_SCAN : Pos;
+    
+    BURST_READOUT_MPIXMODE_READOUT: Nat;
+    BURST_READOUT_MPIXMODE_NO_IDLE_FRAME: Bool;
+    BURST_READOUT_MPIXMODE_NO_COMPRESSION: Nat;
+    
+    BURST_READOUT_MIN_SEQUENCE_NUMBER: Pos;
+    BURST_READOUT_MAX_SEQUENCE_NUMBER: Pos;
+    
+    SKIP_ETHERNET_OBSERVATIONS: Pos;
+    NO_SKIP_ETHERNET_OBSERVATIONS: Int;
+    
+    ERROR_NUMBERS:Set(Nat);
+	
+	ERR_ILLEGAL,
+	ERR_LENGTH,
+	ERR_OFFSET,
+	ERR_ROW,
+	ERR_BUS,
+	ERR_CONNECT,
+	ERR_WATCHDOG,
+	ERR_FATAL,
+	ERR_UNAVAIL,
+	ERR_INTERRUPT,
+	ERR_UNKNOWN : Pos;
+    
+var
+    chipNumber:Nat;
+    offset:Pos;
+    value:Int;
+    detector:Detector;
+    vl: Pos;
+    ffst: Nat;
+	
+eqn
+    
+    MIN_TEMPERATURE = 15;
+    MAX_TEMPERATURE = 50;
+    
+    getTemperature(detector, 1) = Temperatures(detector).0;
+    getTemperature(detector, 2) = Temperatures(detector).1;
+    getTemperature(detector, 4) = Temperatures(detector).2;
+    getTemperature(detector, 5) = Temperatures(detector).3;
+    
+    getChip(detector, chipNumber) = Chips(detector).(Int2Nat(chipNumber-1));
+    
+    getDetectorAttribute(detector, 2) = KeVLWLRef(detector);
+    getDetectorAttribute(detector, 5) = LowerLevel(detector);
+    getDetectorAttribute(detector, 6) = UpperLevel(detector);
+    getDetectorAttribute(detector, 16) = SelfTest(detector);
+    
+    getAttribute(detector, 0, offset) = getDetectorAttribute(detector, offset);
+    getAttribute(detector, 1, 1) = MinimumLWLLevel(getChip(detector, 1));
+    getAttribute(detector, 1, 2) = KeVLWLRef(getChip(detector, 1));
+    getAttribute(detector, 1, 3) = UPLOffset(getChip(detector, 1));
+    getAttribute(detector, 1, 4) = Trim(getChip(detector, 1));
+    getAttribute(detector, 1, 5) = LWLOffset(getChip(detector, 1));   
+     
+    getAttribute(detector, 2, 1) = MinimumLWLLevel(getChip(detector, 2));
+    getAttribute(detector, 2, 2) = KeVLWLRef(getChip(detector, 2));
+    getAttribute(detector, 2, 3) = UPLOffset(getChip(detector, 2));
+    getAttribute(detector, 2, 4) = Trim(getChip(detector, 2));
+    getAttribute(detector, 2, 5) = LWLOffset(getChip(detector, 2));   
+     
+    getAttribute(detector, 3, 1) = MinimumLWLLevel(getChip(detector, 3));
+    getAttribute(detector, 3, 2) = KeVLWLRef(getChip(detector, 3));
+    getAttribute(detector, 3, 3) = UPLOffset(getChip(detector, 3));
+    getAttribute(detector, 3, 4) = Trim(getChip(detector, 3));
+    getAttribute(detector, 3, 5) = LWLOffset(getChip(detector, 3));   
+     
+    getAttribute(detector, 4, 1) = MinimumLWLLevel(getChip(detector, 4));
+    getAttribute(detector, 4, 2) = KeVLWLRef(getChip(detector, 4));
+    getAttribute(detector, 4, 3) = UPLOffset(getChip(detector, 4));
+    getAttribute(detector, 4, 4) = Trim(getChip(detector, 4));
+    getAttribute(detector, 4, 5) = LWLOffset(getChip(detector, 4));   
+     
+    
+    CHIP_ATTRIBUTE_OFFSETS = {1,2,3,4,5};
+    DETECTOR_ATTRIBUTE_OFFSETS = {2,5,6,16};
+    
+    DETECTOR_ATTRIBUTE_KEVLWLREF_OFFSET = 2;
+    DETECTOR_ATTRIBUTE_LOWER_LEVEL_OFFSET = 5;
+    DETECTOR_ATTRIBUTE_UPPER_LEVEL_OFFSET = 6;
+    DETECTOR_ATTRIBUTE_SELFTEST_OFFSET = 16;
+    
+    CHIP_ATTRIBUTE_MINIMUMLWLLEVEL_OFFSET = 1;
+    CHIP_ATTRIBUTE_KEVLWLREF_OFFSET = 2;
+    CHIP_ATTRIBUTE_UPLOFFSET_OFFSET = 3;
+    CHIP_ATTRIBUTE_TRIM_OFFSET = 4;
+    CHIP_ATTRIBUTE_LWLOFFSET_OFFSET = 5;
+    
+    setTemperature(detector, ffst, vl) =  Detector(
+        getDetectorAttribute(detector, 2), 
+        getDetectorAttribute(detector, 5), 
+        getDetectorAttribute(detector, 6), 
+        getDetectorAttribute(detector, 16), 
+        Chips(detector),
+        setTemperatures(detector, ffst, vl)
+    );
+    
+    setTemperatures(detector, 1, vl) = 
+        [vl, getTemperature(detector, 2), getTemperature(detector, 4), getTemperature(detector, 5)]
+    ;
+    
+    setTemperatures(detector, 2, vl) = 
+        [getTemperature(detector, 1), vl, getTemperature(detector, 4), getTemperature(detector, 5)]
+    ;
+    
+    setTemperatures(detector, 4, vl) = 
+        [getTemperature(detector, 1), getTemperature(detector, 2), vl, getTemperature(detector, 5)]
+    ;
+    
+    setTemperatures(detector, 5, vl) = 
+        [getTemperature(detector, 1), getTemperature(detector, 2), getTemperature(detector, 4), vl]
+    ;
+    
+    setDetectorAttribute(detector, value, 2) = Detector(
+        value, getDetectorAttribute(detector, 5), getDetectorAttribute(detector, 6), getDetectorAttribute(detector, 16), Chips(detector),
+        Temperatures(detector)
+    );
+    
+    setDetectorAttribute(detector, value, 5) = Detector(
+        getDetectorAttribute(detector, 2), value, getDetectorAttribute(detector, 6), getDetectorAttribute(detector, 16), Chips(detector),
+        Temperatures(detector)
+    );
+    
+    setDetectorAttribute(detector, value, 6) = Detector(
+        getDetectorAttribute(detector, 2), getDetectorAttribute(detector, 5), value, getDetectorAttribute(detector, 16), Chips(detector),
+        Temperatures(detector)
+    );
+    
+    setDetectorAttribute(detector, value, 16) = Detector(
+        getDetectorAttribute(detector, 2), getDetectorAttribute(detector, 5), getDetectorAttribute(detector, 6), value, Chips(detector),
+        Temperatures(detector)
+    );
+    
+    setChipAttribute(detector, chipNumber, value, 1) = Chip(
+        value,
+        getAttribute(detector, chipNumber, 2),
+        getAttribute(detector, chipNumber, 3),
+        getAttribute(detector, chipNumber, 4),
+        getAttribute(detector, chipNumber, 5)
+    );
+    
+    setChipAttribute(detector, chipNumber, value, 2) = Chip(
+        getAttribute(detector, chipNumber, 1),
+        value,
+        getAttribute(detector, chipNumber, 3),
+        getAttribute(detector, chipNumber, 4),
+        getAttribute(detector, chipNumber, 5)
+    );
+    
+    setChipAttribute(detector, chipNumber, value, 3) = Chip(
+        getAttribute(detector, chipNumber, 1),
+        getAttribute(detector, chipNumber, 2),
+        value,
+        getAttribute(detector, chipNumber, 4),
+        getAttribute(detector, chipNumber, 5)
+    );
+    
+    setChipAttribute(detector, chipNumber, value, 4) = Chip(
+        getAttribute(detector, chipNumber, 1),
+        getAttribute(detector, chipNumber, 2),
+        getAttribute(detector, chipNumber, 3),
+        value,
+        getAttribute(detector, chipNumber, 5)
+    );
+       
+    setChipAttribute(detector, chipNumber, value, 5) = Chip(
+        getAttribute(detector, chipNumber, 1),
+        getAttribute(detector, chipNumber, 2),
+        getAttribute(detector, chipNumber, 3),
+        getAttribute(detector, chipNumber, 4),
+        value
+    ); 
+    
+    setChipAttributes(detector, 1, value, offset) = [ 
+        setChipAttribute(detector, 1, value, offset),
+        getChip(detector, 2),
+        getChip(detector, 3),
+        getChip(detector, 4)
+    ];   
+    
+    setChipAttributes(detector, 2, value, offset) = [ 
+        getChip(detector, 1),
+        setChipAttribute(detector, 2, value, offset),
+        getChip(detector, 3),
+        getChip(detector, 4)
+    ];
+    
+    setChipAttributes(detector, 3, value, offset) = [ 
+        getChip(detector, 1),
+        getChip(detector, 2),
+        setChipAttribute(detector, 3, value, offset),
+        getChip(detector, 4)
+    ];
+    
+    setChipAttributes(detector, 4, value, offset) = [ 
+        getChip(detector, 1),
+        getChip(detector, 2),
+        getChip(detector, 3),
+        setChipAttribute(detector, 4, value, offset)
+    ];
+    
+    setAttribute(detector, 0, value, offset) = setDetectorAttribute(detector, value, offset);
+    
+    setAttribute(detector, 1, value, offset) = Detector(
+        getDetectorAttribute(detector, 2), getDetectorAttribute(detector, 5), getDetectorAttribute(detector, 6), getDetectorAttribute(detector, 16), 
+        setChipAttributes(detector, 1, value, offset),
+        Temperatures(detector)
+    );
+    
+    setAttribute(detector, 2, value, offset) = Detector(
+        getDetectorAttribute(detector, 2), getDetectorAttribute(detector, 5), getDetectorAttribute(detector, 6), getDetectorAttribute(detector, 16), 
+        setChipAttributes(detector, 2, value, offset),
+        Temperatures(detector)
+    );
+    
+    setAttribute(detector, 3, value, offset) = Detector(
+        getDetectorAttribute(detector, 2), getDetectorAttribute(detector, 5), getDetectorAttribute(detector, 6), getDetectorAttribute(detector, 16), 
+        setChipAttributes(detector, 3, value, offset),
+        Temperatures(detector)
+    );
+    
+    setAttribute(detector, 4, value, offset) = Detector(
+        getDetectorAttribute(detector, 2), getDetectorAttribute(detector, 5), getDetectorAttribute(detector, 6), getDetectorAttribute(detector, 16), 
+        setChipAttributes(detector, 4, value, offset),
+        Temperatures(detector)
+    );
+    
+	CMD_ACK = 62; % 62 = '>'
+	
+	MEASURE_SIGNAL_MEASURE_NANO_SECONDS = 150 * 1000 * 1000; % 150 milliseconds
+	MEASURE_SIGNAL_READOUT_NANO_SECONDS = 750 * 1000 * 1000; % 750 milliseconds
+
+    MEASURE_SIGNAL_MAX_CYCLES = 5;
+		
+	DUMMY_DATA_WORD_LENGTH = 3;
+    
+    ENABLE_2D_OUTPUT_MESSAGE_COUNTER_RESET = 0;
+    
+    ENABLE_2D_OUTPUT_ENABLE = true;
+    ENABLE_2D_OUTPUT_DISABLE = false;
+    
+    ENABLE_2D_OUTPUT_NO_COMPRESSION = 0;
+    
+    SET_MEASURING_MODE_PSD_SCAN = 1;	    
+    
+    BURST_READOUT_MIN_SEQUENCE_NUMBER = 1;
+    BURST_READOUT_MAX_SEQUENCE_NUMBER = 512;
+    BURST_READOUT_MPIXMODE_READOUT = 0;
+    BURST_READOUT_MPIXMODE_NO_IDLE_FRAME = false;
+    BURST_READOUT_MPIXMODE_NO_COMPRESSION = 0;
+    
+    SKIP_ETHERNET_OBSERVATIONS = 128;
+    NO_SKIP_ETHERNET_OBSERVATIONS = -1;
+    
+    ERROR_NUMBERS = {3, 4, 5, 7, 9, 14, 15, 24};
+	
+	ERR_ILLEGAL = 1;
+	ERR_LENGTH = 2;
+	ERR_OFFSET = 3;
+	ERR_ROW = 4;
+	ERR_BUS = 16;
+	ERR_CONNECT = 32;
+	ERR_WATCHDOG = 64;
+	ERR_FATAL = 128;
+	ERR_UNAVAIL = 512;
+	ERR_INTERRUPT = 16384;
+	ERR_UNKNOWN = 32768;
+    
+act
+
+    %%%%%%%%%%%%%%%%%%%%%%%%
+    %%% internal actions %%%
+    %%%%%%%%%%%%%%%%%%%%%%%%
+
+    %%%%%%%%%%%%%%%%%%%%%%%%
+    %%% external actions %%%
+    %%%%%%%%%%%%%%%%%%%%%%%%
+    
+    %%%%%%%%%%%%%%%%%%
+    %% observations %%
+    %%%%%%%%%%%%%%%%%%
+    
+    %%%%%%%%%%%%
+    % ethernet %
+    %%%%%%%%%%%%
+    recv_get_attribute:Nat#Int#Pos;
+    recv_set_attribute:Nat#Int#Pos;
+    recv_get_temperature:Bool#Bool;    
+    recv_get_temperature:Nat;
+	recv_enable_2D_output:Nat#Bool#Nat;
+	recv_burst_readout:Pos#Nat#Bool#Nat;
+	error:Pos;
+	
+	%%%%%%%%%%%%
+	%   RS232  %
+	%%%%%%%%%%%%
+	recv_cmd_ack:Nat;
+	recv_cmd_dummy;
+	
+    %%%%%%%%%%%%
+    %  adapter %
+    %%%%%%%%%%%%
+    adapter_configured;
+        
+    %%%%%%%%%%%%%%%%%%
+    %%   stimuli    %%
+    %%%%%%%%%%%%%%%%%%
+    
+    %%%%%%%%%%%%
+    % ethernet %
+    %%%%%%%%%%%%
+    send_set_attribute:Nat#Int#Pos;
+    send_get_attribute:Nat#Pos;
+    send_get_temperature:Nat#Bool;
+	send_enable_2D_output:Nat#Bool#Nat;
+	
+	%%%%%%%%%%%%
+	%   RS232  %
+	%%%%%%%%%%%%
+	send_cmd_start_measurement;
+	send_cmd_abort_measurement;
+	send_cmd_set_measuring_mode:Nat;
+	
+    %%%%%%%%%%%%
+    %  adapter %
+    %%%%%%%%%%%%
+	set_measure_signal:Nat#Nat;
+	set_measure_signal:Nat#Nat#Nat;
+	set_expected_word_length:Nat;
+	set_skip_ethernet_observations:Int;
+	
+	%%%%%%%%%%%%
+	%   error  %
+	%%%%%%%%%%%%
+	err_illegal;
+	err_length:Nat;
+    
+proc
+
+    Main(d:Detector) =
+        SetMinDetectorTemperature(d)    
+        + SetMaxDetectorTemperature(d)    
+        + SetMinBoardTemperature(d)    
+        + SetMaxBoardTemperature(d)
+%        + CheckDetectorTemperatureRange(d)
+%        + CheckBoardTemperatureRange(d)
+ %       + CheckOperatingTemperature(d)
+        + CheckAttributes(d)
+        + Measurement(d)
+        + TriggerError(d)
+    ;
+
+    Initialize(d:Detector) =
+        DisableSelfTest(d) 
+        . WaitForTemperature
+        . Main(d)
+    ;
+	
+	DisableSelfTest(d:Detector) = 
+	    send_set_attribute(0, 0, 16) . recv_set_attribute(0, 0, 16)
+	;
+	
+	CheckAttributes(d:Detector) =
+	    CheckDetector(d)
+	    . CheckChips(d)
+	    . Main(d)
+	;
+
+    CheckAttribute(d:Detector, chipNumber:Nat, offset:Pos) =
+        send_get_attribute(chipNumber, offset) . recv_get_attribute(chipNumber, getAttribute(d, chipNumber, offset), offset)
+    ;
+    
+    CheckDetector(d:Detector) =
+	    CheckAttribute(d, 0, 2)
+	    . CheckAttribute(d, 0, 5)
+	    . CheckAttribute(d, 0, 6)        
+    ;
+    
+    CheckChips(d:Detector) =
+        CheckChip(d, 1)
+        . CheckChip(d, 2)
+        . CheckChip(d, 3)
+        . CheckChip(d, 4)
+    ;
+    
+    CheckChip(d:Detector, chipNumber:Nat) =
+        CheckAttribute(d, chipNumber, 1)
+        . CheckAttribute(d, chipNumber, 2)
+        . CheckAttribute(d, chipNumber, 3)
+        . CheckAttribute(d, chipNumber, 4)
+        . CheckAttribute(d, chipNumber, 5)
+    ;
+        
+    WaitForTemperature =
+        send_get_temperature(0, true) . 
+            ((recv_get_temperature(false, true) . WaitForTemperature)
+            + recv_get_temperature(true, true))   
+    ;
+    
+    SetMinDetectorTemperature(d:Detector) =        
+        send_get_temperature(1, false) 
+        . (sum temperature:Pos . (temperature >= MIN_TEMPERATURE && temperature <= MAX_TEMPERATURE && temperature < getTemperature(d, 2)) 
+            -> (recv_get_temperature(temperature) 
+        . Main(setTemperature(d, 1, temperature))))
+    ;
+    
+    SetMaxDetectorTemperature(d:Detector) =
+        send_get_temperature(2, false) 
+        . (sum temperature:Pos . (temperature >= MIN_TEMPERATURE && temperature <= MAX_TEMPERATURE && temperature > getTemperature(d, 1)) 
+            -> (recv_get_temperature(temperature) 
+        . Main(setTemperature(d, 2, temperature))))
+    ;
+    
+    SetMinBoardTemperature(d:Detector) =
+        send_get_temperature(4, false) 
+        . (sum temperature:Pos . (temperature >= MIN_TEMPERATURE && temperature <= MAX_TEMPERATURE && temperature < getTemperature(d, 5)) 
+            -> (recv_get_temperature(temperature) 
+        . Main(setTemperature(d, 4, temperature))))
+    ;
+    
+    SetMaxBoardTemperature(d:Detector) =        
+        send_get_temperature(5, false) 
+        . (sum temperature:Pos . (temperature >= MIN_TEMPERATURE && temperature <= MAX_TEMPERATURE && temperature > getTemperature(d, 4)) 
+            -> (recv_get_temperature(temperature) 
+        . Main(setTemperature(d, 5, temperature))))
+    ;
+    
+    CheckDetectorTemperatureRange(d:Detector) =
+        send_get_temperature(0, false) 
+        . (sum temperature:Pos . (temperature >= getTemperature(d, 1) && temperature <= getTemperature(d, 2)) 
+            -> recv_get_temperature(temperature))
+        . Main(d)
+    ;
+    
+    CheckBoardTemperatureRange(d:Detector) =
+        send_get_temperature(3, false) 
+        . (sum temperature:Pos . (temperature >= getTemperature(d, 4) && temperature <= getTemperature(d, 5)) 
+            -> recv_get_temperature(temperature))
+        . Main(d)
+    ;
+    
+    CheckOperatingTemperature(d:Detector) =
+        send_get_temperature(0, true) . (sum time:Bool . (recv_get_temperature(true,time))) . Main(d)
+    ;
+    
+    Measurement(d:Detector) =
+        set_expected_word_length(DUMMY_DATA_WORD_LENGTH) . adapter_configured
+        . send_enable_2D_output(ENABLE_2D_OUTPUT_MESSAGE_COUNTER_RESET, ENABLE_2D_OUTPUT_ENABLE, ENABLE_2D_OUTPUT_NO_COMPRESSION) . (recv_enable_2D_output(ENABLE_2D_OUTPUT_MESSAGE_COUNTER_RESET, ENABLE_2D_OUTPUT_ENABLE, ENABLE_2D_OUTPUT_NO_COMPRESSION))
+        . set_skip_ethernet_observations(SKIP_ETHERNET_OBSERVATIONS) . adapter_configured
+        . send_cmd_set_measuring_mode(SET_MEASURING_MODE_PSD_SCAN). (recv_cmd_ack(CMD_ACK))
+        . send_cmd_start_measurement . (recv_cmd_ack(CMD_ACK))
+        . set_measure_signal(MEASURE_SIGNAL_MEASURE_NANO_SECONDS, MEASURE_SIGNAL_READOUT_NANO_SECONDS, MEASURE_SIGNAL_MAX_CYCLES) . adapter_configured
+        . BurstReadouts
+        . BurstReadouts
+        . BurstReadouts
+        . BurstReadouts
+        . BurstReadouts
+        . send_cmd_abort_measurement
+        . set_skip_ethernet_observations(NO_SKIP_ETHERNET_OBSERVATIONS) . adapter_configured
+        . send_enable_2D_output(ENABLE_2D_OUTPUT_MESSAGE_COUNTER_RESET, ENABLE_2D_OUTPUT_DISABLE, ENABLE_2D_OUTPUT_NO_COMPRESSION) . (recv_enable_2D_output(ENABLE_2D_OUTPUT_MESSAGE_COUNTER_RESET, ENABLE_2D_OUTPUT_DISABLE, ENABLE_2D_OUTPUT_NO_COMPRESSION))
+        . Main(d)
+    ;
+    
+    BurstReadouts =
+        BurstReadout(128)
+        . BurstReadout(256)
+        . BurstReadout(384)
+        . BurstReadout(512)
+    ;
+    
+    BurstReadout(sequenceNumber:Pos) =         
+        recv_burst_readout(
+            sequenceNumber,
+            BURST_READOUT_MPIXMODE_READOUT,
+            BURST_READOUT_MPIXMODE_NO_IDLE_FRAME,
+            BURST_READOUT_MPIXMODE_NO_COMPRESSION
+        )
+    ;
+    
+    TriggerError(d:Detector) =
+        (
+            (err_illegal . error(ERR_ILLEGAL))
+            + (sum messageNr:Pos . (messageNr in ERROR_NUMBERS) -> err_length(messageNr) . error(ERR_LENGTH))
+            + (send_get_attribute(0, 1) . error(ERR_ILLEGAL))
+            + (send_get_attribute(0, 3) . error(ERR_ILLEGAL))
+            + (send_get_attribute(0, 3) . error(ERR_ILLEGAL))
+            + (send_get_attribute(1, 6) . error(ERR_ILLEGAL))
+            + (send_get_attribute(5, 1) . error(ERR_ILLEGAL))
+            + (send_get_temperature(6, false) . error(ERR_OFFSET))
+            + (send_set_attribute(0, 0, 1) . error(ERR_ILLEGAL))
+            + (send_set_attribute(0, 0, 3) . error(ERR_ILLEGAL))
+            + (send_set_attribute(0, 0, 3) . error(ERR_ILLEGAL))
+            + (send_set_attribute(1, 0, 6) . error(ERR_ILLEGAL))
+            + (send_set_attribute(5, 0, 1) . error(ERR_ILLEGAL))
+        ) . Main(d)
+    ;
+
+init 
+    Initialize(
+        Detector(
+            7492, 7517, 7467, 0, [ 
+            Chip(7517, 7492, 24, 0, 160),
+            Chip(7618, 7593, -146, 0 , 1028),
+            Chip(7415, 7390, 56, 0 , 1120),
+            Chip(7526, 7501, -10, 3 , 1024)
+            ],
+            [15, 50, 15, 50]
+        )
+    );

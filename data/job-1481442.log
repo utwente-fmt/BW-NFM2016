@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/Philosophers-1000.pnml -rsc,bg,bcm,mm --regroup-exit --graph-metrics
+ctit030
+pnml2lts-seq: Loading model from spec/PNML/Philosophers-1000.pnml
+pnml2lts-seq: Petri net has 5000 places, 5000 transitions and 16000 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/Philosophers-1000.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.750 real 0.690 user 0.050 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bcm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's Cuthill McKee
+pnml2lts-seq: bandwidth: 10
+pnml2lts-seq: profile: 107933
+pnml2lts-seq: span: 164852
+pnml2lts-seq: average wavefront: 8.493
+pnml2lts-seq: RMS wavefront: 8.6488612
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 5000->5000 groups
+pnml2lts-seq: Regrouping took 2.730 real 2.650 user 0.080 sys
+pnml2lts-seq: max token count: 1
+Event Span: 37979
+Normalized Event Span: 0.00151916
+Weighted Event Span, moment 1 (WES^1): 38037.55
+Normalized Weighted Event Span, moment 1: 0.001521502
+Exit [0]
+3.34 user, 0.16 system, 3.60 elapsed -- Max VSize = 186168KB, Max RSS = 147832KB

@@ -1,0 +1,38 @@
+statistics run
+pnml2lts-sym spec/PNML/2D8_gradient_40x40_100.pnml -rsc,tg,bs,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit016
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/2D8_gradient_40x40_100.pnml
+pnml2lts-sym: Petri net has 1600 places, 12324 transitions and 24648 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/2D8_gradient_40x40_100.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.660 real 0.590 user 0.060 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's Sloan
+pnml2lts-sym: bandwidth: 2680
+pnml2lts-sym: profile: 32948755
+pnml2lts-sym: span: 35614414
+pnml2lts-sym: average wavefront: 197.0817432
+pnml2lts-sym: RMS wavefront: 209.8546478
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 12324->12324 groups
+pnml2lts-sym: Regrouping took 487.540 real 486.230 user 0.200 sys
+pnml2lts-sym: state vector length is 1600; there are 12324 groups and 1600 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 14934342 of 16777216 buckets filled!
+Event Span: 432014
+Normalized Event Span: 0.021909181
+Weighted Event Span, moment 1 (WES^1): 469588.77
+Normalized Weighted Event Span, moment 1: 0.02381475
+Exit [1]
+1659.28 user, 5.89 system, 1669.34 elapsed -- Max VSize = 3754248KB, Max RSS = 1095600KB

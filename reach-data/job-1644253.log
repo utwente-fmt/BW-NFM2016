@@ -1,0 +1,41 @@
+statistics run
+pnml2lts-sym spec/PNML/BridgeAndVehicles-V20-P10-N10-unfolded.pnml -rsc,f,rs,mm,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit022
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/BridgeAndVehicles-V20-P10-N10-unfolded.pnml
+pnml2lts-sym: Petri net has 68 places, 548 transitions and 4070 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/BridgeAndVehicles-V20-P10-N10-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.040 real 0.040 user 0.010 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,f,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup FORCE
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 548->548 groups
+pnml2lts-sym: Regrouping took 0.020 real 0.010 user 0.000 sys
+pnml2lts-sym: state vector length is 68; there are 548 groups and 67 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 35335 group checks and 35335 next state calls
+pnml2lts-sym: reachability took 111.090 real 110.540 user 0.310 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.010 real 0.000 user 0.000 sys
+pnml2lts-sym: state space has 6732570 states, 114780 nodes
+pnml2lts-sym: ( 114780 final BDD nodes; 156824 peak nodes )
+pnml2lts-sym: group_next: 9512 nodes total
+pnml2lts-sym: group_explored: 32464 nodes, 50042 short vectors total
+pnml2lts-sym: max token count: 20
+Event Span: 12783
+Normalized Event Span: 0.34304
+Weighted Event Span, moment 1 (WES^1): 17699
+Normalized Weighted Event Span, moment 1: 0.47498
+Exit [0]
+110.63 user, 0.40 system, 111.41 elapsed -- Max VSize = 3675092KB, Max RSS = 787040KB

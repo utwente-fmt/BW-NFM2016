@@ -1,0 +1,32 @@
+statistics run
+pnml2lts-sym spec/PNML/Peterson-6.pnml -rsc,tg,bs,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit039
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/Peterson-6.pnml
+pnml2lts-sym: Petri net has 1330 places, 2030 transitions and 6272 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/Peterson-6.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.220 real 0.140 user 0.020 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's Sloan
+pnml2lts-sym: bandwidth: 7650
+pnml2lts-sym: profile: 8262952
+pnml2lts-sym: span: 8875588
+pnml2lts-sym: average wavefront: 248.25682
+pnml2lts-sym: RMS wavefront: 260.51487
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 2030->2030 groups
+pnml2lts-sym: Regrouping took 8.750 real 8.180 user 0.000 sys
+pnml2lts-sym: state vector length is 1330; there are 2030 groups and 1330 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+slurmd[ctit039]: *** STEP 1645368.0 CANCELLED AT 2016-02-24T09:37:16 DUE TO TIME LIMIT ***

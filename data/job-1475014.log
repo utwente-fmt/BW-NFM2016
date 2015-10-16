@@ -1,0 +1,31 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-196- --no-close spec/B/GraphIsoMedium.mch -rsc,tg,bcm,mm --regroup-exit --graph-metrics
+ctit015
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-204.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-204.probz
+% unused_constants([graph1,graph2])
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,tg,bcm,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Total graph
+prob2lts-seq: Regroup Boost's Cuthill McKee
+prob2lts-seq: bandwidth: 10
+prob2lts-seq: profile: 154
+prob2lts-seq: span: 203
+prob2lts-seq: average wavefront: 5.78
+prob2lts-seq: RMS wavefront: 6.34
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 2->2 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 10
+Normalized Event Span: 0.83
+Weighted Event Span, moment 1 (WES^1): 20
+Normalized Weighted Event Span, moment 1: 1.7
+Exit [0]
+0.01 user, 0.00 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 84KB
+command-204: line 10:  3988 Killed                  probcli spec/B/GraphIsoMedium.mch -ltsmin2 /tmp/ltsmin-204.probz

@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-518- --no-close spec/B/WhoKilledAgatha.mch -rsc,bg,bs,mm --regroup-exit --graph-metrics
+ctit030
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-522.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-522.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,bs,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup Boost's Sloan
+prob2lts-seq: bandwidth: 3
+prob2lts-seq: profile: 22
+prob2lts-seq: span: 19
+prob2lts-seq: average wavefront: 2.1
+prob2lts-seq: RMS wavefront: 2.2
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 2->2 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 7
+Normalized Event Span: 0.7
+Weighted Event Span, moment 1 (WES^1): 1e+01
+Normalized Weighted Event Span, moment 1: 1
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 84KB
+command-522: line 10: 15426 Killed                  probcli spec/B/WhoKilledAgatha.mch -ltsmin2 /tmp/ltsmin-522.probz

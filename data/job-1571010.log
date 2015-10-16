@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/Peterson-5.pnml -rsc,bg,vcm --regroup-exit
+ctit044
+pnml2lts-seq: Loading model from spec/PNML/Peterson-5.pnml
+pnml2lts-seq: Petri net has 834 places, 1242 transitions and 3828 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/Peterson-5.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.070 real 0.070 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,vcm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup ViennaCL's Cuthill McKee
+pnml2lts-seq: Regrouping: 1242->1242 groups
+pnml2lts-seq: Regrouping took 0.060 real 0.060 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+0.13 user, 0.01 system, 0.20 elapsed -- Max VSize = 58040KB, Max RSS = 19612KB

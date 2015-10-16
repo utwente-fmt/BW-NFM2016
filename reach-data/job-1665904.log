@@ -1,0 +1,26 @@
+performance run
+pnml2lts-sym spec/PNML/SmallOperatingSystem-MT0512DC0256.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit030
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/SmallOperatingSystem-MT0512DC0256.pnml
+pnml2lts-sym: Petri net has 9 places, 8 transitions and 27 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/SmallOperatingSystem-MT0512DC0256.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.010 real 0.000 user 0.000 sys
+pnml2lts-sym: state vector length is 9; there are 8 groups and 9 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: Exploration took 8 group checks and 8 next state calls
+pnml2lts-sym: reachability took 0.030 real 0.000 user 0.030 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.000 real 0.000 user 0.010 sys
+pnml2lts-sym: state space has 1 states, 9 nodes
+pnml2lts-sym: group_next: 0 nodes total
+pnml2lts-sym: group_explored: 27 nodes, 8 short vectors total
+pnml2lts-sym: max token count: 512
+Exit [0]
+0.01 user, 0.09 system, 0.20 elapsed -- Max VSize = 3675064KB, Max RSS = 249732KB

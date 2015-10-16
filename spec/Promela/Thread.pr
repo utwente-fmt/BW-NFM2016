@@ -1,0 +1,309 @@
+/*
+ * Copyright (c) 1996 The University of Utah and
+ * the Computer Systems Laboratory at the University of Utah (CSL).
+ * All rights reserved.
+ *
+ * Permission to use, copy, modify and distribute this software is hereby
+ * granted provided that (1) source code retains these copyright, permission,
+ * and disclaimer notices, and (2) redistributions including binaries
+ * reproduce the notices in supporting documentation, and (3) all advertising
+ * materials mentioning features or use of this software display the following
+ * acknowledgement: ``This product includes software developed by the
+ * Computer Systems Laboratory at the University of Utah.''
+ *
+ * THE UNIVERSITY OF UTAH AND CSL ALLOW FREE USE OF THIS SOFTWARE IN ITS "AS
+ * IS" CONDITION.  THE UNIVERSITY OF UTAH AND CSL DISCLAIM ANY LIABILITY OF
+ * ANY KIND FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * CSL requests users of this software to return to csl-dist@cs.utah.edu any
+ * improvements that they make and grant CSL redistribution rights.
+ */
+/*
+ * Thread.pr - Fluke thread kernel objects as Promela global state
+ */
+
+/*
+ * Type:        Thread
+ *
+ * Variables:   threadDefineInstances(numInstnaces)   [Global]
+ *
+ * Constructor: threadInitInstances(numInstances)     [init]
+ *
+ * Wait-related Data Accessors
+ * ---------------------------
+ * threadWaitVal(Thread thread)                     Thread -> WaitVal
+ * threadWaitWaitingOn(Thread thread)               Thread -> WaitQueue
+ * threadWaitCancelPending(Thread thread)           Thread -> Bool
+ * threadWaitResumeRC(Thread thread)                Thread -> byte
+ * threadWaitBlocked(Thread thread)		    Thread -> bit
+ * threadSetWaitVal(thread,waitVal)                 Thread,WaitVal
+ * threadSetWaitWaitingOn(thread,waitQueue)         Thread,WaitQueue
+ * threadSetWaitCancelPending(thread,cancelPending) Thread,Bool
+ * threadSetWaitResumeRC(thread,newRC)              Thread,ResultCode
+ * threadSetWaitBlocked(Thread thread,blocked)      Thread,bit
+ *
+ * IPC-related Data Accessors
+ * --------------------------
+ * threadIPCServerLink(thread)                      Thread -> Link
+ * threadIPCServer(thread)                          Thread -> Thread
+ * threadIPCClientLink(thread)                      Thread -> Link
+ * threadIPCClient(thread)                          Thread -> Thread
+ * threadIPCFlags(thread)                           Thread -> short
+ * threadIPCRendevous(thread)			    Thread -> bit
+ * threadSetIPCServerLink(thread,link)              Thread,Link
+ * threadSetIPCServer(thread,server)                Thread,Thread
+ * threadSetIPCClientLink(thread,link)              Thread,Link
+ * threadSetIPCClient(thread,client)                Thread,Thread
+ * threadSetIPCFlags(thread,newFlags)               Thread,short
+ * threadSetIPCRendevous(thread,state)		    Thread,bit
+ *
+ * Exception-related Data Accessors
+ * --------------------------------
+ * threadExcEntryPoint(thread)                      Thread -> EntryPoint
+ * threadExcStatus(thread)                          Thread -> Status
+ * threadExcConnectArg(thread)                      Thread -> Thread
+ * threadExcSendPayload(thread)                     Thread -> IpcPayload
+ * threadExcRecvPayload(thread)                     Thread -> IpcPayload
+ * threadSetExcEntryPoint(thread,entryPoint)        Thread,EntryPoint
+ * threadSetExcStatus(thread,newStatus)             Thread,Status
+ * threadSetExcConnectArg(thread,newConnectArg)     Thread,Thread
+ * threadSetExcSendPayload(thread,newPayload)       Thread,IpcPayload
+ * threadSetExcRecvPayload(thread,newPayload)       Thread,IpcPayload
+ *
+ * WaitQueue-related Data Accessors
+ * --------------------------------
+ * threadWaitQNext(thread)			    Thread -> Thread
+ * threadWaitQPrev(thread)			    Thread -> Thread
+ * threadSetWaitQNext(thread, newNext)		    Thread, Thread
+ * threadSetWaitQPrev(thread, newPrev)		    Thread, Thread
+ *
+ * Thread Flag Accessors
+ * ---------------------
+ * threadStoppedFlag(thread)			    Thread -> bit
+ * threadSetStoppedFlag(thread, bit)		    Thread, bit
+ */
+
+#ifndef __THREAD__
+#define __THREAD__
+
+
+/*-- Thread type ------------------------------------------------------------*/
+
+#define Thread Reference
+
+#define THREAD_ID_INVALID nil  /* Ah, legacy code. */
+
+#define threadDefineInstances(numInstances) /* int */			\
+  refDefineInstances(ThreadState,threads,numInstances)
+
+#define threadInitInstances(numInstances) /* Symbol,int */		\
+  d_step {								\
+    Thread threadInitId = 1;						\
+    do									\
+    :: threadInitId <= numInstances;					\
+         /* XXX */							\
+         threadSetIPCRendezvousCond(threadInitId,			\
+		   numInstances+threadInitId);				\
+	 /* Check that the index is a valid wait queue. */		\
+	 assert(wqHead(threadIPCRendezvousCond(threadInitId)) ==	\
+	        wqHead(threadIPCRendezvousCond(threadInitId)));		\
+ 	 threadInitId++;						\
+									\
+    :: else ->								\
+         break;								\
+    od;									\
+  }
+
+#include "WaitVal.pr"
+#include "WaitQueue.pr"
+#include "EntryPoint.pr"
+#include "Status.pr"
+#include "ResultCode.pr"
+#include "IpcFlags.pr"
+#include "Link.pr"
+#include "../control/cond.pr"
+
+/*-- Thread operations ------------------------------------------------------*/
+
+/* Wait-related operations */
+
+#define threadSetWaitVal(thread,waitVal) /* Thread,WaitVal */               \
+  deref(thread,threads,.wait.val)=waitVal
+
+#define threadWaitVal(thread) /* Thread -> WaitVal */                       \
+  deref(thread,threads,.wait.val)
+
+#define threadSetWaitWaitingOn(thread,waitQueue) /* Thread,WaitQueue */     \
+  deref(thread,threads,.wait.waitingOn)=waitQueue
+
+#define threadWaitWaitingOn(thread) /* Thread -> WaitQueue */               \
+  deref(thread,threads,.wait.waitingOn)
+
+#define threadSetWaitCancelPending(thread,newCancPend) /* Thread,Bool */    \
+  deref(thread,threads,.wait.cancelPending)=newCancPend
+
+#define threadWaitCancelPending(thread) /* Thread -> Bool */                \
+  deref(thread,threads,.wait.cancelPending)
+
+#define threadSetWaitResumeRc(thread,newRC) /* Thread,ResultCode */         \
+  deref(thread,threads,.wait.resumeRC)=newRC
+
+#define threadWaitResumeRc(thread) /* Thread -> ResultCode */               \
+  deref(thread,threads,.wait.resumeRC)
+
+#define threadSetWaitBlocked(thread,state) /* Thread, bit */                \
+  deref(thread,threads,.wait.blocked)=state
+
+#define threadWaitBlocked(thread) /* Thread -> boolean */                   \
+  deref(thread,threads,.wait.blocked)
+
+/* IPC-related operations */
+
+#define threadSetIPCServerLink(thread,link) /* Thread,Link */               \
+  deref(thread,threads,.ipc.serverLink)=link
+
+#define threadIPCServerLink(thread) /* Thread -> Link */                    \
+  deref(thread,threads,.ipc.serverLink)
+
+#define threadSetIPCServer(thread,newServer) /* Thread,Thread */            \
+  deref(thread,threads,.ipc.server)=newServer
+
+#define threadIPCServer(thread) /* Thread -> Thread */                      \
+  deref(thread,threads,.ipc.server)
+
+#define threadSetIPCClientLink(thread,link) /* Thread,Link */               \
+  deref(thread,threads,.ipc.clientLink)=link
+
+#define threadIPCClientLink(thread) /* Thread -> Link */                    \
+  deref(thread,threads,.ipc.clientLink)
+
+#define threadSetIPCClient(thread,newClient) /* Thread,Thread */            \
+  deref(thread,threads,.ipc.client)=newClient
+
+#define threadIPCClient(thread) /* Thread -> Thread */                      \
+  deref(thread,threads,.ipc.client)
+
+#define threadSetIPCFlags(thread,newFlags) /* Thread,short */               \
+  deref(thread,threads,.ipc.flags)=newFlags
+
+#define threadIPCFlags(thread) /* Thread -> short */                        \
+  deref(thread,threads,.ipc.flags)
+
+#define threadSetIPCRendevous(thread, rendBit) /* Thread, bit */            \
+  deref(thread,threads,.ipc.rendezvous)=rendBit
+
+#define threadIPCRendevous(thread) /* Thread */                             \
+  deref(thread,threads,.ipc.rendezvous)
+
+/* Exc-related operations */
+
+#define threadSetExcEntryPoint(thread,entryPoint) /* Thread,EntryPoint */   \
+  deref(thread,threads,.exc.ip)=entryPoint
+
+#define threadExcEntryPoint(thread) /* Thread -> EntryPonit */              \
+  deref(thread,threads,.exc.ip)
+
+#define threadSetExcStatus(thread,newStatus) /* Thread,Status */            \
+  deref(thread,threads,.exc.status)=newStatus
+
+#define threadExcStatus(thread) /* Thread -> Status */                      \
+  deref(thread,threads,.exc.status)
+
+#ifdef INCLUDE_IPC_PAYLOAD
+#define threadSetExcSendPayload(thread,newPayload) /* Thread,byte */        \
+  deref(thread,threads,.exc.sendPayload)=newPayload
+
+#define threadSetExcRecvPayload(thread,newPayload) /* Thread,byte */        \
+  deref(thread,threads,.exc.recvPayload)=newPayload
+
+#define threadExcSendPayload(thread) /* Thread -> byte */                   \
+  deref(thread,threads,.exc.sendPayload)
+
+#define threadExcRecvPayload(thread) /* Thread -> byte */                   \
+  deref(thread,threads,.exc.recvPayload)
+#else /* No payload in the model */
+#define threadSetExcSendPayload(th,data) /* nuthin */
+#define threadSetExcRecvPayload(th,data) /* nuthin */
+#define threadExcSendPayload(th)         69
+#define threadExcRecvPayload(th)         69
+#endif
+
+#define threadSetExcConnectArg(thread,newConnectArg) /* Thread,byte */      \
+  deref(thread,threads,.exc.connectArg)=newConnectArg
+
+#define threadExcConnectArg(thread) /* Thread -> byte */                    \
+  deref(thread,threads,.exc.connectArg)
+
+
+/*-- WaitQueue-related Operations */
+
+#define threadIPCRendezvousCond(thread)					\
+  deref(thread,threads,.ipc.rendezvous)
+
+#define threadSetIPCRendezvousCond(thread, condId)			\
+  deref(thread,threads,.ipc.rendezvous)=condId
+
+#define threadStopCond(thread)						\
+  thread  /* Stop Cond is just thread's id which is used as index to wq */
+
+#define threadWaitQNext(thread) /* Thread -> Thread */			\
+  deref(thread,threads,.waitQueue.next)
+
+#define threadSetWaitQNext(thread, threadNext) /* Thread, Thread */	\
+  deref(thread,threads,.waitQueue.next)=threadNext
+
+#define threadWaitQPrev(thread) /* Thread -> Thread */			\
+  deref(thread,threads,.waitQueue.prev)
+
+#define threadSetWaitQPrev(thread, threadPrev) /* Thread, Thread */	\
+  deref(thread,threads,.waitQueue.prev)=threadPrev
+
+/*-- Thread Flags */
+
+#define threadStoppedFlag(thread)					\
+  deref(thread,threads,.stoppedFlag)
+
+#define threadSetStoppedFlag(thread,isStopped)				\
+  deref(thread,threads,.stoppedFlag)=isStoppped
+
+/*-- Internal ---------------------------------------------------------------*/
+
+typedef ThreadWaitState {
+  bit        blocked;                  /* Bit this thread actually blocks on */ 
+  WaitVal    val;                      /* Why this thread is waiting         */
+  WaitQueue  waitingOn;                /* The wait queue I'm on              */
+  bit        cancelPending;            /* True if someone's requested cancel */
+  ResultCode resumeRC;                 /* The return code to bubble back to  */
+                                       /*   the kernel entry point.          */
+                                       /* XXX Explain this better!           */
+};
+
+typedef ThreadIPCState {
+  Link     serverLink;                 /* How we find the 'server' thread    */
+  Thread   server;                     /* The thread whose client I am       */
+  Link     clientLink;                 /* How we find the 'client' thread    */
+  Thread   client;                     /* The thread whose server I am       */
+  IpcFlags flags;                      /* Flags for direction of conn.       */
+  CondVar  rendezvous;		       /* Renedvous cond ONLY used in ports  */
+				       /*   portsAndPsets.pr                 */
+};
+
+typedef ThreadExcState {
+  EntryPoint ip;                       /* Entry-point identifier             */
+  Status     status;                   /* The syscall return code for user   */
+#ifdef INCLUDE_IPC_PAYLOAD
+  IpcPayload sendPayload;	       /* abstracts the send payload	     */
+  IpcPayload recvPayload;              /* abstracts the recv payload	     */
+#endif
+  Thread     connectArg;	       /* server to connect to		     */
+};
+
+typedef ThreadState {
+  bit	          stoppedFlag;         /* Flag if this thread is stopped.    */
+  ThreadIPCState  ipc;                 /* Thread state to do w/IPC           */
+  ThreadWaitState wait;                /* Thread state to do w/waiting       */
+  ThreadExcState  exc;                 /* Thread state to do w/exceptions    */
+  wqDefineThreadState(waitQueue);      /* Thread state to do w/current wq    */
+};
+
+#endif /* __THREAD__ */

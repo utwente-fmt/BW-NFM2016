@@ -1,0 +1,25 @@
+statistics run
+lps2lts-seq --mcrl2-rewriter=jitty spec/mCRL2/1394-fin.mcrl2.suminst.lps -rsc,bg,bk,mm --regroup-exit --graph-metrics
+ctit012
+lps2lts-seq: mCRL2 language module initialized
+lps2lts-seq: Loading model from spec/mCRL2/1394-fin.mcrl2.suminst.lps
+lps2lts-seq: mCRL2 rewriter: jitty
+lps2lts-seq: Initializing regrouping layer
+lps2lts-seq: Regroup specification: sc,bg,bk,mm
+lps2lts-seq: Regroup Select Combined matrix
+lps2lts-seq: Regroup Bipartite Graph
+lps2lts-seq: Regroup Boost's King
+lps2lts-seq: bandwidth: 617
+lps2lts-seq: profile: 427425
+lps2lts-seq: span: 559970
+lps2lts-seq: average wavefront: 255.6816
+lps2lts-seq: RMS wavefront: 305.1438
+lps2lts-seq: Regroup Matrix Metrics
+lps2lts-seq: Regrouping: 1069->1069 groups
+lps2lts-seq: Regrouping took 0.140 real 0.130 user 0.000 sys
+Event Span: 17536
+Normalized Event Span: 0.60756
+Weighted Event Span, moment 1 (WES^1): 29104
+Normalized Weighted Event Span, moment 1: 1.0083
+Exit [0]
+0.29 user, 0.02 system, 0.40 elapsed -- Max VSize = 71864KB, Max RSS = 18240KB

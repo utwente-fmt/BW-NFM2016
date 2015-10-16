@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/parking_8_64.pnml -rsc,tg,vcm --regroup-exit
+ctit004
+pnml2lts-seq: Loading model from spec/PNML/parking_8_64.pnml
+pnml2lts-seq: Petri net has 1185 places, 1697 transitions and 5073 arcs
+pnml2lts-seq: There are 1185 safe places
+pnml2lts-seq: Petri net spec/PNML/parking_8_64.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.090 real 0.070 user 0.010 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vcm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Cuthill McKee
+pnml2lts-seq: Regrouping: 1697->1697 groups
+pnml2lts-seq: Regrouping took 0.190 real 0.170 user 0.010 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+0.25 user, 0.02 system, 0.30 elapsed -- Max VSize = 55760KB, Max RSS = 17348KB

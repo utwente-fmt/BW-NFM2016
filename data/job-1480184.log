@@ -1,0 +1,20 @@
+statistics run
+pnml2lts-seq spec/PNML/30-10_phaseVariation.pnml -rsc,tg,bcm,mm --regroup-exit --graph-metrics
+ctit012
+pnml2lts-seq: Loading model from spec/PNML/30-10_phaseVariation.pnml
+pnml2lts-seq: Petri net has 2702 places, 30977 transitions and 215035 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/30-10_phaseVariation.pnml analyzed
+pnml2lts-seq: Loading Petri net took 3.050 real 2.810 user 0.230 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bcm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Cuthill McKee
+pnml2lts-seq: bandwidth: 124694
+pnml2lts-seq: profile: 18388089203
+pnml2lts-seq: span: 21987938687
+pnml2lts-seq: average wavefront: 42575.63622
+Killed [24]
+3594.40 user, 0.60 system, 3602.95 elapsed -- Max VSize = 506560KB, Max RSS = 467972KB
+command-5374: line 5: 22995 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/30-10_phaseVariation.pnml -rsc,tg,bcm,mm --regroup-exit --graph-metrics

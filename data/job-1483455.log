@@ -1,0 +1,22 @@
+statistics run
+pnml2lts-seq spec/PNML/database10UNFOLD.pnml -rsc,f,mm --regroup-exit
+ctit024
+pnml2lts-seq: Loading model from spec/PNML/database10UNFOLD.pnml
+pnml2lts-seq: Petri net has 830 places, 800 transitions and 3800 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/database10UNFOLD.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.080 real 0.060 user 0.020 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,f,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup FORCE
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 800->800 groups
+pnml2lts-seq: Regrouping took 0.570 real 0.560 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Event Span: 118277
+Normalized Event Span: 0.178128
+Weighted Event Span, moment 1 (WES^1): 149719
+Normalized Weighted Event Span, moment 1: 0.225481
+Exit [0]
+0.62 user, 0.03 system, 0.70 elapsed -- Max VSize = 56488KB, Max RSS = 18028KB

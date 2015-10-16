@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/rwmutex-r2000w10.pnml -rsc,tg,bs --regroup-exit
+ctit028
+pnml2lts-seq: Loading model from spec/PNML/rwmutex-r2000w10.pnml
+pnml2lts-seq: Petri net has 6020 places, 4020 transitions and 52040 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/rwmutex-r2000w10.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.870 real 0.800 user 0.070 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: Regrouping: 4020->4020 groups
+pnml2lts-seq: Regrouping took 93.930 real 93.500 user 0.180 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+94.31 user, 0.27 system, 94.89 elapsed -- Max VSize = 198280KB, Max RSS = 159600KB

@@ -1,0 +1,9 @@
+performance run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-51959- --no-close spec/B/Deadlock.mch -rsc,tg,bk --regroup-exit
+ctit035
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-51967.probz
+prob2lts-seq, ** error **: Zocket does not exist: (null)
+Exit [255]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-51967: line 10: 10217 Killed                  probcli spec/B/Deadlock.mch -ltsmin2 /tmp/ltsmin-51967.probz

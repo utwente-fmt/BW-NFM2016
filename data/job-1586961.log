@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/rwmutex-r10w2000.pnml -rsc,bg,vgps --regroup-exit
+ctit022
+pnml2lts-seq: Loading model from spec/PNML/rwmutex-r10w2000.pnml
+pnml2lts-seq: Petri net has 4030 places, 4020 transitions and 48060 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/rwmutex-r10w2000.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.680 real 0.610 user 0.050 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: Regrouping: 4020->4020 groups
+pnml2lts-seq: Regrouping took 22.170 real 22.030 user 0.050 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+22.65 user, 0.12 system, 22.92 elapsed -- Max VSize = 144056KB, Max RSS = 105660KB

@@ -1,0 +1,29 @@
+performance run
+pnml2lts-sym spec/PNML/hc4k3p3b12.pnml -rrs,hf --noack=2 --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit021
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/hc4k3p3b12.pnml
+pnml2lts-sym: Petri net has 2457 places, 5400 transitions and 21600 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/hc4k3p3b12.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 0.860 real 0.860 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 1.340 real 1.300 user 0.030 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: rs,hf
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 5400->5400 groups
+pnml2lts-sym: Regrouping took 1.700 real 1.670 user 0.030 sys
+pnml2lts-sym: state vector length is 2457; there are 5400 groups and 2457 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1792.16 user, 2.41 system, 1824.54 elapsed -- Max VSize = 3753392KB, Max RSS = 1054020KB
+command-9853: line 5: 20045 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/hc4k3p3b12.pnml -rrs,hf --noack=2 --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

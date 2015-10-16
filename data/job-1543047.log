@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/pouring.2.dve -rsc,bg,bs --regroup-exit
+ctit015
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/pouring.2.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bs
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's Sloan
+dve2lts-seq: Regrouping: 1724->1724 groups
+dve2lts-seq: Regrouping took 0.080 real 0.070 user 0.000 sys
+Exit [0]
+25.13 user, 1.20 system, 26.43 elapsed -- Max VSize = 55420KB, Max RSS = 19448KB

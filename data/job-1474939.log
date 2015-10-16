@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-126- --no-close spec/B/EchoAlg.mch -rsc,bg,bk,mm --regroup-exit --graph-metrics
+ctit010
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-129.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-129.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,bk,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup Boost's King
+prob2lts-seq: bandwidth: 9
+prob2lts-seq: profile: 110
+prob2lts-seq: span: 135
+prob2lts-seq: average wavefront: 5.36
+prob2lts-seq: RMS wavefront: 5.89
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 5->5 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 35
+Normalized Event Span: 0.78
+Weighted Event Span, moment 1 (WES^1): 64
+Normalized Weighted Event Span, moment 1: 1.4
+Exit [0]
+0.01 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-129: line 10: 21448 Killed                  probcli spec/B/EchoAlg.mch -ltsmin2 /tmp/ltsmin-129.probz

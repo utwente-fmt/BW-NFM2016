@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/hc5k3p3b15.pnml -rsc,bg,bs --regroup-exit
+ctit008
+pnml2lts-seq: Loading model from spec/PNML/hc5k3p3b15.pnml
+pnml2lts-seq: Petri net has 9153 places, 25110 transitions and 100440 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/hc5k3p3b15.pnml analyzed
+pnml2lts-seq: Loading Petri net took 5.780 real 5.330 user 0.380 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bs
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: Regrouping: 25110->25110 groups
+pnml2lts-seq: Regrouping took 20.760 real 19.810 user 0.740 sys
+pnml2lts-seq: max token count: 15
+Exit [0]
+25.15 user, 1.28 system, 26.73 elapsed -- Max VSize = 1290016KB, Max RSS = 1242336KB

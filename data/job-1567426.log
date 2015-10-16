@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/lamport_nonatomic.5.dve -rsc,tg,bs --regroup-exit
+ctit034
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/lamport_nonatomic.5.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,bs
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup Boost's Sloan
+dve2lts-seq: Regrouping: 365->365 groups
+dve2lts-seq: Regrouping took 0.060 real 0.060 user 0.000 sys
+Exit [0]
+7.30 user, 0.24 system, 7.62 elapsed -- Max VSize = 43340KB, Max RSS = 7704KB

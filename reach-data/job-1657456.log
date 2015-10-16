@@ -1,0 +1,35 @@
+performance run
+pnml2lts-sym spec/PNML/SmallOperatingSystem-MT0256DC0064.pnml -rsc,bg,bk,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit012
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/SmallOperatingSystem-MT0256DC0064.pnml
+pnml2lts-sym: Petri net has 9 places, 8 transitions and 27 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/SmallOperatingSystem-MT0256DC0064.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,bk,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup Boost's King
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 8->8 groups
+pnml2lts-sym: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state vector length is 9; there are 8 groups and 9 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: Exploration took 8 group checks and 8 next state calls
+pnml2lts-sym: reachability took 0.070 real 0.010 user 0.040 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state space has 1 states, 9 nodes
+pnml2lts-sym: ( 9 final BDD nodes; 9 peak nodes )
+pnml2lts-sym: group_next: 0 nodes total
+pnml2lts-sym: group_explored: 27 nodes, 8 short vectors total
+pnml2lts-sym: max token count: 256
+Exit [0]
+0.01 user, 0.09 system, 0.41 elapsed -- Max VSize = 3675064KB, Max RSS = 194480KB

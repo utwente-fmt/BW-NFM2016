@@ -1,0 +1,35 @@
+statistics run
+pnml2lts-sym spec/PNML/neoelection-7.unf.pnml -rsc,tg,bk,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit017
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/neoelection-7.unf.pnml
+pnml2lts-sym: Petri net has 7128 places, 14112 transitions and 81968 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/neoelection-7.unf.pnml analyzed
+pnml2lts-sym: Loading Petri net took 2.670 real 2.460 user 0.190 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bk,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's King
+pnml2lts-sym: bandwidth: 56216
+pnml2lts-sym: profile: 3134723039
+pnml2lts-sym: span: 3961178803
+pnml2lts-sym: average wavefront: 14056.02179
+pnml2lts-sym: RMS wavefront: 17841.59128
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 14112->14112 groups
+pnml2lts-sym: Regrouping took 812.940 real 807.180 user 2.520 sys
+pnml2lts-sym: state vector length is 7128; there are 14112 groups and 2152 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Event Span: 10064734
+Normalized Event Span: 0.100056669
+Weighted Event Span, moment 1 (WES^1): 3749292.05
+Normalized Weighted Event Span, moment 1: 0.0372728852
+Exit [1]
+809.65 user, 2.81 system, 815.80 elapsed -- Max VSize = 3236972KB, Max RSS = 564672KB

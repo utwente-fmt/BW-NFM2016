@@ -1,0 +1,16 @@
+performance run
+pnml2lts-seq spec/PNML/eratosthenes-200.pnml -rsc,bg,bs --regroup-exit
+ctit008
+pnml2lts-seq: Loading model from spec/PNML/eratosthenes-200.pnml
+pnml2lts-seq: Petri net has 199 places, 699 transitions and 2097 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/eratosthenes-200.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.030 real 0.020 user 0.010 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bs
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq, ** error **: Got invalid permutation from boost. This may happen when the graph representation of the matrix has disconnected sub graphs. This needs to be fixed in boost. A bug report has been filed here: https://svn.boost.org/trac/boost/ticket/11355.
+Exit [255]
+0.04 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

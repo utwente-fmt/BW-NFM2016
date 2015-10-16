@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/driving_phils.1.dve -rsc,bg,bk --regroup-exit
+ctit002
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/driving_phils.1.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bk
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's King
+dve2lts-seq: Regrouping: 36->36 groups
+dve2lts-seq: Regrouping took 0.010 real 0.000 user 0.000 sys
+Exit [0]
+0.77 user, 0.04 system, 0.90 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

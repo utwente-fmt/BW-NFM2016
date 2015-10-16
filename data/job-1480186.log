@@ -1,0 +1,19 @@
+statistics run
+pnml2lts-seq spec/PNML/30-10_phaseVariation.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit004
+pnml2lts-seq: Loading model from spec/PNML/30-10_phaseVariation.pnml
+pnml2lts-seq: Petri net has 2702 places, 30977 transitions and 215035 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/30-10_phaseVariation.pnml analyzed
+pnml2lts-seq: Loading Petri net took 4.330 real 3.860 user 0.460 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 186741
+pnml2lts-seq: profile: 12751423074
+pnml2lts-seq: span: 12914866557
+Killed [24]
+3591.09 user, 4.15 system, 3602.11 elapsed -- Max VSize = 697020KB, Max RSS = 653368KB
+command-5376: line 5: 55671 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/30-10_phaseVariation.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics

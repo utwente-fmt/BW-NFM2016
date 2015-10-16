@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/PolyORB-LF-S04-J04-T06-unfolded.pnml -rsc,bg,bcm --regroup-exit
+ctit024
+pnml2lts-seq: Loading model from spec/PNML/PolyORB-LF-S04-J04-T06-unfolded.pnml
+pnml2lts-seq: Petri net has 554 places, 2998 transitions and 20754 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/PolyORB-LF-S04-J04-T06-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.300 real 0.270 user 0.030 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bcm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's Cuthill McKee
+pnml2lts-seq: Regrouping: 2998->2998 groups
+pnml2lts-seq: Regrouping took 0.110 real 0.110 user 0.000 sys
+pnml2lts-seq: max token count: 10
+Exit [0]
+0.38 user, 0.04 system, 0.50 elapsed -- Max VSize = 96164KB, Max RSS = 57784KB

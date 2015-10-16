@@ -1,0 +1,25 @@
+performance run
+pnml2lts-sym spec/PNML/PolyORB-NT-S10-J60-unfolded.pnml -rsc,tg,vacm,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit010
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/PolyORB-NT-S10-J60-unfolded.pnml
+pnml2lts-sym: Petri net has 1234 places, 12920 transitions and 116879 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/PolyORB-NT-S10-J60-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 1.870 real 1.630 user 0.230 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,vacm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 12920->12920 groups
+pnml2lts-sym: Regrouping took 20.990 real 20.840 user 0.060 sys
+pnml2lts-sym: state vector length is 1234; there are 12920 groups and 1269 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+22.48 user, 0.33 system, 23.12 elapsed -- Max VSize = 2899700KB, Max RSS = 269536KB

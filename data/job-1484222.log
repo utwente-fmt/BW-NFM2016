@@ -1,0 +1,27 @@
+statistics run
+pnml2lts-seq spec/PNML/neoelection-6.unf.pnml -rsc,bn,mm --regroup-exit --graph-metrics
+ctit009
+pnml2lts-seq: Loading model from spec/PNML/neoelection-6.unf.pnml
+pnml2lts-seq: Petri net has 4830 places, 8435 transitions and 49028 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/neoelection-6.unf.pnml analyzed
+pnml2lts-seq: Loading Petri net took 1.210 real 1.140 user 0.060 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bn,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Boost's None
+pnml2lts-seq: bandwidth: 13153
+pnml2lts-seq: profile: 83272646
+pnml2lts-seq: span: 40354701
+pnml2lts-seq: average wavefront: 599.47614
+pnml2lts-seq: RMS wavefront: 697.332804
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 8435->8435 groups
+pnml2lts-seq: Regrouping took 10.970 real 10.810 user 0.090 sys
+pnml2lts-seq: max token count: 1
+Event Span: 36401904
+Normalized Event Span: 0.8934945
+Weighted Event Span, moment 1 (WES^1): 67101503
+Normalized Weighted Event Span, moment 1: 1.6470244
+Exit [0]
+11.95 user, 0.18 system, 12.31 elapsed -- Max VSize = 276712KB, Max RSS = 238500KB

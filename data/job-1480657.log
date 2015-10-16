@@ -1,0 +1,30 @@
+statistics run
+pnml2lts-seq spec/PNML/CircularTrain-768.pnml -rsc,bn,mm --noack=2 --regroup-exit --graph-metrics
+ctit003
+pnml2lts-seq: Loading model from spec/PNML/CircularTrain-768.pnml
+pnml2lts-seq: Petri net has 1536 places, 768 transitions and 3072 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/CircularTrain-768.pnml analyzed
+pnml2lts-seq: Computing Noack2 order
+pnml2lts-seq: Computing Noack2 order took 0.110 real 0.110 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 0.160 real 0.150 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regroup specification: sc,bn,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Boost's None
+pnml2lts-seq: bandwidth: 2292
+pnml2lts-seq: profile: 2866683
+pnml2lts-seq: span: 421879
+pnml2lts-seq: average wavefront: 858.7227
+pnml2lts-seq: RMS wavefront: 977.5556
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 768->768 groups
+pnml2lts-seq: Regrouping took 0.180 real 0.180 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Event Span: 6901
+Normalized Event Span: 0.00585005
+Weighted Event Span, moment 1 (WES^1): 9970.04
+Normalized Weighted Event Span, moment 1: 0.008451708
+Exit [0]
+0.34 user, 0.01 system, 0.40 elapsed -- Max VSize = 53940KB, Max RSS = 15536KB

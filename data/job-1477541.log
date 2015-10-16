@@ -1,0 +1,18 @@
+statistics run
+dve2lts-seq spec/DVE/lann.2.dve -rsc,f,mm --regroup-exit
+ctit003
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/lann.2.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,f,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup FORCE
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 36->36 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 173
+Normalized Event Span: 0.2
+Weighted Event Span, moment 1 (WES^1): 224
+Normalized Weighted Event Span, moment 1: 0.259
+Exit [0]
+0.68 user, 0.08 system, 0.80 elapsed -- Max VSize = 38240KB, Max RSS = 4744KB

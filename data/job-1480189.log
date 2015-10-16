@@ -1,0 +1,16 @@
+statistics run
+pnml2lts-seq spec/PNML/30-10_phaseVariation.pnml -rsc,tg,vgps,mm --regroup-exit --graph-metrics
+ctit003
+pnml2lts-seq: Loading model from spec/PNML/30-10_phaseVariation.pnml
+pnml2lts-seq: Petri net has 2702 places, 30977 transitions and 215035 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/30-10_phaseVariation.pnml analyzed
+pnml2lts-seq: Loading Petri net took 3.380 real 3.030 user 0.340 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+Killed [24]
+3591.37 user, 3.34 system, 3606.89 elapsed -- Max VSize = 492020KB, Max RSS = 453660KB
+command-5379: line 5: 42558 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/30-10_phaseVariation.pnml -rsc,tg,vgps,mm --regroup-exit --graph-metrics

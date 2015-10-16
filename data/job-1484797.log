@@ -1,0 +1,16 @@
+statistics run
+pnml2lts-seq spec/PNML/rwmutex-r10w2000.pnml -rsc,tg,vgps,mm --regroup-exit --graph-metrics
+ctit021
+pnml2lts-seq: Loading model from spec/PNML/rwmutex-r10w2000.pnml
+pnml2lts-seq: Petri net has 4030 places, 4020 transitions and 48060 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/rwmutex-r10w2000.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.690 real 0.610 user 0.070 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+Killed [24]
+3592.39 user, 0.32 system, 3601.19 elapsed -- Max VSize = 126220KB, Max RSS = 87956KB
+command-9987: line 5: 28458 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/rwmutex-r10w2000.pnml -rsc,tg,vgps,mm --regroup-exit --graph-metrics

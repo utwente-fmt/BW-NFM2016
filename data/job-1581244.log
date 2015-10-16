@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/plc.4.dve -rsc,tg,bs --regroup-exit
+ctit015
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/plc.4.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,bs
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup Boost's Sloan
+dve2lts-seq: Regrouping: 230->230 groups
+dve2lts-seq: Regrouping took 0.080 real 0.080 user 0.000 sys
+Exit [0]
+57.01 user, 3.58 system, 60.87 elapsed -- Max VSize = 45016KB, Max RSS = 9528KB

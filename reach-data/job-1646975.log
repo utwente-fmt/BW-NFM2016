@@ -1,0 +1,38 @@
+statistics run
+pnml2lts-sym spec/PNML/TokenRing-30-unfolded.pnml -rsc,bn,rs,mm,hf --noack=2 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit022
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/TokenRing-30-unfolded.pnml
+pnml2lts-sym: Petri net has 961 places, 27931 transitions and 111724 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/TokenRing-30-unfolded.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 2.100 real 2.090 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 4.370 real 4.000 user 0.350 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 28872
+pnml2lts-sym: profile: 435131768
+pnml2lts-sym: span: 35483874
+pnml2lts-sym: average wavefront: 934.974976
+pnml2lts-sym: RMS wavefront: 942.79451
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 27931->27931 groups
+pnml2lts-sym: Regrouping took 44.660 real 44.530 user 0.060 sys
+pnml2lts-sym: state vector length is 961; there are 27931 groups and 961 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Event Span: 9268531
+Normalized Event Span: 0.34530354
+Weighted Event Span, moment 1 (WES^1): 13904732
+Normalized Weighted Event Span, moment 1: 0.51802742
+Exit [1]
+48.54 user, 0.47 system, 49.25 elapsed -- Max VSize = 2973492KB, Max RSS = 301724KB

@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/sg-13-6-13.pnml --noack=1 --regroup-exit --graph-metrics
+ctit017
+pnml2lts-seq: Loading model from spec/PNML/sg-13-6-13.pnml
+pnml2lts-seq: Petri net has 2301 places, 2756 transitions and 11024 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/sg-13-6-13.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 0.410 real 0.410 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 0.650 real 0.630 user 0.020 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regrouping: 2756->2756 groups
+pnml2lts-seq: Regrouping took 0.260 real 0.250 user 0.000 sys
+pnml2lts-seq: max token count: 13
+Exit [0]
+0.89 user, 0.03 system, 1.00 elapsed -- Max VSize = 82836KB, Max RSS = 44420KB

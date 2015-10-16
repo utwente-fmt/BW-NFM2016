@@ -1,0 +1,37 @@
+sort Square = struct spc | box | man | wal;
+act walk_up, walk_down, walk_left, walk_right, push_up, push_down, push_left, push_right, finish;
+proc Solve(
+                                          
+       x_1_1,x_1_2,x_1_3,x_1_4,x_1_5      
+                                          
+:Square) = 
+(x_1_1==man)->(delta
++ (x_1_2==spc)->walk_right. Solve(x_1_2=man,x_1_1=spc)
++ (x_1_2==box && x_1_3==spc)->push_right. Solve(x_1_3=box,x_1_2=man,x_1_1=spc)
+)+
+(x_1_2==man)->(delta
++ (x_1_1==spc)->walk_left . Solve(x_1_1=man,x_1_2=spc)
++ (x_1_3==spc)->walk_right. Solve(x_1_3=man,x_1_2=spc)
++ (x_1_3==box && x_1_4==spc)->push_right. Solve(x_1_4=box,x_1_3=man,x_1_2=spc)
+)+
+(x_1_3==man)->(delta
++ (x_1_2==spc)->walk_left . Solve(x_1_2=man,x_1_3=spc)
++ (x_1_4==spc)->walk_right. Solve(x_1_4=man,x_1_3=spc)
++ (x_1_2==box && x_1_1==spc)->push_left . Solve(x_1_1=box,x_1_2=man,x_1_3=spc)
++ (x_1_4==box && x_1_5==spc)->push_right. Solve(x_1_5=box,x_1_4=man,x_1_3=spc)
+)+
+(x_1_4==man)->(delta
++ (x_1_3==spc)->walk_left . Solve(x_1_3=man,x_1_4=spc)
++ (x_1_5==spc)->walk_right. Solve(x_1_5=man,x_1_4=spc)
++ (x_1_3==box && x_1_2==spc)->push_left . Solve(x_1_2=box,x_1_3=man,x_1_4=spc)
+)+
+(x_1_5==man)->(delta
++ (x_1_4==spc)->walk_left . Solve(x_1_4=man,x_1_5=spc)
++ (x_1_4==box && x_1_3==spc)->push_left . Solve(x_1_3=box,x_1_4=man,x_1_5=spc)
+)+
+(true && x_1_1==box && x_1_5==box)->finish . Solve();
+init Solve(
+                            
+     spc,box,man,box,spc    
+                            
+);

@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/PolyORB-NT-S10-J40-unfolded.pnml -rsc,bg,bs,mm --regroup-exit --graph-metrics
+ctit001
+pnml2lts-seq: Loading model from spec/PNML/PolyORB-NT-S10-J40-unfolded.pnml
+pnml2lts-seq: Petri net has 854 places, 12340 transitions and 113999 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/PolyORB-NT-S10-J40-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 1.670 real 1.530 user 0.130 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 13155
+pnml2lts-seq: profile: 72205167
+pnml2lts-seq: span: 9553656
+pnml2lts-seq: average wavefront: 99.1686373
+pnml2lts-seq: RMS wavefront: 125.272527
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 12340->12340 groups
+pnml2lts-seq: Regrouping took 146.270 real 145.480 user 0.100 sys
+pnml2lts-seq: max token count: 10
+Event Span: 572291
+Normalized Event Span: 0.054305509
+Weighted Event Span, moment 1 (WES^1): 446435.42
+Normalized Weighted Event Span, moment 1: 0.042362893
+Exit [0]
+147.02 user, 0.27 system, 148.08 elapsed -- Max VSize = 295980KB, Max RSS = 257852KB

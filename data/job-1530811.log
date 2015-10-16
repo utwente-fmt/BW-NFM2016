@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/sokoban.3.dve -rsc,tg,vgps --regroup-exit
+ctit016
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/sokoban.3.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,vgps
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+dve2lts-seq: Regrouping: 9->9 groups
+dve2lts-seq: Regrouping took 0.300 real 0.290 user 0.000 sys
+Exit [0]
+0.69 user, 0.06 system, 0.80 elapsed -- Max VSize = 41576KB, Max RSS = 6128KB

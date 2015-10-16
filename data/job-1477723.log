@@ -1,0 +1,18 @@
+statistics run
+dve2lts-seq spec/DVE/leader_filters.1.dve -rsc,f,mm --regroup-exit
+ctit012
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/leader_filters.1.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,f,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup FORCE
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 30->30 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 279
+Normalized Event Span: 0.443
+Weighted Event Span, moment 1 (WES^1): 431
+Normalized Weighted Event Span, moment 1: 0.684
+Exit [0]
+0.60 user, 0.05 system, 0.70 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

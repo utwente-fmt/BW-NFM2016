@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/phils.3.dve -rsc,tg,vacm --regroup-exit
+ctit041
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/phils.3.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,vacm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+dve2lts-seq: Regrouping: 24->24 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.36 user, 0.06 system, 0.50 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

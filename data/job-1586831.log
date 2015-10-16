@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/railroad-050-pt.pnml -rsc,tg,vacm --regroup-exit
+ctit015
+pnml2lts-seq: Loading model from spec/PNML/railroad-050-pt.pnml
+pnml2lts-seq: Petri net has 518 places, 2756 transitions and 16378 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/railroad-050-pt.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.160 real 0.140 user 0.020 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vacm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-seq: Regrouping: 2756->2756 groups
+pnml2lts-seq: Regrouping took 5.500 real 5.460 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+5.60 user, 0.03 system, 5.71 elapsed -- Max VSize = 72168KB, Max RSS = 33904KB

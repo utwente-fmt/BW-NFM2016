@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/extinction.1.dve -rsc,bg,bk,mm --regroup-exit --graph-metrics
+ctit039
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/extinction.1.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bk,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's King
+dve2lts-seq: bandwidth: 42
+dve2lts-seq: profile: 3021
+dve2lts-seq: span: 3651
+dve2lts-seq: average wavefront: 15.109
+dve2lts-seq: RMS wavefront: 16.131
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 79->79 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 952
+Normalized Event Span: 0.3013
+Weighted Event Span, moment 1 (WES^1): 1389
+Normalized Weighted Event Span, moment 1: 0.4396
+Exit [0]
+1.40 user, 0.05 system, 1.70 elapsed -- Max VSize = 38240KB, Max RSS = 4680KB

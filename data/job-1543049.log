@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/pouring.2.dve -rsc,bg,vacm --regroup-exit
+ctit015
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/pouring.2.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,vacm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+dve2lts-seq: Regrouping: 1724->1724 groups
+dve2lts-seq: Regrouping took 0.400 real 0.400 user 0.000 sys
+Exit [0]
+27.09 user, 1.23 system, 28.53 elapsed -- Max VSize = 55152KB, Max RSS = 19184KB

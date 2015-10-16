@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/QCertifProtocol_32-unfold.pnml -rsc,bg,vcm --regroup-exit
+ctit026
+pnml2lts-seq: Loading model from spec/PNML/QCertifProtocol_32-unfold.pnml
+pnml2lts-seq: Petri net has 3806 places, 506 transitions and 8173 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/QCertifProtocol_32-unfold.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.160 real 0.140 user 0.020 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,vcm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup ViennaCL's Cuthill McKee
+pnml2lts-seq: Regrouping: 506->506 groups
+pnml2lts-seq: Regrouping took 0.110 real 0.100 user 0.000 sys
+pnml2lts-seq: max token count: 19
+Exit [0]
+0.25 user, 0.02 system, 0.30 elapsed -- Max VSize = 73188KB, Max RSS = 34808KB

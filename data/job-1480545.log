@@ -1,0 +1,30 @@
+statistics run
+pnml2lts-seq spec/PNML/BridgeAndVehicles-V80-P50-N50-unfolded.pnml -rsc,bn,mm --noack=2 --regroup-exit --graph-metrics
+ctit011
+pnml2lts-seq: Loading model from spec/PNML/BridgeAndVehicles-V80-P50-N50-unfolded.pnml
+pnml2lts-seq: Petri net has 228 places, 8588 transitions and 67470 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/BridgeAndVehicles-V80-P50-N50-unfolded.pnml analyzed
+pnml2lts-seq: Computing Noack2 order
+pnml2lts-seq: Computing Noack2 order took 0.350 real 0.340 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 1.000 real 0.890 user 0.100 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regroup specification: sc,bn,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Boost's None
+pnml2lts-seq: bandwidth: 8815
+pnml2lts-seq: profile: 40262151
+pnml2lts-seq: span: 2161037
+pnml2lts-seq: average wavefront: 222.68228
+pnml2lts-seq: RMS wavefront: 224.59148
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 8588->8588 groups
+pnml2lts-seq: Regrouping took 2.390 real 2.400 user 0.000 sys
+pnml2lts-seq: max token count: 80
+Event Span: 894947
+Normalized Event Span: 0.4570571
+Weighted Event Span, moment 1 (WES^1): 1276563
+Normalized Weighted Event Span, moment 1: 0.6519517
+Exit [0]
+3.29 user, 0.12 system, 3.50 elapsed -- Max VSize = 177460KB, Max RSS = 139228KB

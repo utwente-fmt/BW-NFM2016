@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/peg_solitaire.2.dve -rsc,tg,vacm --regroup-exit
+ctit027
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/peg_solitaire.2.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,vacm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+dve2lts-seq: Regrouping: 140->140 groups
+dve2lts-seq: Regrouping took 0.050 real 0.050 user 0.000 sys
+Exit [0]
+3.85 user, 0.16 system, 4.10 elapsed -- Max VSize = 45852KB, Max RSS = 10328KB

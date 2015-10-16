@@ -1,0 +1,24 @@
+statistics run
+pnml2lts-sym spec/PNML/PolyORB-NT-S10-J80-unfolded.pnml -rsc,tg,bcm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit033
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/PolyORB-NT-S10-J80-unfolded.pnml
+pnml2lts-sym: Petri net has 1614 places, 13500 transitions and 119759 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/PolyORB-NT-S10-J80-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 2.300 real 2.060 user 0.230 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bcm,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's Cuthill McKee
+pnml2lts-sym: bandwidth: 85592
+pnml2lts-sym: profile: 8179996506
+pnml2lts-sym: span: 10338374327
+pnml2lts-sym: average wavefront: 29556.187198
+Killed [24]
+1796.54 user, 0.47 system, 1803.41 elapsed -- Max VSize = 2893044KB, Max RSS = 280540KB
+command-2426: line 5: 61451 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/PolyORB-NT-S10-J80-unfolded.pnml -rsc,tg,bcm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

@@ -1,0 +1,25 @@
+performance run
+pnml2lts-sym spec/PNML/TokenRing-30-unfolded.pnml -rsc,tg,bcm,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit023
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/TokenRing-30-unfolded.pnml
+pnml2lts-sym: Petri net has 961 places, 27931 transitions and 111724 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/TokenRing-30-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 2.280 real 1.880 user 0.350 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bcm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's Cuthill McKee
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 27931->27931 groups
+pnml2lts-sym: Regrouping took 3.220 real 3.170 user 0.020 sys
+pnml2lts-sym: state vector length is 961; there are 27931 groups and 961 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+5.06 user, 0.42 system, 5.71 elapsed -- Max VSize = 3370788KB, Max RSS = 299804KB

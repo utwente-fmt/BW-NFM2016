@@ -1,0 +1,20 @@
+performance run
+pnml2lts-sym spec/PNML/RAS-R-100.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit027
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/RAS-R-100.pnml
+pnml2lts-sym: Petri net has 400 places, 202 transitions and 1000 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/RAS-R-100.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.070 real 0.010 user 0.020 sys
+pnml2lts-sym: state vector length is 400; there are 202 groups and 400 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 15094859 of 16777216 buckets filled!
+Exit [1]
+86.95 user, 0.82 system, 88.19 elapsed -- Max VSize = 3675064KB, Max RSS = 972772KB

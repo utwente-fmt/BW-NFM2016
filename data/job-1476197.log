@@ -1,0 +1,18 @@
+statistics run
+dve2lts-seq spec/DVE/cambridge.1.dve -rsc,f,mm --regroup-exit
+ctit025
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/cambridge.1.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,f,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup FORCE
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 56->56 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 452
+Normalized Event Span: 0.4484
+Weighted Event Span, moment 1 (WES^1): 656.7
+Normalized Weighted Event Span, moment 1: 0.6515
+Exit [0]
+0.92 user, 0.06 system, 1.00 elapsed -- Max VSize = 38240KB, Max RSS = 4752KB

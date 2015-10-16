@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/BridgeAndVehicles-V50-P50-N20-unfolded.pnml -rsc,tg,vgps --regroup-exit
+ctit016
+pnml2lts-seq: Loading model from spec/PNML/BridgeAndVehicles-V50-P50-N20-unfolded.pnml
+pnml2lts-seq: Petri net has 138 places, 2348 transitions and 18090 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/BridgeAndVehicles-V50-P50-N20-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.170 real 0.130 user 0.030 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: Regrouping: 2348->2348 groups
+pnml2lts-seq: Regrouping took 17.540 real 17.460 user 0.020 sys
+pnml2lts-seq: max token count: 50
+Exit [0]
+17.59 user, 0.06 system, 17.82 elapsed -- Max VSize = 80048KB, Max RSS = 41824KB

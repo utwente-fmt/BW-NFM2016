@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/bakery.8.dve -rsc,tg,vgps,mm --regroup-exit --graph-metrics
+ctit001
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/bakery.8.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,vgps,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+dve2lts-seq: bandwidth: 128
+dve2lts-seq: profile: 17171
+dve2lts-seq: span: 25285
+dve2lts-seq: average wavefront: 34.821
+dve2lts-seq: RMS wavefront: 38.902
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 40->40 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 526
+Normalized Event Span: 0.526
+Weighted Event Span, moment 1 (WES^1): 870
+Normalized Weighted Event Span, moment 1: 0.87
+Exit [0]
+0.63 user, 0.06 system, 0.70 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

@@ -1,0 +1,19 @@
+statistics run
+pnml2lts-seq spec/PNML/neoelection-8.unf.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit024
+pnml2lts-seq: Loading model from spec/PNML/neoelection-8.unf.pnml
+pnml2lts-seq: Petri net has 10062 places, 22266 transitions and 129195 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/neoelection-8.unf.pnml analyzed
+pnml2lts-seq: Loading Petri net took 5.290 real 4.950 user 0.310 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 153619
+pnml2lts-seq: profile: 2468116388
+pnml2lts-seq: span: 2529775705
+Killed [24]
+3593.39 user, 1.33 system, 3601.51 elapsed -- Max VSize = 793604KB, Max RSS = 738496KB
+command-9456: line 5: 49855 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/neoelection-8.unf.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics

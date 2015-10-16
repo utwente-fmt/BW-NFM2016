@@ -1,0 +1,263 @@
+/*
+ * Copyright (c) 1996 The University of Utah and
+ * the Computer Systems Laboratory at the University of Utah (CSL).
+ * All rights reserved.
+ *
+ * Permission to use, copy, modify and distribute this software is hereby
+ * granted provided that (1) source code retains these copyright, permission,
+ * and disclaimer notices, and (2) redistributions including binaries
+ * reproduce the notices in supporting documentation, and (3) all advertising
+ * materials mentioning features or use of this software display the following
+ * acknowledgement: ``This product includes software developed by the
+ * Computer Systems Laboratory at the University of Utah.''
+ *
+ * THE UNIVERSITY OF UTAH AND CSL ALLOW FREE USE OF THIS SOFTWARE IN ITS "AS
+ * IS" CONDITION.  THE UNIVERSITY OF UTAH AND CSL DISCLAIM ANY LIABILITY OF
+ * ANY KIND FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * CSL requests users of this software to return to csl-dist@cs.utah.edu any
+ * improvements that they make and grant CSL redistribution rights.
+ */
+/*
+ * WaitQueue.pr - Promela implementation of Fluke wait queues as global
+ *                variables.
+ *
+ * Module Prerequisites:
+ *
+ * XXXX This needs to be used differently everywhere.  We shouldn't define
+ * N "wait queues", we should define N cond vars, and use their name.
+ *
+ * State: *BIG*
+ * Safety: ?
+ */
+
+#ifndef __WAIT_QUEUE__
+#define __WAIT_QUEUE__
+
+#include "../support/Reference.pr"
+#include "../support/Sugar.pr"
+#include "../support/ThreadFunc.pr"
+
+/*
+ * Wait Q Ops:
+ *
+ *  (Note: all of these have an equivalent "CallerAtomic" version)
+ *
+ *  wqAdd(wq, targetThread)		(WaitQueue, Thread)
+ *  wqAddSelf(wq, currentThread)	(WaitQueue, Thread)
+ *  wqAddOther(wq, otherThread)		(WaitQueue, Thread)
+ *  wqRemove(wq)			(WaitQueue) -> Thread
+ *  wqRemoveSpecific(wq, thread)	(WaitQueue, Thread) -> Thread	
+ */
+
+
+/*-- WaitQueue type -------------------------------------------------------- */
+
+  /* WaitQueue is a reference type, because threads must be able to refer    */
+  /* to the wait queue that they're currently on.                            */
+
+#define WaitQueue Reference
+
+  /* Note that we "cheat" by knowing that threads are named by small         */
+  /* integers, densely packed near zero, so we have a one-to-one             */
+  /* correspondance between array positions in thread and actual threads.    */
+
+typedef WaitQueueState {
+  Reference head;                         /* Ref to Thread at head of queue  */
+  Reference tail;                         /* Ref to Thread at tail of queue  */
+}
+
+/*-- Per-Queue Type Fragment ----------------------------------------------- */
+
+typedef WaitQueueThreadState {
+  Reference prev;                         /* Ref to previous Thread on queue */
+  Reference next;                         /* Ref to next Thread on queue     */
+}
+
+/*-- Private WaitQueue operations ------------------------------------------ */
+
+#define wqDefineInstances(numInstances)                      \
+  refDefineInstances(WaitQueueState,WaitQueues,numInstances)
+
+#define wqInitInstances(numInstances)		\
+  d_step {					\
+    byte wqInitCt = numInstances;		\
+    do						\
+    :: wqInitCt > 0 ->				\
+         wqInitCt--;				\
+	 WaitQueues[wqInitCt].head = nil;	\
+	 WaitQueues[wqInitCt].tail = nil;	\
+    :: else ->					\
+         break;					\
+    od;						\
+  }
+
+#define wqDefineThreadState(instanceName)				   \
+  WaitQueueThreadState instanceName
+
+#define wqInitThreadState(instanceName)		\
+  instanceName.prev = nil;			\
+  instanceName.next = nil
+
+#define wqHead(waitQueue)						   \
+  deref(waitQueue,WaitQueues,.head)
+
+#define wqSetHead(waitQueue,thread)                                        \
+  deref(waitQueue,WaitQueues,.head)=thread
+
+#define wqTail(waitQueue)                                                  \
+  deref(waitQueue,WaitQueues,.tail)
+
+#define wqSetTail(waitQueue,thread)                                        \
+  deref(waitQueue,WaitQueues,.tail)=thread
+
+
+
+/*-- WaitQueue operations -------------------------------------------------- */
+
+  /*
+   * __wqAddEitherCallerAtomic() is an internal work function used by
+   * the two cases of add, either adding oneself or another thread.
+   */
+
+#define __wqAddEitherCallerAtomic(waitQueue, thread)		\
+  assert(threadWaitQNext(thread) == nil);			\
+  assert(threadWaitQPrev(thread) == nil);			\
+  threadSetWaitQPrev(thread,wqTail(waitQueue));			\
+  /* if head is nil, set head to point to thread */		\
+  if								\
+  :: wqHead(waitQueue) == nil ->				\
+       wqSetHead(waitQueue, thread);				\
+  :: else /*->							\
+       skip*/;							\
+  fi;								\
+  /* If tail is not nil, adjust its next pointer */		\
+  if								\
+  :: wqTail(waitQueue) != nil ->				\
+       threadSetWaitQNext(wqTail(waitQueue),thread);		\
+  :: else /*->							\
+       skip*/;							\
+  fi;								\
+  /* threadSetWaitQNext(thread, nil); --asserted above */	\
+  wqSetTail(waitQueue, thread)
+
+
+
+  /* wqAdd() is the generic way to add a thread onto a wait queue.  It's     */
+  /* just a front-end for the two specific cases of adding oneself or a      */
+  /* different (already captured) thread.                                    */
+
+#define wqAddCallerAtomic(waitQueue,thread)		\
+  if							\
+  :: thread == currentThread ->				\
+       wqAddSelfCallerAtomic(waitQueue,thread);		\
+  :: thread != currentThread ->				\
+       wqAddOtherCallerAtomic(waitQueue,thread);	\
+  fi
+
+#define wqAdd(waitQueue, thread)		\
+  atomic {					\
+    wqAddCallerAtomic(waitQueue, thread);	\
+  }
+
+  /* Adds the specified thread (which must be the current thread) to the     */
+  /* specified wait queue.  Since the current thread is then, by definition, */
+  /* not running, this "function" doesn't "return" until the thread is made  */
+  /* ready again by some other means.                                        */
+  /* Atomic: must be atomic to prevent other threads from "stealing" my      */
+  /*         ready response).                                                */
+
+#define wqAddSelfCallerAtomic(waitQueue,thread)		\
+  assert(thread == currentThread);			\
+  __wqAddEitherCallerAtomic(waitQueue, thread)
+
+
+#define wqAddSelf(waitQueue,thread)		\
+  atomic {					\
+    wqAddSelfCallerAtomic(waitQueue, thread);   \
+  }
+
+  /* Adds the specified thread (which should be already captured by the      */
+  /* current thread, and thus not the current thread) to the specified wait  */
+  /* queue.                                                                  */
+
+#define wqAddOtherCallerAtomic(waitQueue,thread)	\
+  assert(thread != currentThread);			\
+  assert(threadWaitBlocked(thread));			\
+  __wqAddEitherCallerAtomic(waitQueue, thread)
+
+
+#define wqAddOther(waitQueue,thread)		\
+  atomic {					\
+    wqAddOtherCallerAtomic(waitQueue, thread);	\
+  }
+
+  /* Sets rc to the thread at the head of waitQueue, and removes that thread */
+  /* from waitQueue.  Sets rc to nil if waitQueue is empty.                  */
+
+#define wqRemoveCallerAtomic(waitQueue)				\
+  rc = wqHead(waitQueue);					\
+  if								\
+  :: rc != nil ->						\
+       assert(rc != currentThread);				\
+       assert(threadWaitBlocked(rc));				\
+       assert(threadWaitQPrev(rc) == nil);			\
+       if							\
+       :: threadWaitQNext(rc) == nil ->				\
+	    /* No next elem */					\
+	    wqSetHead(waitQueue, nil);				\
+            assert(rc == wqTail(waitQueue));                    \
+            wqSetTail(waitQueue, nil);                          \
+       :: else ->						\
+	    assert(threadWaitQNext(rc) != nil);			\
+	    wqSetHead(waitQueue, threadWaitQNext(rc));		\
+	    threadSetWaitQPrev(wqHead(waitQueue), nil);		\
+	    threadSetWaitQNext(rc, nil) ;			\
+       fi;							\
+  :: else /*->							\
+       assert(rc == nil)*/; /* RETURN it, too */			\
+  fi
+
+#define wqRemove(waitQueue)			\
+  atomic {					\
+    wqRemoveCallerAtomic(waitQueue);		\
+  }
+
+  /* Removes the specified thread from waitQueue, and makes rc a reference   */
+  /* to the thread.  If the specified thread is not on waitQueue, make rc    */
+  /* nil.                                                                    */
+
+#define wqRemoveSpecificCallerAtomic(waitQueue,thread)			\
+  rc=wqHead(waitQueue);							\
+  do									\
+  :: rc == nil ->							\
+       /* RETURN rc == nil */						\
+       break;								\
+  :: rc == thread ->							\
+       assert(rc != currentThread);					\
+       onlyIf(rc == wqHead(waitQueue),                                  \
+         wqSetHead(waitQueue, threadWaitQNext(rc));                     \
+       );	 	                                                \
+       onlyIf(rc == wqTail(waitQueue),                                  \
+         wqSetTail(waitQueue, threadWaitQPrev(rc));                     \
+       );                                                               \
+       onlyIf(threadWaitQPrev(rc),                                      \
+         threadSetWaitQNext(threadWaitQPrev(rc), threadWaitQNext(rc));	\
+       );								\
+       onlyIf(threadWaitQNext(rc),					\
+         threadSetWaitQPrev(threadWaitQNext(rc), threadWaitQPrev(rc));	\
+       );								\
+       threadSetWaitQNext(rc, nil);					\
+       threadSetWaitQPrev(rc, nil);					\
+       /* RETURN rc */							\
+       break;								\
+  :: else ->								\
+       rc=threadWaitQNext(rc);						\
+  od
+
+#define wqRemoveSpecific(waitQueue, thread)		\
+  atomic {						\
+    wqRemoveSpecificCallerAtomic(waitQueue, thread);	\
+  }
+
+#endif /* __WAIT_QUEUE__ */

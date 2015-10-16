@@ -1,0 +1,32 @@
+statistics run
+pnml2lts-sym spec/PNML/neoelection-8.unf.pnml -rsc,bg,vacm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit005
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/neoelection-8.unf.pnml
+pnml2lts-sym: Petri net has 10062 places, 22266 transitions and 129195 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/neoelection-8.unf.pnml analyzed
+pnml2lts-sym: Loading Petri net took 5.600 real 5.280 user 0.310 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,vacm,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-sym: bandwidth: 17830
+pnml2lts-sym: profile: 283509225
+pnml2lts-sym: span: 368592196
+pnml2lts-sym: average wavefront: 6076.830673
+pnml2lts-sym: RMS wavefront: 8496.731353
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 22266->22266 groups
+pnml2lts-sym, ** error **: out of memory trying to get 8
+Event Span: 26039346
+Normalized Event Span: 0.11622607
+Weighted Event Span, moment 1 (WES^1): 50092287.8
+Normalized Weighted Event Span, moment 1: 0.223585868
+Exit [255]
+370.08 user, 1.11 system, 371.89 elapsed -- Max VSize = 3767776KB, Max RSS = 1143460KB

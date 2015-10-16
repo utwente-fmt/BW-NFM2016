@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-406- --no-close spec/B/SimpleDeadlockOne.mch -rsc,bg,bcm,mm --regroup-exit --graph-metrics
+ctit044
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-408.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-408.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,bcm,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup Boost's Cuthill McKee
+prob2lts-seq: bandwidth: 3
+prob2lts-seq: profile: 19
+prob2lts-seq: span: 21
+prob2lts-seq: average wavefront: 2.8
+prob2lts-seq: RMS wavefront: 3
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 2->2 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 6
+Normalized Event Span: 1
+Weighted Event Span, moment 1 (WES^1): 1e+01
+Normalized Weighted Event Span, moment 1: 2
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-408: line 10: 62726 Killed                  probcli spec/B/SimpleDeadlockOne.mch -ltsmin2 /tmp/ltsmin-408.probz

@@ -1,0 +1,42 @@
+performance run
+pnml2lts-sym spec/PNML/neoelection-8.unf.pnml -rrs,hf --noack=1 --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit043
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/neoelection-8.unf.pnml
+pnml2lts-sym: Petri net has 10062 places, 22266 transitions and 129195 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/neoelection-8.unf.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 12.700 real 12.640 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 18.030 real 17.660 user 0.280 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: rs,hf
+pnml2lts-sym: Regroup Row Sort
+*** segmentation fault ***
+
+Please send information on how to reproduce this problem to: 
+         ltsmin-support@lists.utwente.nl
+along with all output preceding this message.
+In addition, include the following information:
+Package: ltsmin 2.2beta
+Stack trace:
+  0: pnml2lts-sym() [0x42640a]
+  1: pnml2lts-sym() [0x426486]
+  2: /lib/x86_64-linux-gnu/libpthread.so.0(+0x10340) [0x7f3e6a890340]
+  3: pnml2lts-sym() [0x45ef59]
+  4: pnml2lts-sym() [0x431f6c]
+  5: pnml2lts-sym() [0x45f15e]
+  6: pnml2lts-sym() [0x45f1bd]
+  7: pnml2lts-sym() [0x433f2b]
+  8: pnml2lts-sym() [0x4360ed]
+  9: pnml2lts-sym() [0x430ef6]
+ 10: pnml2lts-sym() [0x4153a4]
+ 11: pnml2lts-sym() [0x4aec52]
+ 12: /lib/x86_64-linux-gnu/libpthread.so.0(+0x8182) [0x7f3e6a888182]
+ 13: /lib/x86_64-linux-gnu/libc.so.6(clone+0x6d) [0x7f3e69d8a47d]
+Exit [255]
+20.00 user, 0.33 system, 20.52 elapsed -- Max VSize = 3017716KB, Max RSS = 390004KB

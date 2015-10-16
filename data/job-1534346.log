@@ -1,0 +1,16 @@
+performance run
+pnml2lts-seq spec/PNML/TokenRing-40-unfolded.pnml -rsc,tg,vgps --regroup-exit
+ctit003
+pnml2lts-seq: Loading model from spec/PNML/TokenRing-40-unfolded.pnml
+pnml2lts-seq: Petri net has 1681 places, 65641 transitions and 262564 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/TokenRing-40-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 6.080 real 5.490 user 0.570 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+Killed [24]
+3594.73 user, 1.43 system, 3602.07 elapsed -- Max VSize = 760516KB, Max RSS = 722100KB
+command-59536: line 5: 28776 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/TokenRing-40-unfolded.pnml -rsc,tg,vgps --regroup-exit

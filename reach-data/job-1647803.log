@@ -1,0 +1,46 @@
+statistics run
+pnml2lts-sym spec/PNML/eratosthenes-020.pnml -rsc,tg,vgps,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit015
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/eratosthenes-020.pnml
+pnml2lts-sym: Petri net has 19 places, 27 transitions and 81 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/eratosthenes-020.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.010 real 0.000 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,vgps,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-sym: bandwidth: 21
+pnml2lts-sym: profile: 1448
+pnml2lts-sym: span: 2158
+pnml2lts-sym: average wavefront: 12.73
+pnml2lts-sym: RMS wavefront: 13.76
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 27->27 groups
+pnml2lts-sym: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state vector length is 19; there are 27 groups and 15 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 70 group checks and 70 next state calls
+pnml2lts-sym: reachability took 0.170 real 0.000 user 0.170 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state space has 2048 states, 30 nodes
+pnml2lts-sym: ( 30 final BDD nodes; 30 peak nodes )
+pnml2lts-sym: group_next: 108 nodes total
+pnml2lts-sym: group_explored: 90 nodes, 72 short vectors total
+pnml2lts-sym: max token count: 1
+Event Span: 102
+Normalized Event Span: 0.199
+Weighted Event Span, moment 1 (WES^1): 107
+Normalized Weighted Event Span, moment 1: 0.209
+Exit [0]
+0.01 user, 0.25 system, 0.40 elapsed -- Max VSize = 3675068KB, Max RSS = 594088KB

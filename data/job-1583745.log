@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/Peterson-5.pnml -rsc,f --regroup-exit
+ctit022
+pnml2lts-seq: Loading model from spec/PNML/Peterson-5.pnml
+pnml2lts-seq: Petri net has 834 places, 1242 transitions and 3828 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/Peterson-5.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.090 real 0.080 user 0.010 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,f
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup FORCE
+pnml2lts-seq: Regrouping: 1242->1242 groups
+pnml2lts-seq: Regrouping took 1.640 real 1.620 user 0.010 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+1.71 user, 0.03 system, 1.80 elapsed -- Max VSize = 58040KB, Max RSS = 19616KB

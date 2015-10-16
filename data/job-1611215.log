@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/database20UNFOLD.pnml -rsc,tg,vgps --regroup-exit
+ctit012
+pnml2lts-seq: Loading model from spec/PNML/database20UNFOLD.pnml
+pnml2lts-seq: Petri net has 3260 places, 3200 transitions and 23200 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/database20UNFOLD.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.480 real 0.460 user 0.010 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: Regrouping: 3200->3200 groups
+pnml2lts-seq: Regrouping took 31.460 real 31.320 user 0.030 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+31.78 user, 0.06 system, 32.03 elapsed -- Max VSize = 109712KB, Max RSS = 71416KB

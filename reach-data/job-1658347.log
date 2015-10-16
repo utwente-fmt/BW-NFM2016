@@ -1,0 +1,36 @@
+performance run
+pnml2lts-sym spec/PNML/dekker-10.pnml -rsc,tg,bk,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit009
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/dekker-10.pnml
+pnml2lts-sym: Petri net has 50 places, 120 transitions and 820 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/dekker-10.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.020 real 0.010 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bk,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's King
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 120->120 groups
+pnml2lts-sym: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state vector length is 50; there are 120 groups and 50 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 609 group checks and 609 next state calls
+pnml2lts-sym: reachability took 1.170 real 0.820 user 0.220 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state space has 6144 states, 16344 nodes
+pnml2lts-sym: ( 16344 final BDD nodes; 16344 peak nodes )
+pnml2lts-sym: group_next: 1280 nodes total
+pnml2lts-sym: group_explored: 1528 nodes, 15960 short vectors total
+pnml2lts-sym: max token count: 1
+Exit [0]
+0.84 user, 0.29 system, 1.51 elapsed -- Max VSize = 3675064KB, Max RSS = 734036KB

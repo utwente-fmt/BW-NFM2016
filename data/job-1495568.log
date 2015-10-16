@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/SafeBus-06-unfolded.pnml -rsc,bg,vgps --regroup-exit
+ctit001
+pnml2lts-seq: Loading model from spec/PNML/SafeBus-06-unfolded.pnml
+pnml2lts-seq: Petri net has 144 places, 451 transitions and 2968 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/SafeBus-06-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.030 real 0.030 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: Regrouping: 451->451 groups
+pnml2lts-seq: Regrouping took 0.010 real 0.000 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+0.04 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

@@ -1,0 +1,14 @@
+performance run
+pnml2lts-seq spec/PNML/Philosophers-10000.pnml --noack=1 --regroup-exit --graph-metrics
+ctit008
+pnml2lts-seq: Loading model from spec/PNML/Philosophers-10000.pnml
+pnml2lts-seq: Petri net has 50000 places, 50000 transitions and 160000 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/Philosophers-10000.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 133.320 real 132.870 user 0.100 sys
+pnml2lts-seq: Loading Petri net took 183.260 real 181.090 user 1.510 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq, ** error **: out of memory
+Exit [255]
+181.78 user, 2.31 system, 184.81 elapsed -- Max VSize = 3747916KB, Max RSS = 3660232KB

@@ -1,0 +1,32 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-574- --no-close spec/B/nota_1.mch -rsc,bg,bk,mm --regroup-exit --graph-metrics
+ctit003
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-577.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-577.probz
+% set_pref(DEFAULT_SETSIZE,globalsets_fdrange,1)
+% set_pref(MAX_OPERATIONS,maxNrOfEnablingsPerOperation,30)
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,bk,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup Boost's King
+prob2lts-seq: bandwidth: 24
+prob2lts-seq: profile: 526
+prob2lts-seq: span: 545
+prob2lts-seq: average wavefront: 10.4
+prob2lts-seq: RMS wavefront: 11.6
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 12->12 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 134
+Normalized Event Span: 0.657
+Weighted Event Span, moment 1 (WES^1): 222
+Normalized Weighted Event Span, moment 1: 1.09
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-577: line 10: 35349 Killed                  probcli spec/B/nota_1.mch -ltsmin2 /tmp/ltsmin-577.probz

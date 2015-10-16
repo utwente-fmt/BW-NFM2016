@@ -1,0 +1,28 @@
+performance run
+pnml2lts-sym spec/PNML/QCertifProtocol_28-unfold.pnml -rsc,bg,vgps,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit043
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/QCertifProtocol_28-unfold.pnml
+pnml2lts-sym: Petri net has 2998 places, 446 transitions and 6489 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/QCertifProtocol_28-unfold.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.140 real 0.120 user 0.020 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,vgps,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 446->446 groups
+pnml2lts-sym: Regrouping took 2.810 real 2.800 user 0.000 sys
+pnml2lts-sym: state vector length is 2998; there are 446 groups and 2936 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 15338014 of 16777216 buckets filled!
+Exit [1]
+94.41 user, 1.07 system, 96.10 elapsed -- Max VSize = 3675884KB, Max RSS = 995324KB

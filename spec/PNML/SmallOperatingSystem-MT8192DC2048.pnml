@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="SmallOperatingSystem-PT-MT8192DC2048" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <page id="page0">
+      <name>
+        <text>DefaultPage</text>
+      </name>
+      <place id="TaskOnDisk">
+        <name>
+          <graphics>
+            <offset x="-41" y="290"/>
+          </graphics>
+          <text>TaskOnDisk</text>
+        </name>
+        <graphics>
+          <position x="340" y="340"/>
+        </graphics>
+        <initialMarking>
+          <graphics>
+            <offset x="-68" y="271"/>
+          </graphics>
+          <text>8192</text>
+        </initialMarking>
+      </place>
+      <place id="FreeMemSegment">
+        <name>
+          <graphics>
+            <offset x="-153" y="-144"/>
+          </graphics>
+          <text>FreeMemSegment</text>
+        </name>
+        <graphics>
+          <position x="-10" y="-10"/>
+        </graphics>
+        <initialMarking>
+          <graphics>
+            <offset x="-133" y="-144"/>
+          </graphics>
+          <text>8192</text>
+        </initialMarking>
+      </place>
+      <place id="DiskControllerUnit">
+        <name>
+          <graphics>
+            <offset x="-170" y="-40"/>
+          </graphics>
+          <text>DiskControllerUnit</text>
+        </name>
+        <graphics>
+          <position x="195" y="195"/>
+        </graphics>
+      </place>
+      <place id="TransferToDisk">
+        <name>
+          <graphics>
+            <offset x="-20" y="-2"/>
+          </graphics>
+          <text>TransferToDisk</text>
+        </name>
+        <graphics>
+          <position x="566" y="161"/>
+        </graphics>
+      </place>
+      <place id="TaskReady">
+        <name>
+          <graphics>
+            <offset x="62" y="-16"/>
+          </graphics>
+          <text>TaskReady</text>
+        </name>
+        <graphics>
+          <position x="246" y="266"/>
+        </graphics>
+      </place>
+      <place id="TaskSuspended">
+        <name>
+          <graphics>
+            <offset x="-20" y="-2"/>
+          </graphics>
+          <text>TaskSuspended</text>
+        </name>
+        <graphics>
+          <position x="566" y="291"/>
+        </graphics>
+      </place>
+      <place id="CPUUnit">
+        <name>
+          <graphics>
+            <offset x="-314" y="-280"/>
+          </graphics>
+          <text>CPUUnit</text>
+        </name>
+        <graphics>
+          <position x="75" y="75"/>
+        </graphics>
+      </place>
+      <place id="ExecutingTask">
+        <name>
+          <graphics>
+            <offset x="26" y="-21"/>
+          </graphics>
+          <text>ExecutingTask</text>
+        </name>
+        <graphics>
+          <position x="406" y="386"/>
+        </graphics>
+      </place>
+      <place id="LoadingMem">
+        <name>
+          <graphics>
+            <offset x="75" y="-3"/>
+          </graphics>
+          <text>LoadingMem</text>
+        </name>
+        <graphics>
+          <position x="246" y="161"/>
+        </graphics>
+      </place>
+      <transition id="startLoading">
+        <name>
+          <graphics>
+            <offset x="-22" y="3"/>
+          </graphics>
+          <text>startLoading</text>
+        </name>
+        <graphics>
+          <position x="245" y="102"/>
+        </graphics>
+      </transition>
+      <transition id="endLoading">
+        <name>
+          <graphics>
+            <offset x="68" y="3"/>
+          </graphics>
+          <text>endLoading</text>
+        </name>
+        <graphics>
+          <position x="245" y="217"/>
+        </graphics>
+      </transition>
+      <transition id="endUnload">
+        <name>
+          <graphics>
+            <offset x="-22" y="5"/>
+          </graphics>
+          <text>endUnload</text>
+        </name>
+        <graphics>
+          <position x="565" y="102"/>
+        </graphics>
+      </transition>
+      <transition id="startUnload">
+        <name>
+          <graphics>
+            <offset x="-22" y="3"/>
+          </graphics>
+          <text>startUnload</text>
+        </name>
+        <graphics>
+          <position x="565" y="217"/>
+        </graphics>
+      </transition>
+      <transition id="startFirst">
+        <name>
+          <graphics>
+            <offset x="55" y="3"/>
+          </graphics>
+          <text>startFirst</text>
+        </name>
+        <graphics>
+          <position x="245" y="337"/>
+        </graphics>
+      </transition>
+      <transition id="startNext">
+        <name>
+          <graphics>
+            <offset x="19" y="15"/>
+          </graphics>
+          <text>startNext</text>
+        </name>
+        <graphics>
+          <position x="445" y="297"/>
+        </graphics>
+      </transition>
+      <transition id="suspend">
+        <name>
+          <graphics>
+            <offset x="-22" y="3"/>
+          </graphics>
+          <text>suspend</text>
+        </name>
+        <graphics>
+          <position x="565" y="337"/>
+        </graphics>
+      </transition>
+      <transition id="freeMemory">
+        <name>
+          <graphics>
+            <offset x="-23" y="4"/>
+          </graphics>
+          <text>freeMemory</text>
+        </name>
+        <graphics>
+          <position x="120" y="242"/>
+        </graphics>
+      </transition>
+      <arc id="cId616577336544383033919" source="TaskOnDisk" target="startLoading">
+      </arc>
+      <arc id="cId616907833187719859520" source="startLoading" target="LoadingMem">
+      </arc>
+      <arc id="cId616907833187719859521" source="LoadingMem" target="endLoading">
+      </arc>
+      <arc id="cId616907833187719859522" source="endLoading" target="TaskReady">
+      </arc>
+      <arc id="cId616907833187719859523" source="FreeMemSegment" target="startLoading">
+      </arc>
+      <arc id="cId616907833187719859526" source="TaskReady" target="startFirst">
+      </arc>
+      <arc id="cId616907833187719859527" source="startFirst" target="ExecutingTask">
+      </arc>
+      <arc id="cId616907833187719859528" source="CPUUnit" target="startFirst">
+      </arc>
+      <arc id="cId616907833187719859529" source="CPUUnit" target="startNext">
+      </arc>
+      <arc id="cId616907833187719859530" source="suspend" target="CPUUnit">
+      </arc>
+      <arc id="cId616907833187719859531" source="ExecutingTask" target="suspend">
+      </arc>
+      <arc id="cId616907833187719859532" source="TaskSuspended" target="startNext">
+      </arc>
+      <arc id="cId616907833187719859533" source="startNext" target="ExecutingTask">
+      </arc>
+      <arc id="cId616907833187719859534" source="suspend" target="TaskSuspended">
+      </arc>
+      <arc id="cId616907833187719859535" source="TaskSuspended" target="startUnload">
+      </arc>
+      <arc id="cId616907833187719859536" source="startUnload" target="TransferToDisk">
+      </arc>
+      <arc id="cId616907833187719859537" source="TransferToDisk" target="endUnload">
+      </arc>
+      <arc id="cId616907833187719859538" source="endUnload" target="TaskOnDisk">
+      </arc>
+      <arc id="cId616907833187719859539" source="DiskControllerUnit" target="startLoading">
+      </arc>
+      <arc id="cId616907833187719859540" source="endLoading" target="DiskControllerUnit">
+      </arc>
+      <arc id="cId616907833187719859541" source="DiskControllerUnit" target="startUnload">
+      </arc>
+      <arc id="cId616907833187719859542" source="endUnload" target="DiskControllerUnit">
+      </arc>
+      <arc id="cId616907833187719859543" source="endLoading" target="TaskOnDisk">
+      </arc>
+      <arc id="cId616907833187719859544" source="TaskOnDisk" target="startUnload">
+      </arc>
+      <arc id="cId616907833187719859558" source="TaskReady" target="freeMemory">
+      </arc>
+      <arc id="cId616907833187719859559" source="freeMemory" target="FreeMemSegment">
+      </arc>
+      <arc id="cId616907833187719859560" source="endUnload" target="TaskReady">
+      </arc>
+    </page>
+    <name>
+      <text>SmallOperatingSystem-PT-MT8192DC2048</text>
+    </name>
+  </net>
+</pnml>

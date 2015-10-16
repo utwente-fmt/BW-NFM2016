@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/PolyORB-LF-S02-J06-T06-unfolded.pnml -rsc,tg,vgps --regroup-exit
+ctit004
+pnml2lts-seq: Loading model from spec/PNML/PolyORB-LF-S02-J06-T06-unfolded.pnml
+pnml2lts-seq: Petri net has 536 places, 1064 transitions and 4866 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/PolyORB-LF-S02-J06-T06-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.080 real 0.070 user 0.010 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: Regrouping: 1064->1064 groups
+pnml2lts-seq: Regrouping took 0.880 real 0.870 user 0.000 sys
+pnml2lts-seq: max token count: 10
+Exit [0]
+0.94 user, 0.02 system, 1.00 elapsed -- Max VSize = 58532KB, Max RSS = 20164KB

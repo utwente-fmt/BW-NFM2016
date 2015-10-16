@@ -1,0 +1,77 @@
+/*
+ * Copyright (c) 1996 The University of Utah and
+ * the Computer Systems Laboratory at the University of Utah (CSL).
+ * All rights reserved.
+ *
+ * Permission to use, copy, modify and distribute this software is hereby
+ * granted provided that (1) source code retains these copyright, permission,
+ * and disclaimer notices, and (2) redistributions including binaries
+ * reproduce the notices in supporting documentation, and (3) all advertising
+ * materials mentioning features or use of this software display the following
+ * acknowledgement: ``This product includes software developed by the
+ * Computer Systems Laboratory at the University of Utah.''
+ *
+ * THE UNIVERSITY OF UTAH AND CSL ALLOW FREE USE OF THIS SOFTWARE IN ITS "AS
+ * IS" CONDITION.  THE UNIVERSITY OF UTAH AND CSL DISCLAIM ANY LIABILITY OF
+ * ANY KIND FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * CSL requests users of this software to return to csl-dist@cs.utah.edu any
+ * improvements that they make and grant CSL redistribution rights.
+ */
+/*
+ * dispatch.pr
+ *
+ * Minimal functions necessary to simulate the dispatcher
+ * interface in promela.
+ */
+#ifndef _CONTROL_DISPATCH_PR_
+#define _CONTROL_DISPATCH_PR_
+
+#include "interrupts.pr"
+#include "../support/ThreadFunc.pr"
+
+/*
+ * Ready the given thread.
+ */
+#define idThreadReadyCallerAtomic(thread)  \
+  readyWaitingThreadCallerAtomic(thread)
+
+#define idThreadReady(thread)  \
+  readyWaitingThread(thread)
+
+/*
+ * Ready a thread.  This puts the given thread back
+ * on the "run queue".
+ *
+ * Doesn't mess up 'rc'.
+ */
+#define threadReadyCallerAtomic(thread)		\
+  disableInterrupts();				\
+  idThreadReadyCallerAtomic(thread);		\
+  enableInterrupts()
+
+#define threadReady(thread)			\
+  disableInterrupts();				\
+  idThreadReady(thread);			\
+  enableInterrupts()
+
+/*
+ * idThreadDispatch() atomically releases the mutex and
+ * puts the current thread to "sleep", ie simply hands
+ * control of the system to a runnable thread. If the
+ * thread didn't put itself on a run queue elsewhere,
+ * then some other thread will eventually have to put
+ * it on one.
+ *
+ * Doesn't touch rc.
+ */
+#define idThreadDispatchCallerAtomic(thread, mutex)	\
+  mutexUnlockCallerAtomic(mutex, currentThread);	\
+  threadWaitUntilReadyCallerAtomic(thread);
+
+#define idThreadDispatch(thread, mutex)			\
+  atomic {						\
+    idThreadDispatchCallerAtomic(thread, mutex);	\
+  }
+
+#endif /* _CONTROL_DISPATCH_PR_ */

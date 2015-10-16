@@ -1,0 +1,37 @@
+performance run
+pnml2lts-sym spec/PNML/UtahNoC.pnml -rrs,hf --noack=2 --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit018
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/UtahNoC.pnml
+pnml2lts-sym: Petri net has 216 places, 977 transitions and 2905 arcs
+pnml2lts-sym: There are 216 safe places
+pnml2lts-sym: Petri net spec/PNML/UtahNoC.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 0.010 real 0.010 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 0.050 real 0.030 user 0.010 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: rs,hf
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 977->977 groups
+pnml2lts-sym: Regrouping took 0.020 real 0.020 user 0.000 sys
+pnml2lts-sym: state vector length is 216; there are 977 groups and 216 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 547271 group checks and 547271 next state calls
+pnml2lts-sym: reachability took 121.560 real 117.220 user 0.190 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state space has 4759924249 states, 19794 nodes
+pnml2lts-sym: ( 19794 final BDD nodes; 25322 peak nodes )
+pnml2lts-sym: group_next: 3794 nodes total
+pnml2lts-sym: group_explored: 2907 nodes, 2877 short vectors total
+pnml2lts-sym: max token count: 1
+Exit [0]
+117.36 user, 0.26 system, 121.87 elapsed -- Max VSize = 3675072KB, Max RSS = 787492KB

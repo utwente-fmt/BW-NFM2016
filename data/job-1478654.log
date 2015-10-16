@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/plc.2.dve -rsc,tg,bcm,mm --regroup-exit --graph-metrics
+ctit006
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/plc.2.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,bcm,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup Boost's Cuthill McKee
+dve2lts-seq: bandwidth: 1187
+dve2lts-seq: profile: 1494709
+dve2lts-seq: span: 1791905
+dve2lts-seq: average wavefront: 319.2728
+dve2lts-seq: RMS wavefront: 353.7853
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 230->230 groups
+dve2lts-seq: Regrouping took 0.090 real 0.090 user 0.000 sys
+Event Span: 8410
+Normalized Event Span: 0.56254
+Weighted Event Span, moment 1 (WES^1): 13853
+Normalized Weighted Event Span, moment 1: 0.92659
+Exit [0]
+60.10 user, 2.96 system, 63.26 elapsed -- Max VSize = 44640KB, Max RSS = 9140KB

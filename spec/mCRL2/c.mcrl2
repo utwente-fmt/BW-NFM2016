@@ -1,0 +1,40 @@
+map 
+    beer, coke, sherry, limit:Nat;
+
+eqn 
+    beer=2; coke=1; sherry=5; limit=15;
+
+act 
+    bring, get;
+    receive, display, order, decide, pay:Nat;
+    orderDrink, payWaitress: Nat;
+    guestWaitressSync;
+
+proc
+    Waitress = bring.Waitress + sum p:Nat . receive(p) . Waitress;
+    
+    Menu = sum item:Nat 
+        . (item in [beer,coke,sherry]) -> display(item) . Menu;
+    
+    Guest(bill:Nat) =
+        sum drink:Nat. (drink + bill < limit) -> 
+            order(drink). get . Guest(bill+drink)
+        + sum tip:Nat . ( tip + bill < limit) -> 
+            decide(tip). pay(tip+bill). Guest(0);
+        
+    Bar = allow(
+            {orderDrink, payWaitress, guestWaitressSync, decide},
+            comm(
+                {
+                    order | display -> orderDrink,
+                    get | bring -> guestWaitressSync,
+                    pay | receive -> payWaitress
+                }, 
+                Guest(0) || Menu || Waitress
+            )
+          );
+    
+init hide(
+    {bring, receive, display, get, order, pay, guestWaitressSync, decide}, 
+    Bar
+);

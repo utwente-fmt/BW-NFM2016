@@ -1,0 +1,18 @@
+statistics run
+prom2lts-seq spec/Promela/reader_writer.3.prom.spins -rsc,f,mm --regroup-exit
+ctit041
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/reader_writer.3.prom.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,f,mm
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup FORCE
+prom2lts-seq: Regroup Matrix Metrics
+prom2lts-seq: Regrouping: 116->116 groups
+prom2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 1916
+Normalized Event Span: 0.2753
+Weighted Event Span, moment 1 (WES^1): 3141
+Normalized Weighted Event Span, moment 1: 0.4513
+Exit [0]
+0.01 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

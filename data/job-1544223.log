@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/2D8_gradient_50x50_10.pnml -rsc,f --regroup-exit
+ctit025
+pnml2lts-seq: Loading model from spec/PNML/2D8_gradient_50x50_10.pnml
+pnml2lts-seq: Petri net has 2500 places, 19404 transitions and 38808 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/2D8_gradient_50x50_10.pnml analyzed
+pnml2lts-seq: Loading Petri net took 1.520 real 1.420 user 0.090 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,f
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup FORCE
+pnml2lts-seq: Regrouping: 19404->19404 groups
+pnml2lts-seq: Regrouping took 2647.240 real 2643.510 user 0.160 sys
+pnml2lts-seq: max token count: 10
+Exit [0]
+2644.93 user, 0.27 system, 2648.83 elapsed -- Max VSize = 319992KB, Max RSS = 281736KB

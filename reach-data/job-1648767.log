@@ -1,0 +1,37 @@
+statistics run
+pnml2lts-sym spec/PNML/rwmutex-r10w2000.pnml -rsc,bn,rs,mm,hf --noack=2 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit041
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/rwmutex-r10w2000.pnml
+pnml2lts-sym: Petri net has 4030 places, 4020 transitions and 48060 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/rwmutex-r10w2000.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 3.860 real 3.610 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 4.740 real 4.290 user 0.060 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 8033
+pnml2lts-sym: profile: 40762954
+pnml2lts-sym: span: 12657105
+pnml2lts-sym: average wavefront: 2484.8651
+pnml2lts-sym: RMS wavefront: 2809.0891
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 4020->4020 groups
+pnml2lts-sym: Regrouping took 6.130 real 5.660 user 0.010 sys
+pnml2lts-sym: state vector length is 4030; there are 4020 groups and 4030 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1797.18 user, 0.68 system, 1805.69 elapsed -- Max VSize = 3758296KB, Max RSS = 1004396KB
+command-5187: line 5: 52172 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/rwmutex-r10w2000.pnml -rsc,bn,rs,mm,hf --noack=2 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/parking_1_4.pnml -rsc,tg,bk,mm --regroup-exit --graph-metrics
+ctit037
+pnml2lts-seq: Loading model from spec/PNML/parking_1_4.pnml
+pnml2lts-seq: Petri net has 65 places, 97 transitions and 284 arcs
+pnml2lts-seq: There are 65 safe places
+pnml2lts-seq: Petri net spec/PNML/parking_1_4.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bk,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's King
+pnml2lts-seq: bandwidth: 143
+pnml2lts-seq: profile: 44293
+pnml2lts-seq: span: 62131
+pnml2lts-seq: average wavefront: 59.6935
+pnml2lts-seq: RMS wavefront: 67.7197
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 97->97 groups
+pnml2lts-seq: Regrouping took 0.010 real 0.010 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Event Span: 2249
+Normalized Event Span: 0.3567
+Weighted Event Span, moment 1 (WES^1): 3417
+Normalized Weighted Event Span, moment 1: 0.542
+Exit [0]
+0.01 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

@@ -1,0 +1,37 @@
+statistics run
+pnml2lts-sym spec/PNML/IBMB2S565S3960.pnml -rsc,bn,rs,mm,hf --noack=2 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit011
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/IBMB2S565S3960.pnml
+pnml2lts-sym: Petri net has 273 places, 179 transitions and 572 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/IBMB2S565S3960.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 0.010 real 0.000 user 0.010 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 421
+pnml2lts-sym: profile: 111745
+pnml2lts-sym: span: 15088
+pnml2lts-sym: average wavefront: 152.987
+pnml2lts-sym: RMS wavefront: 173.087
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 179->179 groups
+pnml2lts-sym: Regrouping took 0.010 real 0.010 user 0.000 sys
+pnml2lts-sym: state vector length is 273; there are 179 groups and 263 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1797.10 user, 0.75 system, 1801.26 elapsed -- Max VSize = 3675068KB, Max RSS = 964692KB
+command-1395: line 5: 49231 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/IBMB2S565S3960.pnml -rsc,bn,rs,mm,hf --noack=2 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

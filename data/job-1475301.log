@@ -1,0 +1,24 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-490- --no-close spec/B/Train_1_beebook_tlc_POR.mch -rsc,f,mm --regroup-exit
+ctit028
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-491.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-491.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,f,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup FORCE
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 9->9 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 63
+Normalized Event Span: 0.583
+Weighted Event Span, moment 1 (WES^1): 95.3
+Normalized Weighted Event Span, moment 1: 0.883
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 76KB
+command-491: line 10: 58489 Killed                  probcli spec/B/Train_1_beebook_tlc_POR.mch -ltsmin2 /tmp/ltsmin-491.probz

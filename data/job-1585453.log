@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/circadian_clock-000001.pnml --noack=1 --regroup-exit --graph-metrics
+ctit034
+pnml2lts-seq: Loading model from spec/PNML/circadian_clock-000001.pnml
+pnml2lts-seq: Petri net has 14 places, 16 transitions and 58 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/circadian_clock-000001.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 0.010 real 0.000 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regrouping: 16->16 groups
+pnml2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

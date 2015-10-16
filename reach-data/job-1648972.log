@@ -1,0 +1,32 @@
+statistics run
+pnml2lts-sym spec/PNML/shared_memory-pt-20.pnml -rsc,bn,mm --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit009
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/shared_memory-pt-20.pnml
+pnml2lts-sym: Petri net has 461 places, 820 transitions and 3200 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/shared_memory-pt-20.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.050 real 0.050 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bn,mm
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 1261
+pnml2lts-sym: profile: 1070544
+pnml2lts-sym: span: 363676
+pnml2lts-sym: average wavefront: 302.1858
+pnml2lts-sym: RMS wavefront: 335.3159
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Regrouping: 820->820 groups
+pnml2lts-sym: Regrouping took 0.050 real 0.050 user 0.000 sys
+pnml2lts-sym: state vector length is 461; there are 820 groups and 461 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1793.00 user, 1.45 system, 1802.41 elapsed -- Max VSize = 3675076KB, Max RSS = 978444KB
+command-5392: line 5: 49890 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/shared_memory-pt-20.pnml -rsc,bn,mm --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

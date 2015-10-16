@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/database40UNFOLD.pnml -rsc,bg,bk --regroup-exit
+ctit010
+pnml2lts-seq: Loading model from spec/PNML/database40UNFOLD.pnml
+pnml2lts-seq: Petri net has 12920 places, 12800 transitions and 156800 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/database40UNFOLD.pnml analyzed
+pnml2lts-seq: Loading Petri net took 5.390 real 4.930 user 0.410 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bk
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's King
+pnml2lts-seq: Regrouping: 12800->12800 groups
+pnml2lts-seq: Regrouping took 9.370 real 8.830 user 0.480 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+13.76 user, 1.00 system, 14.92 elapsed -- Max VSize = 967772KB, Max RSS = 929480KB

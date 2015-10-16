@@ -1,0 +1,25 @@
+performance run
+pnml2lts-sym spec/PNML/2D8_gradient_50x50_10.pnml -rsc,bg,bk,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit017
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/2D8_gradient_50x50_10.pnml
+pnml2lts-sym: Petri net has 2500 places, 19404 transitions and 38808 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/2D8_gradient_50x50_10.pnml analyzed
+pnml2lts-sym: Loading Petri net took 1.480 real 1.360 user 0.110 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,bk,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup Boost's King
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 19404->19404 groups
+pnml2lts-sym: Regrouping took 2.640 real 2.530 user 0.100 sys
+pnml2lts-sym: state vector length is 2500; there are 19404 groups and 2500 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+3.90 user, 0.26 system, 4.30 elapsed -- Max VSize = 2930776KB, Max RSS = 283652KB

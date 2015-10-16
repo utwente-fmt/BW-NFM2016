@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/needham.1.dve -rsc,bg,vcm --regroup-exit
+ctit002
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/needham.1.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,vcm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup ViennaCL's Cuthill McKee
+dve2lts-seq: Regrouping: 55->55 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.86 user, 0.06 system, 1.00 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

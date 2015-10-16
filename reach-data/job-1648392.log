@@ -1,0 +1,23 @@
+statistics run
+pnml2lts-sym spec/PNML/philo_dyn-20-unfolded.pnml -rsc,tg,bs,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit025
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/philo_dyn-20-unfolded.pnml
+pnml2lts-sym: Petri net has 540 places, 17220 transitions and 140780 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/philo_dyn-20-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 1.940 real 1.610 user 0.320 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's Sloan
+pnml2lts-sym: bandwidth: 133446
+pnml2lts-sym: profile: 8846617345
+pnml2lts-sym: span: 8972901597
+Killed [24]
+1796.79 user, 1.24 system, 1801.70 elapsed -- Max VSize = 3039576KB, Max RSS = 398684KB
+command-4812: line 5: 55747 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/philo_dyn-20-unfolded.pnml -rsc,tg,bs,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

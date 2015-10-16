@@ -1,0 +1,34 @@
+statistics run
+pnml2lts-sym spec/PNML/TokenRing-20-unfolded.pnml -rsc,bg,bs,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit031
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/TokenRing-20-unfolded.pnml
+pnml2lts-sym: Petri net has 441 places, 8421 transitions and 33684 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/TokenRing-20-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.540 real 0.430 user 0.100 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,bs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup Boost's Sloan
+pnml2lts-sym: bandwidth: 1644
+pnml2lts-sym: profile: 8775093
+pnml2lts-sym: span: 6924526
+pnml2lts-sym: average wavefront: 54.824306
+pnml2lts-sym: RMS wavefront: 55.676966
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 8421->8421 groups
+pnml2lts-sym: Regrouping took 15.400 real 15.340 user 0.000 sys
+pnml2lts-sym: state vector length is 441; there are 8421 groups and 441 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1793.25 user, 4.92 system, 1805.33 elapsed -- Max VSize = 3744416KB, Max RSS = 850064KB
+command-3382: line 5: 44831 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/TokenRing-20-unfolded.pnml -rsc,bg,bs,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

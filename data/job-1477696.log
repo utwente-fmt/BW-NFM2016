@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/leader_election.5.dve -rsc,bg,bcm,mm --regroup-exit --graph-metrics
+ctit009
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/leader_election.5.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bcm,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's Cuthill McKee
+dve2lts-seq: bandwidth: 137
+dve2lts-seq: profile: 29980
+dve2lts-seq: span: 25805
+dve2lts-seq: average wavefront: 39.1681
+dve2lts-seq: RMS wavefront: 43.9928
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 152->152 groups
+dve2lts-seq: Regrouping took 0.000 real 0.010 user 0.000 sys
+Event Span: 8677
+Normalized Event Span: 0.29578
+Weighted Event Span, moment 1 (WES^1): 13066
+Normalized Weighted Event Span, moment 1: 0.44541
+Exit [0]
+3.28 user, 0.18 system, 3.50 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

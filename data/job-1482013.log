@@ -1,0 +1,16 @@
+statistics run
+pnml2lts-seq spec/PNML/PolyORB-NT-S10-J60-unfolded.pnml -rsc,tg,vgps,mm --regroup-exit --graph-metrics
+ctit004
+pnml2lts-seq: Loading model from spec/PNML/PolyORB-NT-S10-J60-unfolded.pnml
+pnml2lts-seq: Petri net has 1234 places, 12920 transitions and 116879 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/PolyORB-NT-S10-J60-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 1.850 real 1.660 user 0.180 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+Killed [24]
+3595.43 user, 0.70 system, 3601.66 elapsed -- Max VSize = 307528KB, Max RSS = 269268KB
+command-7203: line 5: 56440 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/PolyORB-NT-S10-J60-unfolded.pnml -rsc,tg,vgps,mm --regroup-exit --graph-metrics

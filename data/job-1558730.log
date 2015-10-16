@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/PolyORB-LF-S06-J06-T08-unfolded.pnml --noack=1 --regroup-exit --graph-metrics
+ctit027
+pnml2lts-seq: Loading model from spec/PNML/PolyORB-LF-S06-J06-T08-unfolded.pnml
+pnml2lts-seq: Petri net has 894 places, 14334 transitions and 119772 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/PolyORB-LF-S06-J06-T08-unfolded.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 8.390 real 8.360 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 10.250 real 10.030 user 0.170 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regrouping: 14334->14334 groups
+pnml2lts-seq: Regrouping took 0.530 real 0.500 user 0.040 sys
+pnml2lts-seq: max token count: 10
+Exit [0]
+10.53 user, 0.24 system, 10.91 elapsed -- Max VSize = 322580KB, Max RSS = 284168KB

@@ -1,0 +1,37 @@
+performance run
+pnml2lts-sym spec/PNML/2D8_gradient_40x40_10.pnml -rrs,hf --noack=1 --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit003
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/2D8_gradient_40x40_10.pnml
+pnml2lts-sym: Petri net has 1600 places, 12324 transitions and 24648 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/2D8_gradient_40x40_10.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 0.370 real 0.360 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 1.130 real 1.010 user 0.100 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: rs,hf
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 12324->12324 groups
+pnml2lts-sym: Regrouping took 2.680 real 2.650 user 0.040 sys
+pnml2lts-sym: state vector length is 1600; there are 12324 groups and 1600 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 220606 group checks and 220606 next state calls
+pnml2lts-sym: reachability took 730.790 real 728.180 user 0.900 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.010 real 0.000 user 0.000 sys
+pnml2lts-sym: state space has 3.11621362935612e+25 states, 105490 nodes
+pnml2lts-sym: ( 105490 final BDD nodes; 105492 peak nodes )
+pnml2lts-sym: group_next: 1047540 nodes total
+pnml2lts-sym: group_explored: 948948 nodes, 813384 short vectors total
+pnml2lts-sym: max token count: 10
+Exit [0]
+738.38 user, 1.15 system, 741.34 elapsed -- Max VSize = 3759936KB, Max RSS = 1091416KB

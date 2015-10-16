@@ -1,0 +1,31 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-658- --no-close spec/B/pkeyprot2.mch -rsc,tg,bcm,mm --regroup-exit --graph-metrics
+ctit030
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-666.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-666.probz
+% set_pref(MAX_OPERATIONS,maxNrOfEnablingsPerOperation,40)
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,tg,bcm,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Total graph
+prob2lts-seq: Regroup Boost's Cuthill McKee
+prob2lts-seq: bandwidth: 131
+prob2lts-seq: profile: 13175
+prob2lts-seq: span: 16529
+prob2lts-seq: average wavefront: 39.873
+prob2lts-seq: RMS wavefront: 43.687
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 11->11 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 227
+Normalized Event Span: 0.983
+Weighted Event Span, moment 1 (WES^1): 448
+Normalized Weighted Event Span, moment 1: 1.94
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-666: line 10: 16189 Killed                  probcli spec/B/pkeyprot2.mch -ltsmin2 /tmp/ltsmin-666.probz

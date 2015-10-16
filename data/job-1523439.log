@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/shared_memory-pt-100.pnml --noack=2 --regroup-exit --graph-metrics
+ctit001
+pnml2lts-seq: Loading model from spec/PNML/shared_memory-pt-100.pnml
+pnml2lts-seq: Petri net has 10301 places, 20100 transitions and 80000 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/shared_memory-pt-100.pnml analyzed
+pnml2lts-seq: Computing Noack2 order
+pnml2lts-seq: Computing Noack2 order took 13.130 real 13.090 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 18.120 real 17.810 user 0.250 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regrouping: 20100->20100 groups
+pnml2lts-seq: Regrouping took 8.300 real 7.710 user 0.570 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+25.53 user, 0.95 system, 26.63 elapsed -- Max VSize = 1172116KB, Max RSS = 1133752KB

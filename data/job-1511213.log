@@ -1,0 +1,14 @@
+performance run
+prom2lts-seq spec/Promela/extinction.2.prom.spins -rsc,bg,vcm --regroup-exit
+ctit006
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/extinction.2.prom.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,bg,vcm
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup Bipartite Graph
+prom2lts-seq: Regroup ViennaCL's Cuthill McKee
+prom2lts-seq: Regrouping: 135->135 groups
+prom2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.01 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 80KB

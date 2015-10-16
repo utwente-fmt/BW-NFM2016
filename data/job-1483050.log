@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/UtahNoC.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit006
+pnml2lts-seq: Loading model from spec/PNML/UtahNoC.pnml
+pnml2lts-seq: Petri net has 216 places, 977 transitions and 2905 arcs
+pnml2lts-seq: There are 216 safe places
+pnml2lts-seq: Petri net spec/PNML/UtahNoC.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.020 real 0.030 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 3125
+pnml2lts-seq: profile: 2896783
+pnml2lts-seq: span: 3112308
+pnml2lts-seq: average wavefront: 224.48163
+pnml2lts-seq: RMS wavefront: 254.09926
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 977->977 groups
+pnml2lts-seq: Regrouping took 1.450 real 1.420 user 0.020 sys
+pnml2lts-seq: max token count: 1
+Event Span: 43271
+Normalized Event Span: 0.205045
+Weighted Event Span, moment 1 (WES^1): 59442.2
+Normalized Weighted Event Span, moment 1: 0.281674
+Exit [0]
+1.45 user, 0.02 system, 1.50 elapsed -- Max VSize = 51676KB, Max RSS = 13404KB

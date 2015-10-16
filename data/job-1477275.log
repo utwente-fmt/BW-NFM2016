@@ -1,0 +1,18 @@
+statistics run
+dve2lts-seq spec/DVE/iprotocol.6.dve -rsc,f,mm --regroup-exit
+ctit011
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/iprotocol.6.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,f,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup FORCE
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 35->35 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 360
+Normalized Event Span: 0.278
+Weighted Event Span, moment 1 (WES^1): 551.1
+Normalized Weighted Event Span, moment 1: 0.4256
+Exit [0]
+0.65 user, 0.05 system, 0.80 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

@@ -1,0 +1,26 @@
+performance run
+pnml2lts-sym spec/PNML/30-100_phaseVariation.pnml -rrs,hf --noack=1 --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit011
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/30-100_phaseVariation.pnml
+pnml2lts-sym: Petri net has 2702 places, 30977 transitions and 215035 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/30-100_phaseVariation.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 11.010 real 10.980 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 15.310 real 14.810 user 0.470 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: rs,hf
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 30977->30977 groups
+pnml2lts-sym: Regrouping took 12.370 real 12.230 user 0.100 sys
+pnml2lts-sym: state vector length is 2702; there are 30977 groups and 2702 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+27.05 user, 0.64 system, 27.83 elapsed -- Max VSize = 3166236KB, Max RSS = 530792KB

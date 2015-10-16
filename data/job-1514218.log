@@ -1,0 +1,8 @@
+performance run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-39402- --no-close spec/B/NQueens.mch -rsc,bg,vgps --regroup-exit
+ctit035
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-39408.probz
+prob2lts-seq, ** error **: Zocket does not exist: (null)
+Exit [255]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

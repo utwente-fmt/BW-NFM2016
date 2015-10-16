@@ -1,0 +1,437 @@
+/* [file: conference.pr, started: 19-May-98]
+ *
+ * DESCRIPTION
+ *      First attempt to specify the TAP Conference Protocol in Promela.
+ *
+ *      When running the SPIN verifier, check:
+ *          "A full queue looses new messages".
+ *
+ * NOTES
+ *   o  SOURCE. See the reader [Pires 1997], i.e.
+ *          "Protocol Implementation" by Luis Pires, 1995-1997
+ *      for details on the Conference Protocol.
+ *
+ *   o  NUMBER OF USERS. The current default for the number of users N
+ *      is set to 2. You can also set it to 3. Greater values of N are
+ *      *not* supported by the current specification.
+ *
+ *      Convince yourself that the protocol is working for two users, and
+ *      then set N to 3 to test the protocol more thoroughly.
+ *
+ *      The following sections are affected by changes of N (these are
+ *      all marked with the directive "#if N==2"):
+ *
+ *          definition of ASET_ALL
+ *          headers of all proctype definitions
+ *          proctype MultiCast_PE
+ *          startup of processes in init
+ *
+ *  !!  I KNOW THAT THIS "#if N==2" HACKING IS UGLY. BUT FOR DEBUGGING
+ *  !!  THE SPECIFICATION IT PROBABLY WILL PROVE USEFUL. FOR THE
+ *  !!  "TAP TELEMATICA COURSE" THIS HACKING SHOULD BE REMOVED...
+ *
+ * TODO
+ *   o  LITERATE MODEL. The Promela model of the conference protocol
+ *      should be specified as a literate program.
+ *
+ * CHANGES
+ *      98.05.19  ruys  Started.
+ *      98.05.26  ruys  First version that can be simulated with Spin v3.2.0.
+ *      98.06.03  ruys  Changes:
+ *                       -  Several errors have been removed.
+ *                       -  The operations on set of addresses (T_AddressSet)
+ *                          are now implemented by macros.
+ *                       -  The specification is heavily parameterized by N,
+ *                          the number of Users.
+ *                          Currently N can be either 2 or 3.
+ *      98.06.xx  ruys  Changes:
+ *                       -  TODO: MOST CHANGES NEEDS SOME COMMENTS
+ *                       -  Various optimizations:
+ *                           -  removed redundant parameters from messages
+ *                           -  added atomic clauses
+ *                           -  added xs/xr declarations
+ *                           -  made User() process finite
+ *                       -  Splitted User() process into 
+ *                          UserSend() and UserRecv() process.
+ *	98.08.17  de vries Changes:
+ *			 - draft version for trojka application
+ *			 - isolate the protocol entity (multicast + conference)
+ */
+
+/* ------------------------------ constants ------------------------------- */
+
+#define N                       3       /* Number of participants to CS     */
+#define ZZ                      0       /* Null message                     */
+
+/* -------------------------------- macros -------------------------------- */
+
+#define IF                      if ::
+#define FI                      :: else fi
+
+/* -------------------------- user defined types -------------------------- */
+
+#define T_Msg                   byte
+#define T_Address               byte
+
+mtype = {
+  JOIN, LEAVE, DREQ, DIND,              /* Conference Service - SP's        */
+  MC_DREQ, MC_DIND,                     /* Multicast Service - SP's         */
+  PDU_JOIN, PDU_LEAVE,
+  PDU_DATA, PDU_ANSWER                  /* PDU Types                        */
+} ;
+
+/* NOTE: The distinction between JOIN and PDU_JOIN, etc. only serves to     */
+/*         make the 'Conf_PE' process more readable.                        */
+
+/* ----------------------------- T_AddressSet ----------------------------- */
+
+/* T_AddressSet
+ *      An T_Address of a SAP (or PE) is modelled by a
+ *      byte (i.e. 0, 1, 2, 3, etc.)
+ *
+ *      A set of addresses is implemented as a bit-set and mapped upon
+ *      a single byte. An address is a member of a set if the position in
+ *      corresponding bit-set is set. The position is counted from the
+ *      right side (least significant bit) of the bit-set.
+ *      So, a set consisting of a single address 'i' is represented
+ *      by 2**i or as a bit-operation: 1<<i.
+ *
+ *      For example, the byte 13 (binary: 1101) represents the set
+ *      that consist of 0, 2 and 3.
+ *
+ * OPERATIONS
+ *      The actual implementation of the TaddressSet as a bit-set is
+ *      hidden from the user. TaddressSet values should be manipulated
+ *      using the macros which are defined below. Note that all
+ *      TaddressSet operations have a "ASET_" prefix.
+ *
+ *      In macros use the following parameters:
+ *          s       T_AddressSet
+ *          x       T_Address
+ *
+ *      Note that the Set operations are not complete (i.e. no union,
+ *      intersection, etc.); only the operations that are needed for
+ *      this protocol are defined.
+ *
+ * NOTES
+ *   o  ARRAY OF BITS. I tried to implement TaddressSet as follows:
+ *          typedef TaddressSet { bit in[N] } ;
+ *      SPIN, however, then returns the follow warning:
+ *          "spin: warning: bit-array in[3] mapped to byte-array"
+ *      For this reason, TaddressSet is implemented as a bit-set.
+ */
+
+#define T_AddressSet                    byte
+
+#if N==2
+#define ASET_ALL                        3           /* 2 users: 11  */
+#else
+#define ASET_ALL                        7           /* 3 users: 111 */
+#endif
+
+#define ASET_MAKE_SET(x)                (1<<x)
+#define ASET_RESET(s)                   s=0
+#define ASET_IS_MEMBER(s,x)             (s&(1<<x))
+#define ASET_REMOVE(s,x)                s=s&~(1<<x)
+#define ASET_ADD(s,x)                   s=s|(1<<x)
+
+/* ------------------------------- channels ------------------------------- */
+
+/* SAP's. Messages at each SAP:
+
+      csap_down  : (JOIN, _)
+                   (LEAVE, _)
+                   (DREQ, message)
+      csap_up    : (DIND, source-address, message)
+      mcsap_down : (MC_DREQ, destination-address-set, PDU_TYPE, message)
+      mcsap_up   : (MC_DIND, source-address, PDU_TYPE, message)
+
+   NOTE: Currently, the definition of the SAP's includes some redundancy.
+         For example, all messages at 'csap_up' are of type "DIND".
+         The same holds for the messages at 'msap_down' and 'mcsap_up'.
+ */
+
+/* NON-OPTIMIZED
+chan csap_down[N]  = [1] of { mtype, T_Msg } ;
+chan csap_up[N]    = [1] of { mtype, T_Address, T_Msg } ;
+chan mcsap_down[N] = [1] of { mtype, T_AddressSet, mtype, T_Msg } ;
+chan mcsap_up[N]   = [1] of { mtype, T_Address, mtype, T_Msg } ;
+ */
+
+chan csap_down[N]  = [0] of { mtype };
+chan csap_up[N]    = [0] of { T_Address };
+chan mcsap_down[N] = [1] of { mtype, T_AddressSet } ;
+chan mcsap_up[N]   = [1] of { mtype, T_Address, mtype, T_Msg } ; /* RGV */
+
+/* Loosy lines. Messages over lines between MultiCast_PE's:
+
+      from[i].to[j] : (PDU_TYPE, message)
+
+   NOTE: Again a redundancy: the definition below defines N*N lines,
+         whereas there are only N*(N-1) lines needed...
+ */
+
+typedef T_Lines   { chan to[N] = [0] of { mtype, T_Msg } } ;
+T_Lines           from[N] ;             /* from[i].to[j]                    */
+
+/* ---------------------------- proctype User ----------------------------- */
+
+#if N==2
+proctype UserSend (bit i)
+#else
+proctype UserSend (byte i)
+#endif
+{
+  chan to_sap   = csap_down[i] ;
+
+  /* An user sends at least one and at most one JOIN/LEAVE sequence */
+  /* When 'connected' a user sends at most 2 DREQ messages.         */
+
+  /* TODO: Make the body of this process less ad-hoc! */
+
+  to_sap ! JOIN ;
+  if
+  :: skip -> to_sap ! DREQ ; to_sap ! DREQ
+  :: skip -> to_sap ! DREQ
+  :: skip
+  fi ;
+  to_sap ! LEAVE ;
+
+  if
+  ::  skip -> to_sap ! JOIN ;
+              if
+              ::  skip -> to_sap ! DREQ ; to_sap ! DREQ
+              ::  skip -> to_sap ! DREQ
+              ::  skip
+              fi ;
+              to_sap ! LEAVE
+  ::  skip
+  fi ;
+}
+
+#if N==2
+proctype UserRecv (bit i)
+#else
+proctype UserRecv (byte i)
+#endif
+{
+  chan from_sap = csap_up[i] ;
+
+end:
+  do
+  ::  from_sap ? _
+  od
+}
+
+/* --------------------------- proctype Conf_PE --------------------------- */
+
+/* NOTES
+ *   o  FSM. The body of 'Conf_PE' closely follows the FSM definition of
+ *      [Pires 1997]. However, instead of using explicit states, a more
+ *      readable Promela specification is possible by using a 'do' loop.
+ */
+
+#if N==2
+proctype Conf_PE (bit i)
+#else
+proctype Conf_PE (byte i)
+#endif
+{
+  T_AddressSet  partners ;              /* set of known partners            */
+  T_Address     p ;                     /* placeholder for source partner   */
+
+  chan from_upper = csap_down[i] ;      /* CSAP  = upper SAP                */
+  chan to_upper   = csap_up[i] ;
+  chan from_lower = mcsap_up[i] ;       /* MCCAP = lower SAP                */
+  chan to_lower   = mcsap_down[i] ;
+
+/* xr/xs declarations are *not* possible on rendez-vous channels!
+  xr from_upper ;
+  xs to_upper ;
+ */
+  xr from_lower ;
+  xs to_lower ;
+
+  ASET_RESET(partners) ;
+
+end:
+Idle:
+  if
+  ::  atomic { from_lower ? _,_      -> goto Idle }
+  ::  atomic { from_upper ? JOIN     -> goto Send_join }
+  fi ;
+
+Send_join:
+  atomic { to_lower ! PDU_JOIN, ASET_ALL ; goto Engaged ; }
+
+Leaving:
+  atomic {
+    to_lower ! PDU_LEAVE, partners ;
+    ASET_RESET(partners) ;
+    goto Idle ;
+  }
+
+Engaged:
+  if
+  ::  atomic { from_upper ? LEAVE -> goto Leaving }
+  ::  atomic { from_upper ? DREQ  -> goto Send_data }
+  ::  atomic { from_lower ? PDU_JOIN, p -> goto Send_answer }
+  ::  atomic {
+      from_lower ? PDU_DATA, p
+        -> if
+           :: ASET_IS_MEMBER(partners,p)     -> goto Deliver_data
+           :: else                           -> goto Send_1_join
+           fi
+      }
+
+      /* The following two options have been added w.r.t. to the FSM. */
+  ::  atomic {
+      from_lower ? PDU_LEAVE, p  -> ASET_REMOVE(partners,p) ;
+                                    goto Engaged
+      }
+  ::  atomic {
+      from_lower ? PDU_ANSWER, p -> ASET_ADD(partners,p) ;
+                                    goto Engaged
+      }
+  fi ;
+
+Send_data:
+  atomic { to_lower ! PDU_DATA, partners ; goto Engaged ; }
+
+Deliver_data:
+  atomic { to_upper ! p ; goto Engaged ; }
+
+Send_answer:
+  atomic {
+  ASET_ADD(partners,p) ;
+  to_lower ! PDU_ANSWER, ASET_MAKE_SET(p) ;
+  goto Engaged ;
+  }
+
+Send_1_join:
+  atomic {
+  to_lower ! PDU_JOIN, ASET_MAKE_SET(p) ;
+  goto Engaged ;
+  }
+}
+
+/* ------------------------ proctype MultiCast_PE ------------------------- */
+
+#if N==2
+proctype MultiCast_PE (bit i)
+#else
+proctype MultiCast_PE (byte i)
+#endif
+{
+  T_AddressSet    dest_set ;
+  mtype           pdu ;
+  byte            jj ;        /* number of next PE to send to: 0,1,2, etc. */
+  T_Msg		  msg;
+  chan from_upper = mcsap_down[i] ;
+  chan to_upper   = mcsap_up[i] ;
+
+  xr from_upper ;
+  xs to_upper ;
+
+end:
+  do
+  ::  from_upper ? pdu, dest_set
+        ->  /* send (pdu, msg) to all addresses in 'dest_set' */
+
+#if N==2
+            jj = N-i-1;
+            IF ASET_IS_MEMBER(dest_set, jj)
+              ->  from[i].to[jj] ! pdu
+
+/* Verification setting: "A full queue looses new messages".
+                  IF atomic { nfull(from[i].to[jj]) -> from[i].to[jj] ! pdu }
+                  FI
+ */
+            FI
+#else
+            /* peer PE nr. 1 */
+            jj = (i+1)%(N+2*(i<2)) ;
+            IF ASET_IS_MEMBER(dest_set, jj)
+              ->  from[i].to[jj] ! pdu
+            FI ;
+
+            /* peer PE nr. 2 */
+            jj = (i+2)%(N+2*(i==0)) ;
+            IF ASET_IS_MEMBER(dest_set, jj)
+              ->  from[i].to[jj] ! pdu
+            FI
+#endif
+      
+
+/* The specific code above is more efficient (especially when
+   simulating the specification) than the more general (but
+   redundant for jj==i) code:
+
+            jj=0 ;
+            do
+            ::  jj <= (N-1)
+                  ->  if
+                      ::  (jj != i) && ASET_IS_MEMBER(dest_set,jj)
+                            ->  from[i].to[jj] ! pdu, msg
+                      ::  else
+                      fi ;
+                      jj++
+            ::  else -> break
+            od
+ */
+
+#if N==2
+/*::  from[N-i-1].to[i] ? pdu, msg -> to_upper ! MC_DIND(N-i-1, pdu, msg) */
+  ::  from[N-i-1].to[i] ? pdu
+        ->  to_upper ! pdu, N-i-1
+
+/* Verification setting: "A full queue looses new messages"
+            IF atomic { nfull(to_upper) -> to_upper ! pdu, N-i-1 }
+            FI
+ */
+#else
+
+#define _P1  (i+1)%(N+2*(i<2))
+#define _P2  (i+2)%(N+2*(i==0))
+
+/* _P1 and _P2 are (dirty) tricks to calculate the peer entitities of 'i'.
+ *    i==0   ->   _P1 = 1, _P2 = 2
+ *    i==1   ->   _P1 = 2, _P2 = 1
+ *    i==2   ->   _P1 = 1, _P2 = 0
+ *
+ * This trick/hack is used to avoid the following general, but redundant
+ * (one guard will never be executable, i.e. from[i].to[i]) three options:
+ *
+ *   ::  from[0].to[i] ? pdu, msg -> to_upper ! MC_DIND(0, pdu, msg)
+ *   ::  from[1].to[i] ? pdu, msg -> to_upper ! MC_DIND(1, pdu, msg)
+ *   ::  from[2].to[i] ? pdu, msg -> to_upper ! MC_DIND(2, pdu, msg)
+ *
+ * For the "TAP Telematica" course we will almost certainly adopt this
+ * general (and understandable) set of Promela options.
+ */
+
+
+  ::  from[_P1].to[i] ? pdu, msg -> to_upper ! MC_DIND(_P1, pdu, msg)
+  ::  from[_P2].to[i] ? pdu, msg -> to_upper ! MC_DIND(_P2, pdu, msg)
+
+ 
+#undef  _P1
+#undef  _P2
+#endif
+
+  od
+}
+
+/* --------------------------------- init --------------------------------- */
+
+init {
+  atomic {
+#if N==2
+    run Conf_PE(0)      ; run MultiCast_PE(0) ;
+#else
+    run Conf_PE(0) ; run MultiCast_PE(0) ; 
+#endif
+  }
+}
+
+/* --------------------------------- EOF ---------------------------------- */

@@ -1,0 +1,30 @@
+statistics run
+pnml2lts-seq spec/PNML/PolyORB-LF-S06-J06-T04-unfolded.pnml -rsc,bn,mm --noack=1 --regroup-exit --graph-metrics
+ctit014
+pnml2lts-seq: Loading model from spec/PNML/PolyORB-LF-S06-J06-T04-unfolded.pnml
+pnml2lts-seq: Petri net has 506 places, 7154 transitions and 59824 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/PolyORB-LF-S06-J06-T04-unfolded.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 2.640 real 2.630 user 0.010 sys
+pnml2lts-seq: Loading Petri net took 3.540 real 3.430 user 0.100 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regroup specification: sc,bn,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Boost's None
+pnml2lts-seq: bandwidth: 7563
+pnml2lts-seq: profile: 29205285
+pnml2lts-seq: span: 2654214
+pnml2lts-seq: average wavefront: 409.88499
+pnml2lts-seq: RMS wavefront: 426.54565
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 7154->7154 groups
+pnml2lts-seq: Regrouping took 6.230 real 6.170 user 0.020 sys
+pnml2lts-seq: max token count: 10
+Event Span: 249184
+Normalized Event Span: 0.0688368
+Weighted Event Span, moment 1 (WES^1): 457416.9
+Normalized Weighted Event Span, moment 1: 0.1263609
+Exit [0]
+9.60 user, 0.14 system, 9.81 elapsed -- Max VSize = 181676KB, Max RSS = 143492KB

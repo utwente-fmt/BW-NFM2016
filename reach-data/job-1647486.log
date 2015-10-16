@@ -1,0 +1,38 @@
+statistics run
+pnml2lts-sym spec/PNML/database40UNFOLD.pnml -rsc,bn,rs,mm,hf --noack=1 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit023
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/database40UNFOLD.pnml
+pnml2lts-sym: Petri net has 12920 places, 12800 transitions and 156800 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/database40UNFOLD.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 244.170 real 243.380 user 0.030 sys
+pnml2lts-sym: Loading Petri net took 249.110 real 247.870 user 0.440 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 25563
+pnml2lts-sym: profile: 392750794
+pnml2lts-sym: span: 119947393
+pnml2lts-sym: average wavefront: 8038.35124
+pnml2lts-sym: RMS wavefront: 8868.13511
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 12800->12800 groups
+pnml2lts-sym: Regrouping took 109.070 real 108.350 user 0.360 sys
+pnml2lts-sym: state vector length is 12920; there are 12800 groups and 12920 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+llmsset_create: Unable to allocate memory: Cannot allocate memory!
+Event Span: 39037403
+Normalized Event Span: 0.236052408
+Weighted Event Span, moment 1 (WES^1): 63478283.6
+Normalized Weighted Event Span, moment 1: 0.383842175
+Exit [1]
+356.24 user, 0.91 system, 358.45 elapsed -- Max VSize = 3578760KB, Max RSS = 951612KB

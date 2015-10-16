@@ -1,0 +1,14 @@
+#!/bin/bash
+echo d,x,y
+lines=1
+cat "$@" | sed 's/[^-rwW+]*//g' | sed '/^$/d' |
+while read -r line; do
+    chars=1
+    for char in `echo $line | grep -o .`; do
+        if [[ $char != "-" ]]; then
+            echo $char,$chars,$lines
+        fi
+        ((chars++))
+    done
+((lines++))
+done

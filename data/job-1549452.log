@@ -1,0 +1,13 @@
+performance run
+prom2lts-seq spec/Promela/fgs.promela.spins -rsc,f --regroup-exit
+ctit035
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/fgs.promela.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,f
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup FORCE
+prom2lts-seq: Regrouping: 517->517 groups
+prom2lts-seq: Regrouping took 0.020 real 0.000 user 0.000 sys
+Exit [0]
+0.02 user, 0.01 system, 0.20 elapsed -- Max VSize = 14908KB, Max RSS = 284KB

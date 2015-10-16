@@ -1,0 +1,15 @@
+performance run
+lps2lts-seq --mcrl2-rewriter=jitty spec/mCRL2/garage.mcrl2.lps -rsc,bg,bs --regroup-exit
+ctit041
+lps2lts-seq: mCRL2 language module initialized
+lps2lts-seq: Loading model from spec/mCRL2/garage.mcrl2.lps
+lps2lts-seq: mCRL2 rewriter: jitty
+lps2lts-seq: Initializing regrouping layer
+lps2lts-seq: Regroup specification: sc,bg,bs
+lps2lts-seq: Regroup Select Combined matrix
+lps2lts-seq: Regroup Bipartite Graph
+lps2lts-seq: Regroup Boost's Sloan
+lps2lts-seq: Regrouping: 8->8 groups
+lps2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.17 user, 0.00 system, 0.20 elapsed -- Max VSize = 65160KB, Max RSS = 11300KB

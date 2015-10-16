@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/railroad-100-pt.pnml -rsc,tg,vacm,mm --regroup-exit --graph-metrics
+ctit021
+pnml2lts-seq: Loading model from spec/PNML/railroad-100-pt.pnml
+pnml2lts-seq: Petri net has 1018 places, 10506 transitions and 62728 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/railroad-100-pt.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.710 real 0.650 user 0.060 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vacm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-seq: bandwidth: 31310
+pnml2lts-seq: profile: 1361551548
+pnml2lts-seq: span: 2029616642
+pnml2lts-seq: average wavefront: 17295.23029
+pnml2lts-seq: RMS wavefront: 18712.31695
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 10506->10506 groups
+pnml2lts-seq: Regrouping took 622.620 real 620.400 user 0.410 sys
+pnml2lts-seq: max token count: 1
+Event Span: 2810282
+Normalized Event Span: 0.26276331
+Weighted Event Span, moment 1 (WES^1): 5577845.7
+Normalized Weighted Event Span, moment 1: 0.52153243
+Exit [0]
+621.06 user, 0.49 system, 623.45 elapsed -- Max VSize = 153636KB, Max RSS = 115432KB

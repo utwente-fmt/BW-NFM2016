@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/angiogenesis-05.pnml -rsc,bg,bk,mm --regroup-exit --graph-metrics
+ctit014
+pnml2lts-seq: Loading model from spec/PNML/angiogenesis-05.pnml
+pnml2lts-seq: Petri net has 39 places, 64 transitions and 185 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/angiogenesis-05.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bk,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's King
+pnml2lts-seq: bandwidth: 26
+pnml2lts-seq: profile: 1881
+pnml2lts-seq: span: 2898
+pnml2lts-seq: average wavefront: 13.65
+pnml2lts-seq: RMS wavefront: 14.485
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 64->64 groups
+pnml2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: max token count: 5
+Event Span: 750
+Normalized Event Span: 0.3005
+Weighted Event Span, moment 1 (WES^1): 957.4
+Normalized Weighted Event Span, moment 1: 0.3836
+Exit [0]
+0.01 user, 0.00 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

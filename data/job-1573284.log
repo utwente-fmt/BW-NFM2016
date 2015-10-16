@@ -1,0 +1,15 @@
+performance run
+pnml2lts-seq spec/PNML/eratosthenes-010.pnml --noack=1 --regroup-exit --graph-metrics
+ctit044
+pnml2lts-seq: Loading model from spec/PNML/eratosthenes-010.pnml
+pnml2lts-seq: Petri net has 9 places, 8 transitions and 24 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/eratosthenes-010.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+Killed [24]
+3593.56 user, 2.46 system, 3601.88 elapsed -- Max VSize = 44040KB, Max RSS = 5824KB
+command-98474: line 5: 40053 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/eratosthenes-010.pnml --noack=1 --regroup-exit --graph-metrics

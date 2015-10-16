@@ -1,0 +1,93 @@
+/*
+ * Copyright (c) 1996 The University of Utah and
+ * the Computer Systems Laboratory at the University of Utah (CSL).
+ * All rights reserved.
+ *
+ * Permission to use, copy, modify and distribute this software is hereby
+ * granted provided that (1) source code retains these copyright, permission,
+ * and disclaimer notices, and (2) redistributions including binaries
+ * reproduce the notices in supporting documentation, and (3) all advertising
+ * materials mentioning features or use of this software display the following
+ * acknowledgement: ``This product includes software developed by the
+ * Computer Systems Laboratory at the University of Utah.''
+ *
+ * THE UNIVERSITY OF UTAH AND CSL ALLOW FREE USE OF THIS SOFTWARE IN ITS "AS
+ * IS" CONDITION.  THE UNIVERSITY OF UTAH AND CSL DISCLAIM ANY LIABILITY OF
+ * ANY KIND FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * CSL requests users of this software to return to csl-dist@cs.utah.edu any
+ * improvements that they make and grant CSL redistribution rights.
+ */
+// Big-test.pr - Tests entire universe of valid user programs
+//-----------------------------------------------------------------------------
+// Note: includes non-repeating programs of infinite length!  :)
+
+#define INCLUDE_ALL
+
+#define INCLUDE_IPC_PAYLOAD
+#define INCLUDE_MUTEX_SAFE
+
+#include "../../fluke/Fluke.pr"
+
+mtype = {
+  FLUKE_MESSAGES
+};
+
+threadDefineInstances(2);
+wqDefineInstances(4);
+mutexDefineInstances(4);
+
+#include "../../support/Proctypes.pr"
+
+proctype program(Thread currentThread; bit isClient) {
+  Fluke kernel;
+  ResultCode rc;
+  IpcPayload sData=0;
+  IpcPayload rData=0;
+
+  flukeInit(kernel,currentThread);
+
+  flukeVersion(kernel);
+  assert(rc==FLUKE_VERSION);
+
+  do
+
+  // Do my client- or server-specific thing
+  :: TRUE -> if
+             :: isClient==1 -> if
+                               :: flukeClientConnectSend(kernel,2,sData);
+                               :: flukeClientConnectSendOverReceive(kernel,2,
+                                    sData,rData);
+                               fi;
+             :: isClient==0 -> flukeWaitReceive(kernel,rData);
+             fi;
+
+  :: flukeClientAckSend(kernel,sData);
+  :: flukeClientSend(kernel,sData);
+  :: flukeClientAckSendOverReceive(kernel,sData,rData);
+  :: flukeClientSendOverReceive(kernel,sData,rData);
+  :: flukeClientReceive(kernel,rData);
+  :: flukeClientDisconnect(kernel);
+
+  :: flukeServerAckSend(fluke,sData);
+  :: flukeServerSend(fluke,sData);
+  :: flukeServerAckSendWaitReceive(fluke,sData,rData);
+  :: flukeServerAckSendOverReceive(fluke,sData,rData);
+  :: flukeServerSendWaitReceive(fluke,sData,rData);
+  :: flukeServerSendOverReceive(fluke,sData,rData);
+  :: flukeServerReceive(kernel,rData);
+  :: flukeServerDisconnect(kernel);
+
+  od
+}
+
+init {
+  threadInitInstances(2);
+  wqInitInstances(4);
+  mutexInitInstances(4);
+
+  atomic {
+    run program(1,1);
+    run program(2,0);
+  }
+}

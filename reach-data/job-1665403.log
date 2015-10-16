@@ -1,0 +1,27 @@
+performance run
+pnml2lts-sym spec/PNML/BridgeAndVehicles-V20-P20-N20-unfolded.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit003
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/BridgeAndVehicles-V20-P20-N20-unfolded.pnml
+pnml2lts-sym: Petri net has 78 places, 968 transitions and 7350 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/BridgeAndVehicles-V20-P20-N20-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.120 real 0.110 user 0.010 sys
+pnml2lts-sym: state vector length is 78; there are 968 groups and 77 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 129707 group checks and 129707 next state calls
+pnml2lts-sym: reachability took 281.350 real 280.380 user 0.410 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.060 real 0.060 user 0.000 sys
+pnml2lts-sym: state space has 9783606 states, 260783 nodes
+pnml2lts-sym: group_next: 15578 nodes total
+pnml2lts-sym: group_explored: 47898 nodes, 75764 short vectors total
+pnml2lts-sym: max token count: 20
+Exit [0]
+280.63 user, 0.53 system, 281.77 elapsed -- Max VSize = 3675088KB, Max RSS = 859092KB

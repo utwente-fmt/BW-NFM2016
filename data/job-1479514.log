@@ -1,0 +1,23 @@
+statistics run
+dve2lts-seq spec/DVE/telephony.3.dve -rsc,bn,mm --regroup-exit --graph-metrics
+ctit011
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/telephony.3.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bn,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Boost's None
+dve2lts-seq: bandwidth: 109
+dve2lts-seq: profile: 7765
+dve2lts-seq: span: 2391
+dve2lts-seq: average wavefront: 13.957
+dve2lts-seq: RMS wavefront: 14.844
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 96->96 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 1434
+Normalized Event Span: 0.7113
+Weighted Event Span, moment 1 (WES^1): 2687
+Normalized Weighted Event Span, moment 1: 1.333
+Exit [0]
+1.77 user, 0.09 system, 1.90 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

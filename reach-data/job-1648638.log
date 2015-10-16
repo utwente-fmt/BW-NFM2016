@@ -1,0 +1,40 @@
+statistics run
+pnml2lts-sym spec/PNML/railroad-100-pt.pnml -rsc,bn,rs,mm,hf --noack=1 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit012
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/railroad-100-pt.pnml
+pnml2lts-sym: Petri net has 1018 places, 10506 transitions and 62728 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/railroad-100-pt.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 1.130 real 1.120 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 1.890 real 1.800 user 0.080 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+*** segmentation fault ***
+
+Please send information on how to reproduce this problem to: 
+         ltsmin-support@lists.utwente.nl
+along with all output preceding this message.
+In addition, include the following information:
+Package: ltsmin 2.2beta
+Stack trace:
+  0: pnml2lts-sym() [0x42640a]
+  1: pnml2lts-sym() [0x426486]
+  2: /lib/x86_64-linux-gnu/libpthread.so.0(+0x10340) [0x7fc23d648340]
+  3: pnml2lts-sym() [0x45ef59]
+  4: pnml2lts-sym() [0x461b06]
+  5: pnml2lts-sym() [0x4343ee]
+  6: pnml2lts-sym() [0x4360ed]
+  7: pnml2lts-sym() [0x430ef6]
+  8: pnml2lts-sym() [0x4153a4]
+  9: pnml2lts-sym() [0x4aec52]
+ 10: /lib/x86_64-linux-gnu/libpthread.so.0(+0x8182) [0x7fc23d640182]
+ 11: /lib/x86_64-linux-gnu/libc.so.6(clone+0x6d) [0x7fc23cb4247d]
+Exit [255]
+1.81 user, 0.11 system, 2.00 elapsed -- Max VSize = 2751964KB, Max RSS = 117096KB

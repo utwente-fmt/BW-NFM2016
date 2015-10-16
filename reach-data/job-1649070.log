@@ -1,0 +1,37 @@
+statistics run
+pnml2lts-sym spec/PNML/simple_lbs-20.pnml -rsc,bn,rs,mm,hf --noack=1 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit020
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/simple_lbs-20.pnml
+pnml2lts-sym: Petri net has 194 places, 2205 transitions and 15678 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/simple_lbs-20.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 0.080 real 0.090 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 0.220 real 0.200 user 0.020 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 2398
+pnml2lts-sym: profile: 3074346
+pnml2lts-sym: span: 342196
+pnml2lts-sym: average wavefront: 181.8495
+pnml2lts-sym: RMS wavefront: 185.6019
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 2205->2205 groups
+pnml2lts-sym: Regrouping took 0.200 real 0.190 user 0.000 sys
+pnml2lts-sym: state vector length is 194; there are 2205 groups and 194 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1800.62 user, 0.79 system, 1807.92 elapsed -- Max VSize = 3675504KB, Max RSS = 993664KB
+command-5490: line 5: 37260 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/simple_lbs-20.pnml -rsc,bn,rs,mm,hf --noack=1 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

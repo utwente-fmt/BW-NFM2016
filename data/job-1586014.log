@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/echo-d5r3.pnml -rsc,bg,vcm --regroup-exit
+ctit015
+pnml2lts-seq: Loading model from spec/PNML/echo-d5r3.pnml
+pnml2lts-seq: Petri net has 3717 places, 3222 transitions and 28404 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/echo-d5r3.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.430 real 0.390 user 0.040 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,vcm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup ViennaCL's Cuthill McKee
+pnml2lts-seq: Regrouping: 3222->3222 groups
+pnml2lts-seq: Regrouping took 0.650 real 0.620 user 0.030 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+1.02 user, 0.08 system, 1.20 elapsed -- Max VSize = 119180KB, Max RSS = 80720KB

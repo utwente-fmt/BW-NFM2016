@@ -1,0 +1,25 @@
+performance run
+pnml2lts-sym spec/PNML/database40UNFOLD.pnml -rsc,bg,bcm,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit017
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/database40UNFOLD.pnml
+pnml2lts-sym: Petri net has 12920 places, 12800 transitions and 156800 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/database40UNFOLD.pnml analyzed
+pnml2lts-sym: Loading Petri net took 4.820 real 4.460 user 0.340 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,bcm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup Boost's Cuthill McKee
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 12800->12800 groups
+pnml2lts-sym: Regrouping took 9.680 real 9.300 user 0.340 sys
+pnml2lts-sym: state vector length is 12920; there are 12800 groups and 12920 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+llmsset_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+13.77 user, 0.78 system, 14.71 elapsed -- Max VSize = 3578756KB, Max RSS = 951496KB

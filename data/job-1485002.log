@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/shared_memory-pt-20.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit034
+pnml2lts-seq: Loading model from spec/PNML/shared_memory-pt-20.pnml
+pnml2lts-seq: Petri net has 461 places, 820 transitions and 3200 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/shared_memory-pt-20.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.060 real 0.040 user 0.010 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 4402
+pnml2lts-seq: profile: 6779439
+pnml2lts-seq: span: 7395922
+pnml2lts-seq: average wavefront: 277.48778
+pnml2lts-seq: RMS wavefront: 293.20972
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 820->820 groups
+pnml2lts-seq: Regrouping took 3.340 real 3.290 user 0.010 sys
+pnml2lts-seq: max token count: 1
+Event Span: 203128
+Normalized Event Span: 0.537347
+Weighted Event Span, moment 1 (WES^1): 283410
+Normalized Weighted Event Span, moment 1: 0.749723
+Exit [0]
+3.33 user, 0.03 system, 3.50 elapsed -- Max VSize = 53720KB, Max RSS = 15476KB

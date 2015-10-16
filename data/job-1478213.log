@@ -1,0 +1,18 @@
+statistics run
+dve2lts-seq spec/DVE/needham.4.dve -rsc,f,mm --regroup-exit
+ctit003
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/needham.4.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,f,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup FORCE
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 147->147 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 1333
+Normalized Event Span: 0.3239
+Weighted Event Span, moment 1 (WES^1): 1693
+Normalized Weighted Event Span, moment 1: 0.4113
+Exit [0]
+3.02 user, 0.11 system, 3.20 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

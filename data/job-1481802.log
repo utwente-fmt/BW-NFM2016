@@ -1,0 +1,18 @@
+statistics run
+pnml2lts-seq spec/PNML/PolyORB-LF-S06-J04-T06-unfolded.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit040
+pnml2lts-seq: Loading model from spec/PNML/PolyORB-LF-S06-J04-T06-unfolded.pnml
+pnml2lts-seq: Petri net has 632 places, 10500 transitions and 88770 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/PolyORB-LF-S06-J04-T06-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 1.170 real 1.020 user 0.140 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 94448
+pnml2lts-seq: profile: 4402791942
+pnml2lts-seq: span: 4430777168
+pnml2lts-seq: average wavefront: 559.7001586
+slurmd[ctit040]: *** STEP 1481802.0 CANCELLED AT 2016-02-22T20:41:08 DUE TO TIME LIMIT ***

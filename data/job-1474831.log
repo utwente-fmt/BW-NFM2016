@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-14- --no-close spec/B/CAN_BUS.mch -rsc,bg,vgps,mm --regroup-exit --graph-metrics
+ctit002
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-21.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-21.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+Event Span: 270
+Normalized Event Span: 0.614
+Weighted Event Span, moment 1 (WES^1): 382
+Normalized Weighted Event Span, moment 1: 0.868
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,vgps,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+prob2lts-seq: bandwidth: 24
+prob2lts-seq: profile: 924
+prob2lts-seq: span: 912
+prob2lts-seq: average wavefront: 16.26
+prob2lts-seq: RMS wavefront: 17.92
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 22->22 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-21: line 10: 36783 Killed                  probcli spec/B/CAN_BUS.mch -ltsmin2 /tmp/ltsmin-21.probz

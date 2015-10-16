@@ -1,0 +1,44 @@
+statistics run
+pnml2lts-sym spec/PNML/raft_08.pnml -rsc,bn,mm --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit024
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/raft_08.pnml
+pnml2lts-sym: Petri net has 328 places, 568 transitions and 2163 arcs
+pnml2lts-sym: There are 328 safe places
+pnml2lts-sym: Petri net spec/PNML/raft_08.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.020 real 0.020 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bn,mm
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 895
+pnml2lts-sym: profile: 516556
+pnml2lts-sym: span: 150981
+pnml2lts-sym: average wavefront: 203.396
+pnml2lts-sym: RMS wavefront: 225
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Regrouping: 568->568 groups
+pnml2lts-sym: Regrouping took 0.030 real 0.020 user 0.000 sys
+pnml2lts-sym: state vector length is 328; there are 568 groups and 328 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 267009 group checks and 267009 next state calls
+pnml2lts-sym: reachability took 82.990 real 82.520 user 0.270 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state space has 1.08420149192077e+46 states, 1926 nodes
+pnml2lts-sym: ( 1926 final BDD nodes; 57392 peak nodes )
+pnml2lts-sym: group_next: 2869 nodes total
+pnml2lts-sym: group_explored: 2100 nodes, 2100 short vectors total
+pnml2lts-sym: max token count: 1
+Event Span: 74582
+Normalized Event Span: 0.400324
+Weighted Event Span, moment 1 (WES^1): 101429
+Normalized Weighted Event Span, moment 1: 0.544427
+Exit [0]
+82.69 user, 0.34 system, 83.38 elapsed -- Max VSize = 3675068KB, Max RSS = 786444KB

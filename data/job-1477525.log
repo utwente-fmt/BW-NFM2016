@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/lamport_nonatomic.5.dve -rsc,tg,vgps,mm --regroup-exit --graph-metrics
+ctit012
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/lamport_nonatomic.5.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,vgps,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+dve2lts-seq: bandwidth: 648
+dve2lts-seq: profile: 760414
+dve2lts-seq: span: 1067518
+dve2lts-seq: average wavefront: 236.0955
+dve2lts-seq: RMS wavefront: 288.7258
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 365->365 groups
+dve2lts-seq: Regrouping took 0.230 real 0.230 user 0.000 sys
+Event Span: 5319
+Normalized Event Span: 0.48575
+Weighted Event Span, moment 1 (WES^1): 8650.8
+Normalized Weighted Event Span, moment 1: 0.79003
+Exit [0]
+7.00 user, 0.23 system, 7.31 elapsed -- Max VSize = 43540KB, Max RSS = 7976KB

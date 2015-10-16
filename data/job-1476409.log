@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/cyclic_scheduler.3.dve -rsc,bg,bk,mm --regroup-exit --graph-metrics
+ctit028
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/cyclic_scheduler.3.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bk,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's King
+dve2lts-seq: bandwidth: 13
+dve2lts-seq: profile: 1427
+dve2lts-seq: span: 2119
+dve2lts-seq: average wavefront: 8.3154
+dve2lts-seq: RMS wavefront: 8.6358
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 78->78 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 598
+Normalized Event Span: 0.1474
+Weighted Event Span, moment 1 (WES^1): 714
+Normalized Weighted Event Span, moment 1: 0.176
+Exit [0]
+0.88 user, 0.09 system, 1.00 elapsed -- Max VSize = 38240KB, Max RSS = 4752KB

@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/galloc_res-3.pnml -rsc,tg,vgps --regroup-exit
+ctit001
+pnml2lts-seq: Loading model from spec/PNML/galloc_res-3.pnml
+pnml2lts-seq: Petri net has 33 places, 4791 transitions and 38652 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/galloc_res-3.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.410 real 0.330 user 0.070 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: Regrouping: 4791->4791 groups
+pnml2lts-seq: Regrouping took 381.270 real 380.090 user 0.330 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+380.42 user, 0.42 system, 381.77 elapsed -- Max VSize = 125844KB, Max RSS = 87576KB

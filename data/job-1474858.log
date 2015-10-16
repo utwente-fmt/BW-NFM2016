@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-42- --no-close spec/B/CarlaTravelAgencyErr.mch -rsc,bg,vacm,mm --regroup-exit --graph-metrics
+ctit004
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-48.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-48.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,vacm,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+prob2lts-seq: bandwidth: 12
+prob2lts-seq: profile: 219
+prob2lts-seq: span: 230
+prob2lts-seq: average wavefront: 8.09
+prob2lts-seq: RMS wavefront: 8.82
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 11->11 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 67
+Normalized Event Span: 0.508
+Weighted Event Span, moment 1 (WES^1): 87.3
+Normalized Weighted Event Span, moment 1: 0.662
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-48: line 10: 47601 Killed                  probcli spec/B/CarlaTravelAgencyErr.mch -ltsmin2 /tmp/ltsmin-48.probz

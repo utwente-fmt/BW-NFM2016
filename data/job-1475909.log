@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/blocks.2.dve -rsc,bg,vgps,mm --regroup-exit --graph-metrics
+ctit007
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/blocks.2.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,vgps,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+dve2lts-seq: bandwidth: 19
+dve2lts-seq: profile: 585
+dve2lts-seq: span: 705
+dve2lts-seq: average wavefront: 11.41
+dve2lts-seq: RMS wavefront: 12.56
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 20->20 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 227
+Normalized Event Span: 0.811
+Weighted Event Span, moment 1 (WES^1): 434
+Normalized Weighted Event Span, moment 1: 1.55
+Exit [0]
+0.33 user, 0.04 system, 0.40 elapsed -- Max VSize = 38240KB, Max RSS = 4676KB

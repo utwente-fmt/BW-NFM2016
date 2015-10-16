@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/hanoi.4.dve -rsc,bg,vcm,mm --regroup-exit --graph-metrics
+ctit011
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/hanoi.4.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,vcm,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup ViennaCL's Cuthill McKee
+dve2lts-seq: bandwidth: 64
+dve2lts-seq: profile: 2956
+dve2lts-seq: span: 2768
+dve2lts-seq: average wavefront: 28.52
+dve2lts-seq: RMS wavefront: 33.96
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 6->6 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 325
+Normalized Event Span: 0.86
+Weighted Event Span, moment 1 (WES^1): 623
+Normalized Weighted Event Span, moment 1: 1.65
+Exit [0]
+0.27 user, 0.04 system, 0.40 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

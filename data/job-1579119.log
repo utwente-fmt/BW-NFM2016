@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/cyclic_scheduler.2.dve -rsc,bg,bs --regroup-exit
+ctit003
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/cyclic_scheduler.2.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bs
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's Sloan
+dve2lts-seq: Regrouping: 30->30 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.47 user, 0.08 system, 0.60 elapsed -- Max VSize = 38240KB, Max RSS = 4680KB

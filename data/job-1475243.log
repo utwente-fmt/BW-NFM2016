@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-420- --no-close spec/B/Simpson_Four_Slot.mch -rsc,tg,vgps,mm --regroup-exit --graph-metrics
+ctit025
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-433.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-433.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,tg,vgps,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Total graph
+prob2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+prob2lts-seq: bandwidth: 33
+prob2lts-seq: profile: 2153
+prob2lts-seq: span: 3037
+prob2lts-seq: average wavefront: 17.71
+prob2lts-seq: RMS wavefront: 19.7
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 10->10 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 123
+Normalized Event Span: 0.879
+Weighted Event Span, moment 1 (WES^1): 246
+Normalized Weighted Event Span, moment 1: 1.76
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 80KB
+command-433: line 10: 53290 Killed                  probcli spec/B/Simpson_Four_Slot.mch -ltsmin2 /tmp/ltsmin-433.probz

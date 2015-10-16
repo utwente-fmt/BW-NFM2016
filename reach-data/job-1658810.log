@@ -1,0 +1,22 @@
+performance run
+pnml2lts-sym spec/PNML/hc5k3p3b15.pnml -rsc,bg,vgps,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit022
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/hc5k3p3b15.pnml
+pnml2lts-sym: Petri net has 9153 places, 25110 transitions and 100440 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/hc5k3p3b15.pnml analyzed
+pnml2lts-sym: Loading Petri net took 5.290 real 5.000 user 0.260 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,vgps,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 25110->25110 groups
+pnml2lts-sym, ** error **: out of memory trying to resize to 73224
+Exit [255]
+13.06 user, 1.02 system, 14.21 elapsed -- Max VSize = 3789080KB, Max RSS = 1160676KB

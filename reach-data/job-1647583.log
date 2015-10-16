@@ -1,0 +1,38 @@
+statistics run
+pnml2lts-sym spec/PNML/dekker-200.pnml -rsc,bn,rs,mm,hf --noack=2 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit007
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/dekker-200.pnml
+pnml2lts-sym: Petri net has 1000 places, 40400 transitions and 320400 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/dekker-200.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 51.970 real 51.870 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 55.840 real 55.180 user 0.570 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 41399
+pnml2lts-sym: profile: 871971753
+pnml2lts-sym: span: 30777552
+pnml2lts-sym: average wavefront: 695.2173671
+pnml2lts-sym: RMS wavefront: 718.9247572
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 40400->40400 groups
+pnml2lts-sym: Regrouping took 171.370 real 170.930 user 0.130 sys
+pnml2lts-sym: state vector length is 1000; there are 40400 groups and 1000 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Event Span: 14616550
+Normalized Event Span: 0.36179579
+Weighted Event Span, moment 1 (WES^1): 23021642
+Normalized Weighted Event Span, moment 1: 0.56984264
+Exit [1]
+226.12 user, 0.78 system, 227.43 elapsed -- Max VSize = 3189664KB, Max RSS = 522796KB

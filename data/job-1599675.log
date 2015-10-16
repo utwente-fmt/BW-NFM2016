@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/rwmutex-r10w1000.pnml -rsc,tg,vacm --regroup-exit
+ctit024
+pnml2lts-seq: Loading model from spec/PNML/rwmutex-r10w1000.pnml
+pnml2lts-seq: Petri net has 2030 places, 2020 transitions and 24060 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/rwmutex-r10w1000.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.270 real 0.250 user 0.010 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vacm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-seq: Regrouping: 2020->2020 groups
+pnml2lts-seq: Regrouping took 43.330 real 43.210 user 0.020 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+43.47 user, 0.04 system, 43.64 elapsed -- Max VSize = 82748KB, Max RSS = 44476KB

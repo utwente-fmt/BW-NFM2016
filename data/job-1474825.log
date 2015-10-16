@@ -1,0 +1,24 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-14- --no-close spec/B/CAN_BUS.mch -rsc,f,mm --regroup-exit
+ctit001
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-15.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-15.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,f,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup FORCE
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 22->22 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 218
+Normalized Event Span: 0.495
+Weighted Event Span, moment 1 (WES^1): 326
+Normalized Weighted Event Span, moment 1: 0.742
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 84KB
+command-15: line 10: 28047 Killed                  probcli spec/B/CAN_BUS.mch -ltsmin2 /tmp/ltsmin-15.probz

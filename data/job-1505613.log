@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/telephony.5.dve -rsc,bg,vgps --regroup-exit
+ctit014
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/telephony.5.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,vgps
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+dve2lts-seq: Regrouping: 132->132 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+2.96 user, 0.12 system, 3.10 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

@@ -1,0 +1,27 @@
+statistics run
+pnml2lts-seq spec/PNML/rwmutex-r10w500.pnml -rsc,bn,mm --regroup-exit --graph-metrics
+ctit041
+pnml2lts-seq: Loading model from spec/PNML/rwmutex-r10w500.pnml
+pnml2lts-seq: Petri net has 1030 places, 1020 transitions and 12060 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/rwmutex-r10w500.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.130 real 0.100 user 0.020 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bn,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Boost's None
+pnml2lts-seq: bandwidth: 1631
+pnml2lts-seq: profile: 2619984
+pnml2lts-seq: span: 1039953
+pnml2lts-seq: average wavefront: 641.8205
+pnml2lts-seq: RMS wavefront: 724.4237
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 1020->1020 groups
+pnml2lts-seq: Regrouping took 0.230 real 0.240 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Event Span: 523042
+Normalized Event Span: 0.4978508
+Weighted Event Span, moment 1 (WES^1): 802182.4
+Normalized Weighted Event Span, moment 1: 0.7635469
+Exit [0]
+0.35 user, 0.03 system, 0.40 elapsed -- Max VSize = 62836KB, Max RSS = 24392KB

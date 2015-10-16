@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/hc3k4p4b12.pnml -rsc,bg,bcm,mm --regroup-exit --graph-metrics
+ctit004
+pnml2lts-seq: Loading model from spec/PNML/hc3k4p4b12.pnml
+pnml2lts-seq: Petri net has 1408 places, 2400 transitions and 9600 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/hc3k4p4b12.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.180 real 0.130 user 0.050 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bcm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's Cuthill McKee
+pnml2lts-seq: bandwidth: 277
+pnml2lts-seq: profile: 632420
+pnml2lts-seq: span: 1059346
+pnml2lts-seq: average wavefront: 137.27574
+pnml2lts-seq: RMS wavefront: 150.5116
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 2400->2400 groups
+pnml2lts-seq: Regrouping took 0.500 real 0.490 user 0.000 sys
+pnml2lts-seq: max token count: 12
+Event Span: 234121
+Normalized Event Span: 0.06928297
+Weighted Event Span, moment 1 (WES^1): 248604.4
+Normalized Weighted Event Span, moment 1: 0.07356901
+Exit [0]
+0.63 user, 0.06 system, 0.70 elapsed -- Max VSize = 67020KB, Max RSS = 28556KB

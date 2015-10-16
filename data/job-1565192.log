@@ -1,0 +1,20 @@
+performance run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-90371- --no-close spec/B/Peterson.mch -rsc,tg,vacm --regroup-exit
+ctit018
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-90382.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-90382.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,tg,vacm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Total graph
+prob2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+prob2lts-seq: Regrouping: 6->6 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.01 user, 0.00 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-90382: line 10: 33167 Killed                  probcli spec/B/Peterson.mch -ltsmin2 /tmp/ltsmin-90382.probz

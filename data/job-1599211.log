@@ -1,0 +1,16 @@
+performance run
+pnml2lts-seq spec/PNML/neoelection-8.unf.pnml -rsc,tg,vgps --regroup-exit
+ctit026
+pnml2lts-seq: Loading model from spec/PNML/neoelection-8.unf.pnml
+pnml2lts-seq: Petri net has 10062 places, 22266 transitions and 129195 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/neoelection-8.unf.pnml analyzed
+pnml2lts-seq: Loading Petri net took 5.730 real 5.460 user 0.240 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+Killed [24]
+3595.11 user, 0.97 system, 3601.01 elapsed -- Max VSize = 526176KB, Max RSS = 487108KB
+command-124401: line 5:   387 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/neoelection-8.unf.pnml -rsc,tg,vgps --regroup-exit

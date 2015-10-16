@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/CircularTrain-384.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit003
+pnml2lts-seq: Loading model from spec/PNML/CircularTrain-384.pnml
+pnml2lts-seq: Petri net has 768 places, 384 transitions and 1536 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/CircularTrain-384.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.030 real 0.020 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 48
+pnml2lts-seq: profile: 50614
+pnml2lts-seq: span: 62376
+pnml2lts-seq: average wavefront: 10.52902
+pnml2lts-seq: RMS wavefront: 10.57196
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 384->384 groups
+pnml2lts-seq: Regrouping took 0.590 real 0.590 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Event Span: 3464
+Normalized Event Span: 0.0117459
+Weighted Event Span, moment 1 (WES^1): 3508.37
+Normalized Weighted Event Span, moment 1: 0.0118963
+Exit [0]
+0.61 user, 0.01 system, 0.70 elapsed -- Max VSize = 48844KB, Max RSS = 10592KB

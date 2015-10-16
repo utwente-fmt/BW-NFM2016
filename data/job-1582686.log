@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/ARMCacheCoherence.pnml -rsc,bg,vgps --regroup-exit
+ctit003
+pnml2lts-seq: Loading model from spec/PNML/ARMCacheCoherence.pnml
+pnml2lts-seq: Petri net has 87 places, 33676 transitions and 246935 arcs
+pnml2lts-seq: There are 87 safe places
+pnml2lts-seq: Petri net spec/PNML/ARMCacheCoherence.pnml analyzed
+pnml2lts-seq: Loading Petri net took 1.980 real 1.760 user 0.200 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: Regrouping: 33676->33676 groups
+pnml2lts-seq: Regrouping took 381.700 real 380.150 user 0.310 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+381.91 user, 0.56 system, 383.83 elapsed -- Max VSize = 391032KB, Max RSS = 352784KB

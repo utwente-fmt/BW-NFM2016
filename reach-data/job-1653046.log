@@ -1,0 +1,25 @@
+performance run
+pnml2lts-sym spec/PNML/dekker-200.pnml -rsc,bg,bk,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit001
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/dekker-200.pnml
+pnml2lts-sym: Petri net has 1000 places, 40400 transitions and 320400 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/dekker-200.pnml analyzed
+pnml2lts-sym: Loading Petri net took 3.980 real 3.340 user 0.620 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,bk,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup Boost's King
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 40400->40400 groups
+pnml2lts-sym: Regrouping took 2.320 real 2.290 user 0.020 sys
+pnml2lts-sym: state vector length is 1000; there are 40400 groups and 1000 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+5.64 user, 0.74 system, 6.51 elapsed -- Max VSize = 3179308KB, Max RSS = 520672KB

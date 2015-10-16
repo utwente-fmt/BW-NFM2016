@@ -1,0 +1,15 @@
+/memtime
+/ltsmin
+/bin
+/lib
+/include
+/share
+/mcrl2-201409.1
+/mcrl2-201409.1.tar.gz
+*.so
+*.o
+*.gcf
+*.lps
+*.pbes
+.DS_Store
+all-data

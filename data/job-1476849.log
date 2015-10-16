@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/firewire_link.5.dve -rsc,tg,bk,mm --regroup-exit --graph-metrics
+ctit044
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/firewire_link.5.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,bk,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup Boost's King
+dve2lts-seq: bandwidth: 1807
+dve2lts-seq: profile: 3283837
+dve2lts-seq: span: 4178636
+dve2lts-seq: average wavefront: 369.96061
+dve2lts-seq: RMS wavefront: 437.58625
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 610->610 groups
+dve2lts-seq: Regrouping took 0.320 real 0.320 user 0.000 sys
+Event Span: 8979
+Normalized Event Span: 0.29439
+Weighted Event Span, moment 1 (WES^1): 10164
+Normalized Weighted Event Span, moment 1: 0.33325
+Exit [0]
+13.45 user, 0.40 system, 14.01 elapsed -- Max VSize = 49536KB, Max RSS = 13852KB

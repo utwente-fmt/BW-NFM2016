@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/peg_solitaire.6.dve -rsc,tg,bs --regroup-exit
+ctit001
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/peg_solitaire.6.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,bs
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup Boost's Sloan
+dve2lts-seq: Regrouping: 96->96 groups
+dve2lts-seq: Regrouping took 0.410 real 0.420 user 0.000 sys
+Exit [0]
+2.36 user, 0.13 system, 2.60 elapsed -- Max VSize = 44656KB, Max RSS = 9396KB

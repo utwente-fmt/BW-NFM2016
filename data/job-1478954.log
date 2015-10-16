@@ -1,0 +1,23 @@
+statistics run
+dve2lts-seq spec/DVE/reader_writer.2.dve -rsc,bn,mm --regroup-exit --graph-metrics
+ctit009
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/reader_writer.2.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bn,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Boost's None
+dve2lts-seq: bandwidth: 101
+dve2lts-seq: profile: 6783
+dve2lts-seq: span: 2620
+dve2lts-seq: average wavefront: 18.059
+dve2lts-seq: RMS wavefront: 19.072
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 81->81 groups
+dve2lts-seq: Regrouping took 0.010 real 0.000 user 0.000 sys
+Event Span: 1287
+Normalized Event Span: 0.7566
+Weighted Event Span, moment 1 (WES^1): 2328
+Normalized Weighted Event Span, moment 1: 1.369
+Exit [0]
+1.21 user, 0.08 system, 1.30 elapsed -- Max VSize = 38240KB, Max RSS = 4752KB

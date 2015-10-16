@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/parking_8_32.pnml -rsc,bg,bs,mm --regroup-exit --graph-metrics
+ctit010
+pnml2lts-seq: Loading model from spec/PNML/parking_8_32.pnml
+pnml2lts-seq: Petri net has 737 places, 993 transitions and 2993 arcs
+pnml2lts-seq: There are 737 safe places
+pnml2lts-seq: Petri net spec/PNML/parking_8_32.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.050 real 0.030 user 0.010 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 1572
+pnml2lts-seq: profile: 390644
+pnml2lts-seq: span: 372925
+pnml2lts-seq: average wavefront: 69.61561
+pnml2lts-seq: RMS wavefront: 75.33689
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 993->993 groups
+pnml2lts-seq: Regrouping took 0.160 real 0.160 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Event Span: 60273
+Normalized Event Span: 0.0823581
+Weighted Event Span, moment 1 (WES^1): 80823.8
+Normalized Weighted Event Span, moment 1: 0.110439
+Exit [0]
+0.20 user, 0.02 system, 0.30 elapsed -- Max VSize = 50656KB, Max RSS = 12288KB

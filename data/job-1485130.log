@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/soli0_counter_square5.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit009
+pnml2lts-seq: Loading model from spec/PNML/soli0_counter_square5.pnml
+pnml2lts-seq: Petri net has 51 places, 84 transitions and 540 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/soli0_counter_square5.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.010 real 0.010 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 634
+pnml2lts-seq: profile: 109910
+pnml2lts-seq: span: 130921
+pnml2lts-seq: average wavefront: 47.2919
+pnml2lts-seq: RMS wavefront: 49.2484
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 84->84 groups
+pnml2lts-seq: Regrouping took 0.060 real 0.050 user 0.000 sys
+pnml2lts-seq: max token count: 24
+Event Span: 2422
+Normalized Event Span: 0.5654
+Weighted Event Span, moment 1 (WES^1): 3643
+Normalized Weighted Event Span, moment 1: 0.8503
+Exit [0]
+0.07 user, 0.00 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

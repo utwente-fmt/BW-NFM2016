@@ -1,0 +1,37 @@
+performance run
+pnml2lts-sym spec/PNML/cs_repetitions-3-unfolded.pnml -rrs,hf --noack=2 --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit001
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/cs_repetitions-3-unfolded.pnml
+pnml2lts-sym: Petri net has 58 places, 81 transitions and 279 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/cs_repetitions-3-unfolded.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 0.010 real 0.000 user 0.010 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: rs,hf
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 81->81 groups
+pnml2lts-sym: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state vector length is 58; there are 81 groups and 58 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 7465 group checks and 7465 next state calls
+pnml2lts-sym: reachability took 52.400 real 51.980 user 0.210 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state space has 134074721 states, 24917 nodes
+pnml2lts-sym: ( 24917 final BDD nodes; 113864 peak nodes )
+pnml2lts-sym: group_next: 976 nodes total
+pnml2lts-sym: group_explored: 1016 nodes, 1206 short vectors total
+pnml2lts-sym: max token count: 3
+Exit [0]
+51.99 user, 0.28 system, 52.65 elapsed -- Max VSize = 3675064KB, Max RSS = 832436KB

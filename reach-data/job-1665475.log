@@ -1,0 +1,20 @@
+performance run
+pnml2lts-sym spec/PNML/Philosophers-200.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit008
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/Philosophers-200.pnml
+pnml2lts-sym: Petri net has 1000 places, 1000 transitions and 3200 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/Philosophers-200.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.090 real 0.060 user 0.020 sys
+pnml2lts-sym: state vector length is 1000; there are 1000 groups and 1000 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 15093044 of 16777216 buckets filled!
+Exit [1]
+54.10 user, 0.87 system, 55.15 elapsed -- Max VSize = 3675088KB, Max RSS = 982192KB

@@ -1,0 +1,694 @@
+sort
+  BoolInt = Int32;
+  Int16 = Int;
+  Int32 = Int;
+  Message = Int;
+  State = struct State'done | State'q;
+  UInt8 = Nat;
+  Array_UInt8_4 = struct Array_UInt8_4(UInt8, UInt8, UInt8, UInt8);
+  Array_UInt8_8 = struct Array_UInt8_8(UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8);
+
+% Array_UInt8_4
+map
+  get_Array_UInt8_4 : Array_UInt8_4 # Int -> UInt8;
+  set_Array_UInt8_4 : Array_UInt8_4 # Int # UInt8 -> Array_UInt8_4;
+  merge_Array_UInt8_4 : Array_UInt8_4 # Array_UInt8_4 # Array_UInt8_4 -> Array_UInt8_4;
+var
+  a:Array_UInt8_4;
+  b:Array_UInt8_4;
+  x:UInt8;
+  i:Nat;
+  j:Nat;
+  v:UInt8;
+  w:UInt8;
+  x0:UInt8;
+  y0:UInt8;
+  z0:UInt8;
+  x1:UInt8;
+  y1:UInt8;
+  z1:UInt8;
+  x2:UInt8;
+  y2:UInt8;
+  z2:UInt8;
+  x3:UInt8;
+  y3:UInt8;
+  z3:UInt8;
+eqn
+  get_Array_UInt8_4(Array_UInt8_4(x0, x1, x2, x3), 0) = x0;
+  get_Array_UInt8_4(Array_UInt8_4(x0, x1, x2, x3), 1) = x1;
+  get_Array_UInt8_4(Array_UInt8_4(x0, x1, x2, x3), 2) = x2;
+  get_Array_UInt8_4(Array_UInt8_4(x0, x1, x2, x3), 3) = x3;
+  set_Array_UInt8_4(Array_UInt8_4(x0, x1, x2, x3), 0, x) = Array_UInt8_4(x, x1, x2, x3);
+  set_Array_UInt8_4(Array_UInt8_4(x0, x1, x2, x3), 1, x) = Array_UInt8_4(x0, x, x2, x3);
+  set_Array_UInt8_4(Array_UInt8_4(x0, x1, x2, x3), 2, x) = Array_UInt8_4(x0, x1, x, x3);
+  set_Array_UInt8_4(Array_UInt8_4(x0, x1, x2, x3), 3, x) = Array_UInt8_4(x0, x1, x2, x);
+  merge_Array_UInt8_4(Array_UInt8_4(x0, x1, x2, x3), Array_UInt8_4(y0, y1, y2, y3), Array_UInt8_4(z0, z1, z2, z3)) = Array_UInt8_4(merge_UInt8(x0, y0, z0), merge_UInt8(x1, y1, z1), merge_UInt8(x2, y2, z2), merge_UInt8(x3, y3, z3));
+  merge_Array_UInt8_4(a, b, a) = b;
+  merge_Array_UInt8_4(a, a, b) = b;
+  set_Array_UInt8_4(set_Array_UInt8_4(b,i,v),j,w) == set_Array_UInt8_4(set_Array_UInt8_4(b,j,w),i,v) = i != j || v == w;
+  w == get_Array_UInt8_4(set_Array_UInt8_4(b,i,v), j) = ((i == j && w == v) || (i != j && w == get_Array_UInt8_4(b, j)));
+  get_Array_UInt8_4(set_Array_UInt8_4(b,i,v), j) = if(i == j, v, get_Array_UInt8_4(b, j));
+
+% Array_UInt8_8
+map
+  get_Array_UInt8_8 : Array_UInt8_8 # Int -> UInt8;
+  set_Array_UInt8_8 : Array_UInt8_8 # Int # UInt8 -> Array_UInt8_8;
+  merge_Array_UInt8_8 : Array_UInt8_8 # Array_UInt8_8 # Array_UInt8_8 -> Array_UInt8_8;
+var
+  a:Array_UInt8_8;
+  b:Array_UInt8_8;
+  x:UInt8;
+  i:Nat;
+  j:Nat;
+  v:UInt8;
+  w:UInt8;
+  x0:UInt8;
+  y0:UInt8;
+  z0:UInt8;
+  x1:UInt8;
+  y1:UInt8;
+  z1:UInt8;
+  x2:UInt8;
+  y2:UInt8;
+  z2:UInt8;
+  x3:UInt8;
+  y3:UInt8;
+  z3:UInt8;
+  x4:UInt8;
+  y4:UInt8;
+  z4:UInt8;
+  x5:UInt8;
+  y5:UInt8;
+  z5:UInt8;
+  x6:UInt8;
+  y6:UInt8;
+  z6:UInt8;
+  x7:UInt8;
+  y7:UInt8;
+  z7:UInt8;
+eqn
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 0) = x0;
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 1) = x1;
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 2) = x2;
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 3) = x3;
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 4) = x4;
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 5) = x5;
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 6) = x6;
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 7) = x7;
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 0, x) = Array_UInt8_8(x, x1, x2, x3, x4, x5, x6, x7);
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 1, x) = Array_UInt8_8(x0, x, x2, x3, x4, x5, x6, x7);
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 2, x) = Array_UInt8_8(x0, x1, x, x3, x4, x5, x6, x7);
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 3, x) = Array_UInt8_8(x0, x1, x2, x, x4, x5, x6, x7);
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 4, x) = Array_UInt8_8(x0, x1, x2, x3, x, x5, x6, x7);
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 5, x) = Array_UInt8_8(x0, x1, x2, x3, x4, x, x6, x7);
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 6, x) = Array_UInt8_8(x0, x1, x2, x3, x4, x5, x, x7);
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 7, x) = Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x);
+  merge_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), Array_UInt8_8(y0, y1, y2, y3, y4, y5, y6, y7), Array_UInt8_8(z0, z1, z2, z3, z4, z5, z6, z7)) = Array_UInt8_8(merge_UInt8(x0, y0, z0), merge_UInt8(x1, y1, z1), merge_UInt8(x2, y2, z2), merge_UInt8(x3, y3, z3), merge_UInt8(x4, y4, z4), merge_UInt8(x5, y5, z5), merge_UInt8(x6, y6, z6), merge_UInt8(x7, y7, z7));
+  merge_Array_UInt8_8(a, b, a) = b;
+  merge_Array_UInt8_8(a, a, b) = b;
+  set_Array_UInt8_8(set_Array_UInt8_8(b,i,v),j,w) == set_Array_UInt8_8(set_Array_UInt8_8(b,j,w),i,v) = i != j || v == w;
+  w == get_Array_UInt8_8(set_Array_UInt8_8(b,i,v), j) = ((i == j && w == v) || (i != j && w == get_Array_UInt8_8(b, j)));
+  get_Array_UInt8_8(set_Array_UInt8_8(b,i,v), j) = if(i == j, v, get_Array_UInt8_8(b, j));
+
+% BASE SORT EQUATIONS
+map
+  coerce_BoolInt : Bool -> BoolInt;
+  coerce_Bool : Int -> Bool;
+  rem : Int # Int -> Int;
+  coerce_UInt8 : Int -> UInt8;
+  coerce_Int16 : Int -> Int16;
+  coerce_Int32 : Int -> Int32;
+  _coerce_Int32 : Int -> Int32;
+  m32_lognot : Int32 -> Int32;
+  m32_logand : Int32 # Int32 -> Int32;
+  m32_logor : Int32 # Int32 -> Int32;
+  m32_lshift : Int32 # Int32 -> Int32;
+  m32_rshift : Int32 # Int32 -> Int32;
+  merge_State : State # State # State -> State;
+var
+  b:Bool;
+  x:Int;
+  y:Int;
+  sx:State;
+  sy:State;
+eqn
+  coerce_BoolInt(false) = 0;
+  coerce_BoolInt(true)  = 1;
+  (coerce_BoolInt(b) == 0) = !b;
+  coerce_Bool(x) = x != 0;
+  (x>=0 && y>0) -> rem(x,y) = Nat2Int(x mod Int2Pos(y));
+  (x>=0 && y<0) -> rem(x,y) =  rem( x,-y);
+  (x<0)         -> rem(x,y) = -rem(-x, y);
+  (x >= 0 && x < 256) -> coerce_UInt8(x) = Int2Nat(x);
+  (x >= -32768 && x < 32768) -> coerce_Int16(x) = x;
+  coerce_Int32(y) = _coerce_Int32(y mod 4294967296);
+  (y >= 2147483648) -> _coerce_Int32(y) = y - 4294967296;
+  (y < 2147483648)  -> _coerce_Int32(y) = y;
+  (x>=0) -> m32_lognot(x) = coerce_Int32(UInt322Nat(not(Nat2UInt32(Int2Nat(x)))));
+  (x<0)  -> m32_lognot(x) = coerce_Int32(UInt322Nat(not(Nat2UInt32(Int2Nat(4294967296+x)))));
+  (x>=0 && y>=0) -> m32_logand(x,y) = coerce_Int32(UInt322Nat(and(Nat2UInt32(Int2Nat(x)),Nat2UInt32(Int2Nat(y)))));
+  (x>=0 && y>=0) -> m32_logor(x,y) = coerce_Int32(UInt322Nat(or(Nat2UInt32(Int2Nat(x)),Nat2UInt32(Int2Nat(y)))));
+  (x>=0 && y>=0) -> m32_lshift(x,y) = coerce_Int32(UInt322Nat(shiftl(Nat2UInt32(Int2Nat(x)),Nat2UInt32(Int2Nat(y)))));
+  (x>=0 && y>=0) -> m32_rshift(x,y) = coerce_Int32(UInt322Nat(shiftr(Nat2UInt32(Int2Nat(x)),Nat2UInt32(Int2Nat(y)))));
+  merge_State(sx,sx,sy) = sy;
+  merge_State(sx,sy,sx) = sy;
+
+% Operator m32_and
+map
+  m32_and : BoolInt # BoolInt -> BoolInt;
+var
+  x:BoolInt;
+  y:BoolInt;
+eqn
+  m32_and(x, y) = coerce_BoolInt(coerce_Bool(x) && coerce_Bool(y));
+
+% Operator m32_div
+map
+  m32_div : Int32 # Int32 -> Int32;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  (y>0) -> m32_div(x, y) = x div Int2Pos(y);
+  (y<0) -> m32_div(x, y) = (-x) div Int2Pos(-y);
+
+% Operator m32_eq
+map
+  m32_eq : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_eq(x, y) = coerce_BoolInt(x == y);
+
+% Operator m32_geq
+map
+  m32_geq : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_geq(x, y) = coerce_BoolInt(x >= y);
+
+% Operator m32_gt
+map
+  m32_gt : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_gt(x, y) = coerce_BoolInt(x > y);
+
+% Operator m32_implies
+map
+  m32_implies : BoolInt # BoolInt -> BoolInt;
+var
+  x:BoolInt;
+  y:BoolInt;
+eqn
+  m32_implies(x, y) = coerce_BoolInt(coerce_Bool(x) => coerce_Bool(y));
+
+% Operator m32_le
+map
+  m32_le : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_le(x, y) = coerce_BoolInt(x <= y);
+
+% Operator m32_lt
+map
+  m32_lt : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_lt(x, y) = coerce_BoolInt(x < y);
+
+% Operator m32_minus
+map
+  m32_minus : Int32 # Int32 -> Int32;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_minus(x, y) = coerce_Int32(x - y);
+
+% Operator m32_neq
+map
+  m32_neq : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_neq(x, y) = coerce_BoolInt(x != y);
+
+% Operator m32_not
+map
+  m32_not : BoolInt -> BoolInt;
+var
+  x:BoolInt;
+eqn
+  m32_not(x) = coerce_BoolInt(! coerce_Bool(x));
+
+% Operator m32_or
+map
+  m32_or : BoolInt # BoolInt -> BoolInt;
+var
+  x:BoolInt;
+  y:BoolInt;
+eqn
+  m32_or(x, y) = coerce_BoolInt(coerce_Bool(x) || coerce_Bool(y));
+
+% Operator m32_plus
+map
+  m32_plus : Int32 # Int32 -> Int32;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_plus(x, y) = coerce_Int32(x + y);
+
+% Operator m32_times
+map
+  m32_times : Int32 # Int32 -> Int32;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_times(x, y) = coerce_Int32(x * y);
+
+% Operator m32_uminus
+map
+  m32_uminus : Int32 -> Int32;
+var
+  x:Int32;
+eqn
+  m32_uminus(x) = coerce_Int32(- x);
+
+% UInt8
+map
+  merge_UInt8 : UInt8#UInt8#UInt8 -> UInt8;
+var
+  x:UInt8;
+  y:UInt8;
+eqn
+  merge_UInt8(x, x, y) = y;
+  merge_UInt8(x, y, x) = y;
+
+act
+  __read_write_sync : State#Array_UInt8_8#Array_UInt8_4#UInt8#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#State#Array_UInt8_8#Array_UInt8_4#UInt8#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#State#Array_UInt8_8#Array_UInt8_4#UInt8#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Message;
+  _read_write_sync : State#Array_UInt8_8#Array_UInt8_4#UInt8#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#State#Array_UInt8_8#Array_UInt8_4#UInt8#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#State#Array_UInt8_8#Array_UInt8_4#UInt8#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Message;
+  read_write_sync : State#Array_UInt8_8#Array_UInt8_4#UInt8#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#State#Array_UInt8_8#Array_UInt8_4#UInt8#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#State#Array_UInt8_8#Array_UInt8_4#UInt8#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Array_UInt8_4#Message;
+
+proc
+  MEM'(state'P:State, MEM''busy:Array_UInt8_8, MEM''hashole:Array_UInt8_4, MEM''objscheduled:UInt8, MEM''painted:Array_UInt8_4, MEM''scheduled:Array_UInt8_4, MEM''shape:Array_UInt8_4, MEM''surface:Array_UInt8_4, MEM''temperature:Array_UInt8_4) = sum state'P':State. sum MEM''busy':Array_UInt8_8. sum MEM''hashole':Array_UInt8_4. sum MEM''objscheduled':UInt8. sum MEM''painted':Array_UInt8_4. sum MEM''scheduled':Array_UInt8_4. sum MEM''shape':Array_UInt8_4. sum MEM''surface':Array_UInt8_4. sum MEM''temperature':Array_UInt8_4. 
+    sum state'P'':State. sum MEM''busy'':Array_UInt8_8. sum MEM''hashole'':Array_UInt8_4. sum MEM''objscheduled'':UInt8. sum MEM''painted'':Array_UInt8_4. sum MEM''scheduled'':Array_UInt8_4. sum MEM''shape'':Array_UInt8_4. sum MEM''surface'':Array_UInt8_4. sum MEM''temperature'':Array_UInt8_4. sum m':Message. read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P', MEM''busy', MEM''hashole', MEM''objscheduled', MEM''painted', MEM''scheduled', MEM''shape', MEM''surface', MEM''temperature', state'P'', MEM''busy'', MEM''hashole'', MEM''objscheduled'', MEM''painted'', MEM''scheduled'', MEM''shape'', MEM''surface'', MEM''temperature'', m').MEM'(
+      merge_State(state'P, state'P', state'P''), 
+      merge_Array_UInt8_8(MEM''busy, MEM''busy', MEM''busy''), 
+      merge_Array_UInt8_4(MEM''hashole, MEM''hashole', MEM''hashole''), 
+      merge_UInt8(MEM''objscheduled, MEM''objscheduled', MEM''objscheduled''), 
+      merge_Array_UInt8_4(MEM''painted, MEM''painted', MEM''painted''), 
+      merge_Array_UInt8_4(MEM''scheduled, MEM''scheduled', MEM''scheduled''), 
+      merge_Array_UInt8_4(MEM''shape, MEM''shape', MEM''shape''), 
+      merge_Array_UInt8_4(MEM''surface, MEM''surface', MEM''surface''), 
+      merge_Array_UInt8_4(MEM''temperature, MEM''temperature', MEM''temperature''));
+
+  P = sum state'P:State. sum MEM''busy:Array_UInt8_8. sum MEM''hashole:Array_UInt8_4. sum MEM''objscheduled:UInt8. sum MEM''painted:Array_UInt8_4. sum MEM''scheduled:Array_UInt8_4. sum MEM''shape:Array_UInt8_4. sum MEM''surface:Array_UInt8_4. sum MEM''temperature:Array_UInt8_4. sum state'P':State. sum MEM''busy':Array_UInt8_8. sum MEM''hashole':Array_UInt8_4. sum MEM''objscheduled':UInt8. sum MEM''painted':Array_UInt8_4. sum MEM''scheduled':Array_UInt8_4. sum MEM''shape':Array_UInt8_4. sum MEM''surface':Array_UInt8_4. sum MEM''temperature':Array_UInt8_4. sum m':Message. 
+  ( 
+    ((state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_4(MEM''shape, 1), 1), m32_eq(get_Array_UInt8_4(MEM''surface, 0), 0)), m32_eq(get_Array_UInt8_4(MEM''surface, 1), 0)), m32_eq(get_Array_UInt8_4(MEM''hashole, 1), 1)), m32_eq(get_Array_UInt8_4(MEM''shape, 0), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'done, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled0:UInt8. sum tmp'MEM''busy1:Array_UInt8_8. sum tmp'MEM''scheduled2:Array_UInt8_4. sum tmp'MEM''surface3:Array_UInt8_4.
+    ((tmp'MEM''objscheduled0 == 1) && (tmp'MEM''busy1 == set_Array_UInt8_8(MEM''busy, 0, 1)) && (tmp'MEM''scheduled2 == set_Array_UInt8_4(MEM''scheduled, 0, 1)) && (tmp'MEM''surface3 == set_Array_UInt8_4(MEM''surface, 0, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 0), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 0), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 0), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy1, MEM''hashole, tmp'MEM''objscheduled0, MEM''painted, tmp'MEM''scheduled2, MEM''shape, tmp'MEM''surface3, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled4:UInt8. sum tmp'MEM''busy5:Array_UInt8_8. sum tmp'MEM''scheduled6:Array_UInt8_4. sum tmp'MEM''surface7:Array_UInt8_4.
+    ((tmp'MEM''objscheduled4 == 1) && (tmp'MEM''busy5 == set_Array_UInt8_8(MEM''busy, 0, 1)) && (tmp'MEM''scheduled6 == set_Array_UInt8_4(MEM''scheduled, 1, 1)) && (tmp'MEM''surface7 == set_Array_UInt8_4(MEM''surface, 1, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 0), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 1), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 1), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy5, MEM''hashole, tmp'MEM''objscheduled4, MEM''painted, tmp'MEM''scheduled6, MEM''shape, tmp'MEM''surface7, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled8:UInt8. sum tmp'MEM''busy9:Array_UInt8_8. sum tmp'MEM''scheduled10:Array_UInt8_4. sum tmp'MEM''surface11:Array_UInt8_4.
+    ((tmp'MEM''objscheduled8 == 1) && (tmp'MEM''busy9 == set_Array_UInt8_8(MEM''busy, 0, 1)) && (tmp'MEM''scheduled10 == set_Array_UInt8_4(MEM''scheduled, 2, 1)) && (tmp'MEM''surface11 == set_Array_UInt8_4(MEM''surface, 2, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 0), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 2), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 2), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy9, MEM''hashole, tmp'MEM''objscheduled8, MEM''painted, tmp'MEM''scheduled10, MEM''shape, tmp'MEM''surface11, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled12:UInt8. sum tmp'MEM''busy13:Array_UInt8_8. sum tmp'MEM''scheduled14:Array_UInt8_4. sum tmp'MEM''surface15:Array_UInt8_4.
+    ((tmp'MEM''objscheduled12 == 1) && (tmp'MEM''busy13 == set_Array_UInt8_8(MEM''busy, 0, 1)) && (tmp'MEM''scheduled14 == set_Array_UInt8_4(MEM''scheduled, 3, 1)) && (tmp'MEM''surface15 == set_Array_UInt8_4(MEM''surface, 3, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 0), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 3), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 3), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy13, MEM''hashole, tmp'MEM''objscheduled12, MEM''painted, tmp'MEM''scheduled14, MEM''shape, tmp'MEM''surface15, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled16:UInt8. sum tmp'MEM''busy17:Array_UInt8_8. sum tmp'MEM''scheduled18:Array_UInt8_4. sum tmp'MEM''shape19:Array_UInt8_4. sum tmp'MEM''temperature20:Array_UInt8_4. sum tmp'MEM''painted21:Array_UInt8_4. sum tmp'MEM''hashole22:Array_UInt8_4. sum tmp'MEM''surface23:Array_UInt8_4.
+    ((tmp'MEM''objscheduled16 == 1) && (tmp'MEM''busy17 == set_Array_UInt8_8(MEM''busy, 1, 1)) && (tmp'MEM''scheduled18 == set_Array_UInt8_4(MEM''scheduled, 0, 1)) && (tmp'MEM''shape19 == set_Array_UInt8_4(MEM''shape, 0, 0)) && (tmp'MEM''temperature20 == set_Array_UInt8_4(MEM''temperature, 0, 1)) && (tmp'MEM''painted21 == set_Array_UInt8_4(MEM''painted, 0, 255)) && (tmp'MEM''hashole22 == set_Array_UInt8_4(MEM''hashole, 0, 255)) && (tmp'MEM''surface23 == set_Array_UInt8_4(MEM''surface, 0, 255)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 1), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 0), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy17, tmp'MEM''hashole22, tmp'MEM''objscheduled16, tmp'MEM''painted21, tmp'MEM''scheduled18, tmp'MEM''shape19, tmp'MEM''surface23, tmp'MEM''temperature20, 0).P
+  + 
+    sum tmp'MEM''objscheduled24:UInt8. sum tmp'MEM''busy25:Array_UInt8_8. sum tmp'MEM''scheduled26:Array_UInt8_4. sum tmp'MEM''shape27:Array_UInt8_4. sum tmp'MEM''temperature28:Array_UInt8_4. sum tmp'MEM''painted29:Array_UInt8_4. sum tmp'MEM''hashole30:Array_UInt8_4. sum tmp'MEM''surface31:Array_UInt8_4.
+    ((tmp'MEM''objscheduled24 == 1) && (tmp'MEM''busy25 == set_Array_UInt8_8(MEM''busy, 1, 1)) && (tmp'MEM''scheduled26 == set_Array_UInt8_4(MEM''scheduled, 1, 1)) && (tmp'MEM''shape27 == set_Array_UInt8_4(MEM''shape, 1, 0)) && (tmp'MEM''temperature28 == set_Array_UInt8_4(MEM''temperature, 1, 1)) && (tmp'MEM''painted29 == set_Array_UInt8_4(MEM''painted, 1, 255)) && (tmp'MEM''hashole30 == set_Array_UInt8_4(MEM''hashole, 1, 255)) && (tmp'MEM''surface31 == set_Array_UInt8_4(MEM''surface, 1, 255)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 1), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 1), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy25, tmp'MEM''hashole30, tmp'MEM''objscheduled24, tmp'MEM''painted29, tmp'MEM''scheduled26, tmp'MEM''shape27, tmp'MEM''surface31, tmp'MEM''temperature28, 0).P
+  + 
+    sum tmp'MEM''objscheduled32:UInt8. sum tmp'MEM''busy33:Array_UInt8_8. sum tmp'MEM''scheduled34:Array_UInt8_4. sum tmp'MEM''shape35:Array_UInt8_4. sum tmp'MEM''temperature36:Array_UInt8_4. sum tmp'MEM''painted37:Array_UInt8_4. sum tmp'MEM''hashole38:Array_UInt8_4. sum tmp'MEM''surface39:Array_UInt8_4.
+    ((tmp'MEM''objscheduled32 == 1) && (tmp'MEM''busy33 == set_Array_UInt8_8(MEM''busy, 1, 1)) && (tmp'MEM''scheduled34 == set_Array_UInt8_4(MEM''scheduled, 2, 1)) && (tmp'MEM''shape35 == set_Array_UInt8_4(MEM''shape, 2, 0)) && (tmp'MEM''temperature36 == set_Array_UInt8_4(MEM''temperature, 2, 1)) && (tmp'MEM''painted37 == set_Array_UInt8_4(MEM''painted, 2, 255)) && (tmp'MEM''hashole38 == set_Array_UInt8_4(MEM''hashole, 2, 255)) && (tmp'MEM''surface39 == set_Array_UInt8_4(MEM''surface, 2, 255)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 1), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 2), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy33, tmp'MEM''hashole38, tmp'MEM''objscheduled32, tmp'MEM''painted37, tmp'MEM''scheduled34, tmp'MEM''shape35, tmp'MEM''surface39, tmp'MEM''temperature36, 0).P
+  + 
+    sum tmp'MEM''objscheduled40:UInt8. sum tmp'MEM''busy41:Array_UInt8_8. sum tmp'MEM''scheduled42:Array_UInt8_4. sum tmp'MEM''shape43:Array_UInt8_4. sum tmp'MEM''temperature44:Array_UInt8_4. sum tmp'MEM''painted45:Array_UInt8_4. sum tmp'MEM''hashole46:Array_UInt8_4. sum tmp'MEM''surface47:Array_UInt8_4.
+    ((tmp'MEM''objscheduled40 == 1) && (tmp'MEM''busy41 == set_Array_UInt8_8(MEM''busy, 1, 1)) && (tmp'MEM''scheduled42 == set_Array_UInt8_4(MEM''scheduled, 3, 1)) && (tmp'MEM''shape43 == set_Array_UInt8_4(MEM''shape, 3, 0)) && (tmp'MEM''temperature44 == set_Array_UInt8_4(MEM''temperature, 3, 1)) && (tmp'MEM''painted45 == set_Array_UInt8_4(MEM''painted, 3, 255)) && (tmp'MEM''hashole46 == set_Array_UInt8_4(MEM''hashole, 3, 255)) && (tmp'MEM''surface47 == set_Array_UInt8_4(MEM''surface, 3, 255)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 1), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 3), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy41, tmp'MEM''hashole46, tmp'MEM''objscheduled40, tmp'MEM''painted45, tmp'MEM''scheduled42, tmp'MEM''shape43, tmp'MEM''surface47, tmp'MEM''temperature44, 0).P
+  + 
+    sum tmp'MEM''objscheduled48:UInt8. sum tmp'MEM''busy49:Array_UInt8_8. sum tmp'MEM''scheduled50:Array_UInt8_4. sum tmp'MEM''surface51:Array_UInt8_4. sum tmp'MEM''shape52:Array_UInt8_4. sum tmp'MEM''painted53:Array_UInt8_4.
+    ((tmp'MEM''objscheduled48 == 1) && (tmp'MEM''busy49 == set_Array_UInt8_8(MEM''busy, 2, 1)) && (tmp'MEM''scheduled50 == set_Array_UInt8_4(MEM''scheduled, 0, 1)) && (tmp'MEM''surface51 == set_Array_UInt8_4(MEM''surface, 0, 2)) && (tmp'MEM''shape52 == set_Array_UInt8_4(MEM''shape, 0, 0)) && (tmp'MEM''painted53 == set_Array_UInt8_4(MEM''painted, 0, 255)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 2), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 0), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy49, MEM''hashole, tmp'MEM''objscheduled48, tmp'MEM''painted53, tmp'MEM''scheduled50, tmp'MEM''shape52, tmp'MEM''surface51, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled54:UInt8. sum tmp'MEM''busy55:Array_UInt8_8. sum tmp'MEM''scheduled56:Array_UInt8_4. sum tmp'MEM''surface57:Array_UInt8_4. sum tmp'MEM''shape58:Array_UInt8_4. sum tmp'MEM''painted59:Array_UInt8_4.
+    ((tmp'MEM''objscheduled54 == 1) && (tmp'MEM''busy55 == set_Array_UInt8_8(MEM''busy, 2, 1)) && (tmp'MEM''scheduled56 == set_Array_UInt8_4(MEM''scheduled, 1, 1)) && (tmp'MEM''surface57 == set_Array_UInt8_4(MEM''surface, 1, 2)) && (tmp'MEM''shape58 == set_Array_UInt8_4(MEM''shape, 1, 0)) && (tmp'MEM''painted59 == set_Array_UInt8_4(MEM''painted, 1, 255)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 2), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 1), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy55, MEM''hashole, tmp'MEM''objscheduled54, tmp'MEM''painted59, tmp'MEM''scheduled56, tmp'MEM''shape58, tmp'MEM''surface57, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled60:UInt8. sum tmp'MEM''busy61:Array_UInt8_8. sum tmp'MEM''scheduled62:Array_UInt8_4. sum tmp'MEM''surface63:Array_UInt8_4. sum tmp'MEM''shape64:Array_UInt8_4. sum tmp'MEM''painted65:Array_UInt8_4.
+    ((tmp'MEM''objscheduled60 == 1) && (tmp'MEM''busy61 == set_Array_UInt8_8(MEM''busy, 2, 1)) && (tmp'MEM''scheduled62 == set_Array_UInt8_4(MEM''scheduled, 2, 1)) && (tmp'MEM''surface63 == set_Array_UInt8_4(MEM''surface, 2, 2)) && (tmp'MEM''shape64 == set_Array_UInt8_4(MEM''shape, 2, 0)) && (tmp'MEM''painted65 == set_Array_UInt8_4(MEM''painted, 2, 255)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 2), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 2), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy61, MEM''hashole, tmp'MEM''objscheduled60, tmp'MEM''painted65, tmp'MEM''scheduled62, tmp'MEM''shape64, tmp'MEM''surface63, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled66:UInt8. sum tmp'MEM''busy67:Array_UInt8_8. sum tmp'MEM''scheduled68:Array_UInt8_4. sum tmp'MEM''surface69:Array_UInt8_4. sum tmp'MEM''shape70:Array_UInt8_4. sum tmp'MEM''painted71:Array_UInt8_4.
+    ((tmp'MEM''objscheduled66 == 1) && (tmp'MEM''busy67 == set_Array_UInt8_8(MEM''busy, 2, 1)) && (tmp'MEM''scheduled68 == set_Array_UInt8_4(MEM''scheduled, 3, 1)) && (tmp'MEM''surface69 == set_Array_UInt8_4(MEM''surface, 3, 2)) && (tmp'MEM''shape70 == set_Array_UInt8_4(MEM''shape, 3, 0)) && (tmp'MEM''painted71 == set_Array_UInt8_4(MEM''painted, 3, 255)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 2), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 3), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy67, MEM''hashole, tmp'MEM''objscheduled66, tmp'MEM''painted71, tmp'MEM''scheduled68, tmp'MEM''shape70, tmp'MEM''surface69, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled72:UInt8. sum tmp'MEM''busy73:Array_UInt8_8. sum tmp'MEM''scheduled74:Array_UInt8_4. sum tmp'MEM''surface75:Array_UInt8_4. sum tmp'MEM''painted76:Array_UInt8_4.
+    ((tmp'MEM''objscheduled72 == 1) && (tmp'MEM''busy73 == set_Array_UInt8_8(MEM''busy, 3, 1)) && (tmp'MEM''scheduled74 == set_Array_UInt8_4(MEM''scheduled, 0, 1)) && (tmp'MEM''surface75 == set_Array_UInt8_4(MEM''surface, 0, 1)) && (tmp'MEM''painted76 == set_Array_UInt8_4(MEM''painted, 0, 255)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 3), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 0), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy73, MEM''hashole, tmp'MEM''objscheduled72, tmp'MEM''painted76, tmp'MEM''scheduled74, MEM''shape, tmp'MEM''surface75, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled77:UInt8. sum tmp'MEM''busy78:Array_UInt8_8. sum tmp'MEM''scheduled79:Array_UInt8_4. sum tmp'MEM''surface80:Array_UInt8_4. sum tmp'MEM''painted81:Array_UInt8_4.
+    ((tmp'MEM''objscheduled77 == 1) && (tmp'MEM''busy78 == set_Array_UInt8_8(MEM''busy, 3, 1)) && (tmp'MEM''scheduled79 == set_Array_UInt8_4(MEM''scheduled, 1, 1)) && (tmp'MEM''surface80 == set_Array_UInt8_4(MEM''surface, 1, 1)) && (tmp'MEM''painted81 == set_Array_UInt8_4(MEM''painted, 1, 255)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 3), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 1), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy78, MEM''hashole, tmp'MEM''objscheduled77, tmp'MEM''painted81, tmp'MEM''scheduled79, MEM''shape, tmp'MEM''surface80, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled82:UInt8. sum tmp'MEM''busy83:Array_UInt8_8. sum tmp'MEM''scheduled84:Array_UInt8_4. sum tmp'MEM''surface85:Array_UInt8_4. sum tmp'MEM''painted86:Array_UInt8_4.
+    ((tmp'MEM''objscheduled82 == 1) && (tmp'MEM''busy83 == set_Array_UInt8_8(MEM''busy, 3, 1)) && (tmp'MEM''scheduled84 == set_Array_UInt8_4(MEM''scheduled, 2, 1)) && (tmp'MEM''surface85 == set_Array_UInt8_4(MEM''surface, 2, 1)) && (tmp'MEM''painted86 == set_Array_UInt8_4(MEM''painted, 2, 255)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 3), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 2), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy83, MEM''hashole, tmp'MEM''objscheduled82, tmp'MEM''painted86, tmp'MEM''scheduled84, MEM''shape, tmp'MEM''surface85, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled87:UInt8. sum tmp'MEM''busy88:Array_UInt8_8. sum tmp'MEM''scheduled89:Array_UInt8_4. sum tmp'MEM''surface90:Array_UInt8_4. sum tmp'MEM''painted91:Array_UInt8_4.
+    ((tmp'MEM''objscheduled87 == 1) && (tmp'MEM''busy88 == set_Array_UInt8_8(MEM''busy, 3, 1)) && (tmp'MEM''scheduled89 == set_Array_UInt8_4(MEM''scheduled, 3, 1)) && (tmp'MEM''surface90 == set_Array_UInt8_4(MEM''surface, 3, 1)) && (tmp'MEM''painted91 == set_Array_UInt8_4(MEM''painted, 3, 255)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 3), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 3), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy88, MEM''hashole, tmp'MEM''objscheduled87, tmp'MEM''painted91, tmp'MEM''scheduled89, MEM''shape, tmp'MEM''surface90, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled92:UInt8. sum tmp'MEM''busy93:Array_UInt8_8. sum tmp'MEM''scheduled94:Array_UInt8_4. sum tmp'MEM''surface95:Array_UInt8_4. sum tmp'MEM''hashole96:Array_UInt8_4.
+    ((tmp'MEM''objscheduled92 == 1) && (tmp'MEM''busy93 == set_Array_UInt8_8(MEM''busy, 4, 1)) && (tmp'MEM''scheduled94 == set_Array_UInt8_4(MEM''scheduled, 0, 1)) && (tmp'MEM''surface95 == set_Array_UInt8_4(MEM''surface, 0, 2)) && (tmp'MEM''hashole96 == set_Array_UInt8_4(MEM''hashole, 0, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 4), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 0), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 0), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 0), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy93, tmp'MEM''hashole96, tmp'MEM''objscheduled92, MEM''painted, tmp'MEM''scheduled94, MEM''shape, tmp'MEM''surface95, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled97:UInt8. sum tmp'MEM''busy98:Array_UInt8_8. sum tmp'MEM''scheduled99:Array_UInt8_4. sum tmp'MEM''surface100:Array_UInt8_4. sum tmp'MEM''hashole101:Array_UInt8_4.
+    ((tmp'MEM''objscheduled97 == 1) && (tmp'MEM''busy98 == set_Array_UInt8_8(MEM''busy, 4, 1)) && (tmp'MEM''scheduled99 == set_Array_UInt8_4(MEM''scheduled, 1, 1)) && (tmp'MEM''surface100 == set_Array_UInt8_4(MEM''surface, 1, 2)) && (tmp'MEM''hashole101 == set_Array_UInt8_4(MEM''hashole, 1, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 4), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 1), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 1), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 1), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy98, tmp'MEM''hashole101, tmp'MEM''objscheduled97, MEM''painted, tmp'MEM''scheduled99, MEM''shape, tmp'MEM''surface100, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled102:UInt8. sum tmp'MEM''busy103:Array_UInt8_8. sum tmp'MEM''scheduled104:Array_UInt8_4. sum tmp'MEM''surface105:Array_UInt8_4. sum tmp'MEM''hashole106:Array_UInt8_4.
+    ((tmp'MEM''objscheduled102 == 1) && (tmp'MEM''busy103 == set_Array_UInt8_8(MEM''busy, 4, 1)) && (tmp'MEM''scheduled104 == set_Array_UInt8_4(MEM''scheduled, 2, 1)) && (tmp'MEM''surface105 == set_Array_UInt8_4(MEM''surface, 2, 2)) && (tmp'MEM''hashole106 == set_Array_UInt8_4(MEM''hashole, 2, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 4), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 2), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 2), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 2), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy103, tmp'MEM''hashole106, tmp'MEM''objscheduled102, MEM''painted, tmp'MEM''scheduled104, MEM''shape, tmp'MEM''surface105, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled107:UInt8. sum tmp'MEM''busy108:Array_UInt8_8. sum tmp'MEM''scheduled109:Array_UInt8_4. sum tmp'MEM''surface110:Array_UInt8_4. sum tmp'MEM''hashole111:Array_UInt8_4.
+    ((tmp'MEM''objscheduled107 == 1) && (tmp'MEM''busy108 == set_Array_UInt8_8(MEM''busy, 4, 1)) && (tmp'MEM''scheduled109 == set_Array_UInt8_4(MEM''scheduled, 3, 1)) && (tmp'MEM''surface110 == set_Array_UInt8_4(MEM''surface, 3, 2)) && (tmp'MEM''hashole111 == set_Array_UInt8_4(MEM''hashole, 3, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 4), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 3), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 3), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 3), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy108, tmp'MEM''hashole111, tmp'MEM''objscheduled107, MEM''painted, tmp'MEM''scheduled109, MEM''shape, tmp'MEM''surface110, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled112:UInt8. sum tmp'MEM''busy113:Array_UInt8_8. sum tmp'MEM''scheduled114:Array_UInt8_4. sum tmp'MEM''surface115:Array_UInt8_4. sum tmp'MEM''hashole116:Array_UInt8_4.
+    ((tmp'MEM''objscheduled112 == 1) && (tmp'MEM''busy113 == set_Array_UInt8_8(MEM''busy, 4, 1)) && (tmp'MEM''scheduled114 == set_Array_UInt8_4(MEM''scheduled, 0, 1)) && (tmp'MEM''surface115 == set_Array_UInt8_4(MEM''surface, 0, 2)) && (tmp'MEM''hashole116 == set_Array_UInt8_4(MEM''hashole, 0, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 4), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 0), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 0), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 0), 1))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy113, tmp'MEM''hashole116, tmp'MEM''objscheduled112, MEM''painted, tmp'MEM''scheduled114, MEM''shape, tmp'MEM''surface115, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled117:UInt8. sum tmp'MEM''busy118:Array_UInt8_8. sum tmp'MEM''scheduled119:Array_UInt8_4. sum tmp'MEM''surface120:Array_UInt8_4. sum tmp'MEM''hashole121:Array_UInt8_4.
+    ((tmp'MEM''objscheduled117 == 1) && (tmp'MEM''busy118 == set_Array_UInt8_8(MEM''busy, 4, 1)) && (tmp'MEM''scheduled119 == set_Array_UInt8_4(MEM''scheduled, 1, 1)) && (tmp'MEM''surface120 == set_Array_UInt8_4(MEM''surface, 1, 2)) && (tmp'MEM''hashole121 == set_Array_UInt8_4(MEM''hashole, 1, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 4), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 1), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 1), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 1), 1))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy118, tmp'MEM''hashole121, tmp'MEM''objscheduled117, MEM''painted, tmp'MEM''scheduled119, MEM''shape, tmp'MEM''surface120, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled122:UInt8. sum tmp'MEM''busy123:Array_UInt8_8. sum tmp'MEM''scheduled124:Array_UInt8_4. sum tmp'MEM''surface125:Array_UInt8_4. sum tmp'MEM''hashole126:Array_UInt8_4.
+    ((tmp'MEM''objscheduled122 == 1) && (tmp'MEM''busy123 == set_Array_UInt8_8(MEM''busy, 4, 1)) && (tmp'MEM''scheduled124 == set_Array_UInt8_4(MEM''scheduled, 2, 1)) && (tmp'MEM''surface125 == set_Array_UInt8_4(MEM''surface, 2, 2)) && (tmp'MEM''hashole126 == set_Array_UInt8_4(MEM''hashole, 2, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 4), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 2), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 2), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 2), 1))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy123, tmp'MEM''hashole126, tmp'MEM''objscheduled122, MEM''painted, tmp'MEM''scheduled124, MEM''shape, tmp'MEM''surface125, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled127:UInt8. sum tmp'MEM''busy128:Array_UInt8_8. sum tmp'MEM''scheduled129:Array_UInt8_4. sum tmp'MEM''surface130:Array_UInt8_4. sum tmp'MEM''hashole131:Array_UInt8_4.
+    ((tmp'MEM''objscheduled127 == 1) && (tmp'MEM''busy128 == set_Array_UInt8_8(MEM''busy, 4, 1)) && (tmp'MEM''scheduled129 == set_Array_UInt8_4(MEM''scheduled, 3, 1)) && (tmp'MEM''surface130 == set_Array_UInt8_4(MEM''surface, 3, 2)) && (tmp'MEM''hashole131 == set_Array_UInt8_4(MEM''hashole, 3, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 4), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 3), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 3), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 3), 1))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy128, tmp'MEM''hashole131, tmp'MEM''objscheduled127, MEM''painted, tmp'MEM''scheduled129, MEM''shape, tmp'MEM''surface130, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled132:UInt8. sum tmp'MEM''busy133:Array_UInt8_8. sum tmp'MEM''scheduled134:Array_UInt8_4. sum tmp'MEM''hashole135:Array_UInt8_4.
+    ((tmp'MEM''objscheduled132 == 1) && (tmp'MEM''busy133 == set_Array_UInt8_8(MEM''busy, 5, 1)) && (tmp'MEM''scheduled134 == set_Array_UInt8_4(MEM''scheduled, 0, 1)) && (tmp'MEM''hashole135 == set_Array_UInt8_4(MEM''hashole, 0, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 5), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 0), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 0), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 0), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy133, tmp'MEM''hashole135, tmp'MEM''objscheduled132, MEM''painted, tmp'MEM''scheduled134, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled136:UInt8. sum tmp'MEM''busy137:Array_UInt8_8. sum tmp'MEM''scheduled138:Array_UInt8_4. sum tmp'MEM''hashole139:Array_UInt8_4.
+    ((tmp'MEM''objscheduled136 == 1) && (tmp'MEM''busy137 == set_Array_UInt8_8(MEM''busy, 5, 1)) && (tmp'MEM''scheduled138 == set_Array_UInt8_4(MEM''scheduled, 1, 1)) && (tmp'MEM''hashole139 == set_Array_UInt8_4(MEM''hashole, 1, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 5), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 1), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 1), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 1), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy137, tmp'MEM''hashole139, tmp'MEM''objscheduled136, MEM''painted, tmp'MEM''scheduled138, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled140:UInt8. sum tmp'MEM''busy141:Array_UInt8_8. sum tmp'MEM''scheduled142:Array_UInt8_4. sum tmp'MEM''hashole143:Array_UInt8_4.
+    ((tmp'MEM''objscheduled140 == 1) && (tmp'MEM''busy141 == set_Array_UInt8_8(MEM''busy, 5, 1)) && (tmp'MEM''scheduled142 == set_Array_UInt8_4(MEM''scheduled, 2, 1)) && (tmp'MEM''hashole143 == set_Array_UInt8_4(MEM''hashole, 2, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 5), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 2), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 2), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 2), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy141, tmp'MEM''hashole143, tmp'MEM''objscheduled140, MEM''painted, tmp'MEM''scheduled142, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled144:UInt8. sum tmp'MEM''busy145:Array_UInt8_8. sum tmp'MEM''scheduled146:Array_UInt8_4. sum tmp'MEM''hashole147:Array_UInt8_4.
+    ((tmp'MEM''objscheduled144 == 1) && (tmp'MEM''busy145 == set_Array_UInt8_8(MEM''busy, 5, 1)) && (tmp'MEM''scheduled146 == set_Array_UInt8_4(MEM''scheduled, 3, 1)) && (tmp'MEM''hashole147 == set_Array_UInt8_4(MEM''hashole, 3, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 5), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 3), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 3), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 3), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy145, tmp'MEM''hashole147, tmp'MEM''objscheduled144, MEM''painted, tmp'MEM''scheduled146, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled148:UInt8. sum tmp'MEM''busy149:Array_UInt8_8. sum tmp'MEM''scheduled150:Array_UInt8_4. sum tmp'MEM''hashole151:Array_UInt8_4.
+    ((tmp'MEM''objscheduled148 == 1) && (tmp'MEM''busy149 == set_Array_UInt8_8(MEM''busy, 5, 1)) && (tmp'MEM''scheduled150 == set_Array_UInt8_4(MEM''scheduled, 0, 1)) && (tmp'MEM''hashole151 == set_Array_UInt8_4(MEM''hashole, 0, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 5), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 0), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 0), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 0), 1))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy149, tmp'MEM''hashole151, tmp'MEM''objscheduled148, MEM''painted, tmp'MEM''scheduled150, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled152:UInt8. sum tmp'MEM''busy153:Array_UInt8_8. sum tmp'MEM''scheduled154:Array_UInt8_4. sum tmp'MEM''hashole155:Array_UInt8_4.
+    ((tmp'MEM''objscheduled152 == 1) && (tmp'MEM''busy153 == set_Array_UInt8_8(MEM''busy, 5, 1)) && (tmp'MEM''scheduled154 == set_Array_UInt8_4(MEM''scheduled, 1, 1)) && (tmp'MEM''hashole155 == set_Array_UInt8_4(MEM''hashole, 1, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 5), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 1), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 1), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 1), 1))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy153, tmp'MEM''hashole155, tmp'MEM''objscheduled152, MEM''painted, tmp'MEM''scheduled154, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled156:UInt8. sum tmp'MEM''busy157:Array_UInt8_8. sum tmp'MEM''scheduled158:Array_UInt8_4. sum tmp'MEM''hashole159:Array_UInt8_4.
+    ((tmp'MEM''objscheduled156 == 1) && (tmp'MEM''busy157 == set_Array_UInt8_8(MEM''busy, 5, 1)) && (tmp'MEM''scheduled158 == set_Array_UInt8_4(MEM''scheduled, 2, 1)) && (tmp'MEM''hashole159 == set_Array_UInt8_4(MEM''hashole, 2, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 5), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 2), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 2), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 2), 1))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy157, tmp'MEM''hashole159, tmp'MEM''objscheduled156, MEM''painted, tmp'MEM''scheduled158, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled160:UInt8. sum tmp'MEM''busy161:Array_UInt8_8. sum tmp'MEM''scheduled162:Array_UInt8_4. sum tmp'MEM''hashole163:Array_UInt8_4.
+    ((tmp'MEM''objscheduled160 == 1) && (tmp'MEM''busy161 == set_Array_UInt8_8(MEM''busy, 5, 1)) && (tmp'MEM''scheduled162 == set_Array_UInt8_4(MEM''scheduled, 3, 1)) && (tmp'MEM''hashole163 == set_Array_UInt8_4(MEM''hashole, 3, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 5), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 3), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 3), 0)), m32_neq(get_Array_UInt8_4(MEM''hashole, 3), 1))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy161, tmp'MEM''hashole163, tmp'MEM''objscheduled160, MEM''painted, tmp'MEM''scheduled162, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled164:UInt8. sum tmp'MEM''busy165:Array_UInt8_8. sum tmp'MEM''scheduled166:Array_UInt8_4. sum tmp'MEM''painted167:Array_UInt8_4.
+    ((tmp'MEM''objscheduled164 == 1) && (tmp'MEM''busy165 == set_Array_UInt8_8(MEM''busy, 6, 1)) && (tmp'MEM''scheduled166 == set_Array_UInt8_4(MEM''scheduled, 0, 1)) && (tmp'MEM''painted167 == set_Array_UInt8_4(MEM''painted, 0, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 6), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 0), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 0), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy165, MEM''hashole, tmp'MEM''objscheduled164, tmp'MEM''painted167, tmp'MEM''scheduled166, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled168:UInt8. sum tmp'MEM''busy169:Array_UInt8_8. sum tmp'MEM''scheduled170:Array_UInt8_4. sum tmp'MEM''painted171:Array_UInt8_4.
+    ((tmp'MEM''objscheduled168 == 1) && (tmp'MEM''busy169 == set_Array_UInt8_8(MEM''busy, 6, 1)) && (tmp'MEM''scheduled170 == set_Array_UInt8_4(MEM''scheduled, 1, 1)) && (tmp'MEM''painted171 == set_Array_UInt8_4(MEM''painted, 1, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 6), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 1), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 1), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy169, MEM''hashole, tmp'MEM''objscheduled168, tmp'MEM''painted171, tmp'MEM''scheduled170, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled172:UInt8. sum tmp'MEM''busy173:Array_UInt8_8. sum tmp'MEM''scheduled174:Array_UInt8_4. sum tmp'MEM''painted175:Array_UInt8_4.
+    ((tmp'MEM''objscheduled172 == 1) && (tmp'MEM''busy173 == set_Array_UInt8_8(MEM''busy, 6, 1)) && (tmp'MEM''scheduled174 == set_Array_UInt8_4(MEM''scheduled, 2, 1)) && (tmp'MEM''painted175 == set_Array_UInt8_4(MEM''painted, 2, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 6), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 2), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 2), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy173, MEM''hashole, tmp'MEM''objscheduled172, tmp'MEM''painted175, tmp'MEM''scheduled174, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled176:UInt8. sum tmp'MEM''busy177:Array_UInt8_8. sum tmp'MEM''scheduled178:Array_UInt8_4. sum tmp'MEM''painted179:Array_UInt8_4.
+    ((tmp'MEM''objscheduled176 == 1) && (tmp'MEM''busy177 == set_Array_UInt8_8(MEM''busy, 6, 1)) && (tmp'MEM''scheduled178 == set_Array_UInt8_4(MEM''scheduled, 3, 1)) && (tmp'MEM''painted179 == set_Array_UInt8_4(MEM''painted, 3, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 6), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 3), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 3), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy177, MEM''hashole, tmp'MEM''objscheduled176, tmp'MEM''painted179, tmp'MEM''scheduled178, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled180:UInt8. sum tmp'MEM''busy181:Array_UInt8_8. sum tmp'MEM''scheduled182:Array_UInt8_4. sum tmp'MEM''painted183:Array_UInt8_4.
+    ((tmp'MEM''objscheduled180 == 1) && (tmp'MEM''busy181 == set_Array_UInt8_8(MEM''busy, 6, 1)) && (tmp'MEM''scheduled182 == set_Array_UInt8_4(MEM''scheduled, 0, 1)) && (tmp'MEM''painted183 == set_Array_UInt8_4(MEM''painted, 0, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 6), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 0), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 0), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy181, MEM''hashole, tmp'MEM''objscheduled180, tmp'MEM''painted183, tmp'MEM''scheduled182, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled184:UInt8. sum tmp'MEM''busy185:Array_UInt8_8. sum tmp'MEM''scheduled186:Array_UInt8_4. sum tmp'MEM''painted187:Array_UInt8_4.
+    ((tmp'MEM''objscheduled184 == 1) && (tmp'MEM''busy185 == set_Array_UInt8_8(MEM''busy, 6, 1)) && (tmp'MEM''scheduled186 == set_Array_UInt8_4(MEM''scheduled, 1, 1)) && (tmp'MEM''painted187 == set_Array_UInt8_4(MEM''painted, 1, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 6), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 1), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 1), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy185, MEM''hashole, tmp'MEM''objscheduled184, tmp'MEM''painted187, tmp'MEM''scheduled186, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled188:UInt8. sum tmp'MEM''busy189:Array_UInt8_8. sum tmp'MEM''scheduled190:Array_UInt8_4. sum tmp'MEM''painted191:Array_UInt8_4.
+    ((tmp'MEM''objscheduled188 == 1) && (tmp'MEM''busy189 == set_Array_UInt8_8(MEM''busy, 6, 1)) && (tmp'MEM''scheduled190 == set_Array_UInt8_4(MEM''scheduled, 2, 1)) && (tmp'MEM''painted191 == set_Array_UInt8_4(MEM''painted, 2, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 6), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 2), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 2), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy189, MEM''hashole, tmp'MEM''objscheduled188, tmp'MEM''painted191, tmp'MEM''scheduled190, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled192:UInt8. sum tmp'MEM''busy193:Array_UInt8_8. sum tmp'MEM''scheduled194:Array_UInt8_4. sum tmp'MEM''painted195:Array_UInt8_4.
+    ((tmp'MEM''objscheduled192 == 1) && (tmp'MEM''busy193 == set_Array_UInt8_8(MEM''busy, 6, 1)) && (tmp'MEM''scheduled194 == set_Array_UInt8_4(MEM''scheduled, 3, 1)) && (tmp'MEM''painted195 == set_Array_UInt8_4(MEM''painted, 3, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 6), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 3), 0)), m32_eq(get_Array_UInt8_4(MEM''temperature, 3), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy193, MEM''hashole, tmp'MEM''objscheduled192, tmp'MEM''painted195, tmp'MEM''scheduled194, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled196:UInt8. sum tmp'MEM''busy197:Array_UInt8_8. sum tmp'MEM''scheduled198:Array_UInt8_4. sum tmp'MEM''painted199:Array_UInt8_4.
+    ((tmp'MEM''objscheduled196 == 1) && (tmp'MEM''busy197 == set_Array_UInt8_8(MEM''busy, 7, 1)) && (tmp'MEM''scheduled198 == set_Array_UInt8_4(MEM''scheduled, 0, 1)) && (tmp'MEM''painted199 == set_Array_UInt8_4(MEM''painted, 0, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 7), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 0), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy197, MEM''hashole, tmp'MEM''objscheduled196, tmp'MEM''painted199, tmp'MEM''scheduled198, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled200:UInt8. sum tmp'MEM''busy201:Array_UInt8_8. sum tmp'MEM''scheduled202:Array_UInt8_4. sum tmp'MEM''painted203:Array_UInt8_4.
+    ((tmp'MEM''objscheduled200 == 1) && (tmp'MEM''busy201 == set_Array_UInt8_8(MEM''busy, 7, 1)) && (tmp'MEM''scheduled202 == set_Array_UInt8_4(MEM''scheduled, 1, 1)) && (tmp'MEM''painted203 == set_Array_UInt8_4(MEM''painted, 1, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 7), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 1), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy201, MEM''hashole, tmp'MEM''objscheduled200, tmp'MEM''painted203, tmp'MEM''scheduled202, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled204:UInt8. sum tmp'MEM''busy205:Array_UInt8_8. sum tmp'MEM''scheduled206:Array_UInt8_4. sum tmp'MEM''painted207:Array_UInt8_4.
+    ((tmp'MEM''objscheduled204 == 1) && (tmp'MEM''busy205 == set_Array_UInt8_8(MEM''busy, 7, 1)) && (tmp'MEM''scheduled206 == set_Array_UInt8_4(MEM''scheduled, 2, 1)) && (tmp'MEM''painted207 == set_Array_UInt8_4(MEM''painted, 2, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 7), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 2), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy205, MEM''hashole, tmp'MEM''objscheduled204, tmp'MEM''painted207, tmp'MEM''scheduled206, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled208:UInt8. sum tmp'MEM''busy209:Array_UInt8_8. sum tmp'MEM''scheduled210:Array_UInt8_4. sum tmp'MEM''painted211:Array_UInt8_4.
+    ((tmp'MEM''objscheduled208 == 1) && (tmp'MEM''busy209 == set_Array_UInt8_8(MEM''busy, 7, 1)) && (tmp'MEM''scheduled210 == set_Array_UInt8_4(MEM''scheduled, 3, 1)) && (tmp'MEM''painted211 == set_Array_UInt8_4(MEM''painted, 3, 0)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 7), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 3), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy209, MEM''hashole, tmp'MEM''objscheduled208, tmp'MEM''painted211, tmp'MEM''scheduled210, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled212:UInt8. sum tmp'MEM''busy213:Array_UInt8_8. sum tmp'MEM''scheduled214:Array_UInt8_4. sum tmp'MEM''painted215:Array_UInt8_4.
+    ((tmp'MEM''objscheduled212 == 1) && (tmp'MEM''busy213 == set_Array_UInt8_8(MEM''busy, 7, 1)) && (tmp'MEM''scheduled214 == set_Array_UInt8_4(MEM''scheduled, 0, 1)) && (tmp'MEM''painted215 == set_Array_UInt8_4(MEM''painted, 0, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 7), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 0), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy213, MEM''hashole, tmp'MEM''objscheduled212, tmp'MEM''painted215, tmp'MEM''scheduled214, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled216:UInt8. sum tmp'MEM''busy217:Array_UInt8_8. sum tmp'MEM''scheduled218:Array_UInt8_4. sum tmp'MEM''painted219:Array_UInt8_4.
+    ((tmp'MEM''objscheduled216 == 1) && (tmp'MEM''busy217 == set_Array_UInt8_8(MEM''busy, 7, 1)) && (tmp'MEM''scheduled218 == set_Array_UInt8_4(MEM''scheduled, 1, 1)) && (tmp'MEM''painted219 == set_Array_UInt8_4(MEM''painted, 1, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 7), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 1), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy217, MEM''hashole, tmp'MEM''objscheduled216, tmp'MEM''painted219, tmp'MEM''scheduled218, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled220:UInt8. sum tmp'MEM''busy221:Array_UInt8_8. sum tmp'MEM''scheduled222:Array_UInt8_4. sum tmp'MEM''painted223:Array_UInt8_4.
+    ((tmp'MEM''objscheduled220 == 1) && (tmp'MEM''busy221 == set_Array_UInt8_8(MEM''busy, 7, 1)) && (tmp'MEM''scheduled222 == set_Array_UInt8_4(MEM''scheduled, 2, 1)) && (tmp'MEM''painted223 == set_Array_UInt8_4(MEM''painted, 2, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 7), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 2), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy221, MEM''hashole, tmp'MEM''objscheduled220, tmp'MEM''painted223, tmp'MEM''scheduled222, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''objscheduled224:UInt8. sum tmp'MEM''busy225:Array_UInt8_8. sum tmp'MEM''scheduled226:Array_UInt8_4. sum tmp'MEM''painted227:Array_UInt8_4.
+    ((tmp'MEM''objscheduled224 == 1) && (tmp'MEM''busy225 == set_Array_UInt8_8(MEM''busy, 7, 1)) && (tmp'MEM''scheduled226 == set_Array_UInt8_4(MEM''scheduled, 3, 1)) && (tmp'MEM''painted227 == set_Array_UInt8_4(MEM''painted, 3, 1)) &&
+    (state'P == State'q && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''busy, 7), 0), m32_eq(get_Array_UInt8_4(MEM''scheduled, 3), 0))))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy225, MEM''hashole, tmp'MEM''objscheduled224, tmp'MEM''painted227, tmp'MEM''scheduled226, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  + 
+    sum tmp'MEM''scheduled228:Array_UInt8_4. sum tmp'MEM''scheduled229:Array_UInt8_4. sum tmp'MEM''scheduled230:Array_UInt8_4. sum tmp'MEM''scheduled231:Array_UInt8_4. sum tmp'MEM''busy232:Array_UInt8_8. sum tmp'MEM''busy233:Array_UInt8_8. sum tmp'MEM''busy234:Array_UInt8_8. sum tmp'MEM''busy235:Array_UInt8_8. sum tmp'MEM''busy236:Array_UInt8_8. sum tmp'MEM''busy237:Array_UInt8_8. sum tmp'MEM''busy238:Array_UInt8_8. sum tmp'MEM''busy239:Array_UInt8_8. sum tmp'MEM''objscheduled240:UInt8.
+    ((tmp'MEM''scheduled228 == set_Array_UInt8_4(MEM''scheduled, 0, 0)) && (tmp'MEM''scheduled229 == set_Array_UInt8_4(tmp'MEM''scheduled228, 1, 0)) && (tmp'MEM''scheduled230 == set_Array_UInt8_4(tmp'MEM''scheduled229, 2, 0)) && (tmp'MEM''scheduled231 == set_Array_UInt8_4(tmp'MEM''scheduled230, 3, 0)) && (tmp'MEM''busy232 == set_Array_UInt8_8(MEM''busy, 0, 0)) && (tmp'MEM''busy233 == set_Array_UInt8_8(tmp'MEM''busy232, 1, 0)) && (tmp'MEM''busy234 == set_Array_UInt8_8(tmp'MEM''busy233, 2, 0)) && (tmp'MEM''busy235 == set_Array_UInt8_8(tmp'MEM''busy234, 3, 0)) && (tmp'MEM''busy236 == set_Array_UInt8_8(tmp'MEM''busy235, 4, 0)) && (tmp'MEM''busy237 == set_Array_UInt8_8(tmp'MEM''busy236, 5, 0)) && (tmp'MEM''busy238 == set_Array_UInt8_8(tmp'MEM''busy237, 6, 0)) && (tmp'MEM''busy239 == set_Array_UInt8_8(tmp'MEM''busy238, 7, 0)) && (tmp'MEM''objscheduled240 == 0) &&
+    (state'P == State'q && coerce_Bool(m32_eq(MEM''objscheduled, 1)))) ->  _read_write_sync(state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, state'P, MEM''busy, MEM''hashole, MEM''objscheduled, MEM''painted, MEM''scheduled, MEM''shape, MEM''surface, MEM''temperature, State'q, tmp'MEM''busy239, MEM''hashole, tmp'MEM''objscheduled240, MEM''painted, tmp'MEM''scheduled231, MEM''shape, MEM''surface, MEM''temperature, 0).P
+  );
+
+  System' = 
+    P;
+
+
+init
+  hide({__read_write_sync},
+  allow({__read_write_sync},
+  comm({read_write_sync|_read_write_sync->__read_write_sync},
+    MEM'(State'q, Array_UInt8_8(0, 0, 0, 0, 0, 0, 0, 0), Array_UInt8_4(1, 1, 1, 0), 0, Array_UInt8_4(0, 0, 1, 1), Array_UInt8_4(0, 0, 0, 0), Array_UInt8_4(0, 1, 1, 1), Array_UInt8_4(0, 0, 1, 2), Array_UInt8_4(0, 0, 0, 0)) || 
+  allow({_read_write_sync},
+  System'))));
+
+sort RBV=List(Bool);       % representation of natural numbers as reverse bit vector (4=[0,0,1]), NOTE!!! can have non-unique representation with trailing 0s.
+
+map 
+  Nat2RBV:Nat->RBV;
+  RBV2Nat:RBV->Nat;
+
+  % bit operations:
+  not:RBV->RBV;		   %undefined for [] 
+  and,or,xor:RBV#RBV->RBV;
+  
+  gt:RBV#RBV->Bool;        %make sure length are the same 
+  add,mult:RBV#RBV->RBV;
+  succ_RBV:RBV->RBV;
+
+
+  shiftr,shiftl:RBV#Nat->RBV;
+
+  % auxiliary ops:
+  % rem_trailing_zeros:RBV->RBV;
+  mk_list_true :Nat->RBV;   % mk_list_true(4)=[true,true,true,true]
+  mk_list_false:Nat->RBV;   % mk_list_false(4)=[false,false,false,false]
+
+  least_bits:RBV#Nat->RBV; % leaves at most p least significant bits only.
+  exact_bits:RBV#Nat->RBV; % leaves exactly p least significant bits, adding trailing false's if needed.
+
+  two_complement:RBV->RBV; % two-complement: http://en.wikipedia.org/wiki/Signed_number_representations
+
+var l,l1,l2:RBV; n:Nat; b:Bool;
+
+eqn
+  % rem_trailing_zeros([])=[];
+  % rem_trailing_zeros(true|>l)=true|>rem_trailing_zeros(l);
+  % (rem_trailing_zeros(l)==[])->rem_trailing_zeros(false|>l)=[];
+  % (rem_trailing_zeros(l)!=[])->rem_trailing_zeros(false|>l)=false|>rem_trailing_zeros(l);  
+
+  % % rem_trailing_zeros(false|>l)=if(l1==[],[],false|>l1) where l1=rem_trailing_zeros(l) end;
+
+  mk_list_true(0)=[];
+  (n>0)->mk_list_true(n)=true|>mk_list_true(Int2Nat(pred(n)));
+
+  mk_list_false(0)=[];
+  (n>0)->mk_list_false(n)=false|>mk_list_false(Int2Nat(pred(n)));
+
+  least_bits([],n)=[];
+  least_bits(b|>l,0)=[];
+  (n>0)->least_bits(b|>l,n)=b|>least_bits(l,Int2Nat(pred(n)));
+
+  exact_bits([],n)=mk_list_false(n);
+  exact_bits(b|>l,0)=[];
+  (n>0)->exact_bits(b|>l,n)=b|>exact_bits(l,Int2Nat(pred(n)));
+
+  two_complement([])=[];
+  two_complement(false|>l)=false|>two_complement(l);
+  two_complement(true|>l)=true|>not(l);
+
+  not([])=[];
+  not(true|>l)=false|>not(l);               % rem_trailing_zeros(false|>not(l));
+  not(false|>l)=true|>not(l);
+
+  and([],l)=[];
+  and(l,[])=[];
+  and(false|>l1,b|>l2)=false|>and(l1,l2);    % rem_trailing_zeros(false|>and(l1,l2));
+  and(b|>l1,false|>l2)=false|>and(l1,l2);    % rem_trailing_zeros(false|>and(l1,l2));
+  and(true|>l1,true|>l2)=true|>and(l1,l2);
+
+  or([],l)=l;
+  or(l,[])=l;
+  or(false|>l1,false|>l2)=false|>or(l1,l2);  %rem_trailing_zeros(false|>or(l1,l2));
+  or(true|>l1,b|>l2)=true|>or(l1,l2);
+  or(b|>l1,true|>l2)=true|>or(l1,l2);
+
+  xor([],l)=l;
+  xor(l,[])=l;
+  xor(false|>l1,false|>l2)=false|>xor(l1,l2); %rem_trailing_zeros(false|>xor(l1,l2));
+  xor(true|>l1,true|>l2)=false|>xor(l1,l2);   %rem_trailing_zeros(false|>xor(l1,l2));
+  xor(true|>l1,false|>l2)=true|>xor(l1,l2);
+  xor(false|>l1,true|>l2)=true|>xor(l1,l2);
+
+  gt([],[])=false;
+  % gt(false|>l1,[])=gt(l1,[]);
+  % gt(true|>l1,[])=true;
+  gt(false|>l1,b|>l2)=gt(l1,l2);
+  gt(true|>l1,true|>l2)=gt(l1,l2);
+  gt(true|>l1,false|>l2)=gt(l1,l2)||l1==l2;
+
+  shiftr(l,0)=l; 
+  (n>0)->shiftr(l,n)=false|>shiftr(l,Int2Nat(pred(n)));
+ 
+  shiftl([],n)=[];
+  shiftl(l,0)=l;  
+  (n>0)->shiftl(b|>l,n)=shiftl(l,Int2Nat(pred(n)));
+
+  add([],l)=l;
+  add(l,[])=l;
+  add(false|>l1,b|>l2)=b|>add(l1,l2);
+  add(true|>l1,false|>l2)=true|>add(l1,l2);
+  add(true|>l1,true|>l2)=false|>succ_RBV(add(l1,l2));
+  
+  succ_RBV([])=[true];
+  succ_RBV(false|>l)=true|>l;
+  succ_RBV(true|>l)=false|>succ_RBV(l);
+
+  mult([],l)=[];
+  mult(l,[])=[];
+  mult(false|>l1,false|>l2)=false|>false|>mult(l1,l2);
+  mult(false|>l1,true|>l2) =false|>add(false|>mult(l1,l2),l1);
+  mult(true|>l1,false|>l2) =false|>add(false|>mult(l1,l2),l2);
+  mult(true|>l1,true|>l2)  =true|>add(false|>mult(l1,l2),add(l1,l2));
+
+  Nat2RBV(0)=[];
+  (n>0 && n mod 2==0) -> Nat2RBV(n)=false|>Nat2RBV(n div 2);
+  (n>0 && n mod 2==1) -> Nat2RBV(n)=true|>Nat2RBV(n div 2);
+
+  RBV2Nat([])=0;
+  RBV2Nat(false|>l)=2*RBV2Nat(l);
+  RBV2Nat(true|>l)=Pos2Nat(succ(2*RBV2Nat(l)));
+
+sort UInt32=struct uint32(RBV); % C data type "unsigned int" (32 bit)
+
+map
+  Nat2UInt32:Nat->UInt32;
+  UInt322Nat:UInt32->Nat;
+
+  not:UInt32->UInt32;
+  and,or,xor,shiftl,shiftr:UInt32#UInt32->UInt32;
+ 
+  gt,ge,lt,le:UInt32#UInt32->Bool;
+  add,subt,mult,div_uint32,mod_uint32:UInt32#UInt32->UInt32;
+  umin,succ_Uint32:UInt32->UInt32;
+ 
+var n:Nat; l,l1,l2:RBV; b:Bool;
+
+eqn
+  Nat2UInt32(n)=uint32(exact_bits(Nat2RBV(n mod 4294967296),32));
+  UInt322Nat(uint32(l))=RBV2Nat(l);
+
+  not(uint32(l))=uint32(not(l));
+  and(uint32(l1),uint32(l2))=uint32(and(l1,l2));
+   or(uint32(l1),uint32(l2))=uint32( or(l1,l2));
+  xor(uint32(l1),uint32(l2))=uint32(xor(l1,l2));
+
+  % shifts: shifts of >=32 bits are equivalent to clearing the bitvector
+  (and(l2,mk_list_false(5)++mk_list_true(27))==mk_list_false(32))->
+     shiftl(uint32(l1),uint32(l2))=uint32(exact_bits(shiftr(l1,RBV2Nat(least_bits(l2,5))),32)); % we are reversed
+  (and(l2,mk_list_false(5)++mk_list_true(27))!=mk_list_false(32))->
+     shiftl(uint32(l1),uint32(l2))=uint32(mk_list_false(32));
+  (and(l2,mk_list_false(5)++mk_list_true(27))==mk_list_false(32))->
+     shiftr(uint32(l1),uint32(l2))=uint32(exact_bits(shiftl(l1,RBV2Nat(least_bits(l2,5))),32)); % we are reversed
+  (and(l2,mk_list_false(5)++mk_list_true(27))!=mk_list_false(32))->
+     shiftr(uint32(l1),uint32(l2))=uint32(mk_list_false(32)); 
+
+  gt(uint32(l1),uint32(l2))=gt(l1,l2);
+  ge(uint32(l1),uint32(l2))= l1==l2 || gt(l1,l2);
+  le(uint32(l1),uint32(l2))=!gt(l1,l2);
+  lt(uint32(l1),uint32(l2))=gt(l2,l1);
+
+   add(uint32(l1),uint32(l2))=uint32(exact_bits(add(l1,l2),32));
+  subt(uint32(l1),uint32(l2))=uint32(exact_bits(add(l1,two_complement(l2)),32));
+
+  mult(uint32(l1),uint32(l2))=uint32(exact_bits(mult(l1,l2),32));
+
+  umin(uint32(l))=uint32(two_complement(l));
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

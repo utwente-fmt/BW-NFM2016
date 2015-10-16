@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/iprotocol.3.dve -rsc,bg,vgps --regroup-exit
+ctit022
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/iprotocol.3.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,vgps
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+dve2lts-seq: Regrouping: 35->35 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.71 user, 0.07 system, 0.80 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

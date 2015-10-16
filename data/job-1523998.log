@@ -1,0 +1,14 @@
+performance run
+prom2lts-seq spec/Promela/firewire_link.7.prom.spins -rsc,tg,vacm --regroup-exit
+ctit043
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/firewire_link.7.prom.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,tg,vacm
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup Total graph
+prom2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+prom2lts-seq: Regrouping: 959->959 groups
+prom2lts-seq: Regrouping took 0.020 real 0.020 user 0.010 sys
+Exit [0]
+0.06 user, 0.03 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 80KB

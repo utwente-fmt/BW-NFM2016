@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/lamport.7.dve -rsc,tg,bk,mm --regroup-exit --graph-metrics
+ctit007
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/lamport.7.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,bk,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup Boost's King
+dve2lts-seq: bandwidth: 113
+dve2lts-seq: profile: 22280
+dve2lts-seq: span: 30979
+dve2lts-seq: average wavefront: 47.442
+dve2lts-seq: RMS wavefront: 51.081
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 70->70 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 562
+Normalized Event Span: 0.4723
+Weighted Event Span, moment 1 (WES^1): 978.8
+Normalized Weighted Event Span, moment 1: 0.8225
+Exit [0]
+0.96 user, 0.11 system, 1.10 elapsed -- Max VSize = 38240KB, Max RSS = 4680KB

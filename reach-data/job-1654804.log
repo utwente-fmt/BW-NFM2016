@@ -1,0 +1,36 @@
+performance run
+pnml2lts-sym spec/PNML/2D8_gradient_10x10_50.pnml -rsc,bg,vacm,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit023
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/2D8_gradient_10x10_50.pnml
+pnml2lts-sym: Petri net has 100 places, 684 transitions and 1368 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/2D8_gradient_10x10_50.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.020 real 0.000 user 0.010 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,vacm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 684->684 groups
+pnml2lts-sym: Regrouping took 0.070 real 0.070 user 0.000 sys
+pnml2lts-sym: state vector length is 100; there are 684 groups and 100 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 19076 group checks and 19076 next state calls
+pnml2lts-sym: reachability took 1236.030 real 1227.910 user 4.860 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.020 real 0.010 user 0.000 sys
+pnml2lts-sym: state space has 1.34191072731546e+40 states, 130050 nodes
+pnml2lts-sym: ( 130050 final BDD nodes; 1219142 peak nodes )
+pnml2lts-sym: group_next: 974700 nodes total
+pnml2lts-sym: group_explored: 941868 nodes, 906984 short vectors total
+pnml2lts-sym: max token count: 50
+Exit [0]
+1228.05 user, 4.95 system, 1236.36 elapsed -- Max VSize = 3675064KB, Max RSS = 976572KB

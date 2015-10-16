@@ -1,0 +1,41 @@
+statistics run
+pnml2lts-sym spec/PNML/database20UNFOLD.pnml -rsc,bn,rs,mm,hf --noack=2 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit004
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/database20UNFOLD.pnml
+pnml2lts-sym: Petri net has 3260 places, 3200 transitions and 23200 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/database20UNFOLD.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 5.060 real 5.060 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 5.590 real 5.480 user 0.080 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 6348
+pnml2lts-sym: profile: 24689795
+pnml2lts-sym: span: 7422198
+pnml2lts-sym: average wavefront: 2015.378
+pnml2lts-sym: RMS wavefront: 2232.0679
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 3200->3200 groups
+pnml2lts-sym: Regrouping took 2.960 real 2.940 user 0.020 sys
+pnml2lts-sym: state vector length is 3260; there are 3200 groups and 3260 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 15246868 of 16777216 buckets filled!
+Event Span: 2449132
+Normalized Event Span: 0.23477109
+Weighted Event Span, moment 1 (WES^1): 3964230.2
+Normalized Weighted Event Span, moment 1: 0.38000673
+Exit [1]
+841.71 user, 1.00 system, 845.04 elapsed -- Max VSize = 3683364KB, Max RSS = 1039700KB

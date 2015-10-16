@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/SafeBus-15-unfolded.pnml --noack=1 --regroup-exit --graph-metrics
+ctit011
+pnml2lts-seq: Loading model from spec/PNML/SafeBus-15-unfolded.pnml
+pnml2lts-seq: Petri net has 621 places, 4771 transitions and 34549 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/SafeBus-15-unfolded.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 0.720 real 0.720 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 1.080 real 1.010 user 0.060 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regrouping: 4771->4771 groups
+pnml2lts-seq: Regrouping took 0.120 real 0.120 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+1.14 user, 0.06 system, 1.30 elapsed -- Max VSize = 117056KB, Max RSS = 78652KB

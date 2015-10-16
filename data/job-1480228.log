@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/ARMCacheCoherence.pnml -rsc,bg,bs,mm --regroup-exit --graph-metrics
+ctit017
+pnml2lts-seq: Loading model from spec/PNML/ARMCacheCoherence.pnml
+pnml2lts-seq: Petri net has 87 places, 33676 transitions and 246935 arcs
+pnml2lts-seq: There are 87 safe places
+pnml2lts-seq: Petri net spec/PNML/ARMCacheCoherence.pnml analyzed
+pnml2lts-seq: Loading Petri net took 2.170 real 1.880 user 0.280 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 33736
+pnml2lts-seq: profile: 568437104
+pnml2lts-seq: span: 357804836
+pnml2lts-seq: average wavefront: 34.25193259
+pnml2lts-seq: RMS wavefront: 34.46535987
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 33676->33676 groups
+pnml2lts-seq: Regrouping took 918.430 real 915.900 user 0.870 sys
+pnml2lts-seq: max token count: 1
+Event Span: 1429293
+Normalized Event Span: 0.4878446
+Weighted Event Span, moment 1 (WES^1): 1758792
+Normalized Weighted Event Span, moment 1: 0.6003089
+Exit [0]
+917.78 user, 1.20 system, 920.71 elapsed -- Max VSize = 391040KB, Max RSS = 352840KB

@@ -1,0 +1,20 @@
+performance run
+pnml2lts-sym spec/PNML/cs_repetitions-10-unfolded.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit031
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/cs_repetitions-10-unfolded.pnml
+pnml2lts-sym: Petri net has 1311 places, 2300 transitions and 8700 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/cs_repetitions-10-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.200 real 0.160 user 0.030 sys
+pnml2lts-sym: state vector length is 1311; there are 2300 groups and 1311 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 15176335 of 16777216 buckets filled!
+Exit [1]
+923.81 user, 6.28 system, 931.69 elapsed -- Max VSize = 3677120KB, Max RSS = 996300KB

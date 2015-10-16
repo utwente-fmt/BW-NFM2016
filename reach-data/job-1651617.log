@@ -1,0 +1,29 @@
+performance run
+pnml2lts-sym spec/PNML/QCertifProtocol_10-unfold.pnml -rrs,hf --noack=1 --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit020
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/QCertifProtocol_10-unfold.pnml
+pnml2lts-sym: Petri net has 550 places, 176 transitions and 1287 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/QCertifProtocol_10-unfold.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 0.020 real 0.030 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 0.050 real 0.050 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: rs,hf
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 176->176 groups
+pnml2lts-sym: Regrouping took 0.010 real 0.010 user 0.000 sys
+pnml2lts-sym: state vector length is 550; there are 176 groups and 524 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1796.66 user, 0.66 system, 1801.45 elapsed -- Max VSize = 3675064KB, Max RSS = 975412KB
+command-8037: line 5: 44601 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/QCertifProtocol_10-unfold.pnml -rrs,hf --noack=1 --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

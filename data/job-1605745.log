@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/lann.8.dve -rsc,tg,bcm --regroup-exit
+ctit025
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/lann.8.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,bcm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup Boost's Cuthill McKee
+dve2lts-seq: Regrouping: 50->50 groups
+dve2lts-seq: Regrouping took 0.010 real 0.000 user 0.000 sys
+Exit [0]
+0.84 user, 0.06 system, 1.00 elapsed -- Max VSize = 38556KB, Max RSS = 5336KB

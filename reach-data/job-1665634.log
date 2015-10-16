@@ -1,0 +1,17 @@
+performance run
+pnml2lts-sym spec/PNML/hc5k3p3b15.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit043
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/hc5k3p3b15.pnml
+pnml2lts-sym: Petri net has 9153 places, 25110 transitions and 100440 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/hc5k3p3b15.pnml analyzed
+pnml2lts-sym: Loading Petri net took 5.080 real 4.860 user 0.200 sys
+pnml2lts-sym: state vector length is 9153; there are 25110 groups and 9153 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+4.86 user, 0.25 system, 5.21 elapsed -- Max VSize = 3031408KB, Max RSS = 357564KB

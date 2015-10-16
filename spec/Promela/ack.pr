@@ -1,0 +1,147 @@
+/*
+ * Copyright (c) 1996 The University of Utah and
+ * the Computer Systems Laboratory at the University of Utah (CSL).
+ * All rights reserved.
+ *
+ * Permission to use, copy, modify and distribute this software is hereby
+ * granted provided that (1) source code retains these copyright, permission,
+ * and disclaimer notices, and (2) redistributions including binaries
+ * reproduce the notices in supporting documentation, and (3) all advertising
+ * materials mentioning features or use of this software display the following
+ * acknowledgement: ``This product includes software developed by the
+ * Computer Systems Laboratory at the University of Utah.''
+ *
+ * THE UNIVERSITY OF UTAH AND CSL ALLOW FREE USE OF THIS SOFTWARE IN ITS "AS
+ * IS" CONDITION.  THE UNIVERSITY OF UTAH AND CSL DISCLAIM ANY LIABILITY OF
+ * ANY KIND FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * CSL requests users of this software to return to csl-dist@cs.utah.edu any
+ * improvements that they make and grant CSL redistribution rights.
+ */
+/*
+ * Ack-test.pr - Test of IPC entry points containing ack's
+ */
+
+/*
+ * Select the stuff we want out of the bloat.
+ */
+#define INCLUDE_IPC_PAYLOAD
+#define INCLUDE_WAIT_RECEIVE
+#define INCLUDE_SERVER_ACK_SEND_WAIT_RECEIVE
+#define INCLUDE_SERVER_ACK_SEND
+#define INCLUDE_SERVER_DISCONNECT
+
+#define INCLUDE_CLIENT_CONNECT_SEND_OVER_RECEIVE
+#define INCLUDE_CLIENT_DISCONNECT
+
+/* IMPLIES the following entrypoints (via restarts, etc.) */
+#define INCLUDE_CLIENT_SEND
+#define INCLUDE_CLIENT_SEND_OVER_RECEIVE
+#define INCLUDE_SERVER_SEND
+#define INCLUDE_SERVER_RECEIVE
+#define INCLUDE_SERVER_SEND_WAIT_RECEIVE
+
+/* Toggle this to cause page-faults in ipcReliableTransfer() */
+/*#define IPC_TRANSFER_CAN_FAULT*/
+
+#include "../../fluke/Fluke.pr"
+
+mtype = {
+  FLUKE_MESSAGES
+};
+
+threadDefineInstances(2);
+wqDefineInstances(4); /* 2*2 */
+mutexDefineInstances(3); /* XXX need extra mutex because index isn't decremented. */
+
+#include "../../support/Proctypes.pr"
+
+
+proctype user_server(Thread currentThread) {
+  Fluke kernel;
+  ResultCode rc;
+  IpcPayload rData = 0;
+  IpcPayload sData = 0;
+
+  flukeInit(kernel, currentThread);
+
+  flukeVersion(kernel);
+  assert(rc==FLUKE_VERSION);
+
+  rData = 0;
+  flukeWaitReceive(fluke, rData);
+  assert(rData == 42);
+  assert(rc == 0);
+
+  printf ("server: got message: %d\n", rData);
+
+
+  /* get a second message
+   */
+  sData = rData + 1;
+  flukeServerAckSendWaitReceive(fluke, sData, rData);
+
+  printf ("server: back from flukeServerAckSendWaitReceive: %d, %d\n", rc, rData);
+
+  assert(rc == 0);
+  assert(rData == 44);
+
+  /* now finish the over and close connection
+   */
+  sData = rData + 1;
+  flukeServerAckSend (fluke, sData);
+  assert(rc == 0);
+
+  flukeServerDisconnect(fluke);
+  assert(rc == 0);
+
+endServer:
+  do
+  :: flukeNop(kernel);
+  od
+}
+
+proctype user_client(Thread currentThread;
+		Thread server) {
+  Fluke kernel;
+  ResultCode rc;
+  IpcPayload sData;
+  IpcPayload rData;
+
+  flukeInit(kernel, currentThread);
+
+  flukeVersion(kernel);
+  assert(rc==FLUKE_VERSION);
+
+  sData = 42;
+  flukeClientConnectSendOverReceive(fluke, server, sData, rData);
+
+  assert(rc == 0 || rc == FLUKE_IPC_RECV_DISCONNECTED);
+  assert(rData == 43);
+
+  printf ("client: got message back: %d\n", rData);
+
+  sData = rData + 1;
+  flukeClientSendOverReceive(fluke, sData, rData);
+
+  assert(rc == 0 || rc == FLUKE_IPC_SEND_DISCONNECTED);
+
+  flukeClientDisconnect(fluke);
+  assert(rc == 0);
+
+endUser:
+  do
+  :: flukeNop(kernel);
+  od
+}
+
+init {
+  threadInitInstances(2);
+  wqInitInstances(2);
+  mutexInitInstances(3);
+
+  atomic {
+    run user_client(1, /*server=*/2);
+    run user_server(2);
+  }
+}

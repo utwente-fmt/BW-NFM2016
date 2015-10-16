@@ -1,0 +1,18 @@
+statistics run
+dve2lts-seq spec/DVE/plc.3.dve -rsc,f,mm --regroup-exit
+ctit002
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/plc.3.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,f,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup FORCE
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 230->230 groups
+dve2lts-seq: Regrouping took 0.000 real 0.010 user 0.000 sys
+Event Span: 5886
+Normalized Event Span: 0.39371
+Weighted Event Span, moment 1 (WES^1): 9064.1
+Normalized Weighted Event Span, moment 1: 0.6063
+Exit [0]
+62.80 user, 3.11 system, 66.08 elapsed -- Max VSize = 38240KB, Max RSS = 4744KB

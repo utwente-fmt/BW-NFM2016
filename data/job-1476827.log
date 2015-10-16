@@ -1,0 +1,18 @@
+statistics run
+dve2lts-seq spec/DVE/firewire_link.4.dve -rsc,f,mm --regroup-exit
+ctit041
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/firewire_link.4.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,f,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup FORCE
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 608->608 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 8101
+Normalized Event Span: 0.27758
+Weighted Event Span, moment 1 (WES^1): 8938.3
+Normalized Weighted Event Span, moment 1: 0.30628
+Exit [0]
+12.73 user, 0.59 system, 13.41 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

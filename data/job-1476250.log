@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/cambridge.4.dve -rsc,tg,vacm,mm --regroup-exit --graph-metrics
+ctit016
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/cambridge.4.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,vacm,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+dve2lts-seq: bandwidth: 251
+dve2lts-seq: profile: 57342
+dve2lts-seq: span: 71560
+dve2lts-seq: average wavefront: 103.48
+dve2lts-seq: RMS wavefront: 121.903
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 56->56 groups
+dve2lts-seq: Regrouping took 0.010 real 0.010 user 0.000 sys
+Event Span: 589
+Normalized Event Span: 0.4781
+Weighted Event Span, moment 1 (WES^1): 920.9
+Normalized Weighted Event Span, moment 1: 0.7475
+Exit [0]
+1.00 user, 0.05 system, 1.10 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

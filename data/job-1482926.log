@@ -1,0 +1,27 @@
+statistics run
+pnml2lts-seq spec/PNML/SwimmingPool-9.pnml -rsc,bn,mm --regroup-exit --graph-metrics
+ctit001
+pnml2lts-seq: Loading model from spec/PNML/SwimmingPool-9.pnml
+pnml2lts-seq: Petri net has 9 places, 7 transitions and 20 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/SwimmingPool-9.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bn,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Boost's None
+pnml2lts-seq: bandwidth: 14
+pnml2lts-seq: profile: 177
+pnml2lts-seq: span: 71
+pnml2lts-seq: average wavefront: 6.19
+pnml2lts-seq: RMS wavefront: 6.76
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 7->7 groups
+pnml2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: max token count: 180
+Event Span: 42
+Normalized Event Span: 0.67
+Weighted Event Span, moment 1 (WES^1): 68
+Normalized Weighted Event Span, moment 1: 1.1
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 76KB

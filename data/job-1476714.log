@@ -1,0 +1,23 @@
+statistics run
+dve2lts-seq spec/DVE/exit.5.dve -rsc,bn,mm --regroup-exit --graph-metrics
+ctit010
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/exit.5.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bn,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Boost's None
+dve2lts-seq: bandwidth: 159
+dve2lts-seq: profile: 16649
+dve2lts-seq: span: 6330
+dve2lts-seq: average wavefront: 24.638
+dve2lts-seq: RMS wavefront: 25.966
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 133->133 groups
+dve2lts-seq: Regrouping took 0.010 real 0.000 user 0.000 sys
+Event Span: 3705
+Normalized Event Span: 0.9286
+Weighted Event Span, moment 1 (WES^1): 7140
+Normalized Weighted Event Span, moment 1: 1.789
+Exit [0]
+2.52 user, 0.12 system, 2.70 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

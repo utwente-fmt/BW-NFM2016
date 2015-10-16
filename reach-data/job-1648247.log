@@ -1,0 +1,24 @@
+statistics run
+pnml2lts-sym spec/PNML/neoelection-8.unf.pnml -rsc,tg,bk,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit010
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/neoelection-8.unf.pnml
+pnml2lts-sym: Petri net has 10062 places, 22266 transitions and 129195 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/neoelection-8.unf.pnml analyzed
+pnml2lts-sym: Loading Petri net took 5.280 real 4.980 user 0.280 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bk,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's King
+pnml2lts-sym: bandwidth: 92055
+pnml2lts-sym: profile: 8159452557
+pnml2lts-sym: span: 10261026929
+pnml2lts-sym: average wavefront: 23381.341019
+Killed [24]
+1794.49 user, 1.21 system, 1802.22 elapsed -- Max VSize = 3264740KB, Max RSS = 587868KB
+command-4667: line 5: 29034 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/neoelection-8.unf.pnml -rsc,tg,bk,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

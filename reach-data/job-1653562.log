@@ -1,0 +1,28 @@
+performance run
+pnml2lts-sym spec/PNML/lamport_fmea-8.pnml -rsc,tg,bk,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit023
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/lamport_fmea-8.pnml
+pnml2lts-sym: Petri net has 315 places, 666 transitions and 2934 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/lamport_fmea-8.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.030 real 0.030 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bk,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's King
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 666->666 groups
+pnml2lts-sym: Regrouping took 0.030 real 0.030 user 0.000 sys
+pnml2lts-sym: state vector length is 315; there are 666 groups and 306 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 15099373 of 16777216 buckets filled!
+Exit [1]
+1758.74 user, 4.95 system, 1768.82 elapsed -- Max VSize = 3675072KB, Max RSS = 976668KB

@@ -1,0 +1,36 @@
+performance run
+pnml2lts-sym spec/PNML/neoelection-4.unf.pnml -rsc,tg,bcm,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit029
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/neoelection-4.unf.pnml
+pnml2lts-sym: Petri net has 1830 places, 2340 transitions and 13565 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/neoelection-4.unf.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.220 real 0.200 user 0.010 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bcm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's Cuthill McKee
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 2340->2340 groups
+pnml2lts-sym: Regrouping took 0.530 real 0.540 user 0.000 sys
+pnml2lts-sym: state vector length is 1830; there are 2340 groups and 625 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 74966 group checks and 74966 next state calls
+pnml2lts-sym: reachability took 1214.900 real 1210.780 user 0.260 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.010 real 0.000 user 0.000 sys
+pnml2lts-sym: state space has 291911853682 states, 375829 nodes
+pnml2lts-sym: ( 375829 final BDD nodes; 446421 peak nodes )
+pnml2lts-sym: group_next: 1222 nodes total
+pnml2lts-sym: group_explored: 21302 nodes, 12149 short vectors total
+pnml2lts-sym: max token count: 1
+Exit [0]
+1214.90 user, 0.39 system, 1219.35 elapsed -- Max VSize = 3677996KB, Max RSS = 925120KB

@@ -1,0 +1,11 @@
+% Test Case 5
+%
+% No process parameter should be removed
+
+act a: Nat;
+act b;
+
+proc X(i,j,k: Nat) =  a(i).X(k,j,k) +
+                         b.X(j,j,k);
+
+init X(1,2,3);

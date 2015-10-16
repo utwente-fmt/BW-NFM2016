@@ -1,0 +1,38 @@
+statistics run
+pnml2lts-sym spec/PNML/PolyORB-NT-S05-J40-unfolded.pnml -rsc,tg,vacm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit041
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/PolyORB-NT-S05-J40-unfolded.pnml
+pnml2lts-sym: Petri net has 629 places, 1590 transitions and 10704 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/PolyORB-NT-S05-J40-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.170 real 0.140 user 0.020 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,vacm,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-sym: bandwidth: 5296
+pnml2lts-sym: profile: 32088569
+pnml2lts-sym: span: 42186066
+pnml2lts-sym: average wavefront: 2140.51681
+pnml2lts-sym: RMS wavefront: 2643.12547
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 1590->1590 groups
+pnml2lts-sym: Regrouping took 15.390 real 15.340 user 0.010 sys
+pnml2lts-sym: state vector length is 629; there are 1590 groups and 649 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 14545688 of 16777216 buckets filled!
+Event Span: 183008
+Normalized Event Span: 0.1829879
+Weighted Event Span, moment 1 (WES^1): 289557.9
+Normalized Weighted Event Span, moment 1: 0.289526
+Exit [1]
+179.35 user, 2.66 system, 183.11 elapsed -- Max VSize = 3675260KB, Max RSS = 1000164KB

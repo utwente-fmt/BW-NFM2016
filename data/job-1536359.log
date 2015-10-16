@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/soli1_counter.pnml -rsc,f --regroup-exit
+ctit024
+pnml2lts-seq: Loading model from spec/PNML/soli1_counter.pnml
+pnml2lts-seq: Petri net has 67 places, 76 transitions and 532 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/soli1_counter.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.090 real 0.000 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,f
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup FORCE
+pnml2lts-seq: Regrouping: 76->76 groups
+pnml2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: max token count: 32
+Exit [0]
+0.01 user, 0.01 system, 0.21 elapsed -- Max VSize = 43908KB, Max RSS = 5256KB

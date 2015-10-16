@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/Peterson-7.pnml -rsc,tg,bcm --regroup-exit
+ctit006
+pnml2lts-seq: Loading model from spec/PNML/Peterson-7.pnml
+pnml2lts-seq: Petri net has 1992 places, 3096 transitions and 9584 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/Peterson-7.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.250 real 0.220 user 0.020 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bcm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Cuthill McKee
+pnml2lts-seq: Regrouping: 3096->3096 groups
+pnml2lts-seq: Regrouping took 0.550 real 0.540 user 0.010 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+0.77 user, 0.04 system, 0.90 elapsed -- Max VSize = 82460KB, Max RSS = 44068KB

@@ -1,0 +1,27 @@
+performance run
+pnml2lts-sym spec/PNML/SafeBus-06-unfolded.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit029
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/SafeBus-06-unfolded.pnml
+pnml2lts-sym: Petri net has 144 places, 451 transitions and 2968 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/SafeBus-06-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.040 real 0.020 user 0.020 sys
+pnml2lts-sym: state vector length is 144; there are 451 groups and 144 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 26296 group checks and 26296 next state calls
+pnml2lts-sym: reachability took 936.940 real 934.390 user 0.250 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.060 real 0.060 user 0.000 sys
+pnml2lts-sym: state space has 6816756 states, 246360 nodes
+pnml2lts-sym: group_next: 4424 nodes total
+pnml2lts-sym: group_explored: 8441 nodes, 10073 short vectors total
+pnml2lts-sym: max token count: 1
+Exit [0]
+934.51 user, 0.32 system, 937.18 elapsed -- Max VSize = 3675072KB, Max RSS = 856436KB

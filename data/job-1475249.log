@@ -1,0 +1,32 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-434- --no-close spec/B/SumAndProduct.mch -rsc,bg,vcm,mm --regroup-exit --graph-metrics
+ctit025
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-439.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-439.probz
+% set_pref(CLPFD,use_clpfd_solver,true)
+% set_pref(TIME_OUT,time_out,12000)
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,vcm,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup ViennaCL's Cuthill McKee
+prob2lts-seq: bandwidth: 6
+prob2lts-seq: profile: 34
+prob2lts-seq: span: 12
+prob2lts-seq: average wavefront: 1.9
+prob2lts-seq: RMS wavefront: 1.9
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 1->1 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 6
+Normalized Event Span: 1
+Weighted Event Span, moment 1 (WES^1): 1e+01
+Normalized Weighted Event Span, moment 1: 2
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-439: line 10: 53255 Killed                  probcli spec/B/SumAndProduct.mch -ltsmin2 /tmp/ltsmin-439.probz

@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-504- --no-close spec/B/USB_4Endpoints.mch -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit030
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-514.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-514.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,tg,bs,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Total graph
+prob2lts-seq: Regroup Boost's Sloan
+prob2lts-seq: bandwidth: 110
+prob2lts-seq: profile: 6969
+prob2lts-seq: span: 7348
+prob2lts-seq: average wavefront: 7.6371
+prob2lts-seq: RMS wavefront: 8.746
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 39->39 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 79
+Normalized Event Span: 0.338
+Weighted Event Span, moment 1 (WES^1): 140
+Normalized Weighted Event Span, moment 1: 0.597
+Exit [0]
+0.01 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-514: line 10: 15464 Killed                  probcli spec/B/USB_4Endpoints.mch -ltsmin2 /tmp/ltsmin-514.probz

@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/Vasy2003.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit007
+pnml2lts-seq: Loading model from spec/PNML/Vasy2003.pnml
+pnml2lts-seq: Petri net has 485 places, 776 transitions and 2809 arcs
+pnml2lts-seq: There are 485 safe places
+pnml2lts-seq: Petri net spec/PNML/Vasy2003.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.040 real 0.030 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 3363
+pnml2lts-seq: profile: 2204119
+pnml2lts-seq: span: 2325933
+pnml2lts-seq: average wavefront: 132.57034
+pnml2lts-seq: RMS wavefront: 157.78672
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 776->776 groups
+pnml2lts-seq: Regrouping took 2.010 real 1.990 user 0.010 sys
+pnml2lts-seq: max token count: 1
+Event Span: 84207
+Normalized Event Span: 0.223741
+Weighted Event Span, moment 1 (WES^1): 113605
+Normalized Weighted Event Span, moment 1: 0.301851
+Exit [0]
+2.03 user, 0.02 system, 2.10 elapsed -- Max VSize = 52832KB, Max RSS = 14556KB

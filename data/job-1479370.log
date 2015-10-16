@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/synapse.4.dve -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit008
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/synapse.4.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,bs,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup Boost's Sloan
+dve2lts-seq: bandwidth: 1279
+dve2lts-seq: profile: 758426
+dve2lts-seq: span: 824141
+dve2lts-seq: average wavefront: 61.05919
+dve2lts-seq: RMS wavefront: 72.05436
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 185->185 groups
+dve2lts-seq: Regrouping took 0.180 real 0.190 user 0.000 sys
+Event Span: 2200
+Normalized Event Span: 0.5405
+Weighted Event Span, moment 1 (WES^1): 3240
+Normalized Weighted Event Span, moment 1: 0.7962
+Exit [0]
+2.93 user, 0.09 system, 3.10 elapsed -- Max VSize = 44288KB, Max RSS = 8884KB

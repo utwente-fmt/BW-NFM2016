@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/EnergyBus.pnml -rsc,bg,bcm --regroup-exit
+ctit004
+pnml2lts-seq: Loading model from spec/PNML/EnergyBus.pnml
+pnml2lts-seq: Petri net has 157 places, 4430 transitions and 63389 arcs
+pnml2lts-seq: There are 157 safe places
+pnml2lts-seq: Petri net spec/PNML/EnergyBus.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.440 real 0.360 user 0.080 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bcm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's Cuthill McKee
+pnml2lts-seq: Regrouping: 4430->4430 groups
+pnml2lts-seq: Regrouping took 0.080 real 0.080 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+0.45 user, 0.09 system, 0.60 elapsed -- Max VSize = 128152KB, Max RSS = 89728KB

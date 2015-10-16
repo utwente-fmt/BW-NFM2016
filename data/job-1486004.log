@@ -1,0 +1,24 @@
+statistics run
+prom2lts-seq spec/Promela/rether.3.prom.spins -rsc,tg,bcm,mm --regroup-exit --graph-metrics
+ctit036
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/rether.3.prom.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,tg,bcm,mm
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup Total graph
+prom2lts-seq: Regroup Boost's Cuthill McKee
+prom2lts-seq: bandwidth: 381
+prom2lts-seq: profile: 173213
+prom2lts-seq: span: 220359
+prom2lts-seq: average wavefront: 101.533
+prom2lts-seq: RMS wavefront: 107.782
+prom2lts-seq: Regroup Matrix Metrics
+prom2lts-seq: Regrouping: 160->160 groups
+prom2lts-seq: Regrouping took 0.020 real 0.010 user 0.000 sys
+Event Span: 2258
+Normalized Event Span: 0.3136
+Weighted Event Span, moment 1 (WES^1): 3399
+Normalized Weighted Event Span, moment 1: 0.4721
+Exit [0]
+0.02 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 84KB

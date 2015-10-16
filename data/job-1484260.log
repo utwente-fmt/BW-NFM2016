@@ -1,0 +1,33 @@
+statistics run
+pnml2lts-seq spec/PNML/neoelection-8.unf.pnml -rsc,bg,bs,mm --regroup-exit --graph-metrics
+ctit019
+pnml2lts-seq: Loading model from spec/PNML/neoelection-8.unf.pnml
+pnml2lts-seq: Petri net has 10062 places, 22266 transitions and 129195 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/neoelection-8.unf.pnml analyzed
+pnml2lts-seq: Loading Petri net took 5.300 real 4.960 user 0.310 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 32105
+pnml2lts-seq: profile: 210175178
+pnml2lts-seq: span: 140005968
+pnml2lts-seq: average wavefront: 352.1370638
+pnml2lts-seq: RMS wavefront: 452.6206956
+*** segmentation fault ***
+
+Please send information on how to reproduce this problem to: 
+         ltsmin-support@lists.utwente.nl
+along with all output preceding this message.
+In addition, include the following information:
+Package: ltsmin 2.2beta
+Stack trace:
+  0: [0x41fa4a]
+  1: [0x41fac6]
+  2: /lib/x86_64-linux-gnu/libpthread.so.0(+0x10340) [0x7f04a3138340]
+  3: [0x45cf54]
+  4: [0x42c257]
+Exit [255]
+438.55 user, 0.69 system, 440.90 elapsed -- Max VSize = 506960KB, Max RSS = 468288KB

@@ -1,0 +1,34 @@
+statistics run
+pnml2lts-sym spec/PNML/raft_05.pnml -rsc,bg,bk,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit038
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/raft_05.pnml
+pnml2lts-sym: Petri net has 133 places, 238 transitions and 864 arcs
+pnml2lts-sym: There are 133 safe places
+pnml2lts-sym: Petri net spec/PNML/raft_05.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.010 real 0.000 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,bk,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup Boost's King
+pnml2lts-sym: bandwidth: 219
+pnml2lts-sym: profile: 48696
+pnml2lts-sym: span: 57446
+pnml2lts-sym: average wavefront: 74.0539
+pnml2lts-sym: RMS wavefront: 79.6659
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 238->238 groups
+pnml2lts-sym: Regrouping took 0.010 real 0.000 user 0.000 sys
+pnml2lts-sym: state vector length is 133; there are 238 groups and 133 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1796.36 user, 0.62 system, 1805.27 elapsed -- Max VSize = 3675068KB, Max RSS = 823340KB
+command-4901: line 5: 34269 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/raft_05.pnml -rsc,bg,bk,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

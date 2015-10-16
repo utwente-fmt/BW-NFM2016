@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/galloc_res-3.pnml -rsc,tg,bk,mm --regroup-exit --graph-metrics
+ctit016
+pnml2lts-seq: Loading model from spec/PNML/galloc_res-3.pnml
+pnml2lts-seq: Petri net has 33 places, 4791 transitions and 38652 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/galloc_res-3.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.500 real 0.410 user 0.080 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bk,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's King
+pnml2lts-seq: bandwidth: 30973
+pnml2lts-seq: profile: 949489319
+pnml2lts-seq: span: 1111248490
+pnml2lts-seq: average wavefront: 7476.850745
+pnml2lts-seq: RMS wavefront: 7992.0542
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 4791->4791 groups
+pnml2lts-seq: Regrouping took 233.370 real 232.840 user 0.060 sys
+pnml2lts-seq: max token count: 1
+Event Span: 120461
+Normalized Event Span: 0.761915
+Weighted Event Span, moment 1 (WES^1): 207787
+Normalized Weighted Event Span, moment 1: 1.31425
+Exit [0]
+233.25 user, 0.16 system, 233.97 elapsed -- Max VSize = 125844KB, Max RSS = 87612KB

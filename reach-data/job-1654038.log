@@ -1,0 +1,28 @@
+performance run
+pnml2lts-sym spec/PNML/railroad-100-pt.pnml -rsc,bg,vcm,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit004
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/railroad-100-pt.pnml
+pnml2lts-sym: Petri net has 1018 places, 10506 transitions and 62728 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/railroad-100-pt.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.770 real 0.680 user 0.080 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,vcm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup ViennaCL's Cuthill McKee
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 10506->10506 groups
+pnml2lts-sym: Regrouping took 0.630 real 0.620 user 0.010 sys
+pnml2lts-sym: state vector length is 1018; there are 10506 groups and 718 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 15012709 of 16777216 buckets filled!
+Exit [1]
+380.97 user, 0.91 system, 382.56 elapsed -- Max VSize = 3749708KB, Max RSS = 1077748KB

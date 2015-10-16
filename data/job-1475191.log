@@ -1,0 +1,31 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-378- --no-close spec/B/SiemensMiniPilot_Abrial_mch_0.mch -rsc,bg,bk,mm --regroup-exit --graph-metrics
+ctit040
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-381.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-381.probz
+% set_pref(SHOW_EVENTB_ANY_VALUES,show_eventb_any_arguments,true)
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,bk,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup Boost's King
+prob2lts-seq: bandwidth: 16
+prob2lts-seq: profile: 234
+prob2lts-seq: span: 209
+prob2lts-seq: average wavefront: 6.15
+prob2lts-seq: RMS wavefront: 6.75
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 10->10 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 61
+Normalized Event Span: 0.61
+Weighted Event Span, moment 1 (WES^1): 1.1e+02
+Normalized Weighted Event Span, moment 1: 1.1
+Exit [0]
+0.01 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 80KB
+command-381: line 10: 17576 Killed                  probcli spec/B/SiemensMiniPilot_Abrial_mch_0.mch -ltsmin2 /tmp/ltsmin-381.probz

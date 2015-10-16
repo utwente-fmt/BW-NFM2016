@@ -1,0 +1,20 @@
+statistics run
+pnml2lts-seq spec/PNML/PolyORB-LF-S06-J06-T06-unfolded.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit001
+pnml2lts-seq: Loading model from spec/PNML/PolyORB-LF-S06-J06-T06-unfolded.pnml
+pnml2lts-seq: Petri net has 700 places, 10740 transitions and 89778 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/PolyORB-LF-S06-J06-T06-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 1.400 real 1.230 user 0.150 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 97294
+pnml2lts-seq: profile: 4499167665
+pnml2lts-seq: span: 4538105285
+pnml2lts-seq: average wavefront: 948.43786666
+Killed [24]
+3595.41 user, 0.69 system, 3601.87 elapsed -- Max VSize = 343292KB, Max RSS = 303304KB
+command-7040: line 5: 33141 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/PolyORB-LF-S06-J06-T06-unfolded.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics

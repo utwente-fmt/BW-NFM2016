@@ -1,0 +1,19 @@
+statistics run
+pnml2lts-seq spec/PNML/dekker-200.pnml -rsc,tg,bk,mm --regroup-exit --graph-metrics
+ctit006
+pnml2lts-seq: Loading model from spec/PNML/dekker-200.pnml
+pnml2lts-seq: Petri net has 1000 places, 40400 transitions and 320400 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/dekker-200.pnml analyzed
+pnml2lts-seq: Loading Petri net took 4.010 real 3.540 user 0.450 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bk,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's King
+pnml2lts-seq: bandwidth: 161189
+pnml2lts-seq: profile: 36803098510
+pnml2lts-seq: span: 43259998594
+Killed [24]
+3594.13 user, 1.86 system, 3601.76 elapsed -- Max VSize = 582096KB, Max RSS = 543768KB
+command-8799: line 5: 11778 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/dekker-200.pnml -rsc,tg,bk,mm --regroup-exit --graph-metrics

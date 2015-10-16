@@ -1,0 +1,35 @@
+statistics run
+pnml2lts-sym spec/PNML/Philosophers-2000.pnml -rsc,tg,vgps,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit032
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/Philosophers-2000.pnml
+pnml2lts-sym: Petri net has 10000 places, 10000 transitions and 32000 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/Philosophers-2000.pnml analyzed
+pnml2lts-sym: Loading Petri net took 2.460 real 2.230 user 0.210 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,vgps,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-sym: bandwidth: 27
+pnml2lts-sym: profile: 1089047
+pnml2lts-sym: span: 1762807
+pnml2lts-sym: average wavefront: 14.95913462
+pnml2lts-sym: RMS wavefront: 15.11058658
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 10000->10000 groups
+pnml2lts-sym: Regrouping took 225.220 real 223.440 user 0.460 sys
+pnml2lts-sym: state vector length is 10000; there are 10000 groups and 10000 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Event Span: 76480
+Normalized Event Span: 0.0007648
+Weighted Event Span, moment 1 (WES^1): 76550.818
+Normalized Weighted Event Span, moment 1: 0.00076550818
+Exit [1]
+225.68 user, 0.77 system, 227.92 elapsed -- Max VSize = 3245524KB, Max RSS = 565824KB

@@ -1,0 +1,23 @@
+statistics run
+pnml2lts-sym spec/PNML/ARMCacheCoherence.pnml -rsc,tg,bk,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit007
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/ARMCacheCoherence.pnml
+pnml2lts-sym: Petri net has 87 places, 33676 transitions and 246935 arcs
+pnml2lts-sym: There are 87 safe places
+pnml2lts-sym: Petri net spec/PNML/ARMCacheCoherence.pnml analyzed
+pnml2lts-sym: Loading Petri net took 2.580 real 2.170 user 0.400 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bk,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's King
+pnml2lts-sym: bandwidth: 164505
+pnml2lts-sym: profile: 25268993009
+pnml2lts-sym: span: 30646036468
+Killed [24]
+1796.47 user, 0.99 system, 1801.08 elapsed -- Max VSize = 3025376KB, Max RSS = 416200KB
+command-635: line 5: 21114 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/ARMCacheCoherence.pnml -rsc,tg,bk,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

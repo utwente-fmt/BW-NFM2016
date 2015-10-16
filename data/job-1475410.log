@@ -1,0 +1,32 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-588- --no-close spec/B/nota_1_override.mch -rsc,tg,vacm,mm --regroup-exit --graph-metrics
+ctit021
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-600.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-600.probz
+% set_pref(DEFAULT_SETSIZE,globalsets_fdrange,1)
+% set_pref(MAX_OPERATIONS,maxNrOfEnablingsPerOperation,30)
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,tg,vacm,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Total graph
+prob2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+prob2lts-seq: bandwidth: 42
+prob2lts-seq: profile: 3161
+prob2lts-seq: span: 4515
+prob2lts-seq: average wavefront: 26.92
+prob2lts-seq: RMS wavefront: 29.08
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 12->12 groups
+prob2lts-seq: Regrouping took 0.000 real 0.010 user 0.000 sys
+Event Span: 127
+Normalized Event Span: 0.623
+Weighted Event Span, moment 1 (WES^1): 254
+Normalized Weighted Event Span, moment 1: 1.25
+Exit [0]
+0.01 user, 0.00 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-600: line 10: 22035 Killed                  probcli spec/B/nota_1_override.mch -ltsmin2 /tmp/ltsmin-600.probz

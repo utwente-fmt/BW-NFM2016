@@ -1,0 +1,38 @@
+statistics run
+pnml2lts-sym spec/PNML/database20UNFOLD.pnml -rsc,bg,bcm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit008
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/database20UNFOLD.pnml
+pnml2lts-sym: Petri net has 3260 places, 3200 transitions and 23200 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/database20UNFOLD.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.530 real 0.450 user 0.070 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,bcm,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup Boost's Cuthill McKee
+pnml2lts-sym: bandwidth: 2530
+pnml2lts-sym: profile: 10955105
+pnml2lts-sym: span: 14292474
+pnml2lts-sym: average wavefront: 1043.769
+pnml2lts-sym: RMS wavefront: 1145.3374
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 3200->3200 groups
+pnml2lts-sym: Regrouping took 2.320 real 2.300 user 0.010 sys
+pnml2lts-sym: state vector length is 3260; there are 3200 groups and 3260 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 15168299 of 16777216 buckets filled!
+Event Span: 4486508
+Normalized Event Span: 0.4300717
+Weighted Event Span, moment 1 (WES^1): 6296063.8
+Normalized Weighted Event Span, moment 1: 0.60353372
+Exit [1]
+33.95 user, 0.97 system, 35.13 elapsed -- Max VSize = 3683364KB, Max RSS = 1039472KB

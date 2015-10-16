@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-532- --no-close spec/B/brueckenproblem.mch -rsc,bg,bk,mm --regroup-exit --graph-metrics
+ctit031
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-535.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-535.probz
+% set_pref(MAX_OPERATIONS,maxNrOfEnablingsPerOperation,40)
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,bk,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup Boost's King
+prob2lts-seq: bandwidth: 7
+prob2lts-seq: profile: 59
+prob2lts-seq: span: 59
+prob2lts-seq: average wavefront: 3.6
+prob2lts-seq: RMS wavefront: 3.8
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 4->4 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 20
+Normalized Event Span: 0.83
+Weighted Event Span, moment 1 (WES^1): 39
+Normalized Weighted Event Span, moment 1: 1.6
+Exit [0]
+0.00 user, 0.01 system, 0.40 elapsed -- Max VSize = 125268KB, Max RSS = 5184KB

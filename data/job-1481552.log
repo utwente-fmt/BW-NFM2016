@@ -1,0 +1,30 @@
+statistics run
+pnml2lts-seq spec/PNML/Philosophers-500.pnml -rsc,bn,mm --noack=1 --regroup-exit --graph-metrics
+ctit025
+pnml2lts-seq: Loading model from spec/PNML/Philosophers-500.pnml
+pnml2lts-seq: Petri net has 2500 places, 2500 transitions and 8000 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/Philosophers-500.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 0.260 real 0.260 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 0.540 real 0.490 user 0.040 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regroup specification: sc,bn,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Boost's None
+pnml2lts-seq: bandwidth: 4835
+pnml2lts-seq: profile: 14256395
+pnml2lts-seq: span: 3709487
+pnml2lts-seq: average wavefront: 1599.082
+pnml2lts-seq: RMS wavefront: 1783.0903
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 2500->2500 groups
+pnml2lts-seq: Regrouping took 0.800 real 0.790 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Event Span: 19479
+Normalized Event Span: 0.00311664
+Weighted Event Span, moment 1 (WES^1): 26330.61
+Normalized Weighted Event Span, moment 1: 0.004212897
+Exit [0]
+1.29 user, 0.05 system, 1.40 elapsed -- Max VSize = 81360KB, Max RSS = 43056KB

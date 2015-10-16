@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/BridgeAndVehicles-V20-P20-N10-unfolded.pnml -rsc,tg,vgps,mm --regroup-exit --graph-metrics
+ctit025
+pnml2lts-seq: Loading model from spec/PNML/BridgeAndVehicles-V20-P20-N10-unfolded.pnml
+pnml2lts-seq: Petri net has 68 places, 548 transitions and 4070 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/BridgeAndVehicles-V20-P20-N10-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.050 real 0.030 user 0.020 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: bandwidth: 2573
+pnml2lts-seq: profile: 5675669
+pnml2lts-seq: span: 6789876
+pnml2lts-seq: average wavefront: 702.35893
+pnml2lts-seq: RMS wavefront: 772.27542
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 548->548 groups
+pnml2lts-seq: Regrouping took 1.500 real 1.490 user 0.000 sys
+pnml2lts-seq: max token count: 20
+Event Span: 26392
+Normalized Event Span: 0.70824
+Weighted Event Span, moment 1 (WES^1): 42031
+Normalized Weighted Event Span, moment 1: 1.1279
+Exit [0]
+1.53 user, 0.02 system, 1.60 elapsed -- Max VSize = 52380KB, Max RSS = 13920KB

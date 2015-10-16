@@ -1,0 +1,176 @@
+/*
+ * Copyright (c) 1996 The University of Utah and
+ * the Computer Systems Laboratory at the University of Utah (CSL).
+ * All rights reserved.
+ *
+ * Permission to use, copy, modify and distribute this software is hereby
+ * granted provided that (1) source code retains these copyright, permission,
+ * and disclaimer notices, and (2) redistributions including binaries
+ * reproduce the notices in supporting documentation, and (3) all advertising
+ * materials mentioning features or use of this software display the following
+ * acknowledgement: ``This product includes software developed by the
+ * Computer Systems Laboratory at the University of Utah.''
+ *
+ * THE UNIVERSITY OF UTAH AND CSL ALLOW FREE USE OF THIS SOFTWARE IN ITS "AS
+ * IS" CONDITION.  THE UNIVERSITY OF UTAH AND CSL DISCLAIM ANY LIABILITY OF
+ * ANY KIND FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * CSL requests users of this software to return to csl-dist@cs.utah.edu any
+ * improvements that they make and grant CSL redistribution rights.
+ */
+/*
+ * Mutex-safe.pr - Promela implementation of minimum-state Fluke
+ *                 kernel mutexes.  Nothing fancy, nothing real
+ *                 safe.  Just mutual exclusion.
+ *
+ * State:  2 bit + sizeof(Thread)
+ * Safety: Safe (Extra state to support aggresive semantic assertions)
+ */
+
+#ifndef _FLUKE_KERNEL_MUTEX_
+#define _FLUKE_KERNEL_MUTEX_
+
+#include "Thread.pr"
+
+/*
+ * This module covers the Mutex interface as follows:
+ *
+ *    I==Implemented    N==Null Implementation    U==Unimplemented (assert 0)
+ * 
+ * Instance Manipulation:
+ *  I  Mutex(m)                     Instantiate a mutex, m
+ *  I  mutexInit(m)                 Initialize a new mutex, m.  Call pre-using.
+ *  I  mutexDestroy(m)              Destroy an existing mutex, m.
+ *
+ * Mutual Exclusion:
+ *  I  mutexLock(m,owner)           Atomically block 'till unlocked/lock m.
+ *  I  mutexUnlock(m,owner)         Unlock m.  m should be locked.
+ *  U  mutexLockCancelable(m,owner) Like lock, but blocking can be cancelled.
+ *  U  mutexTryLock(m,owner)        Atomic test-and-lock.
+ *  I  mutexWait(m)                 Block until m unlocked.
+ *
+ * State Extraction:
+ *  I  mutexIsLocked(m)             true iff m is locked
+ *  I  mutexIsUnlocked(m)           true iff m is not locked
+ *
+ * Assertions:
+ *  I  mutexAssertLive(m)           Violated if m (not init'd) or (destroyed)
+ *  I  mutexAssertDead(m)           Violated if m (not destroyed) or (init'd)
+ *  I  mutexAssertLocked(m)         Violated if m not currently locked
+ *  I  mutexAssertUnlocked(m)       Violated if m currently locked
+ *  I  mutexAssertOwnerIs(m,owner)  Violated if m locked and 'owner' not owner
+ *					(violated if m not locked)
+ */
+
+/*-- Mutex type and legal state values ------------------------------------*/
+
+typedef Mutex {
+  bit isDead;
+  bit isLocked;
+  Thread own;
+}
+
+#define __MUTEX_DEAD     0  /* isDead: Mutex !init'ed or destroy'ed.       */
+#define __MUTEX_LIVE     1  /* isDead: Mutex can be used.                  */
+
+#define __MUTEX_UNLOCKED 0  /* isLocked: Mutex not locked by anyone        */
+#define __MUTEX_LOCKED   1  /* isLocked: Mutex is currently locked         */
+
+/*-- Mutex operations -----------------------------------------------------*/
+
+/* This should be called only once before using.  If other operations are  */
+/* called on a mutex BEFORE this, assertions will be violated.             */
+
+#define mutexInit(m) 							\
+	{								\
+		m.isDead = __MUTEX_LIVE;				\
+		m.isLocked = __MUTEX_UNLOCKED;				\
+		m.own = nil;						\
+	}
+
+/* This "destroys" the mutex flob.  No other operations (except mutexInit) */
+/* should be called after this.  Assertions guarantee this.  Also, it's an */
+/* assertion violation to destroy a locked mutex.                          */
+
+#define mutexDestroy(m)							\
+	d_step {							\
+		assert(m.isDead==__MUTEX_LIVE);				\
+		assert(m.isLocked==__MUTEX_UNLOCKED);			\
+		m.isDead=__MUTEX_DEAD;					\
+		m.own = nil;						\
+	}
+
+/* Block until mutex is unlocked, then atomically lock it.                 */
+
+#define mutexLock(m,owner)						\
+	atomic {							\
+		mutexLockCallerAtomic(m,owner);				\
+	}
+
+#define mutexLockCallerAtomic(m,owner)				\
+	assert(m.own != owner);					\
+	m.isLocked == __MUTEX_UNLOCKED ->			\
+		assert(m.isDead==__MUTEX_LIVE);			\
+		m.isLocked = __MUTEX_LOCKED;			\
+		m.own = owner;					\
+
+
+#define mutexUnlock(m,owner)						\
+	d_step {							\
+		mutexUnlockCallerAtomic(m,owner);			\
+	}
+
+/* Unlocking twice is an assertion violation.                              */
+
+#define mutexUnlockCallerAtomic(m,owner)				\
+	assert(m.isDead==__MUTEX_LIVE);					\
+	assert(m.isLocked==__MUTEX_LOCKED);				\
+	assert(m.own==owner);						\
+	m.own = nil;							\
+	m.isLocked = __MUTEX_UNLOCKED
+
+/* Waiting on a mutex just blocks until the mutex is freed                 */
+
+#define mutexWait(m)							\
+	atomic {							\
+		assert(m.isDead==__MUTEX_LIVE);				\
+		if							\
+		:: m.isLocked==__MUTEX_UNLOCKED;			\
+		fi							\
+	}
+
+/* If you want to assert something about mutex state, do it this way:      */
+
+#define mutexAssertLive(m)	assert(m.isDead == __MUTEX_LIVE)
+#define mutexAssertDead(m)	assert(m.isDead == __MUTEX_DEAD)
+
+#define mutexAssertLocked(m)						\
+	d_step {							\
+		assert(m.isDead == __MUTEX_LIVE);			\
+		assert(m.isLocked == __MUTEX_LOCKED);			\
+	}
+
+#define mutexAssertUnlocked(m)						\
+	d_step {							\
+		assert(m.isDead == __MUTEX_LIVE);			\
+		assert(m.isLocked == __MUTEX_UNLOCKED);			\
+	}
+
+#define mutexAssertOwnerIs(m,owner)					\
+	d_step {							\
+		assert(m.isDead == __MUTEX_LIVE);			\
+		assert(m.isLocked == __MUTEX_LOCKED);			\
+		assert(m.own == owner);				\
+	}
+
+/* Accessor functions to check the state of a mutex. */
+
+#define mutexIsLocked(m) (m.isLocked == __MUTEX_LOCKED)
+#define mutexIsUnlocked(m) (m.isLocked == __MUTEX_UNLOCKED)
+
+/* These things are not supported by this implementation.                   */
+
+#define mutexLockCancelable(m)  assert(0)
+#define mutexTryLock(m)         assert(0)
+
+#endif /* _FLUKE_KERNEL_MUTEX_ */

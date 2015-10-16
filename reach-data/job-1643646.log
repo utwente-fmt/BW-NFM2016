@@ -1,0 +1,38 @@
+statistics run
+pnml2lts-sym spec/PNML/20-100_phaseVariation.pnml -rsc,bn,rs,mm,hf --noack=1 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit005
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/20-100_phaseVariation.pnml
+pnml2lts-sym: Petri net has 1202 places, 13457 transitions and 93395 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/20-100_phaseVariation.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 2.390 real 2.370 user 0.010 sys
+pnml2lts-sym: Loading Petri net took 3.950 real 3.710 user 0.160 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 14634
+pnml2lts-sym: profile: 119388189
+pnml2lts-sym: span: 18467107
+pnml2lts-sym: average wavefront: 1121.01603
+pnml2lts-sym: RMS wavefront: 1146.99271
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 13457->13457 groups
+pnml2lts-sym: Regrouping took 27.750 real 27.660 user 0.040 sys
+pnml2lts-sym: state vector length is 1202; there are 13457 groups and 1202 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Event Span: 5845353
+Normalized Event Span: 0.36137493
+Weighted Event Span, moment 1 (WES^1): 8245030.8
+Normalized Weighted Event Span, moment 1: 0.50972926
+Exit [1]
+31.38 user, 0.24 system, 31.94 elapsed -- Max VSize = 2833480KB, Max RSS = 188212KB

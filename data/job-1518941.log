@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/30-10_phaseVariation.pnml -rsc,bg,bcm --regroup-exit
+ctit038
+pnml2lts-seq: Loading model from spec/PNML/30-10_phaseVariation.pnml
+pnml2lts-seq: Petri net has 2702 places, 30977 transitions and 215035 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/30-10_phaseVariation.pnml analyzed
+pnml2lts-seq: Loading Petri net took 3.780 real 3.480 user 0.270 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bcm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's Cuthill McKee
+pnml2lts-seq: Regrouping: 30977->30977 groups
+pnml2lts-seq: Regrouping took 4.900 real 4.840 user 0.030 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+8.32 user, 0.36 system, 8.81 elapsed -- Max VSize = 566736KB, Max RSS = 528492KB

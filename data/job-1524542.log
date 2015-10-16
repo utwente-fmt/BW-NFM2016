@@ -1,0 +1,15 @@
+performance run
+lps2lts-seq --mcrl2-rewriter=jitty spec/mCRL2/1394-fin.mcrl2.suminst.lps -rsc,tg,bs --regroup-exit
+ctit018
+lps2lts-seq: mCRL2 language module initialized
+lps2lts-seq: Loading model from spec/mCRL2/1394-fin.mcrl2.suminst.lps
+lps2lts-seq: mCRL2 rewriter: jitty
+lps2lts-seq: Initializing regrouping layer
+lps2lts-seq: Regroup specification: sc,tg,bs
+lps2lts-seq: Regroup Select Combined matrix
+lps2lts-seq: Regroup Total graph
+lps2lts-seq: Regroup Boost's Sloan
+lps2lts-seq: Regrouping: 1069->1069 groups
+lps2lts-seq: Regrouping took 4.190 real 4.140 user 0.020 sys
+Exit [0]
+4.30 user, 0.04 system, 4.40 elapsed -- Max VSize = 94976KB, Max RSS = 41376KB

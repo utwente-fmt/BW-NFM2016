@@ -1,0 +1,26 @@
+performance run
+pnml2lts-sym spec/PNML/TokenRing-40-unfolded.pnml -rrs,hf --noack=2 --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit018
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/TokenRing-40-unfolded.pnml
+pnml2lts-sym: Petri net has 1681 places, 65641 transitions and 262564 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/TokenRing-40-unfolded.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 9.020 real 8.990 user 0.010 sys
+pnml2lts-sym: Loading Petri net took 15.120 real 14.340 user 0.730 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: rs,hf
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 65641->65641 groups
+pnml2lts-sym: Regrouping took 14.700 real 14.520 user 0.130 sys
+pnml2lts-sym: state vector length is 1681; there are 65641 groups and 1681 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+28.87 user, 0.94 system, 30.03 elapsed -- Max VSize = 3356484KB, Max RSS = 721916KB

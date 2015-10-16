@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/dekker-100.pnml -rsc,tg,vgps --regroup-exit
+ctit018
+pnml2lts-seq: Loading model from spec/PNML/dekker-100.pnml
+pnml2lts-seq: Petri net has 500 places, 10200 transitions and 80200 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/dekker-100.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.770 real 0.650 user 0.110 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: Regrouping: 10200->10200 groups
+pnml2lts-seq: Regrouping took 83.930 real 83.590 user 0.060 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+84.25 user, 0.19 system, 84.78 elapsed -- Max VSize = 170320KB, Max RSS = 132164KB

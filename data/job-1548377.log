@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/philo_dyn-20-unfolded.pnml --noack=2 --regroup-exit --graph-metrics
+ctit011
+pnml2lts-seq: Loading model from spec/PNML/philo_dyn-20-unfolded.pnml
+pnml2lts-seq: Petri net has 540 places, 17220 transitions and 140780 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/philo_dyn-20-unfolded.pnml analyzed
+pnml2lts-seq: Computing Noack2 order
+pnml2lts-seq: Computing Noack2 order took 6.020 real 6.000 user 0.010 sys
+pnml2lts-seq: Loading Petri net took 7.860 real 7.590 user 0.250 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regrouping: 17220->17220 groups
+pnml2lts-seq: Regrouping took 0.410 real 0.400 user 0.010 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+7.99 user, 0.30 system, 8.41 elapsed -- Max VSize = 323452KB, Max RSS = 285020KB

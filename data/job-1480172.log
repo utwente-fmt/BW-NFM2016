@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/30-100_phaseVariation.pnml -rsc,tg,vacm,mm --regroup-exit --graph-metrics
+ctit025
+pnml2lts-seq: Loading model from spec/PNML/30-100_phaseVariation.pnml
+pnml2lts-seq: Petri net has 2702 places, 30977 transitions and 215035 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/30-100_phaseVariation.pnml analyzed
+pnml2lts-seq: Loading Petri net took 3.770 real 3.400 user 0.360 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vacm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-seq: bandwidth: 93829
+pnml2lts-seq: profile: 13962033303
+pnml2lts-seq: span: 17428925013
+pnml2lts-seq: average wavefront: 60034.58728
+pnml2lts-seq: RMS wavefront: 65918.908628
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 30977->30977 groups
+pnml2lts-seq: Regrouping took 3404.650 real 3398.250 user 0.440 sys
+pnml2lts-seq: max token count: 1
+Event Span: 46437032
+Normalized Event Span: 0.55480422
+Weighted Event Span, moment 1 (WES^1): 92874064
+Normalized Weighted Event Span, moment 1: 1.1096084
+Exit [0]
+3401.66 user, 0.82 system, 3408.45 elapsed -- Max VSize = 566736KB, Max RSS = 528312KB

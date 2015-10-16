@@ -1,0 +1,32 @@
+statistics run
+pnml2lts-sym spec/PNML/PolyORB-LF-S04-J06-T08-unfolded.pnml -rsc,bn,mm --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit010
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/PolyORB-LF-S04-J06-T08-unfolded.pnml
+pnml2lts-sym: Petri net has 792 places, 4268 transitions and 28832 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/PolyORB-LF-S04-J06-T08-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.460 real 0.390 user 0.070 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bn,mm
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 5024
+pnml2lts-sym: profile: 15215178
+pnml2lts-sym: span: 4484497
+pnml2lts-sym: average wavefront: 605.46383
+pnml2lts-sym: RMS wavefront: 640.41381
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Regrouping: 4268->4268 groups
+pnml2lts-sym: Regrouping took 1.180 real 1.170 user 0.000 sys
+pnml2lts-sym: state vector length is 792; there are 4268 groups and 811 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1795.12 user, 0.49 system, 1801.29 elapsed -- Max VSize = 3743736KB, Max RSS = 855684KB
+command-2144: line 5: 23069 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/PolyORB-LF-S04-J06-T08-unfolded.pnml -rsc,bn,mm --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

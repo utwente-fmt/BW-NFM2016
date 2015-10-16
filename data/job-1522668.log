@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/lamport_fmea-8.pnml -rsc,tg,bk --regroup-exit
+ctit006
+pnml2lts-seq: Loading model from spec/PNML/lamport_fmea-8.pnml
+pnml2lts-seq: Petri net has 315 places, 666 transitions and 2934 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/lamport_fmea-8.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.040 real 0.020 user 0.010 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bk
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's King
+pnml2lts-seq: Regrouping: 666->666 groups
+pnml2lts-seq: Regrouping took 0.030 real 0.030 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+0.06 user, 0.02 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

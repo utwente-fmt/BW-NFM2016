@@ -1,0 +1,20 @@
+statistics run
+pnml2lts-sym spec/PNML/ARMCacheCoherence.pnml -rsc,tg,vcm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit007
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/ARMCacheCoherence.pnml
+pnml2lts-sym: Petri net has 87 places, 33676 transitions and 246935 arcs
+pnml2lts-sym: There are 87 safe places
+pnml2lts-sym: Petri net spec/PNML/ARMCacheCoherence.pnml analyzed
+pnml2lts-sym: Loading Petri net took 2.530 real 2.170 user 0.350 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,vcm,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup ViennaCL's Cuthill McKee
+Killed [24]
+1796.75 user, 1.01 system, 1802.45 elapsed -- Max VSize = 3021756KB, Max RSS = 352404KB
+command-637: line 5: 21145 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/ARMCacheCoherence.pnml -rsc,tg,vcm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

@@ -1,0 +1,176 @@
+/*
+ * Copyright (c) 1996 The University of Utah and
+ * the Computer Systems Laboratory at the University of Utah (CSL).
+ * All rights reserved.
+ *
+ * Permission to use, copy, modify and distribute this software is hereby
+ * granted provided that (1) source code retains these copyright, permission,
+ * and disclaimer notices, and (2) redistributions including binaries
+ * reproduce the notices in supporting documentation, and (3) all advertising
+ * materials mentioning features or use of this software display the following
+ * acknowledgement: ``This product includes software developed by the
+ * Computer Systems Laboratory at the University of Utah.''
+ *
+ * THE UNIVERSITY OF UTAH AND CSL ALLOW FREE USE OF THIS SOFTWARE IN ITS "AS
+ * IS" CONDITION.  THE UNIVERSITY OF UTAH AND CSL DISCLAIM ANY LIABILITY OF
+ * ANY KIND FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * CSL requests users of this software to return to csl-dist@cs.utah.edu any
+ * improvements that they make and grant CSL redistribution rights.
+ */
+/*
+ * WaitQueue-test.pr
+ *
+ * This test exercieses all of the core WaitQueue operations.
+ * Two threads add themselves to the first wait queue (repeatedly).
+ * Another thread moves threads fromt the first queue over to the
+ *  second wait queue.
+ * A third thread removes threads from the second wait queue and
+ *  starts them up again.
+ * A fourth thread tries to remove a specific thread from the
+ *  first wait queue and puts it back on immediately.
+ */
+#include "../../fluke/Fluke.pr"
+#include "../../fluke/WaitQueue.pr"
+#include "../../fluke/Thread.pr"
+#include "../../support/Sugar.pr"
+#include "../../control/wait.pr"
+	 
+#define THREAD_CT 5
+#define THREAD_CT2 10 /* 5*2 */
+
+mtype = {
+  FLUKE_MESSAGES
+}
+
+threadDefineInstances(THREAD_CT);
+wqDefineInstances(THREAD_CT2);
+mutexDefineInstances(THREAD_CT);
+
+/*
+ * different things the control proc can do:
+ */
+  /* Add itself the the given queue. */
+#  define ADD_TO       2 
+
+   /* remove "next" thread from first queue to second queue. */
+#  define MOVE_FROM_TO 3
+
+   /* remove "next" thread from given queue */
+#  define REMOVE_FROM  4 
+
+   /* remove Thread 1 from the given queue */
+#  define REMOVE_SPECIFIC 5
+
+/*
+ * This control proc takes four arguments, first
+ * is this thread's id, currentThread.  Second is
+ * the operation (one of the above).  Third and
+ * fourth are the wait queues to use for the provided
+ * operation.
+ */
+proctype waitQueueTestProc (Thread currentThread;
+			    byte operation;
+			    WaitQueue queue1, queue2)
+{
+    ResultCode rc;
+
+    do
+    :: operation == ADD_TO ->
+        assert(queue1 > 0);
+        assert(queue2 == nil);
+	atomic {
+          wqAddCallerAtomic(queue1, currentThread);
+	  threadWaitUntilReadyCallerAtomic(currentThread); /* BLOCK */
+	}
+
+    :: operation == REMOVE_FROM ->
+        assert(queue1 > 0);
+        assert(queue2 == nil);
+        /* loop until rc != THREAD_ID_INVALID */
+        rc = THREAD_ID_INVALID;
+	do
+	:: rc == THREAD_ID_INVALID ->
+             wqRemove(queue1);
+             /* sets rc to id of thread removed */
+	:: else ->
+	     break; 
+	od;
+	threadReady(rc);
+
+    :: operation == MOVE_FROM_TO ->
+        assert(queue1 > 0);
+        assert(queue2 > 0);
+        /* loop until rc != THREAD_ID_INVALID */
+        rc = THREAD_ID_INVALID;
+	do
+	:: rc == THREAD_ID_INVALID ->
+             wqRemove(queue1);
+             /* sets rc */
+	:: else ->
+	     break; 
+	od;
+	/* We've now "captured" the target, move it
+	 * to waitqueue 1 */
+	wqAdd(queue2, rc);
+
+    :: operation == REMOVE_SPECIFIC ->
+        assert(queue1 > 0);
+	assert(queue2 == nil);
+
+	/*
+	 *loop until we get thread 1 specifically off
+	 * of the queue.  Just put it back on, after.
+	 */
+	rc = THREAD_ID_INVALID; 
+	do
+	:: rc == THREAD_ID_INVALID ->
+	     wqRemoveSpecific(queue1, /*THREAD*/1);
+	     /* sets rc */
+	:: else ->
+	     break; 
+        od;
+	wqAdd(queue1, rc); /* put the thread back */
+
+    :: else ->
+         panic("Invalid op!");
+    od;
+}
+
+init {
+  /*
+   * init global state
+   */
+  threadInitInstances(THREAD_CT);
+  wqInitInstances(THREAD_CT);
+  mutexInitInstances(THREAD_CT);
+
+  /*
+   * run all of our tests
+   */
+  atomic {
+    Thread initSpawnIndex = 1; /* zero is INVALID_THREAD_ID */
+
+    /* "thread" 1 */
+    run waitQueueTestProc(initSpawnIndex, ADD_TO, 1, nil);
+    initSpawnIndex++;
+
+    /* "thread" 2 */
+    run waitQueueTestProc(initSpawnIndex, ADD_TO, 1, nil);
+    initSpawnIndex++;
+
+    /* "thread" 3 */
+    run waitQueueTestProc(initSpawnIndex, MOVE_FROM_TO, 1, 2);
+    initSpawnIndex++;
+
+    /* "thread" 4 */
+    run waitQueueTestProc(initSpawnIndex, REMOVE_FROM, 2, nil);
+    initSpawnIndex++;
+
+    /* "thread" 5 */
+    run waitQueueTestProc(initSpawnIndex, REMOVE_SPECIFIC, 2, nil);
+    /* initSpawnIndex++; */
+
+    assert(initSpawnIndex <= THREAD_CT);
+  }
+}

@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/30-100_phaseVariation.pnml --noack=2 --regroup-exit --graph-metrics
+ctit011
+pnml2lts-seq: Loading model from spec/PNML/30-100_phaseVariation.pnml
+pnml2lts-seq: Petri net has 2702 places, 30977 transitions and 215035 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/30-100_phaseVariation.pnml analyzed
+pnml2lts-seq: Computing Noack2 order
+pnml2lts-seq: Computing Noack2 order took 13.400 real 13.340 user 0.010 sys
+pnml2lts-seq: Loading Petri net took 17.300 real 16.800 user 0.410 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regrouping: 30977->30977 groups
+pnml2lts-seq: Regrouping took 3.670 real 3.580 user 0.080 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+20.39 user, 0.54 system, 21.12 elapsed -- Max VSize = 566484KB, Max RSS = 527964KB

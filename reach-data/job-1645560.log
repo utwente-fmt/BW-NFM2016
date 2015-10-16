@@ -1,0 +1,16 @@
+statistics run
+pnml2lts-sym spec/PNML/Philosophers-5000.pnml -rsc,tg,bs,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit017
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/Philosophers-5000.pnml
+pnml2lts-sym: Petri net has 25000 places, 25000 transitions and 80000 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/Philosophers-5000.pnml analyzed
+pnml2lts-sym: Loading Petri net took 12.450 real 11.980 user 0.430 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym, ** error **: out of memory
+Exit [255]
+12.13 user, 0.58 system, 12.81 elapsed -- Max VSize = 3710332KB, Max RSS = 1048532KB

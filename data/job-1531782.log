@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/BridgeAndVehicles-V20-P10-N20-unfolded.pnml --noack=1 --regroup-exit --graph-metrics
+ctit017
+pnml2lts-seq: Loading model from spec/PNML/BridgeAndVehicles-V20-P10-N20-unfolded.pnml
+pnml2lts-seq: Petri net has 78 places, 968 transitions and 7350 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/BridgeAndVehicles-V20-P10-N20-unfolded.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 0.010 real 0.010 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 0.080 real 0.070 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regrouping: 968->968 groups
+pnml2lts-seq: Regrouping took 0.010 real 0.010 user 0.000 sys
+pnml2lts-seq: max token count: 20
+Exit [0]
+0.08 user, 0.01 system, 0.20 elapsed -- Max VSize = 4192KB, Max RSS = 80KB

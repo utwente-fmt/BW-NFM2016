@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/reader_writer.3.dve -rsc,bg,vcm,mm --regroup-exit --graph-metrics
+ctit015
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/reader_writer.3.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,vcm,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup ViennaCL's Cuthill McKee
+dve2lts-seq: bandwidth: 111
+dve2lts-seq: profile: 12911
+dve2lts-seq: span: 16042
+dve2lts-seq: average wavefront: 65.021
+dve2lts-seq: RMS wavefront: 73.921
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 112->112 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 2243
+Normalized Event Span: 0.6676
+Weighted Event Span, moment 1 (WES^1): 4337
+Normalized Weighted Event Span, moment 1: 1.291
+Exit [0]
+1.44 user, 0.09 system, 1.60 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/hc4k3p3b12.pnml -rsc,tg,vacm --regroup-exit
+ctit018
+pnml2lts-seq: Loading model from spec/PNML/hc4k3p3b12.pnml
+pnml2lts-seq: Petri net has 2457 places, 5400 transitions and 21600 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/hc4k3p3b12.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.470 real 0.440 user 0.010 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vacm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-seq: Regrouping: 5400->5400 groups
+pnml2lts-seq: Regrouping took 64.800 real 64.560 user 0.040 sys
+pnml2lts-seq: max token count: 12
+Exit [0]
+65.01 user, 0.06 system, 65.37 elapsed -- Max VSize = 122328KB, Max RSS = 84104KB

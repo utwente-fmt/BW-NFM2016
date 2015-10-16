@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/krebs.4.dve -rsc,tg,vcm,mm --regroup-exit --graph-metrics
+ctit011
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/krebs.4.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,vcm,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup ViennaCL's Cuthill McKee
+dve2lts-seq: bandwidth: 66
+dve2lts-seq: profile: 5390
+dve2lts-seq: span: 6400
+dve2lts-seq: average wavefront: 34.484
+dve2lts-seq: RMS wavefront: 39.836
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 22->22 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 142
+Normalized Event Span: 0.323
+Weighted Event Span, moment 1 (WES^1): 254
+Normalized Weighted Event Span, moment 1: 0.577
+Exit [0]
+0.46 user, 0.04 system, 0.60 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

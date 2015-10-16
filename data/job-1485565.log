@@ -1,0 +1,24 @@
+statistics run
+prom2lts-seq spec/Promela/firewire_link.7.prom.spins -rsc,bg,bk,mm --regroup-exit --graph-metrics
+ctit009
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/firewire_link.7.prom.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,bg,bk,mm
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup Bipartite Graph
+prom2lts-seq: Regroup Boost's King
+prom2lts-seq: bandwidth: 578
+prom2lts-seq: profile: 309028
+prom2lts-seq: span: 366677
+prom2lts-seq: average wavefront: 183.9257
+prom2lts-seq: RMS wavefront: 243.3655
+prom2lts-seq: Regroup Matrix Metrics
+prom2lts-seq: Regrouping: 959->959 groups
+prom2lts-seq: Regrouping took 0.040 real 0.040 user 0.010 sys
+Event Span: 17408
+Normalized Event Span: 0.23574
+Weighted Event Span, moment 1 (WES^1): 15064
+Normalized Weighted Event Span, moment 1: 0.20399
+Exit [0]
+0.08 user, 0.02 system, 0.20 elapsed -- Max VSize = 63788KB, Max RSS = 28148KB

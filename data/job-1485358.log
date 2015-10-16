@@ -1,0 +1,24 @@
+statistics run
+prom2lts-seq spec/Promela/bopdp.3.prom.spins -rsc,bg,vacm,mm --regroup-exit --graph-metrics
+ctit014
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/bopdp.3.prom.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,bg,vacm,mm
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup Bipartite Graph
+prom2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+prom2lts-seq: bandwidth: 40
+prom2lts-seq: profile: 3015
+prom2lts-seq: span: 4148
+prom2lts-seq: average wavefront: 20.825
+prom2lts-seq: RMS wavefront: 24.042
+prom2lts-seq: Regroup Matrix Metrics
+prom2lts-seq: Regrouping: 80->80 groups
+prom2lts-seq: Regrouping took 0.010 real 0.000 user 0.000 sys
+Event Span: 812
+Normalized Event Span: 0.2985
+Weighted Event Span, moment 1 (WES^1): 1444
+Normalized Weighted Event Span, moment 1: 0.531
+Exit [0]
+0.01 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

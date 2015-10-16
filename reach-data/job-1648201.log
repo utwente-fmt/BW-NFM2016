@@ -1,0 +1,36 @@
+statistics run
+pnml2lts-sym spec/PNML/neoelection-5.unf.pnml -rsc,tg,vcm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit029
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/neoelection-5.unf.pnml
+pnml2lts-sym: Petri net has 3090 places, 4674 transitions and 27162 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/neoelection-5.unf.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.560 real 0.480 user 0.060 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,vcm,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup ViennaCL's Cuthill McKee
+pnml2lts-sym: bandwidth: 18099
+pnml2lts-sym: profile: 309019664
+pnml2lts-sym: span: 385617035
+pnml2lts-sym: average wavefront: 7484.02042
+pnml2lts-sym: RMS wavefront: 9410.745175
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 4674->4674 groups
+pnml2lts-sym: Regrouping took 128.480 real 127.890 user 0.070 sys
+pnml2lts-sym: state vector length is 3090; there are 4674 groups and 1002 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+MDD Unique table full, 15041701 of 16777216 buckets filled!
+Event Span: 1571167
+Normalized Event Span: 0.10878654
+Weighted Event Span, moment 1 (WES^1): 798596.87
+Normalized Weighted Event Span, moment 1: 0.055294306
+Exit [1]
+146.24 user, 0.37 system, 147.34 elapsed -- Max VSize = 3754100KB, Max RSS = 467956KB

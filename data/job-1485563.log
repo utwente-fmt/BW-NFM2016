@@ -1,0 +1,18 @@
+statistics run
+prom2lts-seq spec/Promela/firewire_link.7.prom.spins -rsc,f,mm --regroup-exit
+ctit043
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/firewire_link.7.prom.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,f,mm
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup FORCE
+prom2lts-seq: Regroup Matrix Metrics
+prom2lts-seq: Regrouping: 959->959 groups
+prom2lts-seq: Regrouping took 0.020 real 0.010 user 0.000 sys
+Event Span: 42697
+Normalized Event Span: 0.57821
+Weighted Event Span, moment 1 (WES^1): 72372
+Normalized Weighted Event Span, moment 1: 0.98009
+Exit [0]
+0.06 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

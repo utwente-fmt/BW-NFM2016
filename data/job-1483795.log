@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/eratosthenes-010.pnml -rsc,bg,bk,mm --regroup-exit --graph-metrics
+ctit014
+pnml2lts-seq: Loading model from spec/PNML/eratosthenes-010.pnml
+pnml2lts-seq: Petri net has 9 places, 8 transitions and 24 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/eratosthenes-010.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bk,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's King
+pnml2lts-seq: bandwidth: 3
+pnml2lts-seq: profile: 52
+pnml2lts-seq: span: 69
+pnml2lts-seq: average wavefront: 2.65
+pnml2lts-seq: RMS wavefront: 2.86
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 8->8 groups
+pnml2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Event Span: 21
+Normalized Event Span: 0.29
+Weighted Event Span, moment 1 (WES^1): 25
+Normalized Weighted Event Span, moment 1: 0.35
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

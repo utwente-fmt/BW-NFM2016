@@ -1,0 +1,30 @@
+statistics run
+pnml2lts-seq spec/PNML/echo-d3r7.pnml -rsc,bn,mm --noack=1 --regroup-exit --graph-metrics
+ctit027
+pnml2lts-seq: Loading model from spec/PNML/echo-d3r7.pnml
+pnml2lts-seq: Petri net has 4209 places, 3518 transitions and 25540 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/echo-d3r7.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 2.990 real 2.980 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 3.550 real 3.490 user 0.040 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regroup specification: sc,bn,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Boost's None
+pnml2lts-seq: bandwidth: 7702
+pnml2lts-seq: profile: 37785070
+pnml2lts-seq: span: 13307895
+pnml2lts-seq: average wavefront: 2633.0573
+pnml2lts-seq: RMS wavefront: 2933.0505
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 3518->3518 groups
+pnml2lts-seq: Regrouping took 3.980 real 3.920 user 0.050 sys
+pnml2lts-seq: max token count: 1
+Event Span: 4771151
+Normalized Event Span: 0.32221696
+Weighted Event Span, moment 1 (WES^1): 6444182.7
+Normalized Weighted Event Span, moment 1: 0.4352042
+Exit [0]
+7.42 user, 0.11 system, 7.61 elapsed -- Max VSize = 132240KB, Max RSS = 93908KB

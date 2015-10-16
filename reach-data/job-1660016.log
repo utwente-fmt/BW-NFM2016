@@ -1,0 +1,28 @@
+performance run
+pnml2lts-sym spec/PNML/10-100_phaseVariation.pnml -rsc,tg,vgps,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit027
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/10-100_phaseVariation.pnml
+pnml2lts-sym: Petri net has 302 places, 3137 transitions and 21755 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/10-100_phaseVariation.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.230 real 0.190 user 0.030 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,vgps,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 3137->3137 groups
+pnml2lts-sym: Regrouping took 53.930 real 53.800 user 0.030 sys
+pnml2lts-sym: state vector length is 302; there are 3137 groups and 302 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 15041833 of 16777216 buckets filled!
+Exit [1]
+275.27 user, 0.93 system, 277.07 elapsed -- Max VSize = 3675644KB, Max RSS = 1008600KB

@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/2D8_gradient_50x50_100.pnml -rsc,tg,bs --regroup-exit
+ctit039
+pnml2lts-seq: Loading model from spec/PNML/2D8_gradient_50x50_100.pnml
+pnml2lts-seq: Petri net has 2500 places, 19404 transitions and 38808 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/2D8_gradient_50x50_100.pnml analyzed
+pnml2lts-seq: Loading Petri net took 1.750 real 1.530 user 0.130 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: Regrouping: 19404->19404 groups
+pnml2lts-seq: Regrouping took 10.010 real 9.770 user 0.140 sys
+pnml2lts-seq: max token count: 100
+Exit [0]
+11.31 user, 0.31 system, 11.82 elapsed -- Max VSize = 320068KB, Max RSS = 281740KB

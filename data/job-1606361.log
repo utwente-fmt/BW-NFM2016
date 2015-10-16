@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/peg_solitaire.5.dve -rsc,tg,vgps --regroup-exit
+ctit040
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/peg_solitaire.5.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,vgps
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+dve2lts-seq: Regrouping: 140->140 groups
+dve2lts-seq: Regrouping took 12.060 real 11.810 user 0.000 sys
+Exit [0]
+15.38 user, 0.14 system, 16.13 elapsed -- Max VSize = 46936KB, Max RSS = 11404KB

@@ -1,0 +1,20 @@
+performance run
+pnml2lts-sym spec/PNML/neoelection-4.unf.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit025
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/neoelection-4.unf.pnml
+pnml2lts-sym: Petri net has 1830 places, 2340 transitions and 13565 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/neoelection-4.unf.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.210 real 0.170 user 0.040 sys
+pnml2lts-sym: state vector length is 1830; there are 2340 groups and 625 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1797.56 user, 0.58 system, 1800.84 elapsed -- Max VSize = 3677996KB, Max RSS = 1000644KB
+command-1001: line 5: 42160 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/neoelection-4.unf.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1

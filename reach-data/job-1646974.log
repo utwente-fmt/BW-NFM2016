@@ -1,0 +1,38 @@
+statistics run
+pnml2lts-sym spec/PNML/TokenRing-30-unfolded.pnml -rsc,bn,rs,mm,hf --noack=1 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit012
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/TokenRing-30-unfolded.pnml
+pnml2lts-sym: Petri net has 961 places, 27931 transitions and 111724 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/TokenRing-30-unfolded.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 1.930 real 1.910 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 4.130 real 3.790 user 0.330 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 28842
+pnml2lts-sym: profile: 435131246
+pnml2lts-sym: span: 35484192
+pnml2lts-sym: average wavefront: 934.974976
+pnml2lts-sym: RMS wavefront: 942.79451
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 27931->27931 groups
+pnml2lts-sym: Regrouping took 33.820 real 33.650 user 0.060 sys
+pnml2lts-sym: state vector length is 961; there are 27931 groups and 961 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Event Span: 9268849
+Normalized Event Span: 0.34531539
+Weighted Event Span, moment 1 (WES^1): 13907249
+Normalized Weighted Event Span, moment 1: 0.51812119
+Exit [1]
+37.45 user, 0.47 system, 38.14 elapsed -- Max VSize = 2963128KB, Max RSS = 299480KB

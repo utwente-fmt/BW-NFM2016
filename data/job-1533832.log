@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/SafeBus-20-unfolded.pnml -rsc,tg,bk --regroup-exit
+ctit035
+pnml2lts-seq: Loading model from spec/PNML/SafeBus-20-unfolded.pnml
+pnml2lts-seq: Petri net has 1026 places, 10461 transitions and 77364 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/SafeBus-20-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 1.290 real 0.910 user 0.120 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bk
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's King
+pnml2lts-seq: Regrouping: 10461->10461 groups
+pnml2lts-seq: Regrouping took 1.410 real 1.300 user 0.010 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+2.22 user, 0.16 system, 2.81 elapsed -- Max VSize = 207796KB, Max RSS = 169372KB

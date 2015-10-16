@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/raft_08.pnml -rsc,tg,bs --regroup-exit
+ctit025
+pnml2lts-seq: Loading model from spec/PNML/raft_08.pnml
+pnml2lts-seq: Petri net has 328 places, 568 transitions and 2163 arcs
+pnml2lts-seq: There are 328 safe places
+pnml2lts-seq: Petri net spec/PNML/raft_08.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.020 real 0.010 user 0.010 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: Regrouping: 568->568 groups
+pnml2lts-seq: Regrouping took 0.150 real 0.140 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+0.16 user, 0.01 system, 0.20 elapsed -- Max VSize = 48132KB, Max RSS = 9644KB

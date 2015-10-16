@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-350- --no-close spec/B/RussianPostalPuzzle.mch -rsc,bg,bcm,mm --regroup-exit --graph-metrics
+ctit037
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-352.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-352.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,bcm,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup Boost's Cuthill McKee
+prob2lts-seq: bandwidth: 6
+prob2lts-seq: profile: 65
+prob2lts-seq: span: 77
+prob2lts-seq: average wavefront: 4.18
+prob2lts-seq: RMS wavefront: 4.49
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 5->5 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 24
+Normalized Event Span: 0.8
+Weighted Event Span, moment 1 (WES^1): 45
+Normalized Weighted Event Span, moment 1: 1.5
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-352: line 10: 62131 Killed                  probcli spec/B/RussianPostalPuzzle.mch -ltsmin2 /tmp/ltsmin-352.probz

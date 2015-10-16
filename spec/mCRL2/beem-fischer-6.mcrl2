@@ -1,0 +1,642 @@
+sort
+  BoolInt = Int32;
+  Int16 = Int;
+  Int32 = Int;
+  Message = Int;
+  State = struct State'CS | State'NCS | State'q | State'try | State'wait;
+  UInt8 = Nat;
+  Array_UInt8_8 = struct Array_UInt8_8(UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8);
+
+% Array_UInt8_8
+map
+  get_Array_UInt8_8 : Array_UInt8_8 # Int -> UInt8;
+  set_Array_UInt8_8 : Array_UInt8_8 # Int # UInt8 -> Array_UInt8_8;
+  merge_Array_UInt8_8 : Array_UInt8_8 # Array_UInt8_8 # Array_UInt8_8 -> Array_UInt8_8;
+var
+  a:Array_UInt8_8;
+  b:Array_UInt8_8;
+  x:UInt8;
+  i:Nat;
+  j:Nat;
+  v:UInt8;
+  w:UInt8;
+  x0:UInt8;
+  y0:UInt8;
+  z0:UInt8;
+  x1:UInt8;
+  y1:UInt8;
+  z1:UInt8;
+  x2:UInt8;
+  y2:UInt8;
+  z2:UInt8;
+  x3:UInt8;
+  y3:UInt8;
+  z3:UInt8;
+  x4:UInt8;
+  y4:UInt8;
+  z4:UInt8;
+  x5:UInt8;
+  y5:UInt8;
+  z5:UInt8;
+  x6:UInt8;
+  y6:UInt8;
+  z6:UInt8;
+  x7:UInt8;
+  y7:UInt8;
+  z7:UInt8;
+eqn
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 0) = x0;
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 1) = x1;
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 2) = x2;
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 3) = x3;
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 4) = x4;
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 5) = x5;
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 6) = x6;
+  get_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 7) = x7;
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 0, x) = Array_UInt8_8(x, x1, x2, x3, x4, x5, x6, x7);
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 1, x) = Array_UInt8_8(x0, x, x2, x3, x4, x5, x6, x7);
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 2, x) = Array_UInt8_8(x0, x1, x, x3, x4, x5, x6, x7);
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 3, x) = Array_UInt8_8(x0, x1, x2, x, x4, x5, x6, x7);
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 4, x) = Array_UInt8_8(x0, x1, x2, x3, x, x5, x6, x7);
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 5, x) = Array_UInt8_8(x0, x1, x2, x3, x4, x, x6, x7);
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 6, x) = Array_UInt8_8(x0, x1, x2, x3, x4, x5, x, x7);
+  set_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), 7, x) = Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x);
+  merge_Array_UInt8_8(Array_UInt8_8(x0, x1, x2, x3, x4, x5, x6, x7), Array_UInt8_8(y0, y1, y2, y3, y4, y5, y6, y7), Array_UInt8_8(z0, z1, z2, z3, z4, z5, z6, z7)) = Array_UInt8_8(merge_UInt8(x0, y0, z0), merge_UInt8(x1, y1, z1), merge_UInt8(x2, y2, z2), merge_UInt8(x3, y3, z3), merge_UInt8(x4, y4, z4), merge_UInt8(x5, y5, z5), merge_UInt8(x6, y6, z6), merge_UInt8(x7, y7, z7));
+  merge_Array_UInt8_8(a, b, a) = b;
+  merge_Array_UInt8_8(a, a, b) = b;
+  set_Array_UInt8_8(set_Array_UInt8_8(b,i,v),j,w) == set_Array_UInt8_8(set_Array_UInt8_8(b,j,w),i,v) = i != j || v == w;
+  w == get_Array_UInt8_8(set_Array_UInt8_8(b,i,v), j) = ((i == j && w == v) || (i != j && w == get_Array_UInt8_8(b, j)));
+  get_Array_UInt8_8(set_Array_UInt8_8(b,i,v), j) = if(i == j, v, get_Array_UInt8_8(b, j));
+
+% BASE SORT EQUATIONS
+map
+  coerce_BoolInt : Bool -> BoolInt;
+  coerce_Bool : Int -> Bool;
+  rem : Int # Int -> Int;
+  coerce_UInt8 : Int -> UInt8;
+  coerce_Int16 : Int -> Int16;
+  coerce_Int32 : Int -> Int32;
+  _coerce_Int32 : Int -> Int32;
+  m32_lognot : Int32 -> Int32;
+  m32_logand : Int32 # Int32 -> Int32;
+  m32_logor : Int32 # Int32 -> Int32;
+  m32_lshift : Int32 # Int32 -> Int32;
+  m32_rshift : Int32 # Int32 -> Int32;
+  merge_State : State # State # State -> State;
+var
+  b:Bool;
+  x:Int;
+  y:Int;
+  sx:State;
+  sy:State;
+eqn
+  coerce_BoolInt(false) = 0;
+  coerce_BoolInt(true)  = 1;
+  (coerce_BoolInt(b) == 0) = !b;
+  coerce_Bool(x) = x != 0;
+  (x>=0 && y>0) -> rem(x,y) = Nat2Int(x mod Int2Pos(y));
+  (x>=0 && y<0) -> rem(x,y) =  rem( x,-y);
+  (x<0)         -> rem(x,y) = -rem(-x, y);
+  (x >= 0 && x < 256) -> coerce_UInt8(x) = Int2Nat(x);
+  (x >= -32768 && x < 32768) -> coerce_Int16(x) = x;
+  coerce_Int32(y) = _coerce_Int32(y mod 4294967296);
+  (y >= 2147483648) -> _coerce_Int32(y) = y - 4294967296;
+  (y < 2147483648)  -> _coerce_Int32(y) = y;
+  (x>=0) -> m32_lognot(x) = coerce_Int32(UInt322Nat(not(Nat2UInt32(Int2Nat(x)))));
+  (x<0)  -> m32_lognot(x) = coerce_Int32(UInt322Nat(not(Nat2UInt32(Int2Nat(4294967296+x)))));
+  (x>=0 && y>=0) -> m32_logand(x,y) = coerce_Int32(UInt322Nat(and(Nat2UInt32(Int2Nat(x)),Nat2UInt32(Int2Nat(y)))));
+  (x>=0 && y>=0) -> m32_logor(x,y) = coerce_Int32(UInt322Nat(or(Nat2UInt32(Int2Nat(x)),Nat2UInt32(Int2Nat(y)))));
+  (x>=0 && y>=0) -> m32_lshift(x,y) = coerce_Int32(UInt322Nat(shiftl(Nat2UInt32(Int2Nat(x)),Nat2UInt32(Int2Nat(y)))));
+  (x>=0 && y>=0) -> m32_rshift(x,y) = coerce_Int32(UInt322Nat(shiftr(Nat2UInt32(Int2Nat(x)),Nat2UInt32(Int2Nat(y)))));
+  merge_State(sx,sx,sy) = sy;
+  merge_State(sx,sy,sx) = sy;
+
+% Operator m32_and
+map
+  m32_and : BoolInt # BoolInt -> BoolInt;
+var
+  x:BoolInt;
+  y:BoolInt;
+eqn
+  m32_and(x, y) = coerce_BoolInt(coerce_Bool(x) && coerce_Bool(y));
+
+% Operator m32_div
+map
+  m32_div : Int32 # Int32 -> Int32;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  (y>0) -> m32_div(x, y) = x div Int2Pos(y);
+  (y<0) -> m32_div(x, y) = (-x) div Int2Pos(-y);
+
+% Operator m32_eq
+map
+  m32_eq : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_eq(x, y) = coerce_BoolInt(x == y);
+
+% Operator m32_geq
+map
+  m32_geq : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_geq(x, y) = coerce_BoolInt(x >= y);
+
+% Operator m32_gt
+map
+  m32_gt : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_gt(x, y) = coerce_BoolInt(x > y);
+
+% Operator m32_implies
+map
+  m32_implies : BoolInt # BoolInt -> BoolInt;
+var
+  x:BoolInt;
+  y:BoolInt;
+eqn
+  m32_implies(x, y) = coerce_BoolInt(coerce_Bool(x) => coerce_Bool(y));
+
+% Operator m32_le
+map
+  m32_le : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_le(x, y) = coerce_BoolInt(x <= y);
+
+% Operator m32_lt
+map
+  m32_lt : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_lt(x, y) = coerce_BoolInt(x < y);
+
+% Operator m32_minus
+map
+  m32_minus : Int32 # Int32 -> Int32;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_minus(x, y) = coerce_Int32(x - y);
+
+% Operator m32_neq
+map
+  m32_neq : Int32 # Int32 -> BoolInt;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_neq(x, y) = coerce_BoolInt(x != y);
+
+% Operator m32_not
+map
+  m32_not : BoolInt -> BoolInt;
+var
+  x:BoolInt;
+eqn
+  m32_not(x) = coerce_BoolInt(! coerce_Bool(x));
+
+% Operator m32_or
+map
+  m32_or : BoolInt # BoolInt -> BoolInt;
+var
+  x:BoolInt;
+  y:BoolInt;
+eqn
+  m32_or(x, y) = coerce_BoolInt(coerce_Bool(x) || coerce_Bool(y));
+
+% Operator m32_plus
+map
+  m32_plus : Int32 # Int32 -> Int32;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_plus(x, y) = coerce_Int32(x + y);
+
+% Operator m32_times
+map
+  m32_times : Int32 # Int32 -> Int32;
+var
+  x:Int32;
+  y:Int32;
+eqn
+  m32_times(x, y) = coerce_Int32(x * y);
+
+% Operator m32_uminus
+map
+  m32_uminus : Int32 -> Int32;
+var
+  x:Int32;
+eqn
+  m32_uminus(x) = coerce_Int32(- x);
+
+% UInt8
+map
+  merge_UInt8 : UInt8#UInt8#UInt8 -> UInt8;
+var
+  x:UInt8;
+  y:UInt8;
+eqn
+  merge_UInt8(x, x, y) = y;
+  merge_UInt8(x, y, x) = y;
+
+act
+  __read_write_sync : State#State#State#State#State#State#State#State#State#UInt8#Array_UInt8_8#State#State#State#State#State#State#State#State#State#UInt8#Array_UInt8_8#State#State#State#State#State#State#State#State#State#UInt8#Array_UInt8_8#Message;
+  _read_write_sync : State#State#State#State#State#State#State#State#State#UInt8#Array_UInt8_8#State#State#State#State#State#State#State#State#State#UInt8#Array_UInt8_8#State#State#State#State#State#State#State#State#State#UInt8#Array_UInt8_8#Message;
+  read_write_sync : State#State#State#State#State#State#State#State#State#UInt8#Array_UInt8_8#State#State#State#State#State#State#State#State#State#UInt8#Array_UInt8_8#State#State#State#State#State#State#State#State#State#UInt8#Array_UInt8_8#Message;
+
+proc
+  MEM'(state'P_0:State, state'P_1:State, state'P_2:State, state'P_3:State, state'P_4:State, state'P_5:State, state'P_6:State, state'P_7:State, state'Timer:State, MEM''id:UInt8, MEM''t:Array_UInt8_8) = sum state'P_0':State. sum state'P_1':State. sum state'P_2':State. sum state'P_3':State. sum state'P_4':State. sum state'P_5':State. sum state'P_6':State. sum state'P_7':State. sum state'Timer':State. sum MEM''id':UInt8. sum MEM''t':Array_UInt8_8. 
+    sum state'P_0'':State. sum state'P_1'':State. sum state'P_2'':State. sum state'P_3'':State. sum state'P_4'':State. sum state'P_5'':State. sum state'P_6'':State. sum state'P_7'':State. sum state'Timer'':State. sum MEM''id'':UInt8. sum MEM''t'':Array_UInt8_8. sum m':Message. read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0', state'P_1', state'P_2', state'P_3', state'P_4', state'P_5', state'P_6', state'P_7', state'Timer', MEM''id', MEM''t', state'P_0'', state'P_1'', state'P_2'', state'P_3'', state'P_4'', state'P_5'', state'P_6'', state'P_7'', state'Timer'', MEM''id'', MEM''t'', m').MEM'(
+      merge_State(state'P_0, state'P_0', state'P_0''), 
+      merge_State(state'P_1, state'P_1', state'P_1''), 
+      merge_State(state'P_2, state'P_2', state'P_2''), 
+      merge_State(state'P_3, state'P_3', state'P_3''), 
+      merge_State(state'P_4, state'P_4', state'P_4''), 
+      merge_State(state'P_5, state'P_5', state'P_5''), 
+      merge_State(state'P_6, state'P_6', state'P_6''), 
+      merge_State(state'P_7, state'P_7', state'P_7''), 
+      merge_State(state'Timer, state'Timer', state'Timer''), 
+      merge_UInt8(MEM''id, MEM''id', MEM''id''), 
+      merge_Array_UInt8_8(MEM''t, MEM''t', MEM''t''));
+
+  P_0 = sum state'P_0:State. sum state'P_1:State. sum state'P_2:State. sum state'P_3:State. sum state'P_4:State. sum state'P_5:State. sum state'P_6:State. sum state'P_7:State. sum state'Timer:State. sum MEM''id:UInt8. sum MEM''t:Array_UInt8_8. sum state'P_0':State. sum state'P_1':State. sum state'P_2':State. sum state'P_3':State. sum state'P_4':State. sum state'P_5':State. sum state'P_6':State. sum state'P_7':State. sum state'Timer':State. sum MEM''id':UInt8. sum MEM''t':Array_UInt8_8. sum m':Message. 
+  ( 
+    sum tmp'MEM''t8:Array_UInt8_8.
+    ((tmp'MEM''t8 == set_Array_UInt8_8(MEM''t, 0, 2)) &&
+    (state'P_0 == State'NCS && coerce_Bool(m32_eq(MEM''id, 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, State'try, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, tmp'MEM''t8, 0).P_0
+  + 
+    sum tmp'MEM''t9:Array_UInt8_8. sum tmp'MEM''id10:UInt8.
+    ((tmp'MEM''t9 == set_Array_UInt8_8(MEM''t, 0, 3)) && (tmp'MEM''id10 == coerce_UInt8(m32_plus(0, 1))) &&
+    (state'P_0 == State'try)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, State'wait, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, tmp'MEM''id10, tmp'MEM''t9, 0).P_0
+  + 
+    sum tmp'MEM''t11:Array_UInt8_8.
+    ((tmp'MEM''t11 == set_Array_UInt8_8(MEM''t, 0, 255)) &&
+    (state'P_0 == State'wait && coerce_Bool(m32_eq(get_Array_UInt8_8(MEM''t, 0), 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, State'wait, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, tmp'MEM''t11, 0).P_0
+  + 
+    ((state'P_0 == State'wait && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''t, 0), 255), m32_eq(MEM''id, m32_plus(0, 1)))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, State'CS, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, 0).P_0
+  + 
+    ((state'P_0 == State'wait && coerce_Bool(m32_and(m32_neq(MEM''id, m32_plus(0, 1)), m32_eq(get_Array_UInt8_8(MEM''t, 0), 255))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, State'NCS, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, 0).P_0
+  + 
+    sum tmp'MEM''id12:UInt8.
+    ((tmp'MEM''id12 == 0) &&
+    (state'P_0 == State'CS)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, State'NCS, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, tmp'MEM''id12, MEM''t, 0).P_0
+  );
+
+  P_1 = sum state'P_0:State. sum state'P_1:State. sum state'P_2:State. sum state'P_3:State. sum state'P_4:State. sum state'P_5:State. sum state'P_6:State. sum state'P_7:State. sum state'Timer:State. sum MEM''id:UInt8. sum MEM''t:Array_UInt8_8. sum state'P_0':State. sum state'P_1':State. sum state'P_2':State. sum state'P_3':State. sum state'P_4':State. sum state'P_5':State. sum state'P_6':State. sum state'P_7':State. sum state'Timer':State. sum MEM''id':UInt8. sum MEM''t':Array_UInt8_8. sum m':Message. 
+  ( 
+    sum tmp'MEM''t13:Array_UInt8_8.
+    ((tmp'MEM''t13 == set_Array_UInt8_8(MEM''t, 1, 2)) &&
+    (state'P_1 == State'NCS && coerce_Bool(m32_eq(MEM''id, 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, State'try, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, tmp'MEM''t13, 0).P_1
+  + 
+    sum tmp'MEM''t14:Array_UInt8_8. sum tmp'MEM''id15:UInt8.
+    ((tmp'MEM''t14 == set_Array_UInt8_8(MEM''t, 1, 3)) && (tmp'MEM''id15 == coerce_UInt8(m32_plus(1, 1))) &&
+    (state'P_1 == State'try)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, State'wait, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, tmp'MEM''id15, tmp'MEM''t14, 0).P_1
+  + 
+    sum tmp'MEM''t16:Array_UInt8_8.
+    ((tmp'MEM''t16 == set_Array_UInt8_8(MEM''t, 1, 255)) &&
+    (state'P_1 == State'wait && coerce_Bool(m32_eq(get_Array_UInt8_8(MEM''t, 1), 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, State'wait, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, tmp'MEM''t16, 0).P_1
+  + 
+    ((state'P_1 == State'wait && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''t, 1), 255), m32_eq(MEM''id, m32_plus(1, 1)))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, State'CS, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, 0).P_1
+  + 
+    ((state'P_1 == State'wait && coerce_Bool(m32_and(m32_neq(MEM''id, m32_plus(1, 1)), m32_eq(get_Array_UInt8_8(MEM''t, 1), 255))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, State'NCS, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, 0).P_1
+  + 
+    sum tmp'MEM''id17:UInt8.
+    ((tmp'MEM''id17 == 0) &&
+    (state'P_1 == State'CS)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, State'NCS, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, tmp'MEM''id17, MEM''t, 0).P_1
+  );
+
+  P_2 = sum state'P_0:State. sum state'P_1:State. sum state'P_2:State. sum state'P_3:State. sum state'P_4:State. sum state'P_5:State. sum state'P_6:State. sum state'P_7:State. sum state'Timer:State. sum MEM''id:UInt8. sum MEM''t:Array_UInt8_8. sum state'P_0':State. sum state'P_1':State. sum state'P_2':State. sum state'P_3':State. sum state'P_4':State. sum state'P_5':State. sum state'P_6':State. sum state'P_7':State. sum state'Timer':State. sum MEM''id':UInt8. sum MEM''t':Array_UInt8_8. sum m':Message. 
+  ( 
+    sum tmp'MEM''t18:Array_UInt8_8.
+    ((tmp'MEM''t18 == set_Array_UInt8_8(MEM''t, 2, 2)) &&
+    (state'P_2 == State'NCS && coerce_Bool(m32_eq(MEM''id, 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, State'try, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, tmp'MEM''t18, 0).P_2
+  + 
+    sum tmp'MEM''t19:Array_UInt8_8. sum tmp'MEM''id20:UInt8.
+    ((tmp'MEM''t19 == set_Array_UInt8_8(MEM''t, 2, 3)) && (tmp'MEM''id20 == coerce_UInt8(m32_plus(2, 1))) &&
+    (state'P_2 == State'try)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, State'wait, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, tmp'MEM''id20, tmp'MEM''t19, 0).P_2
+  + 
+    sum tmp'MEM''t21:Array_UInt8_8.
+    ((tmp'MEM''t21 == set_Array_UInt8_8(MEM''t, 2, 255)) &&
+    (state'P_2 == State'wait && coerce_Bool(m32_eq(get_Array_UInt8_8(MEM''t, 2), 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, State'wait, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, tmp'MEM''t21, 0).P_2
+  + 
+    ((state'P_2 == State'wait && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''t, 2), 255), m32_eq(MEM''id, m32_plus(2, 1)))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, State'CS, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, 0).P_2
+  + 
+    ((state'P_2 == State'wait && coerce_Bool(m32_and(m32_neq(MEM''id, m32_plus(2, 1)), m32_eq(get_Array_UInt8_8(MEM''t, 2), 255))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, State'NCS, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, 0).P_2
+  + 
+    sum tmp'MEM''id22:UInt8.
+    ((tmp'MEM''id22 == 0) &&
+    (state'P_2 == State'CS)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, State'NCS, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, tmp'MEM''id22, MEM''t, 0).P_2
+  );
+
+  P_3 = sum state'P_0:State. sum state'P_1:State. sum state'P_2:State. sum state'P_3:State. sum state'P_4:State. sum state'P_5:State. sum state'P_6:State. sum state'P_7:State. sum state'Timer:State. sum MEM''id:UInt8. sum MEM''t:Array_UInt8_8. sum state'P_0':State. sum state'P_1':State. sum state'P_2':State. sum state'P_3':State. sum state'P_4':State. sum state'P_5':State. sum state'P_6':State. sum state'P_7':State. sum state'Timer':State. sum MEM''id':UInt8. sum MEM''t':Array_UInt8_8. sum m':Message. 
+  ( 
+    sum tmp'MEM''t23:Array_UInt8_8.
+    ((tmp'MEM''t23 == set_Array_UInt8_8(MEM''t, 3, 2)) &&
+    (state'P_3 == State'NCS && coerce_Bool(m32_eq(MEM''id, 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, State'try, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, tmp'MEM''t23, 0).P_3
+  + 
+    sum tmp'MEM''t24:Array_UInt8_8. sum tmp'MEM''id25:UInt8.
+    ((tmp'MEM''t24 == set_Array_UInt8_8(MEM''t, 3, 3)) && (tmp'MEM''id25 == coerce_UInt8(m32_plus(3, 1))) &&
+    (state'P_3 == State'try)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, State'wait, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, tmp'MEM''id25, tmp'MEM''t24, 0).P_3
+  + 
+    sum tmp'MEM''t26:Array_UInt8_8.
+    ((tmp'MEM''t26 == set_Array_UInt8_8(MEM''t, 3, 255)) &&
+    (state'P_3 == State'wait && coerce_Bool(m32_eq(get_Array_UInt8_8(MEM''t, 3), 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, State'wait, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, tmp'MEM''t26, 0).P_3
+  + 
+    ((state'P_3 == State'wait && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''t, 3), 255), m32_eq(MEM''id, m32_plus(3, 1)))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, State'CS, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, 0).P_3
+  + 
+    ((state'P_3 == State'wait && coerce_Bool(m32_and(m32_neq(MEM''id, m32_plus(3, 1)), m32_eq(get_Array_UInt8_8(MEM''t, 3), 255))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, State'NCS, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, 0).P_3
+  + 
+    sum tmp'MEM''id27:UInt8.
+    ((tmp'MEM''id27 == 0) &&
+    (state'P_3 == State'CS)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, State'NCS, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, tmp'MEM''id27, MEM''t, 0).P_3
+  );
+
+  P_4 = sum state'P_0:State. sum state'P_1:State. sum state'P_2:State. sum state'P_3:State. sum state'P_4:State. sum state'P_5:State. sum state'P_6:State. sum state'P_7:State. sum state'Timer:State. sum MEM''id:UInt8. sum MEM''t:Array_UInt8_8. sum state'P_0':State. sum state'P_1':State. sum state'P_2':State. sum state'P_3':State. sum state'P_4':State. sum state'P_5':State. sum state'P_6':State. sum state'P_7':State. sum state'Timer':State. sum MEM''id':UInt8. sum MEM''t':Array_UInt8_8. sum m':Message. 
+  ( 
+    sum tmp'MEM''t28:Array_UInt8_8.
+    ((tmp'MEM''t28 == set_Array_UInt8_8(MEM''t, 4, 2)) &&
+    (state'P_4 == State'NCS && coerce_Bool(m32_eq(MEM''id, 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, State'try, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, tmp'MEM''t28, 0).P_4
+  + 
+    sum tmp'MEM''t29:Array_UInt8_8. sum tmp'MEM''id30:UInt8.
+    ((tmp'MEM''t29 == set_Array_UInt8_8(MEM''t, 4, 3)) && (tmp'MEM''id30 == coerce_UInt8(m32_plus(4, 1))) &&
+    (state'P_4 == State'try)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, State'wait, state'P_5, state'P_6, state'P_7, state'Timer, tmp'MEM''id30, tmp'MEM''t29, 0).P_4
+  + 
+    sum tmp'MEM''t31:Array_UInt8_8.
+    ((tmp'MEM''t31 == set_Array_UInt8_8(MEM''t, 4, 255)) &&
+    (state'P_4 == State'wait && coerce_Bool(m32_eq(get_Array_UInt8_8(MEM''t, 4), 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, State'wait, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, tmp'MEM''t31, 0).P_4
+  + 
+    ((state'P_4 == State'wait && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''t, 4), 255), m32_eq(MEM''id, m32_plus(4, 1)))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, State'CS, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, 0).P_4
+  + 
+    ((state'P_4 == State'wait && coerce_Bool(m32_and(m32_neq(MEM''id, m32_plus(4, 1)), m32_eq(get_Array_UInt8_8(MEM''t, 4), 255))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, State'NCS, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, 0).P_4
+  + 
+    sum tmp'MEM''id32:UInt8.
+    ((tmp'MEM''id32 == 0) &&
+    (state'P_4 == State'CS)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, State'NCS, state'P_5, state'P_6, state'P_7, state'Timer, tmp'MEM''id32, MEM''t, 0).P_4
+  );
+
+  P_5 = sum state'P_0:State. sum state'P_1:State. sum state'P_2:State. sum state'P_3:State. sum state'P_4:State. sum state'P_5:State. sum state'P_6:State. sum state'P_7:State. sum state'Timer:State. sum MEM''id:UInt8. sum MEM''t:Array_UInt8_8. sum state'P_0':State. sum state'P_1':State. sum state'P_2':State. sum state'P_3':State. sum state'P_4':State. sum state'P_5':State. sum state'P_6':State. sum state'P_7':State. sum state'Timer':State. sum MEM''id':UInt8. sum MEM''t':Array_UInt8_8. sum m':Message. 
+  ( 
+    sum tmp'MEM''t33:Array_UInt8_8.
+    ((tmp'MEM''t33 == set_Array_UInt8_8(MEM''t, 5, 2)) &&
+    (state'P_5 == State'NCS && coerce_Bool(m32_eq(MEM''id, 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, State'try, state'P_6, state'P_7, state'Timer, MEM''id, tmp'MEM''t33, 0).P_5
+  + 
+    sum tmp'MEM''t34:Array_UInt8_8. sum tmp'MEM''id35:UInt8.
+    ((tmp'MEM''t34 == set_Array_UInt8_8(MEM''t, 5, 3)) && (tmp'MEM''id35 == coerce_UInt8(m32_plus(5, 1))) &&
+    (state'P_5 == State'try)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, State'wait, state'P_6, state'P_7, state'Timer, tmp'MEM''id35, tmp'MEM''t34, 0).P_5
+  + 
+    sum tmp'MEM''t36:Array_UInt8_8.
+    ((tmp'MEM''t36 == set_Array_UInt8_8(MEM''t, 5, 255)) &&
+    (state'P_5 == State'wait && coerce_Bool(m32_eq(get_Array_UInt8_8(MEM''t, 5), 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, State'wait, state'P_6, state'P_7, state'Timer, MEM''id, tmp'MEM''t36, 0).P_5
+  + 
+    ((state'P_5 == State'wait && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''t, 5), 255), m32_eq(MEM''id, m32_plus(5, 1)))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, State'CS, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, 0).P_5
+  + 
+    ((state'P_5 == State'wait && coerce_Bool(m32_and(m32_neq(MEM''id, m32_plus(5, 1)), m32_eq(get_Array_UInt8_8(MEM''t, 5), 255))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, State'NCS, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, 0).P_5
+  + 
+    sum tmp'MEM''id37:UInt8.
+    ((tmp'MEM''id37 == 0) &&
+    (state'P_5 == State'CS)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, State'NCS, state'P_6, state'P_7, state'Timer, tmp'MEM''id37, MEM''t, 0).P_5
+  );
+
+  P_6 = sum state'P_0:State. sum state'P_1:State. sum state'P_2:State. sum state'P_3:State. sum state'P_4:State. sum state'P_5:State. sum state'P_6:State. sum state'P_7:State. sum state'Timer:State. sum MEM''id:UInt8. sum MEM''t:Array_UInt8_8. sum state'P_0':State. sum state'P_1':State. sum state'P_2':State. sum state'P_3':State. sum state'P_4':State. sum state'P_5':State. sum state'P_6':State. sum state'P_7':State. sum state'Timer':State. sum MEM''id':UInt8. sum MEM''t':Array_UInt8_8. sum m':Message. 
+  ( 
+    sum tmp'MEM''t38:Array_UInt8_8.
+    ((tmp'MEM''t38 == set_Array_UInt8_8(MEM''t, 6, 2)) &&
+    (state'P_6 == State'NCS && coerce_Bool(m32_eq(MEM''id, 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, State'try, state'P_7, state'Timer, MEM''id, tmp'MEM''t38, 0).P_6
+  + 
+    sum tmp'MEM''t39:Array_UInt8_8. sum tmp'MEM''id40:UInt8.
+    ((tmp'MEM''t39 == set_Array_UInt8_8(MEM''t, 6, 3)) && (tmp'MEM''id40 == coerce_UInt8(m32_plus(6, 1))) &&
+    (state'P_6 == State'try)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, State'wait, state'P_7, state'Timer, tmp'MEM''id40, tmp'MEM''t39, 0).P_6
+  + 
+    sum tmp'MEM''t41:Array_UInt8_8.
+    ((tmp'MEM''t41 == set_Array_UInt8_8(MEM''t, 6, 255)) &&
+    (state'P_6 == State'wait && coerce_Bool(m32_eq(get_Array_UInt8_8(MEM''t, 6), 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, State'wait, state'P_7, state'Timer, MEM''id, tmp'MEM''t41, 0).P_6
+  + 
+    ((state'P_6 == State'wait && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''t, 6), 255), m32_eq(MEM''id, m32_plus(6, 1)))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, State'CS, state'P_7, state'Timer, MEM''id, MEM''t, 0).P_6
+  + 
+    ((state'P_6 == State'wait && coerce_Bool(m32_and(m32_neq(MEM''id, m32_plus(6, 1)), m32_eq(get_Array_UInt8_8(MEM''t, 6), 255))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, State'NCS, state'P_7, state'Timer, MEM''id, MEM''t, 0).P_6
+  + 
+    sum tmp'MEM''id42:UInt8.
+    ((tmp'MEM''id42 == 0) &&
+    (state'P_6 == State'CS)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, State'NCS, state'P_7, state'Timer, tmp'MEM''id42, MEM''t, 0).P_6
+  );
+
+  P_7 = sum state'P_0:State. sum state'P_1:State. sum state'P_2:State. sum state'P_3:State. sum state'P_4:State. sum state'P_5:State. sum state'P_6:State. sum state'P_7:State. sum state'Timer:State. sum MEM''id:UInt8. sum MEM''t:Array_UInt8_8. sum state'P_0':State. sum state'P_1':State. sum state'P_2':State. sum state'P_3':State. sum state'P_4':State. sum state'P_5':State. sum state'P_6':State. sum state'P_7':State. sum state'Timer':State. sum MEM''id':UInt8. sum MEM''t':Array_UInt8_8. sum m':Message. 
+  ( 
+    sum tmp'MEM''t43:Array_UInt8_8.
+    ((tmp'MEM''t43 == set_Array_UInt8_8(MEM''t, 7, 2)) &&
+    (state'P_7 == State'NCS && coerce_Bool(m32_eq(MEM''id, 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, State'try, state'Timer, MEM''id, tmp'MEM''t43, 0).P_7
+  + 
+    sum tmp'MEM''t44:Array_UInt8_8. sum tmp'MEM''id45:UInt8.
+    ((tmp'MEM''t44 == set_Array_UInt8_8(MEM''t, 7, 3)) && (tmp'MEM''id45 == coerce_UInt8(m32_plus(7, 1))) &&
+    (state'P_7 == State'try)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, State'wait, state'Timer, tmp'MEM''id45, tmp'MEM''t44, 0).P_7
+  + 
+    sum tmp'MEM''t46:Array_UInt8_8.
+    ((tmp'MEM''t46 == set_Array_UInt8_8(MEM''t, 7, 255)) &&
+    (state'P_7 == State'wait && coerce_Bool(m32_eq(get_Array_UInt8_8(MEM''t, 7), 0)))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, State'wait, state'Timer, MEM''id, tmp'MEM''t46, 0).P_7
+  + 
+    ((state'P_7 == State'wait && coerce_Bool(m32_and(m32_eq(get_Array_UInt8_8(MEM''t, 7), 255), m32_eq(MEM''id, m32_plus(7, 1)))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, State'CS, state'Timer, MEM''id, MEM''t, 0).P_7
+  + 
+    ((state'P_7 == State'wait && coerce_Bool(m32_and(m32_neq(MEM''id, m32_plus(7, 1)), m32_eq(get_Array_UInt8_8(MEM''t, 7), 255))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, State'NCS, state'Timer, MEM''id, MEM''t, 0).P_7
+  + 
+    sum tmp'MEM''id47:UInt8.
+    ((tmp'MEM''id47 == 0) &&
+    (state'P_7 == State'CS)) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, State'NCS, state'Timer, tmp'MEM''id47, MEM''t, 0).P_7
+  );
+
+  System' = 
+    P_0 || P_1 || P_2 || P_3 || P_4 || P_5 || P_6 || P_7 || Timer;
+
+  Timer = sum state'P_0:State. sum state'P_1:State. sum state'P_2:State. sum state'P_3:State. sum state'P_4:State. sum state'P_5:State. sum state'P_6:State. sum state'P_7:State. sum state'Timer:State. sum MEM''id:UInt8. sum MEM''t:Array_UInt8_8. sum state'P_0':State. sum state'P_1':State. sum state'P_2':State. sum state'P_3':State. sum state'P_4':State. sum state'P_5':State. sum state'P_6':State. sum state'P_7':State. sum state'Timer':State. sum MEM''id':UInt8. sum MEM''t':Array_UInt8_8. sum m':Message. 
+    sum tmp'MEM''t0:Array_UInt8_8. sum tmp'MEM''t1:Array_UInt8_8. sum tmp'MEM''t2:Array_UInt8_8. sum tmp'MEM''t3:Array_UInt8_8. sum tmp'MEM''t4:Array_UInt8_8. sum tmp'MEM''t5:Array_UInt8_8. sum tmp'MEM''t6:Array_UInt8_8. sum tmp'MEM''t7:Array_UInt8_8.
+    ((tmp'MEM''t0 == set_Array_UInt8_8(MEM''t, 0, coerce_UInt8(m32_logor((m32_minus(get_Array_UInt8_8(MEM''t, 0), 1)), (m32_times((m32_eq(get_Array_UInt8_8(MEM''t, 0), 255)), 255)))))) && (tmp'MEM''t1 == set_Array_UInt8_8(tmp'MEM''t0, 1, coerce_UInt8(m32_logor((m32_minus(get_Array_UInt8_8(tmp'MEM''t0, 1), 1)), (m32_times((m32_eq(get_Array_UInt8_8(tmp'MEM''t0, 1), 255)), 255)))))) && (tmp'MEM''t2 == set_Array_UInt8_8(tmp'MEM''t1, 2, coerce_UInt8(m32_logor((m32_minus(get_Array_UInt8_8(tmp'MEM''t1, 2), 1)), (m32_times((m32_eq(get_Array_UInt8_8(tmp'MEM''t1, 2), 255)), 255)))))) && (tmp'MEM''t3 == set_Array_UInt8_8(tmp'MEM''t2, 3, coerce_UInt8(m32_logor((m32_minus(get_Array_UInt8_8(tmp'MEM''t2, 3), 1)), (m32_times((m32_eq(get_Array_UInt8_8(tmp'MEM''t2, 3), 255)), 255)))))) && (tmp'MEM''t4 == set_Array_UInt8_8(tmp'MEM''t3, 4, coerce_UInt8(m32_logor((m32_minus(get_Array_UInt8_8(tmp'MEM''t3, 4), 1)), (m32_times((m32_eq(get_Array_UInt8_8(tmp'MEM''t3, 4), 255)), 255)))))) && (tmp'MEM''t5 == set_Array_UInt8_8(tmp'MEM''t4, 5, coerce_UInt8(m32_logor((m32_minus(get_Array_UInt8_8(tmp'MEM''t4, 5), 1)), (m32_times((m32_eq(get_Array_UInt8_8(tmp'MEM''t4, 5), 255)), 255)))))) && (tmp'MEM''t6 == set_Array_UInt8_8(tmp'MEM''t5, 6, coerce_UInt8(m32_logor((m32_minus(get_Array_UInt8_8(tmp'MEM''t5, 6), 1)), (m32_times((m32_eq(get_Array_UInt8_8(tmp'MEM''t5, 6), 255)), 255)))))) && (tmp'MEM''t7 == set_Array_UInt8_8(tmp'MEM''t6, 7, coerce_UInt8(m32_logor((m32_minus(get_Array_UInt8_8(tmp'MEM''t6, 7), 1)), (m32_times((m32_eq(get_Array_UInt8_8(tmp'MEM''t6, 7), 255)), 255)))))) &&
+    (state'Timer == State'q && coerce_Bool(m32_and(m32_and(m32_and(m32_and(m32_and(m32_and(m32_and(m32_neq(get_Array_UInt8_8(MEM''t, 0), 0), m32_neq(get_Array_UInt8_8(MEM''t, 1), 0)), m32_neq(get_Array_UInt8_8(MEM''t, 2), 0)), m32_neq(get_Array_UInt8_8(MEM''t, 3), 0)), m32_neq(get_Array_UInt8_8(MEM''t, 4), 0)), m32_neq(get_Array_UInt8_8(MEM''t, 5), 0)), m32_neq(get_Array_UInt8_8(MEM''t, 6), 0)), m32_neq(get_Array_UInt8_8(MEM''t, 7), 0))))) ->  _read_write_sync(state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, state'Timer, MEM''id, MEM''t, state'P_0, state'P_1, state'P_2, state'P_3, state'P_4, state'P_5, state'P_6, state'P_7, State'q, MEM''id, tmp'MEM''t7, 0).Timer;
+
+
+init
+  hide({__read_write_sync},
+  allow({__read_write_sync},
+  comm({read_write_sync|_read_write_sync->__read_write_sync},
+    MEM'(State'NCS, State'NCS, State'NCS, State'NCS, State'NCS, State'NCS, State'NCS, State'NCS, State'q, 0, Array_UInt8_8(255, 255, 255, 255, 255, 255, 255, 255)) || 
+  allow({_read_write_sync},
+  System'))));
+
+sort RBV=List(Bool);       % representation of natural numbers as reverse bit vector (4=[0,0,1]), NOTE!!! can have non-unique representation with trailing 0s.
+
+map 
+  Nat2RBV:Nat->RBV;
+  RBV2Nat:RBV->Nat;
+
+  % bit operations:
+  not:RBV->RBV;		   %undefined for [] 
+  and,or,xor:RBV#RBV->RBV;
+  
+  gt:RBV#RBV->Bool;        %make sure length are the same 
+  add,mult:RBV#RBV->RBV;
+  succ_RBV:RBV->RBV;
+
+
+  shiftr,shiftl:RBV#Nat->RBV;
+
+  % auxiliary ops:
+  % rem_trailing_zeros:RBV->RBV;
+  mk_list_true :Nat->RBV;   % mk_list_true(4)=[true,true,true,true]
+  mk_list_false:Nat->RBV;   % mk_list_false(4)=[false,false,false,false]
+
+  least_bits:RBV#Nat->RBV; % leaves at most p least significant bits only.
+  exact_bits:RBV#Nat->RBV; % leaves exactly p least significant bits, adding trailing false's if needed.
+
+  two_complement:RBV->RBV; % two-complement: http://en.wikipedia.org/wiki/Signed_number_representations
+
+var l,l1,l2:RBV; n:Nat; b:Bool;
+
+eqn
+  % rem_trailing_zeros([])=[];
+  % rem_trailing_zeros(true|>l)=true|>rem_trailing_zeros(l);
+  % (rem_trailing_zeros(l)==[])->rem_trailing_zeros(false|>l)=[];
+  % (rem_trailing_zeros(l)!=[])->rem_trailing_zeros(false|>l)=false|>rem_trailing_zeros(l);  
+
+  % % rem_trailing_zeros(false|>l)=if(l1==[],[],false|>l1) where l1=rem_trailing_zeros(l) end;
+
+  mk_list_true(0)=[];
+  (n>0)->mk_list_true(n)=true|>mk_list_true(Int2Nat(pred(n)));
+
+  mk_list_false(0)=[];
+  (n>0)->mk_list_false(n)=false|>mk_list_false(Int2Nat(pred(n)));
+
+  least_bits([],n)=[];
+  least_bits(b|>l,0)=[];
+  (n>0)->least_bits(b|>l,n)=b|>least_bits(l,Int2Nat(pred(n)));
+
+  exact_bits([],n)=mk_list_false(n);
+  exact_bits(b|>l,0)=[];
+  (n>0)->exact_bits(b|>l,n)=b|>exact_bits(l,Int2Nat(pred(n)));
+
+  two_complement([])=[];
+  two_complement(false|>l)=false|>two_complement(l);
+  two_complement(true|>l)=true|>not(l);
+
+  not([])=[];
+  not(true|>l)=false|>not(l);               % rem_trailing_zeros(false|>not(l));
+  not(false|>l)=true|>not(l);
+
+  and([],l)=[];
+  and(l,[])=[];
+  and(false|>l1,b|>l2)=false|>and(l1,l2);    % rem_trailing_zeros(false|>and(l1,l2));
+  and(b|>l1,false|>l2)=false|>and(l1,l2);    % rem_trailing_zeros(false|>and(l1,l2));
+  and(true|>l1,true|>l2)=true|>and(l1,l2);
+
+  or([],l)=l;
+  or(l,[])=l;
+  or(false|>l1,false|>l2)=false|>or(l1,l2);  %rem_trailing_zeros(false|>or(l1,l2));
+  or(true|>l1,b|>l2)=true|>or(l1,l2);
+  or(b|>l1,true|>l2)=true|>or(l1,l2);
+
+  xor([],l)=l;
+  xor(l,[])=l;
+  xor(false|>l1,false|>l2)=false|>xor(l1,l2); %rem_trailing_zeros(false|>xor(l1,l2));
+  xor(true|>l1,true|>l2)=false|>xor(l1,l2);   %rem_trailing_zeros(false|>xor(l1,l2));
+  xor(true|>l1,false|>l2)=true|>xor(l1,l2);
+  xor(false|>l1,true|>l2)=true|>xor(l1,l2);
+
+  gt([],[])=false;
+  % gt(false|>l1,[])=gt(l1,[]);
+  % gt(true|>l1,[])=true;
+  gt(false|>l1,b|>l2)=gt(l1,l2);
+  gt(true|>l1,true|>l2)=gt(l1,l2);
+  gt(true|>l1,false|>l2)=gt(l1,l2)||l1==l2;
+
+  shiftr(l,0)=l; 
+  (n>0)->shiftr(l,n)=false|>shiftr(l,Int2Nat(pred(n)));
+ 
+  shiftl([],n)=[];
+  shiftl(l,0)=l;  
+  (n>0)->shiftl(b|>l,n)=shiftl(l,Int2Nat(pred(n)));
+
+  add([],l)=l;
+  add(l,[])=l;
+  add(false|>l1,b|>l2)=b|>add(l1,l2);
+  add(true|>l1,false|>l2)=true|>add(l1,l2);
+  add(true|>l1,true|>l2)=false|>succ_RBV(add(l1,l2));
+  
+  succ_RBV([])=[true];
+  succ_RBV(false|>l)=true|>l;
+  succ_RBV(true|>l)=false|>succ_RBV(l);
+
+  mult([],l)=[];
+  mult(l,[])=[];
+  mult(false|>l1,false|>l2)=false|>false|>mult(l1,l2);
+  mult(false|>l1,true|>l2) =false|>add(false|>mult(l1,l2),l1);
+  mult(true|>l1,false|>l2) =false|>add(false|>mult(l1,l2),l2);
+  mult(true|>l1,true|>l2)  =true|>add(false|>mult(l1,l2),add(l1,l2));
+
+  Nat2RBV(0)=[];
+  (n>0 && n mod 2==0) -> Nat2RBV(n)=false|>Nat2RBV(n div 2);
+  (n>0 && n mod 2==1) -> Nat2RBV(n)=true|>Nat2RBV(n div 2);
+
+  RBV2Nat([])=0;
+  RBV2Nat(false|>l)=2*RBV2Nat(l);
+  RBV2Nat(true|>l)=Pos2Nat(succ(2*RBV2Nat(l)));
+
+sort UInt32=struct uint32(RBV); % C data type "unsigned int" (32 bit)
+
+map
+  Nat2UInt32:Nat->UInt32;
+  UInt322Nat:UInt32->Nat;
+
+  not:UInt32->UInt32;
+  and,or,xor,shiftl,shiftr:UInt32#UInt32->UInt32;
+ 
+  gt,ge,lt,le:UInt32#UInt32->Bool;
+  add,subt,mult,div_uint32,mod_uint32:UInt32#UInt32->UInt32;
+  umin,succ_Uint32:UInt32->UInt32;
+ 
+var n:Nat; l,l1,l2:RBV; b:Bool;
+
+eqn
+  Nat2UInt32(n)=uint32(exact_bits(Nat2RBV(n mod 4294967296),32));
+  UInt322Nat(uint32(l))=RBV2Nat(l);
+
+  not(uint32(l))=uint32(not(l));
+  and(uint32(l1),uint32(l2))=uint32(and(l1,l2));
+   or(uint32(l1),uint32(l2))=uint32( or(l1,l2));
+  xor(uint32(l1),uint32(l2))=uint32(xor(l1,l2));
+
+  % shifts: shifts of >=32 bits are equivalent to clearing the bitvector
+  (and(l2,mk_list_false(5)++mk_list_true(27))==mk_list_false(32))->
+     shiftl(uint32(l1),uint32(l2))=uint32(exact_bits(shiftr(l1,RBV2Nat(least_bits(l2,5))),32)); % we are reversed
+  (and(l2,mk_list_false(5)++mk_list_true(27))!=mk_list_false(32))->
+     shiftl(uint32(l1),uint32(l2))=uint32(mk_list_false(32));
+  (and(l2,mk_list_false(5)++mk_list_true(27))==mk_list_false(32))->
+     shiftr(uint32(l1),uint32(l2))=uint32(exact_bits(shiftl(l1,RBV2Nat(least_bits(l2,5))),32)); % we are reversed
+  (and(l2,mk_list_false(5)++mk_list_true(27))!=mk_list_false(32))->
+     shiftr(uint32(l1),uint32(l2))=uint32(mk_list_false(32)); 
+
+  gt(uint32(l1),uint32(l2))=gt(l1,l2);
+  ge(uint32(l1),uint32(l2))= l1==l2 || gt(l1,l2);
+  le(uint32(l1),uint32(l2))=!gt(l1,l2);
+  lt(uint32(l1),uint32(l2))=gt(l2,l1);
+
+   add(uint32(l1),uint32(l2))=uint32(exact_bits(add(l1,l2),32));
+  subt(uint32(l1),uint32(l2))=uint32(exact_bits(add(l1,two_complement(l2)),32));
+
+  mult(uint32(l1),uint32(l2))=uint32(exact_bits(mult(l1,l2),32));
+
+  umin(uint32(l))=uint32(two_complement(l));
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

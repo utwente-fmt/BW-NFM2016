@@ -1,0 +1,206 @@
+/*
+ * Copyright (c) 1996 The University of Utah and
+ * the Computer Systems Laboratory at the University of Utah (CSL).
+ * All rights reserved.
+ *
+ * Permission to use, copy, modify and distribute this software is hereby
+ * granted provided that (1) source code retains these copyright, permission,
+ * and disclaimer notices, and (2) redistributions including binaries
+ * reproduce the notices in supporting documentation, and (3) all advertising
+ * materials mentioning features or use of this software display the following
+ * acknowledgement: ``This product includes software developed by the
+ * Computer Systems Laboratory at the University of Utah.''
+ *
+ * THE UNIVERSITY OF UTAH AND CSL ALLOW FREE USE OF THIS SOFTWARE IN ITS "AS
+ * IS" CONDITION.  THE UNIVERSITY OF UTAH AND CSL DISCLAIM ANY LIABILITY OF
+ * ANY KIND FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * CSL requests users of this software to return to csl-dist@cs.utah.edu any
+ * improvements that they make and grant CSL redistribution rights.
+ */
+/*
+ * Cancel-test.pr -
+ *
+ * Test a sadistic cancel thread thrasing a pair of
+ * communicating threads.
+ */
+
+/*
+ * Select the stuff we want out of the bloat.
+ */
+#define INCLUDE_WAIT_RECEIVE
+#define INCLUDE_SERVER_DISCONNECT
+#define INCLUDE_CLIENT_CONNECT_SEND
+#define INCLUDE_CLIENT_DISCONNECT
+#define INCLUDE_THREAD_CANCEL
+
+/* The above IMPLIES the following entrypoints (via restarts, etc.) */
+#define INCLUDE_CLIENT_SEND
+#define INCLUDE_SERVER_RECEIVE
+
+/* Toggle this to include actual transfer of data */
+#define INCLUDE_IPC_PAYLOAD
+
+/* Toggle this to enable page-faults in ipcReliableTransfer() */
+#undef IPC_TRANSFER_CAN_FAULT /* leave off to avoid cycle */
+
+#include "../fluke/Fluke.pr"
+
+/*
+ * If we're doing a livelock check, NP is defined, and the
+ * labels should be defined as progress_foo labels,
+ * otherwise, just make them simple labels.
+ */
+#ifdef NP
+#define PROGRESS(n) progress_##n
+#else
+#define PROGRESS(n) label_##n
+#endif
+
+/*
+ * For deadlock checks we can limit the cancel thread
+ * to issuing a single cancel.
+ */
+#undef BREAK_IF_ONCE_ONLY
+
+mtype = {
+  FLUKE_MESSAGES
+};
+
+threadDefineInstances(4);
+wqDefineInstances(8);
+mutexDefineInstances(4);
+
+#include "../support/Proctypes.pr"
+
+proctype user_server(Thread currentThread) {
+  Fluke kernel;
+  ResultCode rc;
+  IpcPayload rData = 0;
+
+  flukeInit(kernel, currentThread);
+
+PROGRESS(server):
+  do
+  :: TRUE ->
+       rData = 0;
+       flukeWaitReceive(fluke, rData);
+       assert(rData == 42);
+       assert(rc == 0
+	 || rc == FLUKE_IPC_RECV_DISCONNECTED);
+#if 0
+       flukeServerDisconnect(fluke);
+       assert(rc == 0);
+#endif
+  od;
+}
+
+proctype user_client(Thread currentThread;
+		Thread server) {
+  Fluke kernel;
+  ResultCode rc;
+  IpcPayload sData;
+
+  flukeInit(kernel, currentThread);
+
+PROGRESS(client):
+  do
+  :: TRUE ->
+       sData = 42;
+       flukeClientConnectSend(fluke, server, sData);
+       assert(rc == 0);
+#if 0
+       flukeClientDisconnect(fluke);
+       assert(rc == 0);
+#endif
+  od;
+}
+
+proctype user_cancel_wacko(Thread currentThread,
+				  target1,
+				  target2)
+{
+  Fluke kernel;
+  ResultCode rc;
+
+  flukeInit(kernel, currentThread);
+
+  assert(currentThread != target1);
+  assert(currentThread != target2);
+
+  /*
+   * The cancel thread will repeatedly cancel in
+   * the safety check scenario.  In the progress
+   * check scenario, it cancels a max of N times.
+   */
+#ifdef NP 
+  /* PROGRESS CHECK */
+
+#  define KILL_ONE()				\
+    if						\
+    :: TRUE ->					\
+         /* kill #1 */				\
+	 flukeThreadCancel(kernel, target1);	\
+	 /* sets rc to id of canceled thread */	\
+	 assert(rc == target1);			\
+    :: TRUE ->					\
+         /* kill #2 */				\
+	 flukeThreadCancel(kernel, target2);	\
+	 /* sets rc to id of canceled thread */	\
+	 assert(rc == target2);			\
+    fi
+
+  /*
+   * Do it five times.  This avoids an extra
+   * state variable.  (Right?)
+   */
+PROGRESS(cancel_A):
+  KILL_ONE();
+
+PROGRESS(cancel_B):
+  KILL_ONE();
+
+PROGRESS(cancel_C):
+  KILL_ONE();
+
+PROGRESS(cancel_D):
+  KILL_ONE();
+
+PROGRESS(cancel_E):
+  KILL_ONE();
+
+#else /* DEADLOCK CHECK */
+
+  do
+  :: TRUE -> 
+       /* kill #1 */
+       flukeThreadCancel(kernel, target1);
+       /* sets rc to id of canceled thread */
+       assert(rc == target1);
+#ifdef BREAK_IF_ONCE_ONLY
+       break;
+#endif
+  :: TRUE ->
+       /* kill #2 */
+       flukeThreadCancel(kernel, target2);
+       /* sets rc to id of canceled thread */
+       assert(rc == target2);
+#ifdef BREAK_IF_ONCE_ONLY
+       break;
+#endif
+  od;
+#endif
+
+}
+
+init {
+  threadInitInstances(4);
+  wqInitInstances(8);
+  mutexInitInstances(4);
+
+  atomic {
+    run user_client(1, /*server=*/2);
+    run user_server(2);
+    run user_cancel_wacko(3, 1, 2);
+  }
+}

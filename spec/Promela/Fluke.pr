@@ -1,0 +1,593 @@
+/*
+ * Copyright (c) 1996 The University of Utah and
+ * the Computer Systems Laboratory at the University of Utah (CSL).
+ * All rights reserved.
+ *
+ * Permission to use, copy, modify and distribute this software is hereby
+ * granted provided that (1) source code retains these copyright, permission,
+ * and disclaimer notices, and (2) redistributions including binaries
+ * reproduce the notices in supporting documentation, and (3) all advertising
+ * materials mentioning features or use of this software display the following
+ * acknowledgement: ``This product includes software developed by the
+ * Computer Systems Laboratory at the University of Utah.''
+ *
+ * THE UNIVERSITY OF UTAH AND CSL ALLOW FREE USE OF THIS SOFTWARE IN ITS "AS
+ * IS" CONDITION.  THE UNIVERSITY OF UTAH AND CSL DISCLAIM ANY LIABILITY OF
+ * ANY KIND FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * CSL requests users of this software to return to csl-dist@cs.utah.edu any
+ * improvements that they make and grant CSL redistribution rights.
+ */
+/*
+ * Fluke.pr - Fluke kernel entrypoints, SPIN-style!  This module encapsulates
+ *            rollback/restart behaviour, as well as user-mode kernel entry.
+ */
+
+/*
+ * Type:        Fluke
+ *
+ * Definitions: needs Thread                       [Global]
+ *              needs Proctype.h                   [After Global]
+ *
+ * Constructor: flukeInit(kernel,currentThread)    [Local]
+ *
+ * System-call operations
+ * ----------------------
+ * flukeVersion(kernel)  Fluke -> byte   Answers FLUKE_VERSION
+ * flukeNop(kernel)      Fluke -> byte   Does nothing, returns success
+ *
+ * Client-side IPC system calls
+ * ----------------------------
+ * flukeClientConnectSend(fluke,server,sData)      Fluke,Thread,IpcPayload -> RC
+ * flukeClientAckSend(fluke,sData)                 Fluke,IpcPayload -> RC
+ * flukeClientSend(fluke,sData)                    Fluke,IpcPayload -> RC
+ * flukeClientConnectSendOverReceive(fluke,server,sData,rData)
+ *                                                 Fluke,Thread,IpcPayload,
+ *                                                   IpcPayload -> RC
+ * flukeClientAckSendOverReceive(fluke,sData,rData)Fluke,IpcPayload,
+ *                                                   IpcPayload -> RC
+ * flukeClientSendOverReceive(fluke,sData,rData)   Fluke,IpcPayload,
+ *                                                   IpcPayload -> RC
+ * flukeClientReceive(fluke,rData)                 Fluke,IpcPayload -> RC
+ * flukeClientDisconnect(fluke)                    Fluke -> RC
+ * 
+ * Server-side IPC system calls
+ * ----------------------------
+ * flukeWaitReceive(fluke,rPayload)                 Fluke,IpcPayload -> RC
+ * flukeServerAckSend(fluke,sData)                  Fluke,IpcPayload -> RC
+ * flukeServerSend(fluke,sData)                     Fluke,IpcPayload -> RC
+ * flukeServerAckSendWaitReceive(fluke,sData,rData) Fluke,IpcPayload,
+ *                                                    IpcPayload -> RC
+ * flukeServerAckSendOverReceive(fluke,sData,rData) Fluke,IpcPayload,
+ *                                                    IpcPayload -> RC
+ * flukeServerSendWaitReceive(fluke,sData,rData)    Fluke,IpcPayload,
+ *                                                    IpcPayload -> RC
+ * flukeServerSendOverReceive(fluke,sData,rData)    Fluke,IpcPayload,
+ *                                                    IpcPayload -> RC
+ * flukeServerReceive(fluke,rData)                  Fluke,IpcPayload -> RC
+ * flukeServerDisconnect(fluke)                     Fluke -> RC
+ *
+ * Include Flags
+ * -------------
+ *   INCLUDE_ALL
+ *   INCLUDE_THREAD_CANCEL
+ *   INCLUDE_CLIENT_CONNECT_SEND
+ *   INCLUDE_CLIENT_ACK_SEND
+ *   INCLUDE_CLIENT_SEND
+ *   INCLUDE_CLIENT_CONNECT_SEND_OVER_RECEIVE
+ *   INCLUDE_CLIENT_ACK_SEND_OVER_RECEIVE
+ *   INCLUDE_CLIENT_RECEIVE
+ *   INCLUDE_CLIENT_DISCONNECT
+ *   INCLUDE_WAIT_RECEIVE
+ *   INCLUDE_SERVER_ACK_SEND
+ *   INCLUDE_SERVER_ACK_SEND_WAIT_RECEIVE
+ *   INCLUDE_SERVER_ACK_SEND_OVER_RECEIVE
+ *   INCLUDE_SERVER_SEND_WAIT_RECEIVE
+ *   INCLUDE_SERVER_SEND_OVER_RECEIVE
+ *   INCLUDE_SERVER_RECEIVE
+ *   INCLUDE_SERVER_DISCONNECT
+ */
+
+#ifdef INCLUDE_ALL
+#define INCLUDE_THREAD_CANCEL
+#define INCLUDE_CLIENT_CONNECT_SEND
+#define INCLUDE_CLIENT_ACK_SEND
+#define INCLUDE_CLIENT_SEND
+#define INCLUDE_CLIENT_CONNECT_SEND_OVER_RECEIVE
+#define INCLUDE_CLIENT_ACK_SEND_OVER_RECEIVE
+#define INCLUDE_CLIENT_RECEIVE
+#define INCLUDE_CLIENT_DISCONNECT
+#define INCLUDE_WAIT_RECEIVE
+#define INCLUDE_SERVER_ACK_SEND
+#define INCLUDE_SERVER_ACK_SEND_WAIT_RECEIVE
+#define INCLUDE_SERVER_ACK_SEND_OVER_RECEIVE
+#define INCLUDE_SERVER_SEND_WAIT_RECEIVE
+#define INCLUDE_SERVER_SEND_OVER_RECEIVE
+#define INCLUDE_SERVER_RECEIVE
+#define INCLUDE_SERVER_DISCONNECT
+#endif
+
+#if defined(INCLUDE_CLIENT_CONNECT_SEND) && \
+    !defined(INCLUDE_CLIENT_SEND)
+#define INCLUDE_CLIENT_SEND
+#endif
+
+#if defined(INCLUDE_CLIENT_ACK_SEND) && \
+    !defined(INCLUDE_CLIENT_SEND)
+#define INCLUDE_CLIENT_SEND
+#endif
+
+#if defined(INCLUDE_CLIENT_CONNECT_SEND_OVER_RECEIVE) && \
+    !defined(INCLUDE_CLIENT_SEND_OVER_RECEIVE)
+#define INCLUDE_CLIENT_SEND_OVER_RECEIVE
+#endif
+
+#if defined(INCLUDE_CLIENT_ACK_SEND_OVER_RECEIVE) && \
+    !defined(INCLUDE_CLIENT_SEND_OVER_RECEIVE)
+#define INCLUDE_CLIENT_SEND_OVER_RECEIVE
+#endif
+
+#if defined(INCLUDE_WAIT_RECEIVE) && \
+    !defined(INCLUDE_SERVER_RECEIVE)
+#define INCLUDE_SERVER_RECEIVE
+#endif
+
+#if defined(INCLUDE_SERVER_ACK_SEND) && \
+    !defined(INCLUDE_SERVER_SEND)
+#define INCLUDE_SERVER_SEND
+#endif
+
+#if defined(INCLUDE_SERVER_ACK_SEND_WAIT_RECEIVE) && \
+    !defined(INCLUDE_SERVER_SEND_WAIT_RECEIVE)
+#define INCLUDE_SERVER_SEND_WAIT_RECEIVE
+#endif
+
+#if defined(INCLUDE_SERVER_ACK_SEND_OVER_RECEIVE) && \
+    !defined(INCLUDE_SERVER_SEND_OVER_RECEIVE)
+#define INCLUDE_SERVER_SEND_OVER_RECEIVE
+#endif
+
+#include "EntryPoint.pr"
+#include "Thread.pr"
+#include "../control/wait.pr"
+#include "../control/ipcClientFunc.pr"
+#include "../control/ipcServerFunc.pr"
+#include "../control/portsAndPsets.pr"
+#include "../control/sThread.pr"
+
+#ifndef __FLUKE__
+#define __FLUKE__
+
+/*-- Fluke type -------------------------------------------------------------*/
+
+typedef Fluke {
+  chan kernelChan = [0] of { byte,byte };
+  chan replyChan  = [0] of { byte };
+};
+
+#define flukeInit(kernel,currentThread) /* Fluke,Thread */	\
+  run flukeKernelControl(currentThread,kernel.kernelChan)
+
+/*-- Public macros ----------------------------------------------------------*/
+
+#define FLUKE_MESSAGES                                                      \
+  msgFlukeVersion,                              /* (replyChan) */           \
+  msgFlukeSyscallIPC                            /* (replyChan) */
+
+#define FLUKE_VERSION 2                           /* This is Fluke version 2 */
+
+/*-- Public methods ---------------------------------------------------------*/
+
+#define __flukeMakeSyscall()                                                \
+  kernel.kernelChan ! msgFlukeSyscallIPC(kernel.replyChan);                 \
+  kernel.replyChan ? rc
+
+/* Generic system calls */
+
+#define flukeVersion(kernel) /* Fluke */                                    \
+  kernel.kernelChan ! msgFlukeVersion(kernel.replyChan);                    \
+  kernel.replyChan ? rc
+
+#define flukeNop(kernel) /* Fluke */                                        \
+  threadSetExcEntryPoint(currentThread,ENTRYPOINT_NOP);                     \
+  __flukeMakeSyscall()
+
+#define flukeThreadCancel(kernel, target)     /* Fluke,Thread -> RC */      \
+  threadSetExcConnectArg(currentThread, target);			    \
+  threadSetExcEntryPoint(currentThread, ENTRYPOINT_THREAD_CANCEL);	    \
+  __flukeMakeSyscall()
+
+/* Client-side IPC system calls */
+
+#define flukeClientConnectSend(fluke,server,sPayload)			    \
+					      /* Fluke,Thread -> RC */      \
+  threadSetExcEntryPoint(currentThread,ENTRYPOINT_CLIENT_CONNECT_SEND);     \
+  threadSetExcConnectArg(currentThread,server);				    \
+  threadSetExcSendPayload(currentThread,sPayload);			    \
+  __flukeMakeSyscall()
+
+#define flukeClientAckSend(fluke, sPayload) /* Fluke -> RC */               \
+  threadSetExcEntryPoint(currentThread,ENTRYPOINT_CLIENT_ACK_SEND);         \
+  threadSetExcSendPayload(currentThread,sPayload);			    \
+  __flukeMakeSyscall()
+
+#define flukeClientSend(fluke, sPayload) /* Fluke -> RC */                  \
+  threadSetExcEntryPoint(currentThread,ENTRYPOINT_CLIENT_SEND);             \
+  threadSetExcSendPayload(currentThread,sPayload);			    \
+  __flukeMakeSyscall()
+
+#define flukeClientConnectSendOverReceive(fluke,server,sPayload,rPayload)   \
+                                              /* Fluke,Thread -> RC */      \
+  threadSetExcEntryPoint(currentThread,                                     \
+    ENTRYPOINT_CLIENT_CONNECT_SEND_OVER_RECEIVE);                           \
+  threadSetExcConnectArg(currentThread,server);				    \
+  threadSetExcSendPayload(currentThread,sPayload);			    \
+  __flukeMakeSyscall();							    \
+  rPayload = threadExcRecvPayload(currentThread);
+
+#define flukeClientAckSendOverReceive(fluke, sPayload, rPayload)	    \
+			/* Fluke -> RC */				    \
+  threadSetExcEntryPoint(currentThread,                                     \
+    ENTRYPOINT_CLIENT_ACK_SEND_OVER_RECEIVE);                               \
+  threadSetExcSendPayload(currentThread,sPayload);			    \
+  __flukeMakeSyscall();							    \
+  rPayload = threadExcRecvPayload(currentThread);
+
+#define flukeClientSendOverReceive(fluke, sPayload, rPayload)		    \
+					  /* Fluke -> RC */                 \
+  threadSetExcEntryPoint(currentThread,ENTRYPOINT_CLIENT_SEND_OVER_RECEIVE);\
+  threadSetExcSendPayload(currentThread,sPayload);			    \
+  __flukeMakeSyscall();							    \
+  rPayload = threadExcRecvPayload(currentThread);
+
+#define flukeClientReceive(fluke,rPayload) /* Fluke -> RC */                \
+  threadSetExcEntryPoint(currentThread,ENTRYPOINT_CLIENT_RECEIVE);          \
+  __flukeMakeSyscall();							    \
+  rPayload = threadExcRecvPayload(currentThread);
+
+
+#define flukeClientDisconnect(fluke) /* Fluke -> RC */                      \
+  threadSetExcEntryPoint(currentThread,ENTRYPOINT_CLIENT_DISCONNECT);       \
+  __flukeMakeSyscall()
+
+/* Server-side IPC system calls */
+
+#define flukeWaitReceive(fluke, rPayload)				    \
+				       /* Fluke, IpcPayload -> RC */        \
+  threadSetExcEntryPoint(currentThread,ENTRYPOINT_WAIT_RECEIVE);            \
+  __flukeMakeSyscall();							    \
+  rPayload = threadExcRecvPayload(currentThread);
+
+#define flukeServerAckSend(fluke, sPayload) /* Fluke -> RC */               \
+  threadSetExcSendPayload(currentThread,sPayload);			    \
+  threadSetExcEntryPoint(currentThread,ENTRYPOINT_SERVER_ACK_SEND);         \
+  __flukeMakeSyscall()
+
+#define flukeServerSend(fluke,sPayload) /* Fluke -> RC */                   \
+  threadSetExcSendPayload(currentThread,sPayload);			    \
+  threadSetExcEntryPoint(currentThread,ENTRYPOINT_SERVER_SEND);             \
+  __flukeMakeSyscall()
+
+#define flukeServerAckSendWaitReceive(fluke, sPayload, rPayload)	    \
+						       /* Fluke -> RC */    \
+  threadSetExcEntryPoint(currentThread,                                     \
+    ENTRYPOINT_SERVER_ACK_SEND_WAIT_RECEIVE);                               \
+  threadSetExcSendPayload(currentThread,sPayload);			    \
+  __flukeMakeSyscall();							    \
+  rPayload = threadExcRecvPayload(currentThread);
+
+#define flukeServerAckSendOverReceive(fluke, sPayload, rPayload) /* Fluke -> RC */     \
+  threadSetExcEntryPoint(currentThread,                                     \
+    ENTRYPOINT_SERVER_ACK_SEND_OVER_RECEIVE);                               \
+  threadSetExcSendPayload(currentThread,sPayload);			    \
+  __flukeMakeSyscall();							    \
+  rPayload = threadExcRecvPayload(currentThread);
+
+#define flukeServerSendWaitReceive(fluke,sPayload,rPayload)		    \
+					  /* Fluke -> RC */                 \
+  threadSetExcSendPayload(currentThread,sPayload);			    \
+  threadSetExcEntryPoint(currentThread,ENTRYPOINT_SERVER_SEND_WAIT_RECEIVE);\
+  __flukeMakeSyscall();							    \
+  rPayload = threadExcRecvPayload(currentThread);
+
+#define flukeServerSendOverReceive(fluke,sPayload,rPayload)		    \
+					  /* Fluke -> RC */                 \
+  threadSetExcSendPayload(currentThread,sPayload);			    \
+  threadSetExcEntryPoint(currentThread,ENTRYPOINT_SERVER_SEND_OVER_RECEIVE);\
+  __flukeMakeSyscall();							    \
+  rPayload = threadExcRecvPayload(currentThread);
+
+#define flukeServerReceive(fluke,rPayload) /* Fluke -> RC */                \
+  threadSetExcEntryPoint(currentThread,ENTRYPOINT_SERVER_RECEIVE);          \
+  __flukeMakeSyscall();							    \
+  rPayload = threadExcRecvPayload(currentThread);
+
+#define flukeServerDisconnect(fluke) /* Fluke -> RC */                      \
+  threadSetExcEntryPoint(currentThread,ENTRYPOINT_SERVER_DISCONNECT);       \
+  __flukeMakeSyscall()
+
+/*-- Internal ---------------------------------------------------------------*/
+
+#endif /* __FLUKE__ */
+
+#ifdef PROCTYPES
+#ifndef __FLUKE_PROCTYPES__
+#define __FLUKE_PROCTYPES__
+
+proctype flukeKernelControl(Thread currentThread; chan userRequestChan) {
+  chan replyChan = [0] of { byte };
+  ResultCode rc;
+  ipcDefineLocals();
+  defineIpcPickleLocals();
+  defineSThreadLocals();
+  defineIpcCancelLocals();
+  WaitVal wval;
+
+  assert(currentThread != 0); /* 0 is nil, not the first index. */
+
+  do
+  :: userRequestChan ? msgFlukeVersion(replyChan) ->
+       replyChan ! FLUKE_VERSION;
+
+  :: userRequestChan ? msgFlukeSyscallIPC(replyChan) ->
+
+  
+     rc = 0;
+     /* XXX locking?  Is this done? */
+     threadSetExcStatus(currentThread, 0);
+
+     /*
+      * This big while(1) loop switches on the thread's IP, and
+      * then (at the bottom) handles return codes, etc.
+      * The only way out of the loop is through ENTRYPOINT_NOP
+      * which does an uncoditional jump to "reply_to_user", which
+      * sends "rc" back to the user.
+      */
+     do
+     :: TRUE ->
+	  /*
+	   * Switch on the thread's entryPoint to get the right input function.
+	   */
+          if
+          /*- Generic syscalls - - - - - - - - - - - - - - - - - - - - - - - */
+
+          :: threadExcEntryPoint(currentThread) == ENTRYPOINT_NOP ->
+	       /*
+	        * Jump to a target out side of the enclosing while(1) loop.
+		* This target will reply to the user thread with the appropriate
+		* status code, hit the outer loop and wait for a call from the
+		* "user".
+		*/
+	       goto reply_to_user;
+
+	  #ifdef INCLUDE_THREAD_CANCEL
+	  :: threadExcEntryPoint(currentThread) == ENTRYPOINT_THREAD_CANCEL ->
+	       sThreadCancel(threadExcConnectArg(currentThread));
+	       /* sets rc */
+          #endif
+
+          /*- Client-side IPC operations - - - - - - - - - - - - - - - - - - */
+
+          #ifdef INCLUDE_CLIENT_CONNECT_SEND
+          :: threadExcEntryPoint(currentThread) == ENTRYPOINT_CLIENT_CONNECT_SEND ->
+               ipcClient1ConnectSend(currentThread,
+			        threadExcConnectArg(currentThread),
+                                ENTRYPOINT_CLIENT_SEND);
+               onlyIf(rc==0,
+                 threadWaitOther(threadIPCServer(currentThread),WAIT_IPC_SRV_RECV);
+                 rc=0;
+               );
+          #endif
+
+          #ifdef INCLUDE_CLIENT_ACK_SEND
+          :: threadExcEntryPoint(currentThread) == ENTRYPOINT_CLIENT_ACK_SEND ->
+               ipcClient1AckSend(currentThread,ENTRYPOINT_CLIENT_SEND);
+               onlyIf(rc==0,
+                 threadWaitOther(threadIPCServer(currentThread),WAIT_IPC_SRV_RECV);
+                 rc=0;
+               );
+	  #endif 
+
+          #ifdef INCLUDE_CLIENT_SEND 
+          :: threadExcEntryPoint(currentThread) == ENTRYPOINT_CLIENT_SEND ->
+               ipcClient1Send(currentThread, /*out*/ wval);
+               onlyIf(rc==0,
+                 threadWaitOther(threadIPCServer(currentThread),wval);
+                 rc=0;
+               );
+          #endif 
+
+          #ifdef INCLUDE_CLIENT_CONNECT_SEND_OVER_RECEIVE
+          :: threadExcEntryPoint(currentThread) ==
+                             ENTRYPOINT_CLIENT_CONNECT_SEND_OVER_RECEIVE ->
+               ipcClient1ConnectSend(currentThread,
+			        threadExcConnectArg(currentThread),
+                                ENTRYPOINT_CLIENT_SEND_OVER_RECEIVE);
+               onlyIf(rc==0,
+                 ipcClient2OverReceive(currentThread,WAIT_IPC_SRV_RECV);
+               );
+          #endif
+
+          #ifdef INCLUDE_CLIENT_ACK_SEND_OVER_RECEIVE
+          :: threadExcEntryPoint(currentThread) ==
+                             ENTRYPOINT_CLIENT_ACK_SEND_OVER_RECEIVE ->
+               ipcClient1AckSend(currentThread,ENTRYPOINT_CLIENT_SEND_OVER_RECEIVE);
+               onlyIf(rc==0,
+                 ipcClient2OverReceive(currentThread,WAIT_IPC_SRV_RECV);
+               );
+          #endif
+
+          #ifdef INCLUDE_CLIENT_SEND_OVER_RECEIVE
+          :: threadExcEntryPoint(currentThread) == 
+                             ENTRYPOINT_CLIENT_SEND_OVER_RECEIVE ->
+               ipcClient1Send(currentThread, /*out*/ wval);
+               onlyIf(rc==0,
+                 ipcClient2OverReceive(currentThread,wval);
+               );
+          #endif
+
+          #ifdef INCLUDE_CLIENT_RECEIVE
+          :: threadExcEntryPoint(currentThread) == ENTRYPOINT_CLIENT_RECEIVE ->
+               ipcClient12Receive(currentThread);
+          #endif 
+
+          #ifdef INCLUDE_CLIENT_DISCONNECT
+          :: threadExcEntryPoint(currentThread) == ENTRYPOINT_CLIENT_DISCONNECT ->
+               ipcClientDisconnect(currentThread);
+          #endif
+
+          /*- Server-side IPC operations - - - - - - - - - - - - - - - - - - */
+
+          #ifdef INCLUDE_WAIT_RECEIVE
+          :: threadExcEntryPoint(currentThread) == ENTRYPOINT_WAIT_RECEIVE ->
+	       sPsetWaitReceive(currentThread)
+          #endif
+
+          #ifdef INCLUDE_SERVER_ACK_SEND
+          :: threadExcEntryPoint(currentThread) == ENTRYPOINT_SERVER_ACK_SEND ->
+               ipcServer1AckSend(currentThread,ENTRYPOINT_SERVER_SEND);
+               onlyIf(rc==0,
+                 threadWaitOther(threadIPCClient(currentThread),WAIT_IPC_CLI_RECV);
+                 rc=0;
+               );
+          #endif
+
+          #ifdef INCLUDE_SERVER_SEND
+          :: threadExcEntryPoint(currentThread) == ENTRYPOINT_SERVER_SEND ->
+               ipcServer1Send(currentThread, /*out*/ wval);
+               onlyIf(rc==0,
+                 threadWaitOther(threadIPCClient(currentThread),wval);
+                 rc=0;
+               );
+          #endif
+
+          #ifdef INCLUDE_SERVER_ACK_SEND_WAIT_RECEIVE
+          :: threadExcEntryPoint(currentThread) ==
+                             ENTRYPOINT_SERVER_ACK_SEND_WAIT_RECEIVE ->
+               ipcServer1AckSend(currentThread,ENTRYPOINT_SERVER_SEND_WAIT_RECEIVE);
+               onlyIf(rc==0,
+                 ipcServer2WaitReceive(currentThread,WAIT_IPC_CLI_RECV);
+               );
+          #endif 
+
+          #ifdef INCLUDE_SERVER_ACK_SEND_OVER_RECEIVE
+          :: threadExcEntryPoint(currentThread) ==
+                             ENTRYPOINT_SERVER_ACK_SEND_OVER_RECEIVE ->
+               ipcServer1AckSend(currentThread,ENTRYPOINT_SERVER_SEND_OVER_RECEIVE);
+               onlyIf(rc==0,
+                 ipcServer2OverReceive(currentThread,WAIT_IPC_CLI_RECV);
+               );
+          #endif 
+
+          #ifdef INCLUDE_SERVER_SEND_WAIT_RECEIVE
+          :: threadExcEntryPoint(currentThread) ==
+                             ENTRYPOINT_SERVER_SEND_WAIT_RECEIVE ->
+               ipcServer1Send(currentThread, /*out*/ wval);
+               onlyIf(rc==0,
+                 ipcServer2WaitReceive(currentThread,wval);
+               );
+          #endif 
+
+          #ifdef INCLUDE_SERVER_SEND_OVER_RECEIVE
+          :: threadExcEntryPoint(currentThread) ==
+                             ENTRYPOINT_SERVER_SEND_OVER_RECEIVE ->
+               ipcServer1Send(currentThread, /*out*/ wval);
+               onlyIf(rc==0,
+                 ipcServer2OverReceive(currentThread,wval);
+               );
+          #endif 
+
+          #ifdef INCLUDE_SERVER_RECEIVE
+          :: threadExcEntryPoint(currentThread) == ENTRYPOINT_SERVER_RECEIVE ->
+               ipcServer12Receive(currentThread);
+          #endif 
+
+          #ifdef INCLUDE_SERVER_DISCONNECT
+          :: threadExcEntryPoint(currentThread) == ENTRYPOINT_SERVER_DISCONNECT ->
+               ipcServerDisconnect(currentThread);
+          #endif 
+
+          :: else ->
+	       panic("Undefined entrypoint.  Rebooting...\n");
+
+	  fi; /* end of entryPoint switch. */
+
+
+
+	  /*
+	   * At this point, the syscall has returned.  If the
+	   * return code is non-zero then handle the exception.
+	   * Avert your eyes if goto makes you vomit.
+	   */
+	  if
+	  :: rc == 0 ->
+	       threadSetExcEntryPoint(currentThread, ENTRYPOINT_NOP);
+	       goto return_to_user; /* jump over the exception handling */
+	  :: else ->
+	       assert((rc != 0) && (rc != KR_INVALID));
+	  fi;
+
+	  /* If we fell through then there's been an exception */
+
+	  /*
+	   * Handle an exception, ie a non-zero rc value.
+	   */
+        handle_exception: 
+	  assert(rc != 0);
+	  if
+	  :: rc == KR_RESTART ->
+	       rc = 0;
+          :: else ->
+	       sThreadException();
+	       /* sets rc */
+	  fi;
+	  /* goto return_to_user; This is next anyway...*/
+
+        return_to_user:
+	  /* sThreadException() may set RC, so we must check again... */
+	  if
+	  :: rc != 0 ->
+	       goto handle_exception;
+	  :: else ->
+	       assert(rc == 0);
+	  fi;
+
+	  assert(rc == 0);
+
+	  /* Handle a cancel, if one is pending. */
+	  if
+	  :: (threadWaitCancelPending(currentThread) == 1) ->
+	       rc = KR_CANCEL;
+	       goto handle_exception; /* Jump up to the exception handler above. */
+	  :: else ->
+	       /*
+		* Now, you'd think we could assert no cancel pending
+	        * right here, but a thread on a different processor could
+		* cancel us in between the if and the assert().
+		*/ skip;
+	       /* assert(threadWaitCancelPending(currentThread) == 0);*/
+	  fi;
+
+	  /*
+	   * RETURN TO USER LAND.  In our model, this just means jumping up to the
+	   * top of the sys_call entrypoint switch--which the do loop does for us.
+	   * The only way the real system gets out of kernel stuff is if it jumps
+	   * to FLUKE_NOP (switching into user mode) and then _that_ causes a
+	   * user-mode return.  We get the same effect by having ENTRYPOINT_NOP
+	   * jump out of the do block to the actual reply immediately below.
+	   */
+     od;
+
+   reply_to_user:
+     /*
+      * User's don't get to see the actual internal return code,
+      * which by this point is zero anyway, they get the ExcState.status
+      * word.
+      */
+     assert(rc == 0);
+     replyChan ! threadExcStatus(currentThread);
+  od
+}
+
+#endif /* __FLUKE_PROCTYPES__ */
+#endif /* __PROCTYPES__ */

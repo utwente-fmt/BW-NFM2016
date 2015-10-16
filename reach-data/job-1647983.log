@@ -1,0 +1,37 @@
+statistics run
+pnml2lts-sym spec/PNML/hc3k4p4b12.pnml -rsc,bn,rs,mm,hf --noack=2 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit038
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/hc3k4p4b12.pnml
+pnml2lts-sym: Petri net has 1408 places, 2400 transitions and 9600 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/hc3k4p4b12.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 0.240 real 0.240 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 0.420 real 0.390 user 0.020 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 3807
+pnml2lts-sym: profile: 7863690
+pnml2lts-sym: span: 2028258
+pnml2lts-sym: average wavefront: 854.51261
+pnml2lts-sym: RMS wavefront: 933.29234
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 2400->2400 groups
+pnml2lts-sym: Regrouping took 0.810 real 0.810 user 0.000 sys
+pnml2lts-sym: state vector length is 1408; there are 2400 groups and 1408 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1794.82 user, 1.86 system, 1805.20 elapsed -- Max VSize = 3677356KB, Max RSS = 994132KB
+command-4403: line 5: 33267 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/hc3k4p4b12.pnml -rsc,bn,rs,mm,hf --noack=2 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

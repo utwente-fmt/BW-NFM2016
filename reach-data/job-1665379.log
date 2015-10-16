@@ -1,0 +1,20 @@
+performance run
+pnml2lts-sym spec/PNML/2D8_gradient_40x40_50.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit002
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/2D8_gradient_40x40_50.pnml
+pnml2lts-sym: Petri net has 1600 places, 12324 transitions and 24648 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/2D8_gradient_40x40_50.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.710 real 0.640 user 0.060 sys
+pnml2lts-sym: state vector length is 1600; there are 12324 groups and 1600 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 15118621 of 16777216 buckets filled!
+Exit [1]
+504.56 user, 2.58 system, 508.38 elapsed -- Max VSize = 3754116KB, Max RSS = 1055140KB

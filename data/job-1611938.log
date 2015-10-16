@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/neoelection-8.unf.pnml -rsc,f --regroup-exit
+ctit034
+pnml2lts-seq: Loading model from spec/PNML/neoelection-8.unf.pnml
+pnml2lts-seq: Petri net has 10062 places, 22266 transitions and 129195 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/neoelection-8.unf.pnml analyzed
+pnml2lts-seq: Loading Petri net took 5.520 real 5.320 user 0.170 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,f
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup FORCE
+pnml2lts-seq: Regrouping: 22266->22266 groups
+pnml2lts-seq: Regrouping took 21.270 real 20.710 user 0.510 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+26.04 user, 0.84 system, 27.03 elapsed -- Max VSize = 1256144KB, Max RSS = 1217848KB

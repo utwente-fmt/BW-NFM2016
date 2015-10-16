@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/SafeBus-20-unfolded.pnml -rsc,tg,vacm --regroup-exit
+ctit010
+pnml2lts-seq: Loading model from spec/PNML/SafeBus-20-unfolded.pnml
+pnml2lts-seq: Petri net has 1026 places, 10461 transitions and 77364 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/SafeBus-20-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.940 real 0.830 user 0.100 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vacm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-seq: Regrouping: 10461->10461 groups
+pnml2lts-seq: Regrouping took 87.280 real 86.720 user 0.090 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+87.56 user, 0.21 system, 88.29 elapsed -- Max VSize = 207788KB, Max RSS = 169608KB

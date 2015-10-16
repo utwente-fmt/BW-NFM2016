@@ -1,0 +1,20 @@
+#!/bin/bash
+CMAX=300
+MMAX=4000000 # use at most 4GB
+
+echo mcrl22lps
+
+name="${1##*/}"
+
+memtime -c$CMAX -m$MMAX mcrl22lps -nDf "$1" "$name.lps"
+
+echo rewr
+memtime -c$CMAX -m$MMAX lpsrewr "$name.lps" "$name.lps"
+
+echo suminst
+memtime -c$CMAX  -m$MMAX lpssuminst "$name.lps" "$name.suminst.lps"
+
+# always use the suminst if possible
+if [ $? == 0 ]; then
+    rm "$name.lps"
+fi

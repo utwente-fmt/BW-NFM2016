@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-28- --no-close spec/B/CSM.mch -rsc,bg,bs,mm --regroup-exit --graph-metrics
+ctit003
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-32.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-32.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,bs,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup Boost's Sloan
+prob2lts-seq: bandwidth: 23
+prob2lts-seq: profile: 429
+prob2lts-seq: span: 494
+prob2lts-seq: average wavefront: 6.48
+prob2lts-seq: RMS wavefront: 6.79
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 14->14 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 126
+Normalized Event Span: 0.6
+Weighted Event Span, moment 1 (WES^1): 202
+Normalized Weighted Event Span, moment 1: 0.963
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-32: line 10: 34574 Killed                  probcli spec/B/CSM.mch -ltsmin2 /tmp/ltsmin-32.probz

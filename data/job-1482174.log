@@ -1,0 +1,27 @@
+statistics run
+pnml2lts-seq spec/PNML/RAS-C-100.pnml -rsc,bn,mm --regroup-exit --graph-metrics
+ctit008
+pnml2lts-seq: Loading model from spec/PNML/RAS-C-100.pnml
+pnml2lts-seq: Petri net has 600 places, 400 transitions and 1794 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/RAS-C-100.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.060 real 0.050 user 0.010 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bn,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Boost's None
+pnml2lts-seq: bandwidth: 601
+pnml2lts-seq: profile: 501700
+pnml2lts-seq: span: 5568
+pnml2lts-seq: average wavefront: 301.3
+pnml2lts-seq: RMS wavefront: 347.538
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 400->400 groups
+pnml2lts-seq: Regrouping took 0.030 real 0.030 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Event Span: 3180
+Normalized Event Span: 0.01325
+Weighted Event Span, moment 1 (WES^1): 3229.57
+Normalized Weighted Event Span, moment 1: 0.0134565
+Exit [0]
+0.08 user, 0.02 system, 0.20 elapsed -- Max VSize = 56608KB, Max RSS = 18140KB

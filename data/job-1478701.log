@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/pouring.1.dve -rsc,tg,vgps,mm --regroup-exit --graph-metrics
+ctit004
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/pouring.1.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,vgps,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+dve2lts-seq: bandwidth: 2803
+dve2lts-seq: profile: 11188729
+dve2lts-seq: span: 14034940
+dve2lts-seq: average wavefront: 1140.6756
+dve2lts-seq: RMS wavefront: 1420.6697
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 2018->2018 groups
+dve2lts-seq: Regrouping took 2.420 real 2.420 user 0.000 sys
+Event Span: 5342
+Normalized Event Span: 0.6618
+Weighted Event Span, moment 1 (WES^1): 9369
+Normalized Weighted Event Span, moment 1: 1.161
+Exit [0]
+39.14 user, 2.79 system, 42.15 elapsed -- Max VSize = 63528KB, Max RSS = 27484KB

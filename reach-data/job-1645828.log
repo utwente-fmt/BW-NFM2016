@@ -1,0 +1,35 @@
+statistics run
+pnml2lts-sym spec/PNML/PolyORB-LF-S06-J06-T06-unfolded.pnml -rsc,bg,vacm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit035
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/PolyORB-LF-S06-J06-T06-unfolded.pnml
+pnml2lts-sym: Petri net has 700 places, 10740 transitions and 89778 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/PolyORB-LF-S06-J06-T06-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 1.430 real 1.220 user 0.190 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,vacm,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-sym: bandwidth: 9381
+pnml2lts-sym: profile: 67807889
+pnml2lts-sym: span: 90482233
+pnml2lts-sym: average wavefront: 3968.58173
+pnml2lts-sym: RMS wavefront: 4967.87725
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 10740->10740 groups
+pnml2lts-sym: Regrouping took 36.460 real 36.300 user 0.010 sys
+pnml2lts-sym: state vector length is 700; there are 10740 groups and 725 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Event Span: 1026055
+Normalized Event Span: 0.1364798
+Weighted Event Span, moment 1 (WES^1): 1889642
+Normalized Weighted Event Span, moment 1: 0.2513491
+Exit [1]
+37.53 user, 0.24 system, 38.04 elapsed -- Max VSize = 2882140KB, Max RSS = 213428KB

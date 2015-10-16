@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/hc5k3p3b15.pnml -rsc,tg,bk --regroup-exit
+ctit003
+pnml2lts-seq: Loading model from spec/PNML/hc5k3p3b15.pnml
+pnml2lts-seq: Petri net has 9153 places, 25110 transitions and 100440 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/hc5k3p3b15.pnml analyzed
+pnml2lts-seq: Loading Petri net took 5.080 real 4.870 user 0.190 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bk
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's King
+pnml2lts-seq: Regrouping: 25110->25110 groups
+pnml2lts-seq: Regrouping took 21.590 real 20.770 user 0.680 sys
+pnml2lts-seq: max token count: 15
+Exit [0]
+25.64 user, 1.00 system, 26.83 elapsed -- Max VSize = 1279328KB, Max RSS = 1241068KB

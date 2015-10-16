@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/dekker-200.pnml --noack=1 --regroup-exit --graph-metrics
+ctit037
+pnml2lts-seq: Loading model from spec/PNML/dekker-200.pnml
+pnml2lts-seq: Petri net has 1000 places, 40400 transitions and 320400 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/dekker-200.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 66.550 real 66.230 user 0.010 sys
+pnml2lts-seq: Loading Petri net took 69.960 real 69.350 user 0.280 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regrouping: 40400->40400 groups
+pnml2lts-seq: Regrouping took 1.740 real 1.730 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+71.09 user, 0.34 system, 71.86 elapsed -- Max VSize = 558664KB, Max RSS = 520264KB

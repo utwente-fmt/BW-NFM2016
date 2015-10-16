@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/database20UNFOLD.pnml -rsc,bg,vcm --regroup-exit
+ctit044
+pnml2lts-seq: Loading model from spec/PNML/database20UNFOLD.pnml
+pnml2lts-seq: Petri net has 3260 places, 3200 transitions and 23200 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/database20UNFOLD.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.470 real 0.450 user 0.020 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,vcm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup ViennaCL's Cuthill McKee
+pnml2lts-seq: Regrouping: 3200->3200 groups
+pnml2lts-seq: Regrouping took 0.600 real 0.590 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+1.05 user, 0.03 system, 1.10 elapsed -- Max VSize = 109712KB, Max RSS = 71252KB

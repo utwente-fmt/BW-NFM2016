@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/firewire_tree.5.dve -rsc,bg,vgps --regroup-exit
+ctit029
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/firewire_tree.5.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,vgps
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+dve2lts-seq: Regrouping: 1280->1280 groups
+dve2lts-seq: Regrouping took 1.930 real 1.920 user 0.010 sys
+Exit [0]
+63.80 user, 1.81 system, 67.97 elapsed -- Max VSize = 82100KB, Max RSS = 46200KB

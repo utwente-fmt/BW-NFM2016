@@ -1,0 +1,16 @@
+statistics run
+pnml2lts-seq spec/PNML/dekker-200.pnml -rsc,tg,vcm,mm --regroup-exit --graph-metrics
+ctit008
+pnml2lts-seq: Loading model from spec/PNML/dekker-200.pnml
+pnml2lts-seq: Petri net has 1000 places, 40400 transitions and 320400 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/dekker-200.pnml analyzed
+pnml2lts-seq: Loading Petri net took 4.140 real 3.650 user 0.470 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vcm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Cuthill McKee
+Killed [24]
+3594.48 user, 1.27 system, 3602.44 elapsed -- Max VSize = 558712KB, Max RSS = 520388KB
+command-8801: line 5: 13085 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/dekker-200.pnml -rsc,tg,vcm,mm --regroup-exit --graph-metrics

@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/leader_election.6.dve -rsc,bg,bk --regroup-exit
+ctit027
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/leader_election.6.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bk
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's King
+dve2lts-seq: Regrouping: 171->171 groups
+dve2lts-seq: Regrouping took 0.000 real 0.010 user 0.000 sys
+Exit [0]
+4.04 user, 0.20 system, 4.30 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

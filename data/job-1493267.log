@@ -1,0 +1,15 @@
+performance run
+pnml2lts-seq spec/PNML/2D8_gradient_50x50_10.pnml -rsc,f --regroup-exit
+ctit024
+pnml2lts-seq: Loading model from spec/PNML/2D8_gradient_50x50_10.pnml
+pnml2lts-seq: Petri net has 2500 places, 19404 transitions and 38808 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/2D8_gradient_50x50_10.pnml analyzed
+pnml2lts-seq: Loading Petri net took 1.520 real 1.380 user 0.120 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,f
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup FORCE
+Killed [24]
+3595.95 user, 0.29 system, 3601.47 elapsed -- Max VSize = 187452KB, Max RSS = 149236KB
+command-18457: line 5: 53937 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/2D8_gradient_50x50_10.pnml -rsc,f --regroup-exit

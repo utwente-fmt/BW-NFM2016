@@ -1,0 +1,15 @@
+performance run
+lps2lts-seq --mcrl2-rewriter=jitty spec/mCRL2/parallel.mcrl2.suminst.lps -rsc,tg,vgps --regroup-exit
+ctit002
+lps2lts-seq: mCRL2 language module initialized
+lps2lts-seq: Loading model from spec/mCRL2/parallel.mcrl2.suminst.lps
+lps2lts-seq: mCRL2 rewriter: jitty
+lps2lts-seq: Initializing regrouping layer
+lps2lts-seq: Regroup specification: sc,tg,vgps
+lps2lts-seq: Regroup Select Combined matrix
+lps2lts-seq: Regroup Total graph
+lps2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+lps2lts-seq: Regrouping: 1330->1330 groups
+lps2lts-seq: Regrouping took 0.710 real 0.710 user 0.000 sys
+Exit [0]
+0.75 user, 0.02 system, 0.80 elapsed -- Max VSize = 69320KB, Max RSS = 15540KB

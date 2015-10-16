@@ -1,0 +1,13 @@
+performance run
+dve2lts-seq spec/DVE/resistance.1.dve -rsc,f --regroup-exit
+ctit037
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/resistance.1.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,f
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup FORCE
+dve2lts-seq: Regrouping: 26->26 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.36 user, 0.05 system, 0.50 elapsed -- Max VSize = 38240KB, Max RSS = 4744KB

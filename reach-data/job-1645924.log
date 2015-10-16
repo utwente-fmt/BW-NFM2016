@@ -1,0 +1,38 @@
+statistics run
+pnml2lts-sym spec/PNML/PolyORB-NT-S05-J80-unfolded.pnml -rsc,bg,vacm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit010
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/PolyORB-NT-S05-J80-unfolded.pnml
+pnml2lts-sym: Petri net has 1189 places, 2350 transitions and 14464 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/PolyORB-NT-S05-J80-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.280 real 0.220 user 0.040 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,vacm,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-sym: bandwidth: 980
+pnml2lts-sym: profile: 1970731
+pnml2lts-sym: span: 2895261
+pnml2lts-sym: average wavefront: 436.18508
+pnml2lts-sym: RMS wavefront: 490.21281
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 2350->2350 groups
+pnml2lts-sym: Regrouping took 2.900 real 2.880 user 0.010 sys
+pnml2lts-sym: state vector length is 1189; there are 2350 groups and 1209 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 14938591 of 16777216 buckets filled!
+Event Span: 659593
+Normalized Event Span: 0.2360621
+Weighted Event Span, moment 1 (WES^1): 1040455
+Normalized Weighted Event Span, moment 1: 0.372369
+Exit [1]
+132.79 user, 2.09 system, 135.94 elapsed -- Max VSize = 3677244KB, Max RSS = 1012064KB

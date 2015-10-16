@@ -1,0 +1,115 @@
+/*
+ * Copyright (c) 1996 The University of Utah and
+ * the Computer Systems Laboratory at the University of Utah (CSL).
+ * All rights reserved.
+ *
+ * Permission to use, copy, modify and distribute this software is hereby
+ * granted provided that (1) source code retains these copyright, permission,
+ * and disclaimer notices, and (2) redistributions including binaries
+ * reproduce the notices in supporting documentation, and (3) all advertising
+ * materials mentioning features or use of this software display the following
+ * acknowledgement: ``This product includes software developed by the
+ * Computer Systems Laboratory at the University of Utah.''
+ *
+ * THE UNIVERSITY OF UTAH AND CSL ALLOW FREE USE OF THIS SOFTWARE IN ITS "AS
+ * IS" CONDITION.  THE UNIVERSITY OF UTAH AND CSL DISCLAIM ANY LIABILITY OF
+ * ANY KIND FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * CSL requests users of this software to return to csl-dist@cs.utah.edu any
+ * improvements that they make and grant CSL redistribution rights.
+ */
+/*
+ * Basic-test.pr -
+ * 
+ *    A very basic test of the IPC code.  Client repeatedly
+ * sends a byte and disconnects.  The server repeatedly receives
+ * a byte and disconnects.
+ *  
+ */
+
+/*
+ * Select the stuff we want out of the bloat.
+ */
+#define INCLUDE_WAIT_RECEIVE
+#define INCLUDE_SERVER_DISCONNECT
+#define INCLUDE_CLIENT_CONNECT_SEND
+#define INCLUDE_CLIENT_DISCONNECT
+
+/* IMPLIES the following entrypoints (via restarts, etc.) */
+#define INCLUDE_CLIENT_SEND
+#define INCLUDE_SERVER_RECEIVE
+
+/* Toggle this to include actually sending payload in the IPC model */
+#define INCLUDE_IPC_PAYLOAD
+
+/* Toggle this to cause page-faults in ipcReliableTransfer() */
+#define IPC_TRANSFER_CAN_FAULT					
+
+/* Toggle this to use the safe mutexes */
+#undef INCLUDE_MUTEX_SAFE
+
+#include "../../fluke/Fluke.pr"
+
+mtype = {
+  FLUKE_MESSAGES
+};
+
+threadDefineInstances(3);
+wqDefineInstances(6);
+mutexDefineInstances(3);
+
+#include "../../support/Proctypes.pr"
+
+proctype user_server(Thread currentThread) {
+  Fluke kernel;
+  ResultCode rc;
+  IpcPayload rData = 0;
+
+  flukeInit(kernel, currentThread);
+
+  flukeVersion(kernel);
+  assert(rc==FLUKE_VERSION);
+
+  do
+  :: TRUE ->
+  rData = 0;
+  flukeWaitReceive(fluke, rData);
+  assert(rData == 42);
+  assert(rc == 0
+	 || rc == FLUKE_IPC_RECV_DISCONNECTED);
+  flukeServerDisconnect(fluke);
+  assert(rc == 0);
+  od;
+}
+
+proctype user_client(Thread currentThread;
+		Thread server) {
+  Fluke kernel;
+  ResultCode rc;
+  IpcPayload sData;
+
+  flukeInit(kernel, currentThread);
+
+  flukeVersion(kernel);
+  assert(rc==FLUKE_VERSION);
+
+  do
+  :: TRUE ->
+       sData = 42;
+       flukeClientConnectSend(fluke, server, sData);
+       assert(rc == 0);
+       flukeClientDisconnect(fluke);
+       assert(rc == 0);
+  od;
+}
+
+init {
+  threadInitInstances(3);
+  wqInitInstances(6);
+  mutexInitInstances(3);
+
+  atomic {
+    run user_client(1, /*server=*/2);
+    run user_server(2);
+  }
+}

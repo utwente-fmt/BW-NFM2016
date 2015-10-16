@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/lamport_fmea-7.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit003
+pnml2lts-seq: Loading model from spec/PNML/lamport_fmea-7.pnml
+pnml2lts-seq: Petri net has 264 places, 536 transitions and 2352 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/lamport_fmea-7.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.030 real 0.010 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 2000
+pnml2lts-seq: profile: 1276119
+pnml2lts-seq: span: 1354546
+pnml2lts-seq: average wavefront: 96.70809
+pnml2lts-seq: RMS wavefront: 103.0081
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 536->536 groups
+pnml2lts-seq: Regrouping took 0.690 real 0.670 user 0.020 sys
+pnml2lts-seq: max token count: 1
+Event Span: 29490
+Normalized Event Span: 0.208404
+Weighted Event Span, moment 1 (WES^1): 25443.6
+Normalized Weighted Event Span, moment 1: 0.179808
+Exit [0]
+0.68 user, 0.03 system, 0.80 elapsed -- Max VSize = 50456KB, Max RSS = 12184KB

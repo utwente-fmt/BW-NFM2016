@@ -1,0 +1,20 @@
+performance run
+pnml2lts-sym spec/PNML/dekker-100.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit039
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/dekker-100.pnml
+pnml2lts-sym: Petri net has 500 places, 10200 transitions and 80200 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/dekker-100.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.920 real 0.790 user 0.120 sys
+pnml2lts-sym: state vector length is 500; there are 10200 groups and 500 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 15248734 of 16777216 buckets filled!
+Exit [1]
+231.46 user, 1.26 system, 250.65 elapsed -- Max VSize = 3746856KB, Max RSS = 1099136KB

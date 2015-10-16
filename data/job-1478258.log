@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/peg_solitaire.3.dve -rsc,bg,bs,mm --regroup-exit --graph-metrics
+ctit009
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/peg_solitaire.3.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bs,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's Sloan
+dve2lts-seq: bandwidth: 289
+dve2lts-seq: profile: 54436
+dve2lts-seq: span: 27081
+dve2lts-seq: average wavefront: 47.443
+dve2lts-seq: RMS wavefront: 48.852
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 240->240 groups
+dve2lts-seq: Regrouping took 0.100 real 0.090 user 0.000 sys
+Event Span: 12240
+Normalized Event Span: 1
+Weighted Event Span, moment 1 (WES^1): 24480
+Normalized Weighted Event Span, moment 1: 2
+Exit [0]
+8.10 user, 0.24 system, 8.41 elapsed -- Max VSize = 47408KB, Max RSS = 11924KB

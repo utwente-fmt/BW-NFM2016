@@ -1,0 +1,222 @@
+/* File    : brp.pr
+ * Created : 17-Nov-2000 14:35:43
+ * 
+ * Extracted with noweb from: brp.nw
+ * 
+ * (C) University of Twente, Enschede, The Netherlands 
+ *     contact: Theo Ruys <ruys@cs.utwente.nl> 
+ */ 
+    
+#define REQ     1
+#define N       4
+#define ACK         1
+#define MAX         2
+#define SHAKE       1
+#define IF              if ::
+#define FI              :: else fi
+#define IMPLIES(x,y)    ((!x)||(y))
+#define r11 \
+  IMPLIES((k>=1), IMPLIES((e[1].ind != Inok), (e[1].val == d[1]))) && \
+  IMPLIES((k>=2), IMPLIES((e[2].ind != Inok), (e[2].val == d[2]))) && \
+  IMPLIES((k>=3), IMPLIES((e[3].ind != Inok), (e[3].val == d[3])))
+#define r12   IMPLIES((n>1), (e[1].ind == Ifst))
+#define r13   IMPLIES((k>2), (e[2].ind == Iinc))
+#define r141  ((e[k].ind == Iok) || (e[k].ind == Inok))
+#define r142  IMPLIES((e[k].ind == Iok) , (k==n))
+#define r143  IMPLIES((e[k].ind == Inok), (k>1))
+#define r14   (r141 && r142 && r143)
+#define r15   IMPLIES((sInd == Iok),  (e[k].ind == Iok))
+#define r16   IMPLIES((sInd == Inok), (e[k].ind == Inok))
+#define r17   IMPLIES((sInd == Idk),  (k==n))
+#define r21   ( ((sInd == Idk)  && (n == 1)) || ((sInd != Idk)  && (n != 1)) )
+#define r22   ( ((sInd == Inok) && (n > 1))  || ((sInd != Inok) && (n <= 1)) )
+#define all1  IMPLIES((k>0) ,  (r11 && r12 && r13 && r14 && r15 && r16 && r17))
+#define all2  IMPLIES((k==0),  (r21 && r22))
+#define allreqs (all1 && all2)
+#define PROP IMPLIES(checknow, allreqs)
+mtype { Ifst, Iinc, Iok, Idk, Inok } ;
+typedef etype {
+  byte    ind ;
+  byte    val ;
+} ;
+
+chan Sin  = [0] of {bit} ;
+chan Sout = [0] of {mtype} ;
+chan Rout = [0] of {mtype, byte} ;
+chan ChunkTimeout = [0] of {bit} ;
+chan SyncWait     = [0] of {bit} ;
+chan K  = [1] of {bit, bit, bit, byte} ;
+chan L  = [1] of {bit} ;
+chan F  = K ;
+chan G  = K ;
+chan A  = L ;
+chan B  = L ;
+byte    n ;
+byte    d[4] ;
+byte    sInd ;
+byte    k ;
+etype   e[4] ;
+bit checknow ;
+
+active proctype Environment()
+{
+  byte i, v ;
+  do
+  ::  Sin!REQ ;
+      IF (n>0) -> checknow = 1 ;
+                  checknow = 0 ;
+      FI ;
+      atomic {
+        d[1]=0 ; d[2]=0 ; d[3]=0 ;  
+        if
+        :: n = 1
+        :: n = 2
+        :: n = 3
+        fi ;
+        if 
+        :: n==1 -> if 
+                   :: d[1] = 1
+                   fi
+        :: n==2 -> if 
+                   :: d[1] = 1
+                   :: d[2] = 1
+                   fi
+        :: n==3 -> if 
+                   :: d[1] = 1
+                   :: d[2] = 1
+                   :: d[3] = 1
+                   fi
+        fi ;
+        k = 0 ; 
+      }
+      Sin!REQ ;
+
+  ::  Sout?sInd
+
+  ::  Rout?i(v) -> d_step {
+        k++ ;
+        e[k].ind = i ;
+        e[k].val = v ;
+        i=0 ;
+        v=0 ;
+      }
+  od
+}
+active proctype Sender()
+{
+  bit     ab ;
+  byte    rc ;
+  byte    i ;
+start: 
+  ab = 0 ;
+  goto idle ;
+
+idle:
+  Sin?REQ ;
+  Sin?REQ ;             
+  i = 1 ;
+  goto next_frame ;
+
+next_frame: 
+  F!(i==1),(i==n),ab,d[i] ;
+  rc = 0 ;
+  goto wait_ack ;
+
+wait_ack:
+  if
+  ::  B?ACK -> 
+        ab = 1-ab ;
+        goto success 
+
+  ::  ChunkTimeout?SHAKE -> 
+        if
+        ::  (rc < MAX)  -> rc++ ; 
+                           F!(i==1),(i==n),ab,d[i] ;
+                           goto wait_ack
+        ::  (rc >= MAX) -> goto error 
+        fi
+  fi ;
+
+success:
+  if
+  ::  (i == n) -> Sout!Iok ;
+                  goto idle
+  ::  (i <  n) -> i++ ;
+                  goto next_frame 
+  fi ;
+
+error:
+  if
+  ::  (i == n) -> Sout!Idk 
+  ::  (i != n) -> Sout!Inok
+  fi ;
+  SyncWait!SHAKE ;
+  SyncWait?SHAKE ;
+  ab = 0 ;
+  goto idle ;
+}
+active proctype Receiver()
+{
+  bit    b1, bN, ab ;
+  byte   v ;
+  bit    exp_ab ;
+new_file:
+  if
+  ::  G?b1,bN,ab,v   -> goto first_safe_frame 
+  ::  SyncWait?SHAKE ;
+      SyncWait!SHAKE -> goto new_file
+  fi ;
+
+first_safe_frame:
+  exp_ab = ab ;
+  goto frame_received ;
+
+frame_received:
+  if
+  ::  (ab != exp_ab) -> 
+        A!ACK ;
+        goto idle 
+
+  ::  (ab == exp_ab) -> 
+        if
+        ::  ( b1 && !bN) -> Rout!Ifst(v)
+        ::  (!b1 && !bN) -> Rout!Iinc(v)
+        ::  (        bN) -> Rout!Iok(v)
+        fi ;
+        goto frame_reported
+  fi ;
+
+frame_reported:
+  A!ACK ;
+  exp_ab = 1-exp_ab ;
+  goto idle ;
+
+idle:
+  if
+  ::  G?b1,bN,ab,v -> 
+        goto frame_received
+
+  ::  SyncWait?SHAKE ->
+        if
+        ::   bN -> skip
+        ::  !bN -> Rout!Inok(v) 
+        fi ; 
+        SyncWait!SHAKE ;
+        goto new_file
+  fi ;
+}
+active proctype Daemon()
+{
+  bit   b, b1, bN, ab ;
+  byte  v ;
+  do
+  ::  K?b1,bN,ab,v -> ChunkTimeout!SHAKE
+  ::  L?b          -> ChunkTimeout!SHAKE
+  od 
+}
+
+never {
+  do
+  ::  assert(PROP) ;
+  od
+}

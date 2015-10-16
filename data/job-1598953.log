@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/galloc_res-3.pnml -rsc,tg,bs --regroup-exit
+ctit002
+pnml2lts-seq: Loading model from spec/PNML/galloc_res-3.pnml
+pnml2lts-seq: Petri net has 33 places, 4791 transitions and 38652 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/galloc_res-3.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.330 real 0.270 user 0.060 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: Regrouping: 4791->4791 groups
+pnml2lts-seq: Regrouping took 62.030 real 61.740 user 0.070 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+62.01 user, 0.15 system, 62.45 elapsed -- Max VSize = 131916KB, Max RSS = 93548KB

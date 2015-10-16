@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/parking_8_64.pnml -rsc,tg,vacm,mm --regroup-exit --graph-metrics
+ctit026
+pnml2lts-seq: Loading model from spec/PNML/parking_8_64.pnml
+pnml2lts-seq: Petri net has 1185 places, 1697 transitions and 5073 arcs
+pnml2lts-seq: There are 1185 safe places
+pnml2lts-seq: Petri net spec/PNML/parking_8_64.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.090 real 0.080 user 0.010 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vacm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-seq: bandwidth: 2652
+pnml2lts-seq: profile: 15785788
+pnml2lts-seq: span: 21711986
+pnml2lts-seq: average wavefront: 1689.7794
+pnml2lts-seq: RMS wavefront: 1844.1095
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 1697->1697 groups
+pnml2lts-seq: Regrouping took 5.560 real 5.530 user 0.010 sys
+pnml2lts-seq: max token count: 1
+Event Span: 695015
+Normalized Event Span: 0.3456161
+Weighted Event Span, moment 1 (WES^1): 1077386
+Normalized Weighted Event Span, moment 1: 0.5357611
+Exit [0]
+5.61 user, 0.03 system, 5.71 elapsed -- Max VSize = 57072KB, Max RSS = 18636KB

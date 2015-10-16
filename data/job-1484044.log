@@ -1,0 +1,16 @@
+statistics run
+pnml2lts-seq spec/PNML/hc5k3p3b15.pnml -rsc,tg,vacm,mm --regroup-exit --graph-metrics
+ctit008
+pnml2lts-seq: Loading model from spec/PNML/hc5k3p3b15.pnml
+pnml2lts-seq: Petri net has 9153 places, 25110 transitions and 100440 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/hc5k3p3b15.pnml analyzed
+pnml2lts-seq: Loading Petri net took 5.370 real 5.050 user 0.270 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vacm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+Killed [24]
+3592.99 user, 2.81 system, 3602.26 elapsed -- Max VSize = 542564KB, Max RSS = 504804KB
+command-9234: line 5: 13365 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/hc5k3p3b15.pnml -rsc,tg,vacm,mm --regroup-exit --graph-metrics

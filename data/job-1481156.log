@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/Kanban-5.pnml -rsc,bg,bs,mm --regroup-exit --graph-metrics
+ctit003
+pnml2lts-seq: Loading model from spec/PNML/Kanban-5.pnml
+pnml2lts-seq: Petri net has 16 places, 16 transitions and 40 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/Kanban-5.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.010 real 0.000 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 15
+pnml2lts-seq: profile: 162
+pnml2lts-seq: span: 197
+pnml2lts-seq: average wavefront: 3.312
+pnml2lts-seq: RMS wavefront: 3.446
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 16->16 groups
+pnml2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: max token count: 5
+Event Span: 53
+Normalized Event Span: 0.207
+Weighted Event Span, moment 1 (WES^1): 68
+Normalized Weighted Event Span, moment 1: 0.266
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

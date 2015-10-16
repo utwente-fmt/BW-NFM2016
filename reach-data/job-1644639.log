@@ -1,0 +1,37 @@
+statistics run
+pnml2lts-sym spec/PNML/CircularTrain-768.pnml -rsc,bn,rs,mm,hf --noack=2 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit001
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/CircularTrain-768.pnml
+pnml2lts-sym: Petri net has 1536 places, 768 transitions and 3072 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/CircularTrain-768.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 0.090 real 0.100 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 0.160 real 0.160 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 2292
+pnml2lts-sym: profile: 2866683
+pnml2lts-sym: span: 421879
+pnml2lts-sym: average wavefront: 858.7227
+pnml2lts-sym: RMS wavefront: 977.5556
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 768->768 groups
+pnml2lts-sym: Regrouping took 0.240 real 0.230 user 0.000 sys
+pnml2lts-sym: state vector length is 1536; there are 768 groups and 1536 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1793.60 user, 4.13 system, 1801.83 elapsed -- Max VSize = 3675816KB, Max RSS = 980652KB
+command-1059: line 5: 50296 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/CircularTrain-768.pnml -rsc,bn,rs,mm,hf --noack=2 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

@@ -1,0 +1,25 @@
+performance run
+pnml2lts-sym spec/PNML/Philosophers-2000.pnml -rsc,tg,vgps,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit021
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/Philosophers-2000.pnml
+pnml2lts-sym: Petri net has 10000 places, 10000 transitions and 32000 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/Philosophers-2000.pnml analyzed
+pnml2lts-sym: Loading Petri net took 2.480 real 2.270 user 0.150 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,vgps,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 10000->10000 groups
+pnml2lts-sym: Regrouping took 9.310 real 8.890 user 0.280 sys
+pnml2lts-sym: state vector length is 10000; there are 10000 groups and 10000 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Exit [1]
+11.17 user, 0.52 system, 12.03 elapsed -- Max VSize = 3245536KB, Max RSS = 565788KB

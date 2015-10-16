@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-56- --no-close spec/B/Countdown.mch -rsc,bg,vcm,mm --regroup-exit --graph-metrics
+ctit004
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-61.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-61.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+Event Span: 10
+Normalized Event Span: 1
+Weighted Event Span, moment 1 (WES^1): 2e+01
+Normalized Weighted Event Span, moment 1: 2
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,vcm,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup ViennaCL's Cuthill McKee
+prob2lts-seq: bandwidth: 5
+prob2lts-seq: profile: 32
+prob2lts-seq: span: 24
+prob2lts-seq: average wavefront: 3.4
+prob2lts-seq: RMS wavefront: 3.8
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 5->5 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-61: line 10: 47803 Killed                  probcli spec/B/Countdown.mch -ltsmin2 /tmp/ltsmin-61.probz

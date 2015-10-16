@@ -1,0 +1,24 @@
+statistics run
+prom2lts-seq spec/Promela/p116.pml.spins -rsc,bg,vacm,mm --regroup-exit --graph-metrics
+ctit028
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/p116.pml.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,bg,vacm,mm
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup Bipartite Graph
+prom2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+prom2lts-seq: bandwidth: 6
+prom2lts-seq: profile: 104
+prom2lts-seq: span: 141
+prom2lts-seq: average wavefront: 4.63
+prom2lts-seq: RMS wavefront: 4.95
+prom2lts-seq: Regroup Matrix Metrics
+prom2lts-seq: Regrouping: 11->11 groups
+prom2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 39
+Normalized Event Span: 0.44
+Weighted Event Span, moment 1 (WES^1): 50
+Normalized Weighted Event Span, moment 1: 0.57
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

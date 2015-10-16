@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/CircularTrain-768.pnml -rsc,bg,bs --regroup-exit
+ctit007
+pnml2lts-seq: Loading model from spec/PNML/CircularTrain-768.pnml
+pnml2lts-seq: Petri net has 1536 places, 768 transitions and 3072 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/CircularTrain-768.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.070 real 0.060 user 0.010 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bs
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: Regrouping: 768->768 groups
+pnml2lts-seq: Regrouping took 0.070 real 0.070 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+0.13 user, 0.02 system, 0.20 elapsed -- Max VSize = 53940KB, Max RSS = 15536KB

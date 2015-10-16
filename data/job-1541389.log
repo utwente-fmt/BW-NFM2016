@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/firewire_tree.3.dve -rsc,tg,bs --regroup-exit
+ctit026
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/firewire_tree.3.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,bs
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup Boost's Sloan
+dve2lts-seq: Regrouping: 504->504 groups
+dve2lts-seq: Regrouping took 0.660 real 0.640 user 0.020 sys
+Exit [0]
+14.46 user, 0.49 system, 15.01 elapsed -- Max VSize = 52452KB, Max RSS = 16928KB

@@ -1,0 +1,20 @@
+performance run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-102941- --no-close spec/B/DoorsRelations.mch -rsc,bg,vcm --regroup-exit
+ctit032
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-102945.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-102945.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,vcm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup ViennaCL's Cuthill McKee
+prob2lts-seq: Regrouping: 3->3 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-102945: line 10: 46648 Killed                  probcli spec/B/DoorsRelations.mch -ltsmin2 /tmp/ltsmin-102945.probz

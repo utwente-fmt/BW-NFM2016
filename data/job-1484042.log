@@ -1,0 +1,19 @@
+statistics run
+pnml2lts-seq spec/PNML/hc5k3p3b15.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit021
+pnml2lts-seq: Loading model from spec/PNML/hc5k3p3b15.pnml
+pnml2lts-seq: Petri net has 9153 places, 25110 transitions and 100440 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/hc5k3p3b15.pnml analyzed
+pnml2lts-seq: Loading Petri net took 5.590 real 5.310 user 0.240 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 23038
+pnml2lts-seq: profile: 684164776
+pnml2lts-seq: span: 815379615
+Killed [24]
+3591.23 user, 1.19 system, 3601.66 elapsed -- Max VSize = 732908KB, Max RSS = 678396KB
+command-9232: line 5: 28105 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/hc5k3p3b15.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics

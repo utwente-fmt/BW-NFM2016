@@ -1,0 +1,8 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-518- --no-close spec/B/WhoKilledAgatha.mch -rsc,tg,vgps,mm --regroup-exit --graph-metrics
+ctit031
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-531.probz
+prob2lts-seq, ** error **: Zocket does not exist: (null)
+Exit [255]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 80KB

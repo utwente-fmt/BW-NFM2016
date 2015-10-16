@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/hanoi.2.dve -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit009
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/hanoi.2.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,bs,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup Boost's Sloan
+dve2lts-seq: bandwidth: 217
+dve2lts-seq: profile: 24019
+dve2lts-seq: span: 25545
+dve2lts-seq: average wavefront: 14.158
+dve2lts-seq: RMS wavefront: 14.923
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 6->6 groups
+dve2lts-seq: Regrouping took 0.010 real 0.000 user 0.000 sys
+Event Span: 232
+Normalized Event Span: 0.806
+Weighted Event Span, moment 1 (WES^1): 411
+Normalized Weighted Event Span, moment 1: 1.43
+Exit [0]
+0.25 user, 0.05 system, 0.40 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

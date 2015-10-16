@@ -1,0 +1,22 @@
+performance run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-14171- --no-close spec/B/fahrzeugverwaltung2.mch -rsc,tg,bcm --regroup-exit
+ctit034
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-14178.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-14178.probz
+% set_pref(MAX_INITIALISATIONS,maxNrOfInitialisations,400)
+% set_pref(MAX_OPERATIONS,maxNrOfEnablingsPerOperation,40)
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,tg,bcm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Total graph
+prob2lts-seq: Regroup Boost's Cuthill McKee
+prob2lts-seq: Regrouping: 7->7 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 84KB
+command-14178: line 10: 60514 Killed                  probcli spec/B/fahrzeugverwaltung2.mch -ltsmin2 /tmp/ltsmin-14178.probz

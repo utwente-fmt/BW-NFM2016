@@ -1,0 +1,20 @@
+performance run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-90566- --no-close spec/B/USB_4Endpoints.mch -rsc,tg,bs --regroup-exit
+ctit006
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-90575.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-90575.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,tg,bs
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Total graph
+prob2lts-seq: Regroup Boost's Sloan
+prob2lts-seq: Regrouping: 39->39 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.010 sys
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 80KB
+command-90575: line 10: 64336 Killed                  probcli spec/B/USB_4Endpoints.mch -ltsmin2 /tmp/ltsmin-90575.probz

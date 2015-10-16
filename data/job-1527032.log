@@ -1,0 +1,9 @@
+performance run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-52219- --no-close spec/B/Scheduler.mch -rsc,bg,bs --regroup-exit
+ctit035
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-52222.probz
+prob2lts-seq, ** error **: Zocket does not exist: (null)
+Exit [255]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 80KB
+command-52222: line 10: 10491 Killed                  probcli spec/B/Scheduler.mch -ltsmin2 /tmp/ltsmin-52222.probz

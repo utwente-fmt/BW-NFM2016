@@ -1,0 +1,20 @@
+statistics run
+pnml2lts-seq spec/PNML/database40UNFOLD.pnml -rsc,tg,bcm,mm --regroup-exit --graph-metrics
+ctit006
+pnml2lts-seq: Loading model from spec/PNML/database40UNFOLD.pnml
+pnml2lts-seq: Petri net has 12920 places, 12800 transitions and 156800 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/database40UNFOLD.pnml analyzed
+pnml2lts-seq: Loading Petri net took 5.120 real 4.750 user 0.350 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bcm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Cuthill McKee
+pnml2lts-seq: bandwidth: 135646
+pnml2lts-seq: profile: 12763642863
+pnml2lts-seq: span: 14652629181
+pnml2lts-seq: average wavefront: 19782.149814
+Killed [24]
+3594.93 user, 0.98 system, 3603.10 elapsed -- Max VSize = 611900KB, Max RSS = 570972KB
+command-8702: line 5: 11693 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/database40UNFOLD.pnml -rsc,tg,bcm,mm --regroup-exit --graph-metrics

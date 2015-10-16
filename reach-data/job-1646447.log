@@ -1,0 +1,38 @@
+statistics run
+pnml2lts-sym spec/PNML/SafeBus-20-unfolded.pnml -rsc,bn,rs,mm,hf --noack=2 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit026
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/SafeBus-20-unfolded.pnml
+pnml2lts-sym: Petri net has 1026 places, 10461 transitions and 77364 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/SafeBus-20-unfolded.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 2.770 real 2.750 user 0.010 sys
+pnml2lts-sym: Loading Petri net took 3.860 real 3.690 user 0.150 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 11486
+pnml2lts-sym: profile: 66875601
+pnml2lts-sym: span: 10158722
+pnml2lts-sym: average wavefront: 691.367285
+pnml2lts-sym: RMS wavefront: 722.163118
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 10461->10461 groups
+pnml2lts-sym: Regrouping took 8.300 real 8.240 user 0.040 sys
+pnml2lts-sym: state vector length is 1026; there are 10461 groups and 1026 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Event Span: 3409668
+Normalized Event Span: 0.31768121
+Weighted Event Span, moment 1 (WES^1): 6127333.4
+Normalized Weighted Event Span, moment 1: 0.57088804
+Exit [1]
+11.94 user, 0.24 system, 12.31 elapsed -- Max VSize = 2828516KB, Max RSS = 169784KB

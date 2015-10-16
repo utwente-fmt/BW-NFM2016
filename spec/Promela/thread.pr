@@ -1,0 +1,76 @@
+/*
+ * Copyright (c) 1996 The University of Utah and
+ * the Computer Systems Laboratory at the University of Utah (CSL).
+ * All rights reserved.
+ *
+ * Permission to use, copy, modify and distribute this software is hereby
+ * granted provided that (1) source code retains these copyright, permission,
+ * and disclaimer notices, and (2) redistributions including binaries
+ * reproduce the notices in supporting documentation, and (3) all advertising
+ * materials mentioning features or use of this software display the following
+ * acknowledgement: ``This product includes software developed by the
+ * Computer Systems Laboratory at the University of Utah.''
+ *
+ * THE UNIVERSITY OF UTAH AND CSL ALLOW FREE USE OF THIS SOFTWARE IN ITS "AS
+ * IS" CONDITION.  THE UNIVERSITY OF UTAH AND CSL DISCLAIM ANY LIABILITY OF
+ * ANY KIND FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * CSL requests users of this software to return to csl-dist@cs.utah.edu any
+ * improvements that they make and grant CSL redistribution rights.
+ */
+/*
+ * Thread-syntax.pr - Tests syntax of operations on Thread type, just
+ *                    by instantiation on compilation.  Doesn't actually
+ *                    do anything useful.
+ */
+
+#include "../../fluke/Fluke.pr"
+#include "../../fluke/Thread.pr"
+#include "../../fluke/ResultCode.pr"
+#include "../../fluke/WaitVal.pr"
+
+threadDefineInstances(1);
+wqDefineInstances(1);
+mutexDefineInstances(1);
+
+proctype syntaxTest() {
+  Thread aThread;
+  ResultCode rc;
+
+  threadWaitVal(aThread);
+  threadWaitWaitingOn(aThread);
+  threadWaitCancelPending(aThread);
+  threadWaitResumeRc(aThread);
+  threadWaitBlocked(aThread);
+  threadSetWaitVal(aThread,WAIT_NONE);
+  threadSetWaitWaitingOn(aThread,aThread);
+  threadSetWaitCancelPending(aThread,FALSE);
+  threadSetWaitResumeRc(aThread,RC_SUCCESS);
+  threadSetWaitBlocked(aThread,FALSE);
+
+  threadIPCServerLink(aThread);
+  threadIPCServer(aThread);
+  threadIPCClientLink(aThread);
+  threadIPCClient(aThread);
+  threadIPCFlags(aThread);
+  threadIPCRendevous(aThread);
+  threadSetIPCServerLink(aThread,0);
+  threadSetIPCServer(aThread,aThread);
+  threadSetIPCClientLink(aThread,0);
+  threadSetIPCClient(aThread,aThread);
+  threadSetIPCFlags(aThread,0);
+  threadSetIPCRendevous(aThread,0);
+
+  threadExcEntryPoint(aThread);
+  threadExcStatus(aThread);
+  threadExcCode(aThread);
+  threadSetExcEntryPoint(aThread,ENTRYPOINT_NOP);
+  threadSetExcStatus(aThread,0);
+  threadSetExcCode(aThread,0);
+}
+
+init {
+  threadInitInstances(1);
+  wqInitInstances(1);
+  mutexInitInstances(1);
+}

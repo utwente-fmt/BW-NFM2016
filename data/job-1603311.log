@@ -1,0 +1,21 @@
+performance run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-128497- --no-close spec/B/GraphIsoMedium.mch -rsc,bg,vcm --regroup-exit
+ctit003
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-128501.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-128501.probz
+% unused_constants([graph1,graph2])
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,vcm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup ViennaCL's Cuthill McKee
+prob2lts-seq: Regrouping: 2->2 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-128501: line 10: 17886 Killed                  probcli spec/B/GraphIsoMedium.mch -ltsmin2 /tmp/ltsmin-128501.probz

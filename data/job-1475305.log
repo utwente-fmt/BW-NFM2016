@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-490- --no-close spec/B/Train_1_beebook_tlc_POR.mch -rsc,bg,vcm,mm --regroup-exit --graph-metrics
+ctit029
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-495.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-495.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,vcm,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup ViennaCL's Cuthill McKee
+prob2lts-seq: bandwidth: 13
+prob2lts-seq: profile: 238
+prob2lts-seq: span: 260
+prob2lts-seq: average wavefront: 8.1
+prob2lts-seq: RMS wavefront: 9.17
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 9->9 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 77
+Normalized Event Span: 0.713
+Weighted Event Span, moment 1 (WES^1): 124
+Normalized Weighted Event Span, moment 1: 1.15
+Exit [0]
+0.01 user, 0.00 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 84KB
+command-495: line 10: 33257 Killed                  probcli spec/B/Train_1_beebook_tlc_POR.mch -ltsmin2 /tmp/ltsmin-495.probz

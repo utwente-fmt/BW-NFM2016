@@ -1,0 +1,13 @@
+performance run
+prom2lts-seq spec/Promela/pouring.2.prom.spins -rsc,f --regroup-exit
+ctit006
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/pouring.2.prom.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,f
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup FORCE
+prom2lts-seq: Regrouping: 1724->1724 groups
+prom2lts-seq: Regrouping took 0.010 real 0.000 user 0.010 sys
+Exit [0]
+0.07 user, 0.04 system, 0.20 elapsed -- Max VSize = 68500KB, Max RSS = 32528KB

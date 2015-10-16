@@ -1,0 +1,35 @@
+statistics run
+pnml2lts-sym spec/PNML/rwmutex-r2000w10.pnml -rsc,tg,bs,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit007
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/rwmutex-r2000w10.pnml
+pnml2lts-sym: Petri net has 6020 places, 4020 transitions and 52040 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/rwmutex-r2000w10.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.910 real 0.840 user 0.070 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's Sloan
+pnml2lts-sym: bandwidth: 62031
+pnml2lts-sym: profile: 1305794592
+pnml2lts-sym: span: 1307137220
+pnml2lts-sym: average wavefront: 46.51717139
+pnml2lts-sym: RMS wavefront: 46.59642238
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 4020->4020 groups
+pnml2lts-sym: Regrouping took 1663.640 real 1656.200 user 0.720 sys
+pnml2lts-sym: state vector length is 6020; there are 4020 groups and 6020 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Event Span: 132224
+Normalized Event Span: 0.0054637113
+Weighted Event Span, moment 1 (WES^1): 251736.24
+Normalized Weighted Event Span, moment 1: 0.010402152
+Exit [1]
+1657.05 user, 0.82 system, 1664.73 elapsed -- Max VSize = 2835816KB, Max RSS = 207524KB

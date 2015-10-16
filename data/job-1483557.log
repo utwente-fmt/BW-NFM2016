@@ -1,0 +1,28 @@
+statistics run
+pnml2lts-seq spec/PNML/dekker-100.pnml -rsc,bg,vcm,mm --regroup-exit --graph-metrics
+ctit025
+pnml2lts-seq: Loading model from spec/PNML/dekker-100.pnml
+pnml2lts-seq: Petri net has 500 places, 10200 transitions and 80200 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/dekker-100.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.800 real 0.690 user 0.100 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,vcm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup ViennaCL's Cuthill McKee
+pnml2lts-seq: bandwidth: 10296
+pnml2lts-seq: profile: 84579094
+pnml2lts-seq: span: 111054218
+pnml2lts-seq: average wavefront: 5289.11925
+pnml2lts-seq: RMS wavefront: 6104.91947
+pnml2lts-seq: Regroup Matrix Metrics
+pnml2lts-seq: Regrouping: 10200->10200 groups
+pnml2lts-seq: Regrouping took 19.050 real 18.860 user 0.030 sys
+pnml2lts-seq: max token count: 1
+Event Span: 4019710
+Normalized Event Span: 0.7881784
+Weighted Event Span, moment 1 (WES^1): 7251706
+Normalized Weighted Event Span, moment 1: 1.421903
+Exit [0]
+19.55 user, 0.15 system, 19.92 elapsed -- Max VSize = 170328KB, Max RSS = 132212KB

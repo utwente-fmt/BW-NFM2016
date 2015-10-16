@@ -1,0 +1,37 @@
+performance run
+pnml2lts-sym spec/PNML/EnergyBus.pnml -rrs,hf --noack=2 --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit031
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/EnergyBus.pnml
+pnml2lts-sym: Petri net has 157 places, 4430 transitions and 63389 arcs
+pnml2lts-sym: There are 157 safe places
+pnml2lts-sym: Petri net spec/PNML/EnergyBus.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 0.590 real 0.590 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 1.050 real 0.980 user 0.070 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: rs,hf
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 4430->4430 groups
+pnml2lts-sym: Regrouping took 0.050 real 0.050 user 0.000 sys
+pnml2lts-sym: state vector length is 157; there are 4430 groups and 157 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 169538 group checks and 169538 next state calls
+pnml2lts-sym: reachability took 552.350 real 548.470 user 2.830 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.010 real 0.010 user 0.000 sys
+pnml2lts-sym: state space has 2131836945601 states, 199931 nodes
+pnml2lts-sym: ( 199931 final BDD nodes; 359880 peak nodes )
+pnml2lts-sym: group_next: 65401 nodes total
+pnml2lts-sym: group_explored: 72509 nodes, 901848 short vectors total
+pnml2lts-sym: max token count: 1
+Exit [0]
+549.64 user, 3.26 system, 554.09 elapsed -- Max VSize = 3742944KB, Max RSS = 941292KB

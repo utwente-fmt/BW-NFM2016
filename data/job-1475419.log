@@ -1,0 +1,31 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-602- --no-close spec/B/obsw_M001_eventb.mch -rsc,bg,vgps,mm --regroup-exit --graph-metrics
+ctit017
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-609.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-609.probz
+% set_pref(DEFAULT_SETSIZE,globalsets_fdrange,2)
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,vgps,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+prob2lts-seq: bandwidth: 15
+prob2lts-seq: profile: 355
+prob2lts-seq: span: 345
+prob2lts-seq: average wavefront: 6.93
+prob2lts-seq: RMS wavefront: 7.6
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 22->22 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 114
+Normalized Event Span: 0.648
+Weighted Event Span, moment 1 (WES^1): 203
+Normalized Weighted Event Span, moment 1: 1.15
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-609: line 10:  9255 Killed                  probcli spec/B/obsw_M001_eventb.mch -ltsmin2 /tmp/ltsmin-609.probz

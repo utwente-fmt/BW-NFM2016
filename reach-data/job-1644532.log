@@ -1,0 +1,34 @@
+statistics run
+pnml2lts-sym spec/PNML/BridgeAndVehicles-V80-P50-N50-unfolded.pnml -rsc,bg,vacm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit007
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/BridgeAndVehicles-V80-P50-N50-unfolded.pnml
+pnml2lts-sym: Petri net has 228 places, 8588 transitions and 67470 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/BridgeAndVehicles-V80-P50-N50-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.790 real 0.650 user 0.150 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,vacm,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup ViennaCL's Advanced Cuthill McKee
+pnml2lts-sym: bandwidth: 8505
+pnml2lts-sym: profile: 55583613
+pnml2lts-sym: span: 74167024
+pnml2lts-sym: average wavefront: 4221.2452
+pnml2lts-sym: RMS wavefront: 4912.2611
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 8588->8588 groups
+pnml2lts-sym: Regrouping took 25.500 real 25.450 user 0.000 sys
+pnml2lts-sym: state vector length is 228; there are 8588 groups and 227 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1797.49 user, 0.58 system, 1800.95 elapsed -- Max VSize = 3744692KB, Max RSS = 906072KB
+command-952: line 5: 23508 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/BridgeAndVehicles-V80-P50-N50-unfolded.pnml -rsc,bg,vacm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

@@ -1,0 +1,74 @@
+/*
+ * Copyright (c) 1996 The University of Utah and
+ * the Computer Systems Laboratory at the University of Utah (CSL).
+ * All rights reserved.
+ *
+ * Permission to use, copy, modify and distribute this software is hereby
+ * granted provided that (1) source code retains these copyright, permission,
+ * and disclaimer notices, and (2) redistributions including binaries
+ * reproduce the notices in supporting documentation, and (3) all advertising
+ * materials mentioning features or use of this software display the following
+ * acknowledgement: ``This product includes software developed by the
+ * Computer Systems Laboratory at the University of Utah.''
+ *
+ * THE UNIVERSITY OF UTAH AND CSL ALLOW FREE USE OF THIS SOFTWARE IN ITS "AS
+ * IS" CONDITION.  THE UNIVERSITY OF UTAH AND CSL DISCLAIM ANY LIABILITY OF
+ * ANY KIND FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * CSL requests users of this software to return to csl-dist@cs.utah.edu any
+ * improvements that they make and grant CSL redistribution rights.
+ */
+/*
+ * ipcTransfer.pr
+ */
+
+#include "copyAround.pr"
+#include "../fluke/ResultCode.pr"
+#include "../fluke/Thread.pr"
+#include "wait.pr"
+
+/*
+ * Push "data" over to the waiting receiver.
+ * Receiver is captive and syncronized
+ * on return the receiver is still captured.
+ *
+ * Returns standard kernel return in "rc".
+ *
+ * There are several relevant possibilites:
+ *  1) the data is transferred successfully.
+ *  2) the receiver ran out of receive space,
+ *     wait until its come back with more.
+ *  3) the recevier faults.
+ *  4) the sender faults.
+ */
+
+#ifdef IPC_TRANSFER_CAN_FAULT				
+
+#define ipcReliableTransfer(sender, receiver)				\
+  assert(sender == currentThread);					\
+									\
+  /* Give them funny labels only so it shows up in the dump */		\
+  if									\
+  :: (69==69) ->							\
+       /* Success */							\
+       threadSetExcRecvPayload(receiver, threadExcSendPayload(sender));	\
+       /* RETURN */ rc = 0;						\
+  :: (42==42) ->							\
+       /* Receiver page faulted */					\
+       threadSetWaitResumeRc(receiver, KR_PAGE_FAULT);			\
+       threadReady(receiver);						\
+       /* RETURN */ rc = KR_RESTART;					\
+  :: (13==13) ->							\
+       /* Sender page faulted. */					\
+       threadReady(receiver);						\
+       /* RETURN */ rc = KR_PAGE_FAULT;					\
+  fi
+
+#else
+
+#define ipcReliableTransfer(sender, receiver)				\
+   threadSetExcRecvPayload(receiver, threadExcSendPayload(sender));	\
+   /* XXX still have the receiver run-out-of-buffers potential */	\
+   rc = 0;								
+
+#endif

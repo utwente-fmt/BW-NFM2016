@@ -1,0 +1,46 @@
+statistics run
+pnml2lts-sym spec/PNML/TokenRing-15-unfolded.pnml -rsc,tg,vcm,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit016
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/TokenRing-15-unfolded.pnml
+pnml2lts-sym: Petri net has 256 places, 3616 transitions and 14464 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/TokenRing-15-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.240 real 0.220 user 0.020 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,vcm,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup ViennaCL's Cuthill McKee
+pnml2lts-sym: bandwidth: 3277
+pnml2lts-sym: profile: 19213513
+pnml2lts-sym: span: 26243074
+pnml2lts-sym: average wavefront: 1170.27113
+pnml2lts-sym: RMS wavefront: 1310.43032
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 3616->3616 groups
+pnml2lts-sym: Regrouping took 16.650 real 16.610 user 0.000 sys
+pnml2lts-sym: state vector length is 256; there are 3616 groups and 256 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+pnml2lts-sym: Exploration took 967768 group checks and 967768 next state calls
+pnml2lts-sym: reachability took 105.120 real 104.740 user 0.210 sys
+pnml2lts-sym: counting visited states...
+pnml2lts-sym: counting took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state space has 35357924 states, 13100 nodes
+pnml2lts-sym: ( 13100 final BDD nodes; 13100 peak nodes )
+pnml2lts-sym: group_next: 5610 nodes total
+pnml2lts-sym: group_explored: 28313 nodes, 18893 short vectors total
+pnml2lts-sym: max token count: 1
+Event Span: 120357
+Normalized Event Span: 0.130018
+Weighted Event Span, moment 1 (WES^1): 131468
+Normalized Weighted Event Span, moment 1: 0.142021
+Exit [0]
+121.99 user, 0.31 system, 122.63 elapsed -- Max VSize = 3675548KB, Max RSS = 786632KB

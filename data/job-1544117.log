@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/2D8_gradient_30x30_100.pnml --noack=2 --regroup-exit --graph-metrics
+ctit015
+pnml2lts-seq: Loading model from spec/PNML/2D8_gradient_30x30_100.pnml
+pnml2lts-seq: Petri net has 900 places, 6844 transitions and 13688 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/2D8_gradient_30x30_100.pnml analyzed
+pnml2lts-seq: Computing Noack2 order
+pnml2lts-seq: Computing Noack2 order took 0.120 real 0.120 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 0.440 real 0.400 user 0.040 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regrouping: 6844->6844 groups
+pnml2lts-seq: Regrouping took 0.240 real 0.240 user 0.000 sys
+pnml2lts-seq: max token count: 100
+Exit [0]
+0.65 user, 0.05 system, 0.80 elapsed -- Max VSize = 93472KB, Max RSS = 55100KB

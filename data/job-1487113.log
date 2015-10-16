@@ -1,0 +1,25 @@
+statistics run
+lps2lts-seq --mcrl2-rewriter=jitty spec/mCRL2/connect_four6x4.mcrl2.suminst.lps -rsc,tg,vcm,mm --regroup-exit --graph-metrics
+ctit008
+lps2lts-seq: mCRL2 language module initialized
+lps2lts-seq: Loading model from spec/mCRL2/connect_four6x4.mcrl2.suminst.lps
+lps2lts-seq: mCRL2 rewriter: jitty
+lps2lts-seq: Initializing regrouping layer
+lps2lts-seq: Regroup specification: sc,tg,vcm,mm
+lps2lts-seq: Regroup Select Combined matrix
+lps2lts-seq: Regroup Total graph
+lps2lts-seq: Regroup ViennaCL's Cuthill McKee
+lps2lts-seq: bandwidth: 41
+lps2lts-seq: profile: 1459
+lps2lts-seq: span: 1231
+lps2lts-seq: average wavefront: 14.22
+lps2lts-seq: RMS wavefront: 19.5
+lps2lts-seq: Regroup Matrix Metrics
+lps2lts-seq: Regrouping: 30->30 groups
+lps2lts-seq: Regrouping took 0.000 real 0.010 user 0.000 sys
+Event Span: 36
+Normalized Event Span: 0.6
+Weighted Event Span, moment 1 (WES^1): 48
+Normalized Weighted Event Span, moment 1: 0.8
+Exit [0]
+0.03 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

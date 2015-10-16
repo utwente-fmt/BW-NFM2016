@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/lifts.8.dve -rsc,tg,vgps --regroup-exit
+ctit014
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/lifts.8.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,vgps
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+dve2lts-seq: Regrouping: 267->267 groups
+dve2lts-seq: Regrouping took 0.150 real 0.140 user 0.000 sys
+Exit [0]
+5.01 user, 0.16 system, 5.21 elapsed -- Max VSize = 42532KB, Max RSS = 7180KB

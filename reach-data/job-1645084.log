@@ -1,0 +1,32 @@
+statistics run
+pnml2lts-sym spec/PNML/Kanban-1000.pnml -rsc,bn,mm --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit026
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/Kanban-1000.pnml
+pnml2lts-sym: Petri net has 16 places, 16 transitions and 40 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/Kanban-1000.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bn,mm
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 29
+pnml2lts-sym: profile: 601
+pnml2lts-sym: span: 165
+pnml2lts-sym: average wavefront: 10.03
+pnml2lts-sym: RMS wavefront: 11.28
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Regrouping: 16->16 groups
+pnml2lts-sym: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state vector length is 16; there are 16 groups and 16 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1792.49 user, 5.42 system, 1801.58 elapsed -- Max VSize = 3675068KB, Max RSS = 973244KB
+command-1504: line 5: 55848 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/Kanban-1000.pnml -rsc,bn,mm --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

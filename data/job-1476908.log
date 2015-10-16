@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/firewire_tree.2.dve -rsc,tg,vacm,mm --regroup-exit --graph-metrics
+ctit007
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/firewire_tree.2.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,tg,vacm,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Total graph
+dve2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+dve2lts-seq: bandwidth: 967
+dve2lts-seq: profile: 1108370
+dve2lts-seq: span: 1274925
+dve2lts-seq: average wavefront: 465.0729
+dve2lts-seq: RMS wavefront: 534.7852
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 248->248 groups
+dve2lts-seq: Regrouping took 0.260 real 0.260 user 0.000 sys
+Event Span: 6498
+Normalized Event Span: 0.31568
+Weighted Event Span, moment 1 (WES^1): 9223.3
+Normalized Weighted Event Span, moment 1: 0.44808
+Exit [0]
+4.75 user, 0.18 system, 5.01 elapsed -- Max VSize = 44144KB, Max RSS = 8764KB

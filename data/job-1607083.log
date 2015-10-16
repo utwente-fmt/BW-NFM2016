@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/rether.5.dve -rsc,bg,vgps --regroup-exit
+ctit020
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/rether.5.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,vgps
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+dve2lts-seq: Regrouping: 156->156 groups
+dve2lts-seq: Regrouping took 0.010 real 0.000 user 0.000 sys
+Exit [0]
+1.97 user, 0.12 system, 2.30 elapsed -- Max VSize = 38620KB, Max RSS = 5420KB

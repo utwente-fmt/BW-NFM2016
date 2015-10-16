@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/railroad-100-pt.pnml -rsc,bg,vgps --regroup-exit
+ctit001
+pnml2lts-seq: Loading model from spec/PNML/railroad-100-pt.pnml
+pnml2lts-seq: Petri net has 1018 places, 10506 transitions and 62728 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/railroad-100-pt.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.770 real 0.660 user 0.090 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: Regrouping: 10506->10506 groups
+pnml2lts-seq: Regrouping took 1.020 real 1.020 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+1.69 user, 0.12 system, 1.91 elapsed -- Max VSize = 153632KB, Max RSS = 115164KB

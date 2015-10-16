@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/parking_4_16.pnml -rsc,f --regroup-exit
+ctit036
+pnml2lts-seq: Loading model from spec/PNML/parking_4_16.pnml
+pnml2lts-seq: Petri net has 305 places, 433 transitions and 1289 arcs
+pnml2lts-seq: There are 305 safe places
+pnml2lts-seq: Petri net spec/PNML/parking_4_16.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.010 real 0.010 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,f
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup FORCE
+pnml2lts-seq: Regrouping: 433->433 groups
+pnml2lts-seq: Regrouping took 0.040 real 0.030 user 0.000 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+0.05 user, 0.00 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

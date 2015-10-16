@@ -1,0 +1,14 @@
+performance run
+prom2lts-seq spec/Promela/fgs.promela.spins -rsc,tg,vgps --regroup-exit
+ctit009
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/fgs.promela.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,tg,vgps
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup Total graph
+prom2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+prom2lts-seq: Regrouping: 517->517 groups
+prom2lts-seq: Regrouping took 127.250 real 125.590 user 0.770 sys
+Exit [0]
+125.60 user, 0.77 system, 127.33 elapsed -- Max VSize = 58016KB, Max RSS = 21400KB

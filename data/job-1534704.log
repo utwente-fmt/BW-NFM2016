@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/cs_repetitions-3-unfolded.pnml -rsc,tg,vcm --regroup-exit
+ctit036
+pnml2lts-seq: Loading model from spec/PNML/cs_repetitions-3-unfolded.pnml
+pnml2lts-seq: Petri net has 58 places, 81 transitions and 279 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/cs_repetitions-3-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.010 real 0.000 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,vcm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup ViennaCL's Cuthill McKee
+pnml2lts-seq: Regrouping: 81->81 groups
+pnml2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-seq: max token count: 3
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4192KB, Max RSS = 76KB

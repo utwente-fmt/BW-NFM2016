@@ -1,0 +1,8 @@
+performance run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-13755- --no-close spec/B/DoorsFunctions.mch -rsc,bg,bs --regroup-exit
+ctit035
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-13758.probz
+prob2lts-seq, ** error **: Zocket does not exist: (null)
+Exit [255]
+0.00 user, 0.00 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

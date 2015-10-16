@@ -1,0 +1,20 @@
+performance run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-115940- --no-close spec/B/SimpleDeadlock.mch -rsc,tg,bs --regroup-exit
+ctit029
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-115949.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-115949.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,tg,bs
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Total graph
+prob2lts-seq: Regroup Boost's Sloan
+prob2lts-seq: Regrouping: 2->2 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.00 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-115949: line 10: 15666 Killed                  probcli spec/B/SimpleDeadlock.mch -ltsmin2 /tmp/ltsmin-115949.probz

@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/lamport.6.dve -rsc,bg,bcm --regroup-exit
+ctit021
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/lamport.6.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bcm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's Cuthill McKee
+dve2lts-seq: Regrouping: 56->56 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.76 user, 0.08 system, 0.90 elapsed -- Max VSize = 38240KB, Max RSS = 4752KB

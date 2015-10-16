@@ -1,0 +1,18 @@
+statistics run
+prom2lts-seq spec/Promela/fgs.promela.spins -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit007
+prom2lts-seq: Precompiled SpinS module initialized
+prom2lts-seq: Loading model from spec/Promela/fgs.promela.spins
+prom2lts-seq: Initializing regrouping layer
+prom2lts-seq: Regroup specification: sc,tg,bs,mm
+prom2lts-seq: Regroup Select Combined matrix
+prom2lts-seq: Regroup Total graph
+prom2lts-seq: Regroup Boost's Sloan
+prom2lts-seq: bandwidth: 15990
+prom2lts-seq: profile: 127674982
+prom2lts-seq: span: 135490521
+prom2lts-seq: average wavefront: 967.943343
+prom2lts-seq: RMS wavefront: 989.166175
+prom2lts-seq, ** error **: Got invalid permutation from boost. This may happen when the graph representation of the matrix has disconnected sub graphs. This needs to be fixed in boost. A bug report has been filed here: https://svn.boost.org/trac/boost/ticket/11355.
+Exit [255]
+159.02 user, 0.10 system, 159.46 elapsed -- Max VSize = 90172KB, Max RSS = 53280KB

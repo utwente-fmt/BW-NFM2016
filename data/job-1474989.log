@@ -1,0 +1,30 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-168- --no-close spec/B/FinalTravelAgency.mch -rsc,tg,vcm,mm --regroup-exit --graph-metrics
+ctit014
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-179.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-179.probz
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,tg,vcm,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Total graph
+prob2lts-seq: Regroup ViennaCL's Cuthill McKee
+prob2lts-seq: bandwidth: 52
+prob2lts-seq: profile: 3410
+prob2lts-seq: span: 4613
+prob2lts-seq: average wavefront: 28.1
+prob2lts-seq: RMS wavefront: 31.42
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 12->12 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 83
+Normalized Event Span: 0.576
+Weighted Event Span, moment 1 (WES^1): 166
+Normalized Weighted Event Span, moment 1: 1.15
+Exit [0]
+0.01 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-179: line 10: 64961 Killed                  probcli spec/B/FinalTravelAgency.mch -ltsmin2 /tmp/ltsmin-179.probz

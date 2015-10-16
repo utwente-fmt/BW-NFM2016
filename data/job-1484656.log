@@ -1,0 +1,35 @@
+statistics run
+pnml2lts-seq spec/PNML/railroad-100-pt.pnml -rsc,bn,mm --noack=1 --regroup-exit --graph-metrics
+ctit028
+pnml2lts-seq: Loading model from spec/PNML/railroad-100-pt.pnml
+pnml2lts-seq: Petri net has 1018 places, 10506 transitions and 62728 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/railroad-100-pt.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 1.160 real 1.150 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 1.970 real 1.840 user 0.110 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regroup specification: sc,bn,mm
+pnml2lts-seq: Regroup Select Combined matrix
+*** segmentation fault ***
+
+Please send information on how to reproduce this problem to: 
+         ltsmin-support@lists.utwente.nl
+along with all output preceding this message.
+In addition, include the following information:
+Package: ltsmin 2.2beta
+Stack trace:
+  0: pnml2lts-seq() [0x41fa4a]
+  1: pnml2lts-seq() [0x41fac6]
+  2: /lib/x86_64-linux-gnu/libpthread.so.0(+0x10340) [0x7f2311780340]
+  3: pnml2lts-seq() [0x456509]
+  4: pnml2lts-seq() [0x4590b6]
+  5: pnml2lts-seq() [0x42c4ae]
+  6: pnml2lts-seq() [0x42e1ad]
+  7: pnml2lts-seq() [0x428fb6]
+  8: pnml2lts-seq() [0x406dd0]
+  9: /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x7f2310ba1ec5]
+ 10: pnml2lts-seq() [0x40824f]
+Exit [255]
+1.86 user, 0.14 system, 2.10 elapsed -- Max VSize = 153616KB, Max RSS = 115164KB

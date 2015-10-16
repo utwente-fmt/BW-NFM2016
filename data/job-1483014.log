@@ -1,0 +1,16 @@
+statistics run
+pnml2lts-seq spec/PNML/TokenRing-40-unfolded.pnml -rsc,bg,vacm,mm --regroup-exit --graph-metrics
+ctit020
+pnml2lts-seq: Loading model from spec/PNML/TokenRing-40-unfolded.pnml
+pnml2lts-seq: Petri net has 1681 places, 65641 transitions and 262564 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/TokenRing-40-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 6.530 real 5.690 user 0.810 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,vacm,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup ViennaCL's Advanced Cuthill McKee
+Killed [24]
+3594.75 user, 1.21 system, 3602.33 elapsed -- Max VSize = 760520KB, Max RSS = 722084KB
+command-8204: line 5: 39077 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/TokenRing-40-unfolded.pnml -rsc,bg,vacm,mm --regroup-exit --graph-metrics

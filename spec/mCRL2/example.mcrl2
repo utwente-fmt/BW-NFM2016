@@ -1,0 +1,10 @@
+act a,b;
+
+proc 
+   p(x:Bool) =
+      ((x == true) -> a. p(false) <> b. p(true)) 
+   ;
+      
+init p(true);
+
+

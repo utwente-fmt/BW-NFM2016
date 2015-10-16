@@ -1,0 +1,17 @@
+performance run
+pnml2lts-seq spec/PNML/rwmutex-r10w2000.pnml --noack=1 --regroup-exit --graph-metrics
+ctit002
+pnml2lts-seq: Loading model from spec/PNML/rwmutex-r10w2000.pnml
+pnml2lts-seq: Petri net has 4030 places, 4020 transitions and 48060 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/rwmutex-r10w2000.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 3.470 real 3.450 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 4.170 real 4.080 user 0.060 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+pnml2lts-seq: Regrouping: 4020->4020 groups
+pnml2lts-seq: Regrouping took 0.670 real 0.650 user 0.020 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+4.74 user, 0.11 system, 4.91 elapsed -- Max VSize = 144072KB, Max RSS = 105460KB

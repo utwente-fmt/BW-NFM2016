@@ -1,0 +1,20 @@
+performance run
+pnml2lts-sym spec/PNML/Peterson-5.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit035
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/Peterson-5.pnml
+pnml2lts-sym: Petri net has 834 places, 1242 transitions and 3828 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/Peterson-5.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.080 real 0.060 user 0.010 sys
+pnml2lts-sym: state vector length is 834; there are 1242 groups and 834 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1796.79 user, 0.79 system, 1800.77 elapsed -- Max VSize = 3675748KB, Max RSS = 915296KB
+command-824: line 5: 27788 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/Peterson-5.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1

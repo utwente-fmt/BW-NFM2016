@@ -1,0 +1,14 @@
+performance run
+dve2lts-seq spec/DVE/synapse.7.dve -rsc,bg,bs --regroup-exit
+ctit029
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/synapse.7.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,bs
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup Boost's Sloan
+dve2lts-seq: Regrouping: 221->221 groups
+dve2lts-seq: Regrouping took 0.010 real 0.000 user 0.000 sys
+Exit [0]
+5.27 user, 0.20 system, 5.51 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

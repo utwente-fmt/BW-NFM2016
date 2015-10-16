@@ -1,0 +1,32 @@
+statistics run
+pnml2lts-sym spec/PNML/SwimmingPool-6.pnml -rsc,bn,mm --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit024
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/SwimmingPool-6.pnml
+pnml2lts-sym: Petri net has 9 places, 7 transitions and 20 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/SwimmingPool-6.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bn,mm
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 14
+pnml2lts-sym: profile: 177
+pnml2lts-sym: span: 71
+pnml2lts-sym: average wavefront: 6.19
+pnml2lts-sym: RMS wavefront: 6.76
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Regrouping: 7->7 groups
+pnml2lts-sym: Regrouping took 0.000 real 0.000 user 0.000 sys
+pnml2lts-sym: state vector length is 9; there are 7 groups and 9 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1796.19 user, 1.18 system, 1802.62 elapsed -- Max VSize = 3675068KB, Max RSS = 966428KB
+command-3280: line 5: 20280 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/SwimmingPool-6.pnml -rsc,bn,mm --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

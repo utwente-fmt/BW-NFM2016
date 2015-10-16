@@ -1,0 +1,20 @@
+performance run
+pnml2lts-sym spec/PNML/philo_dyn-10-unfolded.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1
+ctit014
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/philo_dyn-10-unfolded.pnml
+pnml2lts-sym: Petri net has 170 places, 2310 transitions and 18190 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/philo_dyn-10-unfolded.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.150 real 0.120 user 0.030 sys
+pnml2lts-sym: state vector length is 170; there are 2310 groups and 190 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1795.75 user, 0.30 system, 1800.65 elapsed -- Max VSize = 3675556KB, Max RSS = 833040KB
+command-299: line 5: 33800 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/philo_dyn-10-unfolded.pnml --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1

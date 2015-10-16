@@ -1,0 +1,21 @@
+performance run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-77970- --no-close spec/B/pkeyprot2.mch -rsc,bg,bcm --regroup-exit
+ctit020
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-77971.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-77971.probz
+% set_pref(MAX_OPERATIONS,maxNrOfEnablingsPerOperation,40)
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,bg,bcm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Bipartite Graph
+prob2lts-seq: Regroup Boost's Cuthill McKee
+prob2lts-seq: Regrouping: 11->11 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Exit [0]
+0.01 user, 0.00 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-77971: line 10:  1569 Killed                  probcli spec/B/pkeyprot2.mch -ltsmin2 /tmp/ltsmin-77971.probz

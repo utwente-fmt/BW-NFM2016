@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/unf-8x8-4stageSEN-02.pnml -rsc,bg,vgps --regroup-exit
+ctit024
+pnml2lts-seq: Loading model from spec/PNML/unf-8x8-4stageSEN-02.pnml
+pnml2lts-seq: Petri net has 168 places, 592 transitions and 3456 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/unf-8x8-4stageSEN-02.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.030 real 0.030 user 0.000 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,vgps
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-seq: Regrouping: 592->592 groups
+pnml2lts-seq: Regrouping took 0.030 real 0.020 user 0.000 sys
+pnml2lts-seq: max token count: 2
+Exit [0]
+0.06 user, 0.00 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB

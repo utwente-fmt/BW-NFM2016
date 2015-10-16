@@ -1,0 +1,99 @@
+performance run
+pnml2lts-sym spec/PNML/rwmutex-r2000w10.pnml -rsc,bg,bcm,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit009
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/rwmutex-r2000w10.pnml
+pnml2lts-sym: Petri net has 6020 places, 4020 transitions and 52040 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/rwmutex-r2000w10.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.870 real 0.810 user 0.060 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,bcm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup Boost's Cuthill McKee
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 4020->4020 groups
+pnml2lts-sym: Regrouping took 1.430 real 1.380 user 0.030 sys
+pnml2lts-sym: state vector length is 6020; there are 4020 groups and 6020 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+*** segmentation fault ***
+
+Please send information on how to reproduce this problem to: 
+         ltsmin-support@lists.utwente.nl
+along with all output preceding this message.
+In addition, include the following information:
+Package: ltsmin 2.2beta
+Stack trace:
+  0: pnml2lts-sym() [0x42640a]
+  1: pnml2lts-sym() [0x426486]
+  2: /lib/x86_64-linux-gnu/libpthread.so.0(+0x10340) [0x7f1155d68340]
+  3: /lib/x86_64-linux-gnu/libc.so.6(+0x9814e) [0x7f115520014e]
+  4: pnml2lts-sym() [0x4c8ddb]
+  5: pnml2lts-sym() [0x4c8bca]
+  6: pnml2lts-sym() [0x4c8bca]
+  7: pnml2lts-sym() [0x4c8bca]
+  8: pnml2lts-sym() [0x4c8bca]
+  9: pnml2lts-sym() [0x4c8bca]
+ 10: pnml2lts-sym() [0x4c8bca]
+ 11: pnml2lts-sym() [0x4c8bca]
+ 12: pnml2lts-sym() [0x4c8bca]
+ 13: pnml2lts-sym() [0x4c8bca]
+ 14: pnml2lts-sym() [0x4c8bca]
+ 15: pnml2lts-sym() [0x4c8bca]
+ 16: pnml2lts-sym() [0x4c8bca]
+ 17: pnml2lts-sym() [0x4c8bca]
+ 18: pnml2lts-sym() [0x4c8bca]
+ 19: pnml2lts-sym() [0x4c8bca]
+ 20: pnml2lts-sym() [0x4c8bca]
+ 21: pnml2lts-sym() [0x4c8bca]
+ 22: pnml2lts-sym() [0x4c8bca]
+ 23: pnml2lts-sym() [0x4c8bca]
+ 24: pnml2lts-sym() [0x4c8bca]
+ 25: pnml2lts-sym() [0x4c8bca]
+ 26: pnml2lts-sym() [0x4c8bca]
+ 27: pnml2lts-sym() [0x4c8bca]
+ 28: pnml2lts-sym() [0x4c8bca]
+ 29: pnml2lts-sym() [0x4c8bca]
+ 30: pnml2lts-sym() [0x4c8bca]
+ 31: pnml2lts-sym() [0x4c8bca]
+ 32: pnml2lts-sym() [0x4c8bca]
+ 33: pnml2lts-sym() [0x4c8bca]
+ 34: pnml2lts-sym() [0x4c8bca]
+ 35: pnml2lts-sym() [0x4c8bca]
+ 36: pnml2lts-sym() [0x4c8bca]
+ 37: pnml2lts-sym() [0x4c8bca]
+ 38: pnml2lts-sym() [0x4c8bca]
+ 39: pnml2lts-sym() [0x4c8bca]
+ 40: pnml2lts-sym() [0x4c8bca]
+ 41: pnml2lts-sym() [0x4c8bca]
+ 42: pnml2lts-sym() [0x4c8bca]
+ 43: pnml2lts-sym() [0x4c8bca]
+ 44: pnml2lts-sym() [0x4c8bca]
+ 45: pnml2lts-sym() [0x4c8bca]
+ 46: pnml2lts-sym() [0x4c8bca]
+ 47: pnml2lts-sym() [0x4c8bca]
+ 48: pnml2lts-sym() [0x4c8bca]
+ 49: pnml2lts-sym() [0x4c8bca]
+ 50: pnml2lts-sym() [0x4c8bca]
+ 51: pnml2lts-sym() [0x4c8bca]
+ 52: pnml2lts-sym() [0x4c8bca]
+ 53: pnml2lts-sym() [0x4c8bca]
+ 54: pnml2lts-sym() [0x4c8bca]
+ 55: pnml2lts-sym() [0x4c8bca]
+ 56: pnml2lts-sym() [0x4c8bca]
+ 57: pnml2lts-sym() [0x4c8bca]
+ 58: pnml2lts-sym() [0x4c8bca]
+ 59: pnml2lts-sym() [0x4c8bca]
+ 60: pnml2lts-sym() [0x4c8bca]
+ 61: pnml2lts-sym() [0x4c8bca]
+ 62: pnml2lts-sym() [0x4c8bca]
+ 63: pnml2lts-sym() [0x4c8bca]
+Exit [255]
+16.51 user, 0.51 system, 17.32 elapsed -- Max VSize = 3767864KB, Max RSS = 915568KB

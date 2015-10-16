@@ -1,0 +1,18 @@
+performance run
+pnml2lts-seq spec/PNML/echo-d3r7.pnml -rsc,bg,bs --regroup-exit
+ctit001
+pnml2lts-seq: Loading model from spec/PNML/echo-d3r7.pnml
+pnml2lts-seq: Petri net has 4209 places, 3518 transitions and 25540 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/echo-d3r7.pnml analyzed
+pnml2lts-seq: Loading Petri net took 0.500 real 0.460 user 0.020 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,bg,bs
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Bipartite Graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: Regrouping: 3518->3518 groups
+pnml2lts-seq: Regrouping took 1.080 real 1.040 user 0.040 sys
+pnml2lts-seq: max token count: 1
+Exit [0]
+1.50 user, 0.09 system, 1.70 elapsed -- Max VSize = 132220KB, Max RSS = 93724KB

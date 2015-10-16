@@ -1,0 +1,20 @@
+statistics run
+pnml2lts-seq spec/PNML/TokenRing-30-unfolded.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics
+ctit003
+pnml2lts-seq: Loading model from spec/PNML/TokenRing-30-unfolded.pnml
+pnml2lts-seq: Petri net has 961 places, 27931 transitions and 111724 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/TokenRing-30-unfolded.pnml analyzed
+pnml2lts-seq: Loading Petri net took 2.470 real 2.160 user 0.300 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Regroup specification: sc,tg,bs,mm
+pnml2lts-seq: Regroup Select Combined matrix
+pnml2lts-seq: Regroup Total graph
+pnml2lts-seq: Regroup Boost's Sloan
+pnml2lts-seq: bandwidth: 20528
+pnml2lts-seq: profile: 821309447
+pnml2lts-seq: span: 945896853
+pnml2lts-seq: average wavefront: 1848.4861694
+Killed [24]
+3595.03 user, 1.18 system, 3601.49 elapsed -- Max VSize = 362468KB, Max RSS = 324100KB
+command-8192: line 5: 45294 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/TokenRing-30-unfolded.pnml -rsc,tg,bs,mm --regroup-exit --graph-metrics

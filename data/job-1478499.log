@@ -1,0 +1,24 @@
+statistics run
+dve2lts-seq spec/DVE/pgm_protocol.7.dve -rsc,bg,vgps,mm --regroup-exit --graph-metrics
+ctit007
+dve2lts-seq: Precompiled divine module initialized
+dve2lts-seq: Loading model from spec/DVE/pgm_protocol.7.dve
+dve2lts-seq: Initializing regrouping layer
+dve2lts-seq: Regroup specification: sc,bg,vgps,mm
+dve2lts-seq: Regroup Select Combined matrix
+dve2lts-seq: Regroup Bipartite Graph
+dve2lts-seq: Regroup ViennaCL's Gibbs Poole Stockmeyer
+dve2lts-seq: bandwidth: 68
+dve2lts-seq: profile: 11357
+dve2lts-seq: span: 14364
+dve2lts-seq: average wavefront: 30.311
+dve2lts-seq: RMS wavefront: 33.575
+dve2lts-seq: Regroup Matrix Metrics
+dve2lts-seq: Regrouping: 120->120 groups
+dve2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 3935
+Normalized Event Span: 0.26445
+Weighted Event Span, moment 1 (WES^1): 4769.4
+Normalized Weighted Event Span, moment 1: 0.32053
+Exit [0]
+2.61 user, 0.14 system, 2.80 elapsed -- Max VSize = 38240KB, Max RSS = 4748KB

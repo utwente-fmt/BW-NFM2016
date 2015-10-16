@@ -1,0 +1,38 @@
+statistics run
+pnml2lts-sym spec/PNML/PolyORB-LF-S06-J06-T04-unfolded.pnml -rsc,bn,rs,mm,hf --noack=2 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit038
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/PolyORB-LF-S06-J06-T04-unfolded.pnml
+pnml2lts-sym: Petri net has 506 places, 7154 transitions and 59824 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/PolyORB-LF-S06-J06-T04-unfolded.pnml analyzed
+pnml2lts-sym: Computing Noack2 order
+pnml2lts-sym: Computing Noack2 order took 2.270 real 2.260 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 3.180 real 3.050 user 0.100 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 7554
+pnml2lts-sym: profile: 29204086
+pnml2lts-sym: span: 2652519
+pnml2lts-sym: average wavefront: 409.88499
+pnml2lts-sym: RMS wavefront: 426.54565
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 7154->7154 groups
+pnml2lts-sym: Regrouping took 3.320 real 3.310 user 0.000 sys
+pnml2lts-sym: state vector length is 506; there are 7154 groups and 531 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+cache_create: Unable to allocate memory: Cannot allocate memory!
+Event Span: 247489
+Normalized Event Span: 0.06836856
+Weighted Event Span, moment 1 (WES^1): 454001
+Normalized Weighted Event Span, moment 1: 0.1254173
+Exit [1]
+6.37 user, 0.14 system, 6.61 elapsed -- Max VSize = 2813116KB, Max RSS = 143164KB

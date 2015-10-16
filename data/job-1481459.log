@@ -1,0 +1,12 @@
+statistics run
+pnml2lts-seq spec/PNML/Philosophers-10000.pnml -rsc,bg,bk,mm --regroup-exit --graph-metrics
+ctit034
+pnml2lts-seq: Loading model from spec/PNML/Philosophers-10000.pnml
+pnml2lts-seq: Petri net has 50000 places, 50000 transitions and 160000 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/Philosophers-10000.pnml analyzed
+pnml2lts-seq: Loading Petri net took 56.940 real 55.520 user 0.960 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq, ** error **: out of memory
+Exit [255]
+56.29 user, 4.38 system, 61.28 elapsed -- Max VSize = 3747260KB, Max RSS = 3694352KB

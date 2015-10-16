@@ -1,0 +1,28 @@
+performance run
+pnml2lts-sym spec/PNML/echo-d2r15.pnml -rsc,bg,bs,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit043
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/echo-d2r15.pnml
+pnml2lts-sym: Petri net has 2127 places, 1674 transitions and 9700 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/echo-d2r15.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.160 real 0.150 user 0.000 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,bs,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup Boost's Sloan
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 1674->1674 groups
+pnml2lts-sym: Regrouping took 0.220 real 0.230 user 0.000 sys
+pnml2lts-sym: state vector length is 2127; there are 1674 groups and 1902 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1796.56 user, 1.06 system, 1801.95 elapsed -- Max VSize = 3678852KB, Max RSS = 997828KB
+command-14882: line 5: 52595 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/echo-d2r15.pnml -rsc,bg,bs,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

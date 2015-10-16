@@ -1,0 +1,168 @@
+/*
+ * Copyright (c) 1996 The University of Utah and
+ * the Computer Systems Laboratory at the University of Utah (CSL).
+ * All rights reserved.
+ *
+ * Permission to use, copy, modify and distribute this software is hereby
+ * granted provided that (1) source code retains these copyright, permission,
+ * and disclaimer notices, and (2) redistributions including binaries
+ * reproduce the notices in supporting documentation, and (3) all advertising
+ * materials mentioning features or use of this software display the following
+ * acknowledgement: ``This product includes software developed by the
+ * Computer Systems Laboratory at the University of Utah.''
+ *
+ * THE UNIVERSITY OF UTAH AND CSL ALLOW FREE USE OF THIS SOFTWARE IN ITS "AS
+ * IS" CONDITION.  THE UNIVERSITY OF UTAH AND CSL DISCLAIM ANY LIABILITY OF
+ * ANY KIND FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
+ *
+ * CSL requests users of this software to return to csl-dist@cs.utah.edu any
+ * improvements that they make and grant CSL redistribution rights.
+ */
+/*
+ * Cond-test.pr
+ *
+ */
+#include "../../fluke/Fluke.pr"
+#include "../../fluke/Thread.pr"
+#include "../../support/Sugar.pr"
+#include "../../control/wait.pr"
+#include "../../control/cond.pr"
+	 
+#define THREAD_CT 5
+#define THREAD_CT2 10 /* 5*2 */
+
+mtype = {
+  FLUKE_MESSAGES
+}
+
+threadDefineInstances(THREAD_CT);
+wqDefineInstances(THREAD_CT2);
+mutexDefineInstances(THREAD_CT);
+
+/*
+ * different things the control proc can do:
+ */
+#  define BLOCK_ON_COND  1
+#  define MOVE_FROM_TO   2
+#  define REMOVE_FROM    3
+#  define COND_BROADCAST 4
+
+Mutex condMutex
+
+proctype condTestProc (Thread currentThread;
+		       byte operation;
+		       CondVar cond1, cond2)
+{
+    ResultCode rc;
+
+#define FOREVER TRUE
+
+    do
+    :: operation == BLOCK_ON_COND ->
+         assert(cond1 > 0);
+	 assert(cond2 == nil);
+
+	 /*
+	  * Repeatedly block on queue1 until we're awoken.
+	  */
+	 do
+	 :: FOREVER ->
+	      mutexLock(condMutex, currentThread);
+	      condWait(cond1, condMutex);
+	      /* sets rc */
+	      assert(rc == KR_RESTART);
+	 od;
+
+    :: operation == MOVE_FROM_TO ->
+         assert(cond1 > 0);
+	 assert(cond2 > 0);
+
+	 /*
+	  * Wakeup a thread on cond1 *captured*, and put it
+	  * on cond2.  This won't wake it up.
+	  */
+	 do
+	 :: FOREVER ->
+	      rc = THREAD_ID_INVALID;    
+	      do
+	      :: rc == THREAD_ID_INVALID ->
+		   condWakeup(cond1);
+	           /* sets rc */
+	      :: else ->
+		   assert(rc != THREAD_ID_INVALID);
+	      od;	   
+	      condWaitOther(cond2, rc);
+	 od;
+
+    :: operation == REMOVE_FROM ->
+         assert(cond1 > 0);
+	 assert(cond2 == nil);
+
+         /*
+	  * Remove a thread from cond1, implicitly wakes
+	  * it up.
+	  */
+	 do 
+	 :: FOREVER ->
+	      condSignal(cond1);
+	 od;     
+
+    :: operation == COND_BROADCAST ->
+         assert(cond1 > 0);
+	 assert(cond2 == nil);
+
+	 /*
+	  * Broadcast on cond1, should wake up and ready
+	  * everybody on it.
+	  */
+	 do
+	 :: FOREVER ->
+	      condBroadcast(cond1);
+	 od;     
+
+    :: else ->
+         panic("Invalid op!");
+    od;
+}
+
+init {
+  /*
+   * init global state
+   */
+  threadInitInstances(THREAD_CT);
+  wqInitInstances(THREAD_CT);
+  mutexInitInstances(THREAD_CT);
+
+  mutexInit(condMutex);
+
+  /*
+   * run all of our tests
+   */
+  atomic {
+    Thread initSpawnIndex = 1; /* zero is INVALID_THREAD_ID */
+    CondVar cond1 = 1;
+    CondVar cond2 = 2;
+
+    /* "thread" 1 */
+    run condTestProc(initSpawnIndex, BLOCK_ON_COND, cond1, nil);
+    initSpawnIndex++;
+
+    /* "thread" 2 */
+    run condTestProc(initSpawnIndex, BLOCK_ON_COND, cond1, nil);
+    initSpawnIndex++;
+
+    /* "thread" 3 */
+    run condTestProc(initSpawnIndex, MOVE_FROM_TO, cond1, cond2);
+    initSpawnIndex++;
+
+    /* "thread" 4 */
+    run condTestProc(initSpawnIndex, REMOVE_FROM, cond2, nil);
+    initSpawnIndex++;
+
+    /* "thread" 5 */
+    run condTestProc(initSpawnIndex, COND_BROADCAST, cond1, nil);
+    /* initSpawnIndex++; */
+
+    assert(initSpawnIndex <= THREAD_CT);
+  }
+}

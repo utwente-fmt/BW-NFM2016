@@ -1,0 +1,35 @@
+statistics run
+pnml2lts-sym spec/PNML/hc5k3p3b15.pnml -rsc,bn,rs,mm,hf --noack=1 --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit035
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/hc5k3p3b15.pnml
+pnml2lts-sym: Petri net has 9153 places, 25110 transitions and 100440 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/hc5k3p3b15.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 14.610 real 14.560 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 20.030 real 19.590 user 0.230 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: sc,bn,rs,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Boost's None
+pnml2lts-sym: bandwidth: 34262
+pnml2lts-sym: profile: 615563483
+pnml2lts-sym: span: 133040054
+pnml2lts-sym: average wavefront: 5339.723404
+pnml2lts-sym: RMS wavefront: 5771.744823
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 25110->25110 groups
+pnml2lts-sym, ** error **: out of memory trying to resize to 73224
+Event Span: 5019230
+Normalized Event Span: 0.021838707
+Weighted Event Span, moment 1 (WES^1): 6053373.28
+Normalized Weighted Event Span, moment 1: 0.0263382721
+Exit [255]
+115.71 user, 0.95 system, 117.34 elapsed -- Max VSize = 3789120KB, Max RSS = 1163612KB

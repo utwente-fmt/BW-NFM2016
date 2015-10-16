@@ -1,0 +1,28 @@
+performance run
+pnml2lts-sym spec/PNML/rwmutex-r1000w10.pnml -rsc,tg,bs,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit007
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/rwmutex-r1000w10.pnml
+pnml2lts-sym: Petri net has 3020 places, 2020 transitions and 26040 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/rwmutex-r1000w10.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.330 real 0.290 user 0.030 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,tg,bs,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Total graph
+pnml2lts-sym: Regroup Boost's Sloan
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 2020->2020 groups
+pnml2lts-sym: Regrouping took 18.810 real 18.740 user 0.040 sys
+pnml2lts-sym: state vector length is 3020; there are 2020 groups and 3020 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1797.39 user, 0.51 system, 1802.15 elapsed -- Max VSize = 3679484KB, Max RSS = 808024KB
+command-10493: line 5: 50476 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/rwmutex-r1000w10.pnml -rsc,tg,bs,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

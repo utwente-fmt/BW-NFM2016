@@ -1,0 +1,33 @@
+statistics run
+prob2lts-seq --zocket-prefix=/tmp/ltsmin-476- --no-close spec/B/Train1_Lukas_POR.mch -rsc,tg,bk,mm --regroup-exit --graph-metrics
+ctit028
+prob2lts-seq: ProB module initialized
+prob2lts-seq: Loading model from /tmp/ltsmin-485.probz
+prob2lts-seq: ProB init
+prob2lts-seq: connecting to zocket ipc:///tmp/ltsmin-485.probz
+% set_pref(MAX_INITIALISATIONS,maxNrOfInitialisations,99)
+% set_pref(MAX_OPERATIONS,maxNrOfEnablingsPerOperation,99)
+% unused_constants([lst])
+
+Starting LTSMin Server...
+pl_init_for_lts_min
+prob2lts-seq: Initializing regrouping layer
+prob2lts-seq: Regroup specification: sc,tg,bk,mm
+prob2lts-seq: Regroup Select Combined matrix
+prob2lts-seq: Regroup Total graph
+prob2lts-seq: Regroup Boost's King
+prob2lts-seq: bandwidth: 51
+prob2lts-seq: profile: 2939
+prob2lts-seq: span: 3766
+prob2lts-seq: average wavefront: 18.48
+prob2lts-seq: RMS wavefront: 19.77
+prob2lts-seq: Regroup Matrix Metrics
+prob2lts-seq: Regrouping: 9->9 groups
+prob2lts-seq: Regrouping took 0.000 real 0.000 user 0.000 sys
+Event Span: 77
+Normalized Event Span: 0.713
+Weighted Event Span, moment 1 (WES^1): 132
+Normalized Weighted Event Span, moment 1: 1.22
+Exit [0]
+0.01 user, 0.01 system, 0.10 elapsed -- Max VSize = 4196KB, Max RSS = 88KB
+command-485: line 10: 58518 Killed                  probcli spec/B/Train1_Lukas_POR.mch -ltsmin2 /tmp/ltsmin-485.probz

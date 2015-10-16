@@ -1,0 +1,38 @@
+statistics run
+pnml2lts-sym spec/PNML/railroad-100-pt.pnml -rsc,bg,vgps,mm,hf --graph-metrics --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit004
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/railroad-100-pt.pnml
+pnml2lts-sym: Petri net has 1018 places, 10506 transitions and 62728 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/railroad-100-pt.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.760 real 0.670 user 0.090 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,bg,vgps,mm,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup Bipartite Graph
+pnml2lts-sym: Regroup ViennaCL's Gibbs Poole Stockmeyer
+pnml2lts-sym: bandwidth: 10597
+pnml2lts-sym: profile: 86077723
+pnml2lts-sym: span: 115135618
+pnml2lts-sym: average wavefront: 5078.19438
+pnml2lts-sym: RMS wavefront: 6027.0974
+pnml2lts-sym: Regroup Matrix Metrics
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 10506->10506 groups
+pnml2lts-sym: Regrouping took 23.260 real 23.160 user 0.040 sys
+pnml2lts-sym: state vector length is 1018; there are 10506 groups and 718 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 14981963 of 16777216 buckets filled!
+Event Span: 6709982
+Normalized Event Span: 0.62738796
+Weighted Event Span, moment 1 (WES^1): 9258571.7
+Normalized Weighted Event Span, moment 1: 0.86568286
+Exit [1]
+444.02 user, 0.93 system, 446.44 elapsed -- Max VSize = 3749712KB, Max RSS = 1078696KB

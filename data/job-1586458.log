@@ -1,0 +1,15 @@
+performance run
+pnml2lts-seq spec/PNML/neoelection-8.unf.pnml --noack=1 --regroup-exit --graph-metrics
+ctit029
+pnml2lts-seq: Loading model from spec/PNML/neoelection-8.unf.pnml
+pnml2lts-seq: Petri net has 10062 places, 22266 transitions and 129195 arcs
+pnml2lts-seq: There are 0 safe places
+pnml2lts-seq: Petri net spec/PNML/neoelection-8.unf.pnml analyzed
+pnml2lts-seq: Computing Noack1 order
+pnml2lts-seq: Computing Noack1 order took 13.190 real 13.130 user 0.000 sys
+pnml2lts-seq: Loading Petri net took 18.930 real 18.550 user 0.260 sys
+pnml2lts-seq: Initializing regrouping layer
+pnml2lts-seq: Got state vector permutation from language front-end; permuting columns
+Killed [24]
+3595.15 user, 0.32 system, 3600.36 elapsed -- Max VSize = 428572KB, Max RSS = 390676KB
+command-111648: line 5: 13238 CPU time limit exceeded memtime -c3600 -m4000000 pnml2lts-seq spec/PNML/neoelection-8.unf.pnml --noack=1 --regroup-exit --graph-metrics

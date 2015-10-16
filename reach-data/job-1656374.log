@@ -1,0 +1,28 @@
+performance run
+pnml2lts-sym spec/PNML/Philosophers-1000.pnml -rsc,f,rs,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit016
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/Philosophers-1000.pnml
+pnml2lts-sym: Petri net has 5000 places, 5000 transitions and 16000 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/Philosophers-1000.pnml analyzed
+pnml2lts-sym: Loading Petri net took 0.760 real 0.690 user 0.060 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Regroup specification: sc,f,rs,hf
+pnml2lts-sym: Regroup Select Combined matrix
+pnml2lts-sym: Regroup FORCE
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 5000->5000 groups
+pnml2lts-sym: Regrouping took 22.100 real 22.000 user 0.060 sys
+pnml2lts-sym: state vector length is 5000; there are 5000 groups and 5000 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+Killed [24]
+1795.17 user, 1.22 system, 1825.48 elapsed -- Max VSize = 3765648KB, Max RSS = 1117444KB
+command-12794: line 5: 45340 CPU time limit exceeded memtime -c1800 -m4000000 pnml2lts-sym spec/PNML/Philosophers-1000.pnml -rsc,f,rs,hf --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes

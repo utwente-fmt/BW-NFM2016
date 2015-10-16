@@ -1,0 +1,29 @@
+performance run
+pnml2lts-sym spec/PNML/2D8_gradient_30x30_150.pnml -rrs,hf --noack=1 --saturation=sat-like --order=chain --next-union --vset=lddmc --lddmc-cachesize=24 --lddmc-maxcachesize=24 --lddmc-tablesize=24 --lddmc-maxtablesize=24 --lace-workers=1 --peak-nodes
+ctit025
+pnml2lts-sym: Exploration order is chain
+pnml2lts-sym: Saturation strategy is sat-like
+pnml2lts-sym: Guided search strategy is unguided
+pnml2lts-sym: Attractor strategy is default
+pnml2lts-sym: opening spec/PNML/2D8_gradient_30x30_150.pnml
+pnml2lts-sym: Petri net has 900 places, 6844 transitions and 13688 arcs
+pnml2lts-sym: There are 0 safe places
+pnml2lts-sym: Petri net spec/PNML/2D8_gradient_30x30_150.pnml analyzed
+pnml2lts-sym: Computing Noack1 order
+pnml2lts-sym: Computing Noack1 order took 0.110 real 0.110 user 0.000 sys
+pnml2lts-sym: Loading Petri net took 0.470 real 0.410 user 0.050 sys
+pnml2lts-sym: Initializing regrouping layer
+pnml2lts-sym: Got state vector permutation from language front-end; permuting columns
+pnml2lts-sym: Regroup specification: rs,hf
+pnml2lts-sym: Regroup Row Sort
+pnml2lts-sym: Reqroup Horizontal Flip
+pnml2lts-sym: Regrouping: 6844->6844 groups
+pnml2lts-sym: Regrouping took 0.780 real 0.780 user 0.000 sys
+pnml2lts-sym: state vector length is 900; there are 6844 groups and 900 guards
+pnml2lts-sym: Creating a multi-core ListDD domain.
+pnml2lts-sym: Using GBgetTransitionsShortR2W as next-state function
+pnml2lts-sym: got initial state
+pnml2lts-sym: vrel_add_act not supported; falling back to vrel_add_cpy
+MDD Unique table full, 14761084 of 16777216 buckets filled!
+Exit [1]
+892.61 user, 8.32 system, 903.91 elapsed -- Max VSize = 3679280KB, Max RSS = 1020748KB
