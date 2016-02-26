@@ -13,7 +13,7 @@ This readme first instructs how to replicate experiments, then it shows how to p
 Prerequisites
 --
 The requirements for reproducing our experiments are the following.
-- Linux OS: we tested on Ubuntu 14.02 LTS, other Linux versoins and OS X should work as well.
+- Linux OS: we tested on Ubuntu 14.02 LTS, other Linux versions and OS X should work as well.
 - LTSmin: the model checker
 - Memtime: for measuring memory and time
 
